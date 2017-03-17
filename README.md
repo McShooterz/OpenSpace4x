@@ -16,7 +16,7 @@ Open source space 4x game foundation
 
 ***
 
-### Game Feature Planning
+### Planning
 
 [Design Document](https://docs.google.com/document/d/1K4y6vlGxSVJdmZG6q5_jSJNDECroig1qqhD3pc3-Xw0/edit?usp=sharing)
 
@@ -25,3 +25,5 @@ Open source space 4x game foundation
 ### Contact
 
 * Repo owner [McShooterz](https://github.com/McShooterz)
+
+***
