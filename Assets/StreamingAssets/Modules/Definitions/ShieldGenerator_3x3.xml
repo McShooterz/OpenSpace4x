@@ -1,0 +1,15 @@
+<Module>
+	<Texture>ShieldGenerator_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>9</ProductionCost>
+	<CrystalCost>9</CrystalCost>
+	
+	<Health>900</Health>
+	<Mass>9</Mass>
+	<Power>18</Power>
+	<RequiredCrew>13</RequiredCrew>
+	
+	<ShieldRechargeRate>108</ShieldRechargeRate>
+</Module>

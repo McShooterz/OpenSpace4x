@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModMissileHeavy</Name>
+	<Description>ModMissileHeavyDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>MissileHeavy_4x3</string>
+		<string>MissileHeavy_3x3</string>
+		<string>MissileHeavy_2x3</string>
+		<string>MissileHeavy_1x3</string>
+	</Modules>
+</ModuleSet>

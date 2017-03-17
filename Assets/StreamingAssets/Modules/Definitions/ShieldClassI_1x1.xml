@@ -1,0 +1,19 @@
+<Module>
+	<Texture>ShieldClassI_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>1</ProductionCost>
+	<AlloyCost>1</AlloyCost>
+	<CrystalCost>1</CrystalCost>
+	
+	<Health>80</Health>
+	<Mass>1</Mass>
+	<Power>4</Power>
+	<RequiredCrew>3</RequiredCrew>
+	
+	<ShieldHealth>2000</ShieldHealth>
+	<ShieldRating>200</ShieldRating>
+	<ShieldRechargeRate>5</ShieldRechargeRate>
+	<ShieldRechargeDelay>8</ShieldRechargeDelay>
+</Module>

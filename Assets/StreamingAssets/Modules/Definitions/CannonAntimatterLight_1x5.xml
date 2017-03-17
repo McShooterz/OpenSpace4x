@@ -1,0 +1,20 @@
+﻿<Module>
+	<Texture>CannonAntimatterLight_1x5</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>5</SizeY>
+	
+	<ProductionCost>15</ProductionCost>
+	<AlloyCost>15</AlloyCost>
+	<AdvancedAlloyCost>10</AdvancedAlloyCost>
+	<CrystalCost>10</CrystalCost>
+	<RareCrystalCost>5</RareCrystalCost>
+	
+	<Health>900</Health>
+	<Mass>5</Mass>
+	<Power>25</Power>	
+	<Ammo>140</Ammo>
+	<PowerStorage>165</PowerStorage>
+	<RequiredCrew>15</RequiredCrew>
+	
+	<Weapon>CannonAntimatterLight4</Weapon>
+</Module>

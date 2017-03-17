@@ -1,0 +1,17 @@
+﻿<Module>
+	<Texture>CannonArtillery_2x5</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>5</SizeY>
+	
+	<ProductionCost>20</ProductionCost>
+	<AlloyCost>10</AlloyCost>
+	<CrystalCost>5</CrystalCost>
+	
+	<Health>1750</Health>
+	<Mass>10</Mass>
+	<Power>20</Power>	
+	<Ammo>230</Ammo>
+	<RequiredCrew>20</RequiredCrew>
+	
+	<Weapon>CannonArtillery4</Weapon>
+</Module>

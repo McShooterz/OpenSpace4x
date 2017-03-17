@@ -1,0 +1,10 @@
+<ModuleSet>
+	<Name>ModAstrometrics</Name>
+	<Description>ModAstrometricsDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>AstrometricsLab_4x4</string>
+		<string>AstrometricsLab_3x3</string>
+		<string>AstrometricsLab_2x2</string>
+	</Modules>
+</ModuleSet>

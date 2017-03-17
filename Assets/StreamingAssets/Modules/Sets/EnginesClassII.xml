@@ -1,0 +1,13 @@
+<ModuleSet>
+	<Name>ModEnginesClassII</Name>
+	<Description>ModEnginesClassIIDesc</Description>
+	<ModuleCategory>Engines</ModuleCategory>
+	<SetRestriction>ShipsOnly</SetRestriction>
+	<SwapType>Engines</SwapType>
+	<Modules>
+		<string>EnginesClassII_4x4</string>
+		<string>EnginesClassII_3x3</string>
+		<string>EnginesClassII_2x2</string>
+		<string>EnginesClassII_1x1</string>
+	</Modules>
+</ModuleSet>

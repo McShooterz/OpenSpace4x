@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModArmorQuantanium</Name>
+	<Description>ModArmorQuantaniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Armor</SwapType>
+	<Modules>
+		<string>ArmorQuantanium_4x4</string>
+		<string>ArmorQuantanium_3x3</string>
+		<string>ArmorQuantanium_2x2</string>
+		<string>ArmorQuantanium_1x1</string>
+	</Modules>
+</ModuleSet>

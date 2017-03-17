@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModMedical</Name>
+	<Description>ModMedicalDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>Medical_5x5</string>
+		<string>Medical_4x4</string>
+		<string>Medical_3x3</string>
+		<string>Medical_2x2</string>
+	</Modules>
+</ModuleSet>

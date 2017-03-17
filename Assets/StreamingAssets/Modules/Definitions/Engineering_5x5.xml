@@ -1,0 +1,23 @@
+<Module>
+	<Texture>Engineering_5x5</Texture>
+	<SizeX>5</SizeX>
+	<SizeY>5</SizeY>
+	
+	<ProductionCost>125</ProductionCost>
+	<AlloyCost>100</AlloyCost>
+	<AdvancedAlloyCost>75</AdvancedAlloyCost>
+	<CrystalCost>100</CrystalCost>
+	<RareCrystalCost>75</RareCrystalCost>
+	
+	<Health>1700</Health>
+	<Mass>75</Mass>
+	<RequiredCrew>50</RequiredCrew>
+	
+	<PowerGenerated>2000</PowerGenerated>
+	<PowerStorage>5000</PowerStorage>
+	
+	<EngineBonus>0.08</EngineBonus>
+	<PowerEfficiency>0.05</PowerEfficiency>
+	
+	<Repair>20</Repair>
+</Module>

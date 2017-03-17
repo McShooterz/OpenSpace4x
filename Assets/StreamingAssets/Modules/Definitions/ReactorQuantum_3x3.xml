@@ -1,0 +1,19 @@
+<Module>
+	<Texture>ReactorQuantum_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>72</ProductionCost>
+	<AlloyCost>45</AlloyCost>
+	<AdvancedAlloyCost>27</AdvancedAlloyCost>
+	<CrystalCost>45</CrystalCost>
+	<RareCrystalCost>27</RareCrystalCost>
+	<ExoticCrystalCost>9</ExoticCrystalCost>
+	
+	<Health>270</Health>
+	<Mass>18</Mass>
+	<RequiredCrew>18</RequiredCrew>
+	
+	<PowerGenerated>738</PowerGenerated>
+	<PowerStorage>1350</PowerStorage>
+</Module>

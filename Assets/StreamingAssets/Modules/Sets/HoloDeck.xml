@@ -1,0 +1,10 @@
+<ModuleSet>
+	<Name>ModHoloDeck</Name>
+	<Description>ModHoloDeckDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>HoloDeck_4x4</string>
+		<string>HoloDeck_3x3</string>
+		<string>HoloDeck_2x2</string>
+	</Modules>
+</ModuleSet>

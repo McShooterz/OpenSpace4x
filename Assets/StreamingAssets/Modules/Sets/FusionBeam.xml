@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModFusionBeam</Name>
+	<Description>ModFusionBeamDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>FusionBeam_4x4</string>
+		<string>FusionBeam_3x3</string>
+		<string>FusionBeam_2x2</string>
+		<string>FusionBeam_1x1</string>
+	</Modules>
+</ModuleSet>

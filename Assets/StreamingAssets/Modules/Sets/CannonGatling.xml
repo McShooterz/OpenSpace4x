@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCannonGatling</Name>
+	<Description>ModCannonGatlingDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>CannonGatling_2x5</string>
+		<string>CannonGatling_2x4</string>
+		<string>CannonGatling_2x3</string>
+		<string>CannonGatling_2x2</string>
+	</Modules>
+</ModuleSet>

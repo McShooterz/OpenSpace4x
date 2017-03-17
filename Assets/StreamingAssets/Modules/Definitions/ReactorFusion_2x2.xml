@@ -1,0 +1,16 @@
+<Module>
+	<Texture>ReactorFusion_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>12</ProductionCost>
+	<AlloyCost>12</AlloyCost>
+	<CrystalCost>8</CrystalCost>
+	
+	<Health>80</Health>
+	<Mass>8</Mass>
+	<RequiredCrew>10</RequiredCrew>
+	
+	<PowerGenerated>94</PowerGenerated>
+	<PowerStorage>280</PowerStorage>
+</Module>

@@ -1,0 +1,15 @@
+<Module>
+	<Texture>ColonyBay_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>48</ProductionCost>
+	<AlloyCost>48</AlloyCost>
+	<CrystalCost>16</CrystalCost>
+	
+	<Health>1600</Health>
+	<Mass>32</Mass>
+	<Power>40</Power>
+	
+	<Colonies>2</Colonies>
+</Module>

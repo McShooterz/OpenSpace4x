@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>LaserBeamRed_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	
+	<Health>1920</Health>
+	<Mass>32</Mass>
+	<Power>32</Power>
+	<PowerStorage>512</PowerStorage>
+	<RequiredCrew>36</RequiredCrew>
+	
+	<Weapon>LaserBeamRed4</Weapon>
+</Module>

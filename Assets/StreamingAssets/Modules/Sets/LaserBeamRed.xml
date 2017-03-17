@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModLaserBeam</Name>
+	<Description>ModLaserBeamDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>LaserBeamRed_4x4</string>
+		<string>LaserBeamRed_3x3</string>
+		<string>LaserBeamRed_2x2</string>
+		<string>LaserBeamRed_1x1</string>
+	</Modules>
+</ModuleSet>

@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModShieldCapacitor</Name>
+	<Description>ModShieldCapacitorDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<Modules>
+		<string>ShieldCapacitor_4x4</string>
+		<string>ShieldCapacitor_3x3</string>
+		<string>ShieldCapacitor_2x2</string>
+		<string>ShieldCapacitor_1x1</string>
+	</Modules>
+</ModuleSet>

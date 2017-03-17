@@ -1,0 +1,10 @@
+<ModuleSet>
+	<Name>ModColonyBay</Name>
+	<Description>ModColonyBayDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>ColonyBay_5x5</string>
+		<string>ColonyBay_4x4</string>
+		<string>ColonyBay_3x3</string>
+	</Modules>
+</ModuleSet>

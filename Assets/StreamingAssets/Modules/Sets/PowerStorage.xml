@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModPowerStorage</Name>
+	<Description>ModPowerStorageDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>PowerStorage_4x4</string>
+		<string>PowerStorage_3x3</string>
+		<string>PowerStorage_2x2</string>
+		<string>PowerStorage_1x1</string>
+	</Modules>
+</ModuleSet>

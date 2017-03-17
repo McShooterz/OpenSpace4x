@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModPolarizerClassIII</Name>
+	<Description>ModPolarizerClassIIIDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<Modules>
+		<string>PolarizerClassIII_4x4</string>
+		<string>PolarizerClassIII_3x3</string>
+		<string>PolarizerClassIII_2x2</string>
+		<string>PolarizerClassIII_1x1</string>
+	</Modules>
+</ModuleSet>

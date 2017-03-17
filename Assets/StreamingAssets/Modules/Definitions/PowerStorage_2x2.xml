@@ -1,0 +1,12 @@
+<Module>
+	<Texture>PowerStorage_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>4</ProductionCost>
+	
+	<Health>400</Health>
+	<Mass>4</Mass>
+	
+	<PowerStorage>500</PowerStorage>
+</Module>

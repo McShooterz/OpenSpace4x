@@ -1,0 +1,15 @@
+﻿<Module>
+	<Texture>MissilePD_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>1</ProductionCost>
+	
+	<Health>80</Health>
+	<Mass>1</Mass>
+	<Power>2.5</Power>	
+	<Ammo>8</Ammo>
+	<RequiredCrew>3</RequiredCrew>
+	
+	<Weapon>MissilePD1</Weapon>
+</Module>

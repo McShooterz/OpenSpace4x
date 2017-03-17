@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModEngineeringAdv</Name>
+	<Description>ModEngineeringAdvDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>EngineeringAdvanced_5x5</string>
+		<string>EngineeringAdvanced_4x4</string>
+		<string>EngineeringAdvanced_3x3</string>
+		<string>EngineeringAdvanced_2x2</string>
+	</Modules>
+</ModuleSet>

@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModTorpedoQuantum</Name>
+	<Description>ModTorpedoQuantumDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>TorpedoQuantum_4x10</string>
+		<string>TorpedoQuantum_4x9</string>
+		<string>TorpedoQuantum_4x8</string>
+		<string>TorpedoQuantum_4x7</string>
+	</Modules>
+</ModuleSet>

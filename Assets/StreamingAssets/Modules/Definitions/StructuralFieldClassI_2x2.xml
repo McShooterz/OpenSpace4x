@@ -1,0 +1,13 @@
+﻿<Module>
+	<Texture>StructuralFieldClassI_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>4</ProductionCost>
+	<CrystalCost>4</CrystalCost>	
+	
+	<Health>10800</Health>
+	<Mass>4</Mass>
+	<Power>8</Power>
+	<RequiredCrew>10</RequiredCrew>
+</Module>

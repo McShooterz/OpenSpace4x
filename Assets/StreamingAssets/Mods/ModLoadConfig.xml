@@ -1,0 +1,12 @@
+<ModLoadConfig>
+  <ModLoadOrder>
+	<ModEntry>
+      <Name>MyMod</Name>
+      <Load>true</Load>
+    </ModEntry>
+    <ModEntry>
+      <Name>Star Trek: Shattered Alliance II</Name>
+      <Load>true</Load>
+    </ModEntry>
+  </ModLoadOrder>
+</ModLoadConfig>

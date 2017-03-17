@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCannonLightHE</Name>
+	<Description>ModCannonLightHEDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>CannonLightHE_2x3</string>
+		<string>CannonLightHE_1x3</string>
+		<string>CannonLightHE_1x2</string>
+		<string>CannonLightHE_1x1</string>
+	</Modules>
+</ModuleSet>

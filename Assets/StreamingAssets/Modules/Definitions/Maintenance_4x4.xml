@@ -1,0 +1,16 @@
+<Module>
+	<Texture>Maintenance_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>64</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	<CrystalCost>32</CrystalCost>
+	
+	<Health>3040</Health>
+	<Mass>16</Mass>
+	<Power>64</Power>
+	<RequiredCrew>96</RequiredCrew>	
+
+	<Repair>64</Repair>
+</Module>

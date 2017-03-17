@@ -1,0 +1,9 @@
+<ModuleSet>
+	<Name>ModTargetingComputer</Name>
+	<Description>ModTargetingComputerDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>TargetingComputer_3x3</string>
+		<string>TargetingComputer_2x2</string>
+	</Modules>
+</ModuleSet>

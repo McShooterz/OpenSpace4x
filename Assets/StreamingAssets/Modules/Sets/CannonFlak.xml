@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCannonFlak</Name>
+	<Description>ModCannonFlakDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>CannonFlak_4x4</string>
+		<string>CannonFlak_3x3</string>
+		<string>CannonFlak_2x2</string>
+		<string>CannonFlak_1x1</string>
+	</Modules>
+</ModuleSet>

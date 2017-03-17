@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModShieldGenerator</Name>
+	<Description>ModShieldGeneratorDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<Modules>
+		<string>ShieldGenerator_4x4</string>
+		<string>ShieldGenerator_3x3</string>
+		<string>ShieldGenerator_2x2</string>
+		<string>ShieldGenerator_1x1</string>
+	</Modules>
+</ModuleSet>

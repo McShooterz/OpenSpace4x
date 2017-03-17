@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModMissilePD</Name>
+	<Description>ModMissilePDDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>MissilePD_2x3</string>
+		<string>MissilePD_2x2</string>
+		<string>MissilePD_1x2</string>
+		<string>MissilePD_1x1</string>
+	</Modules>
+</ModuleSet>

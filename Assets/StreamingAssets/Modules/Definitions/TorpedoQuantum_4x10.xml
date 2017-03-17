@@ -1,0 +1,22 @@
+﻿<Module>
+	<Texture>TorpedoQuantum_4x10</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>10</SizeY>
+	
+	<ProductionCost>440</ProductionCost>
+	<AlloyCost>320</AlloyCost>
+	<AdvancedAlloyCost>200</AdvancedAlloyCost>
+	<SuperiorAlloyCost>120</SuperiorAlloyCost>
+	<CrystalCost>400</CrystalCost>
+	<RareCrystalCost>240</RareCrystalCost>
+	<ExoticCrystalCost>160</ExoticCrystalCost>
+	<ExoticParticleCost>40</ExoticParticleCost>
+	
+	<Health>14400</Health>
+	<Mass>40</Mass>
+	<Power>480</Power>	
+	<Ammo>2680</Ammo>
+	<RequiredCrew>130</RequiredCrew>
+	
+	<Weapon>TorpedoQuantum4</Weapon>
+</Module>

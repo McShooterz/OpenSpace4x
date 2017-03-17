@@ -1,0 +1,14 @@
+<Module>
+	<Texture>TroopBarracks_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>8</ProductionCost>
+	<AlloyCost>12</AlloyCost>
+	
+	<Health>460</Health>
+	<Mass>8</Mass>
+	<Power>4</Power>
+	
+	<Troops>24</Troops>
+</Module>

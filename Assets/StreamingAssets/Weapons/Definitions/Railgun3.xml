@@ -1,0 +1,28 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<AmmoCost>12</AmmoCost>
+	<PowerCost>900</PowerCost>
+	<Arc>15</Arc>
+	<Delay>8</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>3.0</ProjectileLife>
+	<ProjectileSpeed>15.0</ProjectileSpeed>
+	<WeaponEffect>railgunbolt</WeaponEffect>
+	<FireSound>Railgun</FireSound>
+	<HitEffect>explosionsparks</HitEffect>
+	<HitEffectTime>2.0</HitEffectTime>
+	<HitEffectScale>0.2</HitEffectScale>
+	<Scale>0.22</Scale>	
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>14688</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>580</Range>
+			<Damage>13953</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

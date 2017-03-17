@@ -1,0 +1,24 @@
+<Module>
+	<Texture>EngineeringAdvanced_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>144</ProductionCost>
+	<AlloyCost>96</AlloyCost>
+	<AdvancedAlloyCost>80</AdvancedAlloyCost>
+	<CrystalCost>96</CrystalCost>
+	<RareCrystalCost>64</RareCrystalCost>
+	<ExoticCrystalCost>32</ExoticCrystalCost>
+	
+	<Health>1120</Health>
+	<Mass>64</Mass>
+	<RequiredCrew>40</RequiredCrew>
+	
+	<PowerGenerated>1680</PowerGenerated>
+	<PowerStorage>4000</PowerStorage>
+	
+	<EngineBonus>0.09</EngineBonus>
+	<PowerEfficiency>0.08</PowerEfficiency>
+	
+	<Repair>20</Repair>
+</Module>

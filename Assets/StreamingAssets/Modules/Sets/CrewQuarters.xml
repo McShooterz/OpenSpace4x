@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCrewQuarters</Name>
+	<Description>ModCrewQuartersDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>CrewQuarters_4x4</string>
+		<string>CrewQuarters_3x3</string>
+		<string>CrewQuarters_2x2</string>
+		<string>CrewQuarters_1x1</string>
+	</Modules>
+</ModuleSet>

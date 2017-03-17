@@ -1,0 +1,11 @@
+﻿<Module>
+	<Texture>BulkheadTitanium_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	
+	<Health>57600</Health>
+	<Mass>32</Mass>
+</Module>

@@ -1,0 +1,26 @@
+<Weapon>
+	<Category>Beam</Category>
+	<isBeam>true</isBeam>
+	<BeamPowerCost>280</BeamPowerCost>
+	<Delay>10</Delay>
+	<BeamDuration>1.0</BeamDuration>	
+	<Arc>90</Arc>
+	<FirePowerRating>1</FirePowerRating>
+	<WeaponEffect>phaserbeam</WeaponEffect>
+	<FireSound>FusionBeam</FireSound>
+	<Scale>0.133</Scale>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>3920</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>130</Range>
+			<Damage>3449</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>260</Range>
+			<Damage>1960</Damage>
+		</DamageNode>
+	</DamageGraph>
+</Weapon>

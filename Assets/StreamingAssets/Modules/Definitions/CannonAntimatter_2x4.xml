@@ -1,0 +1,21 @@
+﻿<Module>
+	<Texture>CannonAntimatter_2x4</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>40</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	<AdvancedAlloyCost>16</AdvancedAlloyCost>
+	<SuperiorAlloyCost>8</SuperiorAlloyCost>
+	<CrystalCost>24</CrystalCost>
+	<RareCrystalCost>16</RareCrystalCost>
+	
+	<Health>1440</Health>
+	<Mass>8</Mass>
+	<Power>48</Power>	
+	<Ammo>216</Ammo>
+	<PowerStorage>272</PowerStorage>
+	<RequiredCrew>36</RequiredCrew>
+	
+	<Weapon>CannonAntimatter2</Weapon>
+</Module>

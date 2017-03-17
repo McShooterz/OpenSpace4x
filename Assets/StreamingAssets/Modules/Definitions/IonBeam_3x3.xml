@@ -1,0 +1,19 @@
+﻿<Module>
+	<Texture>IonBeam_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>27</ProductionCost>
+	<AlloyCost>27</AlloyCost>
+	<AdvancedAlloyCost>9</AdvancedAlloyCost>
+	<CrystalCost>27</CrystalCost>
+	<RareCrystalCost>9</RareCrystalCost>
+	
+	<Health>1080</Health>
+	<Mass>18</Mass>
+	<Power>27</Power>
+	<PowerStorage>324</PowerStorage>
+	<RequiredCrew>27</RequiredCrew>
+	
+	<Weapon>IonBeam3</Weapon>
+</Module>

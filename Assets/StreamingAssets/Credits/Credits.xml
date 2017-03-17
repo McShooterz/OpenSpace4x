@@ -1,0 +1,28 @@
+<Credits>
+	<CreditGroups>
+		<CreditsGroup>
+			<GroupName>Open Space 4x Creator</GroupName>
+			<GroupItems>
+				<string>Michael Shoots</string>
+			</GroupItems>
+		</CreditsGroup>
+		<CreditsGroup>
+			<GroupName>Test Group 1</GroupName>
+			<GroupItems>
+				<string>Entry 1</string>
+				<string>Entry 2</string>
+				<string>Entry 3</string>
+			</GroupItems>
+		</CreditsGroup>
+		<CreditsGroup>
+			<GroupName>Test Group 2</GroupName>
+			<GroupItems>
+				<string>Entry 1</string>
+				<string>Entry 2</string>
+				<string>Entry 3</string>
+				<string>Entry 4</string>
+				<string>Entry 5</string>
+			</GroupItems>
+		</CreditsGroup>
+	</CreditGroups>	
+</Credits>

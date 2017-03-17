@@ -1,0 +1,28 @@
+<Weapon>
+	<Category>Beam</Category>
+	<isBeam>true</isBeam>
+	<BeamPowerCost>480</BeamPowerCost>
+	<Delay>4</Delay>
+	<BeamDuration>1.0</BeamDuration>	
+	<Arc>150</Arc>
+	<FirePowerRating>1</FirePowerRating>
+	<WeaponEffect>laserbeamred</WeaponEffect>
+	<FireSound>BasicLaserBeam</FireSound>
+	<Scale>0.2</Scale>
+	<FighterDamageModifier>1.25</FighterDamageModifier>
+	<PointDefense>true</PointDefense>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>1984</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>90</Range>
+			<Damage>1388.8</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>180</Range>
+			<Damage>396.8</Damage>
+		</DamageNode>
+	</DamageGraph>
+</Weapon>

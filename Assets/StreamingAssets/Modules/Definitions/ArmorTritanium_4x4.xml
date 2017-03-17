@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>ArmorTritanium_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>112</ProductionCost>
+	<AlloyCost>48</AlloyCost>
+	<AdvancedAlloyCost>32</AdvancedAlloyCost>
+	<SuperiorAlloyCost>16</SuperiorAlloyCost>
+	
+	<Health>67200</Health>
+	<Mass>64</Mass>
+	
+	<ArmorHealth>108800</ArmorHealth>
+	<ArmorRating>1520</ArmorRating>
+</Module>

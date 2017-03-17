@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModTorpedoPhoton</Name>
+	<Description>ModTorpedoPhotonDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>TorpedoPhoton_3x8</string>
+		<string>TorpedoPhoton_3x7</string>
+		<string>TorpedoPhoton_3x6</string>
+		<string>TorpedoPhoton_3x5</string>
+	</Modules>
+</ModuleSet>

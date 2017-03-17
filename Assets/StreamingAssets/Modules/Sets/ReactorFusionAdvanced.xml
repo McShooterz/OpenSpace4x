@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModReactorFusionAdvanced</Name>
+	<Description>ModReactorFusionAdvancedDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<SwapType>PowerPlant</SwapType>
+	<Modules>
+		<string>ReactorFusionAdvanced_4x4</string>
+		<string>ReactorFusionAdvanced_3x3</string>
+		<string>ReactorFusionAdvanced_2x2</string>
+		<string>ReactorFusionAdvanced_1x1</string>
+	</Modules>
+</ModuleSet>

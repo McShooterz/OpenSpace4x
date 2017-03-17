@@ -1,0 +1,15 @@
+<Module>
+	<Texture>PlasmaConduits_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>2</ProductionCost>
+	<CrystalCost>1</CrystalCost>
+	
+	<Health>50</Health>
+	<Mass>1</Mass>
+	<RequiredCrew>2</RequiredCrew>
+	
+	<PowerStorage>50</PowerStorage>
+	<PowerEfficiency>0.04</PowerEfficiency>
+</Module>

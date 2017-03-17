@@ -1,0 +1,21 @@
+<Module>
+	<Texture>Bridge_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<AlloyCost>64</AlloyCost>
+	<AdvancedAlloyCost>16</AdvancedAlloyCost>
+	<CrystalCost>32</CrystalCost>
+	
+	<Health>1920</Health>
+	<Mass>16</Mass>
+	<Power>19.2</Power>
+	<RequiredCrew>64</RequiredCrew>
+	
+	<DamageBonus>0.15</DamageBonus>
+	<DamageBonusFleet>0.10</DamageBonusFleet>
+	<DefenseBonus>0.15</DefenseBonus>
+	
+	<CommandPointReduction>3</CommandPointReduction>
+</Module>

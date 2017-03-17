@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCannonLightAP</Name>
+	<Description>ModCannonLightAPDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>CannonLightAP_2x3</string>
+		<string>CannonLightAP_1x3</string>
+		<string>CannonLightAP_1x2</string>
+		<string>CannonLightAP_1x1</string>
+	</Modules>
+</ModuleSet>

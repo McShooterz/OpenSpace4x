@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<HardPointsStored xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ForeHardPointSets />
+  <AftHardPointSets />
+  <PortHardPointSets />
+  <StarboardHardPointSets />
+  <DamagePoints>
+    <Vector3>
+      <x>0.048</x>
+      <y>0.069</y>
+      <z>0.548</z>
+    </Vector3>
+    <Vector3>
+      <x>-0.059</x>
+      <y>0.071</y>
+      <z>0.273</z>
+    </Vector3>
+    <Vector3>
+      <x>0.059</x>
+      <y>0.069</y>
+      <z>-0.188</z>
+    </Vector3>
+    <Vector3>
+      <x>-0.038</x>
+      <y>0.066</y>
+      <z>-0.516</z>
+    </Vector3>
+    <Vector3>
+      <x>-0.134</x>
+      <y>0.078</y>
+      <z>-0.887</z>
+    </Vector3>
+  </DamagePoints>
+</HardPointsStored>

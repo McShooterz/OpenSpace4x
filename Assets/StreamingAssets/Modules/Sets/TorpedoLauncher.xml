@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModTorpedoLauncher</Name>
+	<Description>ModTorpedoLauncherDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>TorpedoLauncher_3x7</string>
+		<string>TorpedoLauncher_3x6</string>
+		<string>TorpedoLauncher_3x5</string>
+		<string>TorpedoLauncher_3x4</string>
+	</Modules>
+</ModuleSet>

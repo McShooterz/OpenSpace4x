@@ -1,0 +1,19 @@
+﻿<Module>
+	<Texture>TorpedoLauncher_3x6</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>6</SizeY>
+	
+	<ProductionCost>72</ProductionCost>
+	<AlloyCost>54</AlloyCost>
+	<AdvancedAlloyCost>18</AdvancedAlloyCost>
+	<CrystalCost>36</CrystalCost>
+	<RareCrystalCost>18</RareCrystalCost>
+	
+	<Health>2700</Health>
+	<Mass>18</Mass>
+	<Power>72</Power>	
+	<Ammo>360</Ammo>
+	<RequiredCrew>27</RequiredCrew>
+	
+	<Weapon>TorpedoLauncher3</Weapon>
+</Module>

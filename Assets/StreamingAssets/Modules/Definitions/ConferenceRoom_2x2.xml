@@ -1,0 +1,17 @@
+<Module>
+	<Texture>ConferenceRoom_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>8</ProductionCost>
+	<AlloyCost>8</AlloyCost>
+	<AdvancedAlloyCost>4</AdvancedAlloyCost>
+	<CrystalCost>8</CrystalCost>
+	
+	<Health>400</Health>
+	<Mass>8</Mass>
+	<Power>12</Power>
+	<RequiredCrew>12</RequiredCrew>
+	
+	<Diplomacy>8</Diplomacy>
+</Module>

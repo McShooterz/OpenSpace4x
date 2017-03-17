@@ -1,0 +1,16 @@
+<Module>
+	<Texture>ShieldEmitter_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>4</ProductionCost>
+	<CrystalCost>4</CrystalCost>
+	
+	<Health>360</Health>
+	<Mass>4</Mass>
+	<Power>4</Power>
+	<RequiredCrew>7</RequiredCrew>
+	
+	<ShieldRating>1360</ShieldRating>
+	<ShieldRechargeDelay>6</ShieldRechargeDelay>
+</Module>

@@ -1,0 +1,17 @@
+<Module>
+	<Texture>DamageControlComputer_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>18</ProductionCost>
+	<AlloyCost>9</AlloyCost>
+	<CrystalCost>9</CrystalCost>
+	<RareCrystalCost>9</RareCrystalCost>
+	
+	<Health>450</Health>
+	<Mass>9</Mass>
+	<Power>9</Power>
+	<RequiredCrew>6</RequiredCrew>
+	
+	<DefenseBonus>.15</DefenseBonus>
+</Module>

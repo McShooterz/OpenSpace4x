@@ -1,0 +1,27 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<PowerCost>100</PowerCost>
+	<Arc>30</Arc>
+	<Delay>5</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>1.9</ProjectileLife>
+	<ProjectileSpeed>10.0</ProjectileSpeed>
+	<WeaponEffect>neutronbolt</WeaponEffect>
+	<FireSound>NeutronCannon</FireSound>
+	<Scale>0.13</Scale>
+	<Spread>3</Spread>
+	<ArmorDamageModifier>1.5</ArmorDamageModifier>
+	<IgnoreArmorRatingChance>0.5</IgnoreArmorRatingChance>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>2600</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>310</Range>
+			<Damage>2080</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

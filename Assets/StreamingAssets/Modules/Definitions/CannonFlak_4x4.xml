@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>CannonFlak_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>24</AlloyCost>
+	
+	<Health>1440</Health>
+	<Mass>16</Mass>
+	<Power>32</Power>	
+	<Ammo>272</Ammo>
+	<RequiredCrew>40</RequiredCrew>
+	
+	<Weapon>CannonFlak4</Weapon>
+</Module>

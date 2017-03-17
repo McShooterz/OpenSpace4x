@@ -1,0 +1,21 @@
+<Module>
+	<Texture>EnginesClassV_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>9</ProductionCost>
+	<AlloyCost>4</AlloyCost>
+	<AdvancedAlloyCost>3</AdvancedAlloyCost>
+	<CrystalCost>4</CrystalCost>
+	<RareCrystalCost>3</RareCrystalCost>
+	<ExoticCrystalCost>2</ExoticCrystalCost>
+	
+	<Health>100</Health>
+	<Mass>1</Mass>
+	<Power>10</Power>
+	<RequiredCrew>3</RequiredCrew>
+	
+	<EngineFTL>16</EngineFTL>
+	<EngineThrust>42</EngineThrust>
+	<EngineTurn>38</EngineTurn>
+</Module>

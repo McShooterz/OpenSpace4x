@@ -1,0 +1,18 @@
+<Module>
+	<Texture>ComputerFleetSupport_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>8</ProductionCost>
+	<AlloyCost>4</AlloyCost>
+	<CrystalCost>4</CrystalCost>
+	<RareCrystalCost>4</RareCrystalCost>
+	
+	<Health>180</Health>
+	<Mass>4</Mass>
+	<Power>4</Power>
+	<RequiredCrew>4</RequiredCrew>
+	
+	<DamageBonusFleet>0.02</DamageBonusFleet>
+	<DefenseBonusFleet>0.02</DefenseBonusFleet>
+</Module>

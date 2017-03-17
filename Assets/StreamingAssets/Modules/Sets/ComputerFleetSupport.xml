@@ -1,0 +1,9 @@
+<ModuleSet>
+	<Name>ModComputerFleetSupport</Name>
+	<Description>ModComputerFleetSupportDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>ComputerFleetSupport_3x3</string>
+		<string>ComputerFleetSupport_2x2</string>
+	</Modules>
+</ModuleSet>

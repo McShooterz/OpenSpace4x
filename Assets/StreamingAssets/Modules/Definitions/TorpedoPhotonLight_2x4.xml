@@ -1,0 +1,21 @@
+﻿<Module>
+	<Texture>TorpedoPhotonLight_2x4</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>48</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	<AdvancedAlloyCost>8</AdvancedAlloyCost>
+	<SuperiorAlloyCost>8</SuperiorAlloyCost>
+	<CrystalCost>40</CrystalCost>
+	<RareCrystalCost>16</RareCrystalCost>
+	<ExoticCrystalCost>16</ExoticCrystalCost>
+	
+	<Health>1120</Health>
+	<Mass>8</Mass>
+	<Power>40</Power>	
+	<Ammo>224</Ammo>
+	<RequiredCrew>26</RequiredCrew>
+	
+	<Weapon>TorpedoPhotonLight2</Weapon>
+</Module>

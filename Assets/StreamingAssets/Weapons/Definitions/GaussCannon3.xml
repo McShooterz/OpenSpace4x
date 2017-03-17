@@ -1,0 +1,29 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<AmmoCost>6</AmmoCost>
+	<PowerCost>500</PowerCost>
+	<Arc>30</Arc>
+	<Delay>7</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>2.7</ProjectileLife>
+	<ProjectileSpeed>14.0</ProjectileSpeed>
+	<WeaponEffect>gaussbolt</WeaponEffect>
+	<FireSound>GaussCannon</FireSound>
+	<HitEffect>explosionsparks</HitEffect>
+	<HitEffectTime>2.0</HitEffectTime>
+	<HitEffectScale>0.1</HitEffectScale>
+	<Scale>0.22</Scale>	
+	<Spread>1</Spread>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>5810</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>480</Range>
+			<Damage>5287</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

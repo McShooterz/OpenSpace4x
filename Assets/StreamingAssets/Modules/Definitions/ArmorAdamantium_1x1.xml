@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>ArmorAdamantium_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>12</ProductionCost>
+	<AlloyCost>5</AlloyCost>
+	<AdvancedAlloyCost>4</AdvancedAlloyCost>
+	<SuperiorAlloyCost>4</SuperiorAlloyCost>
+	
+	<Health>5000</Health>
+	<Mass>5</Mass>
+	
+	<ArmorHealth>8000</ArmorHealth>
+	<ArmorRating>115</ArmorRating>
+</Module>

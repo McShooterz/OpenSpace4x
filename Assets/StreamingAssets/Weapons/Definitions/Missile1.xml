@@ -1,0 +1,34 @@
+<Weapon>
+	<Category>Missile</Category>
+	<isHoming>true</isHoming>
+	<AlwaysForward>true</AlwaysForward>
+	<AmmoCost>5</AmmoCost>
+	<Arc>60</Arc>
+	<Delay>8</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>6</ProjectileLife>
+	<ProjectileSpeed>5.5</ProjectileSpeed>
+	<ProjectileTurnRate>3.7</ProjectileTurnRate>
+	<WeaponEffect>missile</WeaponEffect>
+	<FireSound>BasicMissile</FireSound>
+	<HitEffect>explosion1</HitEffect>
+	<HitSound>ExplodeMissile</HitSound>
+	<HitEffectTime>2.2</HitEffectTime>
+	<HitEffectScale>0.05</HitEffectScale>
+	<Scale>0.11</Scale>
+	<HomingAdditionalTargets>1</HomingAdditionalTargets>
+	<Jammable>true</Jammable>
+	<PDTargetable>true</PDTargetable>
+	<ProjectileHealth>75</ProjectileHealth>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>704</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>325</Range>
+			<Damage>598</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

@@ -1,0 +1,16 @@
+<Module>
+	<Texture>ReactorFusion_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>27</ProductionCost>
+	<AlloyCost>27</AlloyCost>
+	<CrystalCost>18</CrystalCost>
+	
+	<Health>225</Health>
+	<Mass>18</Mass>
+	<RequiredCrew>18</RequiredCrew>
+	
+	<PowerGenerated>243</PowerGenerated>
+	<PowerStorage>720</PowerStorage>
+</Module>

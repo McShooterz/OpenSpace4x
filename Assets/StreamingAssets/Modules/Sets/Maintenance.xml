@@ -1,0 +1,10 @@
+<ModuleSet>
+	<Name>ModMaintenance</Name>
+	<Description>ModMaintenanceDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>Maintenance_4x4</string>
+		<string>Maintenance_3x3</string>
+		<string>Maintenance_2x2</string>
+	</Modules>
+</ModuleSet>

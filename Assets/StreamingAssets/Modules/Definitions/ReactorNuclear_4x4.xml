@@ -1,0 +1,15 @@
+<Module>
+	<Texture>ReactorNuclear_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	
+	<Health>400</Health>
+	<Mass>32</Mass>
+	<RequiredCrew>28</RequiredCrew>
+	
+	<PowerGenerated>336</PowerGenerated>
+	<PowerStorage>880</PowerStorage>
+</Module>

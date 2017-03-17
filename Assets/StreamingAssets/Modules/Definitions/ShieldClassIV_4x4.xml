@@ -1,0 +1,20 @@
+<Module>
+	<Texture>ShieldClassIV_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>64</ProductionCost>
+	<AlloyCost>48</AlloyCost>
+	<RareCrystalCost>32</RareCrystalCost>
+	<ExoticCrystalCost>16</ExoticCrystalCost>
+	
+	<Health>4480</Health>
+	<Mass>16</Mass>
+	<Power>160</Power>
+	<RequiredCrew>24</RequiredCrew>
+	
+	<ShieldHealth>134400</ShieldHealth>
+	<ShieldRating>8000</ShieldRating>
+	<ShieldRechargeRate>304</ShieldRechargeRate>
+	<ShieldRechargeDelay>4</ShieldRechargeDelay>
+</Module>

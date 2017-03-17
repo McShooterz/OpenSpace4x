@@ -1,0 +1,19 @@
+﻿<Module>
+	<Texture>IonBeam_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>3</ProductionCost>
+	<AlloyCost>3</AlloyCost>
+	<AdvancedAlloyCost>1</AdvancedAlloyCost>
+	<CrystalCost>3</CrystalCost>
+	<RareCrystalCost>1</RareCrystalCost>
+	
+	<Health>100</Health>
+	<Mass>2</Mass>
+	<Power>3</Power>
+	<PowerStorage>28</PowerStorage>
+	<RequiredCrew>4</RequiredCrew>
+	
+	<Weapon>IonBeam1</Weapon>
+</Module>

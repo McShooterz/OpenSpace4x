@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModFuelStorage</Name>
+	<Description>ModFuelStorageDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>FuelStorage_4x4</string>
+		<string>FuelStorage_3x3</string>
+		<string>FuelStorage_2x2</string>
+		<string>FuelStorage_1x1</string>
+	</Modules>
+</ModuleSet>

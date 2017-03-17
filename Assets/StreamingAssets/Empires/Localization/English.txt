@@ -1,0 +1,31 @@
+EmpGovRepublic Republic
+EmpGovRepublicDesc Government Type
+EmpEcoCapitalism Capitalism
+EmpEcoCapitalismDesc Economic Type
+EmpEcoSocialism Socialism
+EmpEcoSocialismDesc Economic Type
+EmpCultIndividualistic Individualistic
+EmpCultIndividualisticDesc Culture Type
+EmpGovAutocracy Autocracy
+EmpGovCommunism Communism
+EmpGovDemocracy Democracy
+EmpGovDemocraticRepublic Democratic Republic
+EmpGovDespotism Despotism
+EmpGovDictatorship Dictatorship
+EmpGovFascism Fascism
+EmpGovMonarchy Monarchy
+EmpGovOligarchy Oligarchy
+EmpGovTheocracy Theocracy
+EmpEcoMercantilism Mercantilism
+EmpEcoFreeMarket Free Market
+EmpEcoCommunalism Communalism
+EmpEcoCentralism Centralism
+EmpEcoCooperative Cooperative
+EmpEcoCommand Command
+EmpCultIsolationist Isolationist
+EmpCultMaterialistic Materialistic
+EmpCultMilitaristic Militaristic
+EmpCultCollectivistic Collectivistic
+EmpCultXenophobic Xenophobic
+EmpCultSpiritualistic Spiritualistic
+EmpCultPacifistic Pacifistic

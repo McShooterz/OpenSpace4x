@@ -1,0 +1,32 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AmmoCost>0.6</AmmoCost>
+	<Arc>120</Arc>
+	<Delay>5</Delay>	
+	<SalvoSize>3</SalvoSize>
+	<SalvoDelay>0.45</SalvoDelay>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>2.2</ProjectileLife>
+	<ProjectileSpeed>8.0</ProjectileSpeed>
+	<WeaponEffect>flakbolt</WeaponEffect>
+	<FireSound>BasicCannon</FireSound>
+	<HitEffect>explosionflak</HitEffect>
+	<HitEffectTime>1.4</HitEffectTime>
+	<HitEffectScale>0.1</HitEffectScale>
+	<Scale>0.18</Scale>	
+	<Spread>7.5</Spread>
+	<FighterDamageModifier>1.5</FighterDamageModifier>
+	<ProjectileDamageModifier>2</ProjectileDamageModifier>
+	<PointDefense>true</PointDefense>
+	<dieOnProjectileCollision>true</dieOnProjectileCollision>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>420</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>230</Range>
+			<Damage>189</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

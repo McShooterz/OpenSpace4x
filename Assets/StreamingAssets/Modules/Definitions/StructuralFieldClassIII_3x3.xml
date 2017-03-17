@@ -1,0 +1,15 @@
+﻿<Module>
+	<Texture>StructuralFieldClassIII_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>27</ProductionCost>
+	<AlloyCost>18</AlloyCost>
+	<CrystalCost>18</CrystalCost>
+	<RareCrystalCost>9</RareCrystalCost>	
+	
+	<Health>73800</Health>
+	<Mass>9</Mass>
+	<Power>45</Power>
+	<RequiredCrew>18</RequiredCrew>
+</Module>

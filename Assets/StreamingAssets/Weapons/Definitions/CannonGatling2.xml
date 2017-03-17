@@ -1,0 +1,30 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<SingleFireSound>true</SingleFireSound>
+	<AmmoCost>1.3</AmmoCost>
+	<Arc>30</Arc>
+	<Delay>10</Delay>	
+	<SalvoSize>10</SalvoSize>
+	<SalvoDelay>0.05</SalvoDelay>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>1.85</ProjectileLife>
+	<ProjectileSpeed>12.0</ProjectileSpeed>
+	<WeaponEffect>ballisticbolt</WeaponEffect>
+	<FireSound>GatlingBurst</FireSound>
+	<HitEffect>ballisticimpact</HitEffect>
+	<HitEffectTime>1.4</HitEffectTime>
+	<HitEffectScale>0.1</HitEffectScale>
+	<Scale>0.1</Scale>	
+	<Spread>6</Spread>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>402</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>290</Range>
+			<Damage>302</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

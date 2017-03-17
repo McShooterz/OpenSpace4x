@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<StationHullData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Privus Class</Name>
+  <StationObject>Privus Class</StationObject>
+  <SlotLayout>Privus Class</SlotLayout>
+  <HardPoints>Privus Class</HardPoints>
+  <Classification>Outpost</Classification>
+  <Icon>Privus_128</Icon>
+  <BaseCrew>800</BaseCrew>
+  <BaseSensor>40</BaseSensor>
+  <BaseLongRangeSensor>80</BaseLongRangeSensor>
+  <BaseAdvancedSensor>10</BaseAdvancedSensor>
+  <BaseResearch>5</BaseResearch>
+  <BaseTrading>5</BaseTrading>
+  <BaseMining>10</BaseMining>
+  <BaseRepair>0.5</BaseRepair>
+  <BaseHealthPerSlot>10</BaseHealthPerSlot>
+  <BaseArmorPerSlot>10</BaseArmorPerSlot>
+  <ExperienceKillValue>18</ExperienceKillValue>
+  <ModuleLimitations>NoEngines</ModuleLimitations>
+</StationHullData>

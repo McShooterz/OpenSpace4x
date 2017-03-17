@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModReactorNuclear</Name>
+	<Description>ModReactorNuclearDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<SwapType>PowerPlant</SwapType>
+	<Modules>
+		<string>ReactorNuclear_4x4</string>
+		<string>ReactorNuclear_3x3</string>
+		<string>ReactorNuclear_2x2</string>
+		<string>ReactorNuclear_1x1</string>
+	</Modules>
+</ModuleSet>

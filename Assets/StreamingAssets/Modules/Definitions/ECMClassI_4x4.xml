@@ -1,0 +1,17 @@
+<Module>
+	<Texture>ECMClassI_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<CrystalCost>16</CrystalCost>
+	
+	<Health>2000</Health>
+	<Mass>16</Mass>
+	<Power>64</Power>
+	<RequiredCrew>16</RequiredCrew>
+	
+	<JammingCount>8</JammingCount>
+	<JammingRange>500</JammingRange>
+	<JammingDelay>3.5</JammingDelay>
+</Module>

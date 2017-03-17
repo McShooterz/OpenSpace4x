@@ -1,0 +1,15 @@
+﻿<Module>
+	<Texture>LaserCannonLightRed_1x2</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>2</ProductionCost>
+	
+	<Health>210</Health>
+	<Mass>2</Mass>
+	<Power>4</Power>
+	<PowerStorage>52</PowerStorage>
+	<RequiredCrew>9</RequiredCrew>
+	
+	<Weapon>LaserCannonLightRed2</Weapon>
+</Module>

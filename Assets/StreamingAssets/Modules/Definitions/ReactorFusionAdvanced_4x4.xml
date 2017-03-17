@@ -1,0 +1,16 @@
+<Module>
+	<Texture>ReactorFusionAdvanced_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>64</ProductionCost>
+	<AlloyCost>64</AlloyCost>
+	<CrystalCost>48</CrystalCost>
+	
+	<Health>480</Health>
+	<Mass>32</Mass>
+	<RequiredCrew>28</RequiredCrew>
+	
+	<PowerGenerated>600</PowerGenerated>
+	<PowerStorage>1600</PowerStorage>
+</Module>

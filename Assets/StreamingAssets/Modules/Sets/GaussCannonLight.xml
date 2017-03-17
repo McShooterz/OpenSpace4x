@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModGaussCannonLight</Name>
+	<Description>ModGaussCannonLightDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>GaussCannonLight_1x5</string>
+		<string>GaussCannonLight_1x4</string>
+		<string>GaussCannonLight_1x3</string>
+		<string>GaussCannonLight_1x2</string>
+	</Modules>
+</ModuleSet>

@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModPlasmaConduits</Name>
+	<Description>ModPlasmaConduitsDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>PlasmaConduits_4x4</string>
+		<string>PlasmaConduits_3x3</string>
+		<string>PlasmaConduits_2x2</string>
+		<string>PlasmaConduits_1x1</string>
+	</Modules>
+</ModuleSet>

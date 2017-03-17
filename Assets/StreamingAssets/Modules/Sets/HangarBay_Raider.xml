@@ -1,0 +1,8 @@
+<ModuleSet>
+	<Name>ModHangarBayRaider</Name>
+	<Description>ModHangarBayRaiderDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>HangarBay_Raider_5x4</string>
+	</Modules>
+</ModuleSet>

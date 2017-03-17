@@ -1,0 +1,13 @@
+﻿<Module>
+	<Texture>BulkheadAdamantium_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>40</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	<AdvancedAlloyCost>16</AdvancedAlloyCost>
+	<SuperiorAlloyCost>16</SuperiorAlloyCost>
+	
+	<Health>66000</Health>
+	<Mass>16</Mass>
+</Module>

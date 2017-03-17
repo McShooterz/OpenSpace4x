@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModBulkheadCarbonium</Name>
+	<Description>ModBulkheadCarboniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Bulkhead</SwapType>
+	<Modules>
+		<string>BulkheadCarbonium_4x4</string>
+		<string>BulkheadCarbonium_3x3</string>
+		<string>BulkheadCarbonium_2x2</string>
+		<string>BulkheadCarbonium_1x1</string>
+	</Modules>
+</ModuleSet>

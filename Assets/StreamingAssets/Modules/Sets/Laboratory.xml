@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModLaboratory</Name>
+	<Description>ModLaboratoryDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>Laboratory_5x5</string>
+		<string>Laboratory_4x4</string>
+		<string>Laboratory_3x3</string>
+		<string>Laboratory_2x2</string>
+	</Modules>
+</ModuleSet>

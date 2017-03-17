@@ -1,0 +1,21 @@
+<Module>
+	<Texture>ShieldClassV_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>24</ProductionCost>
+	<AlloyCost>20</AlloyCost>
+	<CrystalCost>12</CrystalCost>
+	<RareCrystalCost>12</RareCrystalCost>
+	<ExoticCrystalCost>8</ExoticCrystalCost>
+	
+	<Health>800</Health>
+	<Mass>4</Mass>
+	<Power>48</Power>
+	<RequiredCrew>10</RequiredCrew>
+	
+	<ShieldHealth>32000</ShieldHealth>
+	<ShieldRating>1840</ShieldRating>
+	<ShieldRechargeRate>72</ShieldRechargeRate>
+	<ShieldRechargeDelay>3</ShieldRechargeDelay>
+</Module>

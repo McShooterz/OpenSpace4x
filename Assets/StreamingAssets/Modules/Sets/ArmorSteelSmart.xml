@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModArmorSteelSmart</Name>
+	<Description>ModArmorSteelSmartDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Armor</SwapType>
+	<Modules>
+		<string>ArmorSteelSmart_4x4</string>
+		<string>ArmorSteelSmart_3x3</string>
+		<string>ArmorSteelSmart_2x2</string>
+		<string>ArmorSteelSmart_1x1</string>
+	</Modules>
+</ModuleSet>

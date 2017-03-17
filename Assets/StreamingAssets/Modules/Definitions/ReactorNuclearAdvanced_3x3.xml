@@ -1,0 +1,15 @@
+<Module>
+	<Texture>ReactorNuclearAdvanced_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>27</ProductionCost>
+	<AlloyCost>27</AlloyCost>
+	
+	<Health>180</Health>
+	<Mass>18</Mass>
+	<RequiredCrew>18</RequiredCrew>
+	
+	<PowerGenerated>189</PowerGenerated>
+	<PowerStorage>540</PowerStorage>
+</Module>

@@ -1,0 +1,256 @@
+ModAmmoStorage Ammo Storage
+ModAmmoStorageDesc Provides additional ammo.
+ModEnginesClassI Class I Engines
+ModEnginesClassIDesc General purpose engines
+ModEnginesClassII Class II Engines
+ModEnginesClassIIDesc General purpose engines
+ModEnginesClassIII Class III Engines
+ModEnginesClassIIIDesc General purpose engines
+ModEnginesClassIV Class IV Engines
+ModEnginesClassIVDesc General purpose engines
+ModEnginesClassV Class V Engines
+ModEnginesClassVDesc General purpose engines
+ModEnginesCombatClassI Class I Combat Engines
+ModEnginesCombatClassIDesc Engine system without FTL, but faster in tactle battles
+ModEnginesCombatClassII Class II Combat Engines
+ModEnginesCombatClassIIDesc Engine system without FTL, but faster in tactle battles
+ModEnginesCombatClassIII Class III Combat Engines
+ModEnginesCombatClassIIIDesc Engine system without FTL, but faster in tactle battles
+ModEnginesCombatClassIV Class IV Combat Engines
+ModEnginesCombatClassIVDesc Engine system without FTL, but faster in tactle battles
+ModEnginesCombatClassV Class V Combat Engines
+ModEnginesCombatClassVDesc Engine system without FTL, but faster in tactle battles
+ModFuelStorage Fuel Storage
+ModFuelStorageDesc Provides additional fuel.
+ModPowerStorage Power Storage
+ModPowerStorageDesc Provides additional power capacity;
+ModArmorSteel Steel Armor
+ModArmorSteelDesc Basic tier 0 armor.
+ModArmorSteelHardened Hardened Steel Armor
+ModArmorSteelHardenedDesc Improved tier 0 armor.
+ModArmorSteelSmart Smart Steel Armor
+ModArmorSteelSmartDesc Improved tier 0 armor at uses power to resist more damage.
+ModArmorTitanium Titanium Armor
+ModArmorTitaniumDesc Basic tier I armor.
+ModShieldsClassI Class I Shields
+ModShieldsClassIDesc Uses power to create a protective barrier. Shields in the center section protect entire ship.
+ModShieldsClassII Class II Shields
+ModShieldsClassIIDesc Uses power to create a protective barrier. Shields in the center section protect entire ship.
+ModShieldsClassIII Class III Shields
+ModShieldsClassIIIDesc Uses power to create a protective barrier. Shields in the center section protect entire ship.
+ModShieldsClassIV Class IV Shields
+ModShieldsClassIVDesc Uses power to create a protective barrier. Shields in the center section protect entire ship.
+ModShieldsClassV Class V Shields
+ModShieldsClassVDesc Uses power to create a protective barrier. Shields in the center section protect entire ship.
+ModSupplyStorage Supply Storage
+ModSupplyStorageDesc Allows ships to bring additional supplies to operate outside of empire boarders
+ModTransporter Transporter Bay
+ModTransporterDesc Allows fleet wide ammo sharing, and the ability to transport personel to other ships.
+ModAstrometrics Astrometrics Lab
+ModAstrometricsDesc Helps analyze sensor data to increase effective sensor ranges
+ModCloakingDevice Cloaking Device
+ModCloakingDeviceDesc Generates a field that turns this ship invisible, and prevents this ship from being detected on the strategy map.
+ModColonyBay Colony Supply Bay
+ModColonyBayDesc Provides room for colony supplies, thus allowing this ship to establish colonies.
+ModEngineering Main Engineering Section
+ModEngineeringDesc Generates power while also reducing power consumption by all other modules on the ship. Gives bonuses to engines and increases repair rates.
+ModEngineeringAdv Advanced Engineering Section
+ModEngineeringAdvDesc An improved engineering section with great power generation, power effiency bonus, engine bonus, and more repair points.
+ModHangarBayWraith F-61 Wraith Hangar
+ModHangarBayWraithDesc Holds a wing of 6 F-61 Wraith fighters
+ModHangarBayRaider X-4 Raider Hangar
+ModHangarBayRaiderDesc Holds a wing of 4 X-4 Raider heavy fighters
+ModHangarBayArgos Argos Assault Shuttle Hangar
+ModHangarBayArgosDesc Holds a wing of 6 Argos Assault Shuttles. The Argos shuttle has no weapons, shields, or armor, and is purely used to get troops onto enemy ships.
+ModLaserBeam Laser Beam Array
+ModLaserBeamDesc Basic laser beams are short range weapons ideal at hitting small fast moving targets
+ModReactorAntimatter Antimatter Reactor
+ModReactorAntimatterDesc An advanced power generating system that use antimatter reactions.
+ModReactorFusion Fusion Reactor
+ModReactorFusionDesc An improved power generating system that use nuclear fusion reactions.
+ModReactorNuclear Nuclear Reactor
+ModReactorNuclearDesc A basic power generating system that use nuclear fission reactions.
+ModReactorQuantum Quantum Reactor
+ModReactorQuantumDesc A power generating system that can directly convert matter into energy with high effeciency.
+ModReactorNuclearAdvanced Advanced Nuclear Reactor
+ModReactorNuclearAdvancedDesc An improved version of the nuclear power reactor
+ModReactorFusionAdvanced Advanced Fusion Reactor
+ModReactorFusionAdvancedDesc An improved version of the fusion power reactor
+ModReactorAntimatterAdvanced Advanced Antimatter Reactor
+ModReactorAntimatterAdvancedDesc An improved version of the antimatter power reactor
+ModLaserCannonLight Light Laser Cannon
+ModLaserCannonLightDesc A small short range laser cannon.
+ModLaserCannon Laser Cannon
+ModLaserCannonDesc A standard laser cannon
+ModLaserCannonHeavy Heavy Laser Cannon
+ModLaserCannonHeavyDesc Powerful long range laser cannon
+ModCannonLight Light Cannon
+ModCannonLightDesc Fast firing small caliber ballistic cannon
+ModCannonLightAP AP Light Cannon
+ModCannonLightAPDesc Fast firing small caliber ballistic cannon that does extra damage against armor, but requires more ammo
+ModCannonLightHE HE Light Cannon
+ModCannonLightHEDesc Fast firing small caliber ballistic cannon that does extra damage against health, but requires more ammo
+ModCannon Cannon
+ModCannonDesc A standard ballistic cannon
+ModCannonAP AP Cannon
+ModCannonAPDesc A standard ballistic cannon that does extra damage against armor, but requires more ammo
+ModCannonHE HE Cannon
+ModCannonHEDesc A standard ballistic cannon that does extra damage against health, but requires more ammo
+ModCannonHeavy Heavy Cannon
+ModCannonHeavyDesc Large caliber ballistic cannon
+ModCannonHeavyAP AP Heavy Cannon
+ModCannonHeavyAPDesc Large caliber ballistic cannon that does extra damage against armor, but requires more ammo
+ModCannonHeavyHE HE Heavy Cannon
+ModCannonHeavyHEDesc Large caliber ballistic cannon that does extra damage against health, but requires more ammo
+ModPlasmaCannon Plasma Cannon
+ModPlasmaCannonDesc Powerful enery cannon the does extra damage to shields
+ModMissileLight Light Missile Rack
+ModMissileLightDesc Small short range missiles
+ModMissile Missile Rack
+ModMissileDesc Basic missile weapon
+ModMissileHeavy Heavy Missile Rack
+ModMissileHeavyDesc More powerful long range missiles
+ModECMClassI ECM Class I
+ModECMClassIDesc Jams enemy homing weapons
+ModECMClassII ECM Class II
+ModECMClassIIDesc Jams enemy homing weapons
+ModCannonCluster Cluster Cannon
+ModCannonClusterDesc Short range cannon that fires multiple projectiles at a time
+ModMissilePD Point Defense Missile
+ModMissilePDDesc Used to shoot down enemy missiles.
+ModCannonFlak Flak Cannon Turret
+ModCannonFlakDesc Flak cannons are effective against fighters and missiles
+ModGaussCannonLight Light Gauss Cannon
+ModGaussCannonLightDesc A smaller compact version of the gauss cannon
+ModGaussCannon Gauss Cannon
+ModGaussCannonDesc Uses powerful magnetics to fire metal projectiles
+ModShieldCapacitor Shield Capacitor
+ModShieldCapacitorDesc Shield subsystem that provides shield health
+ModShieldEmitter Shield Emitter
+ModShieldEmitterDesc Shield subsystem that provides shield rating
+ModShieldGenerator Shield Generator
+ModShieldGeneratorDesc Shield subsystem that provides shield regeneration
+ModRailgun Railgun
+ModRailgunDesc Massive ballistic weapon
+ModTorpedoLauncher Torpedo Launcher
+ModTorpedoLauncherDesc Fires a massive guided missile that is resistant to jamming
+ModPlasmaConduits Plasma Conduits
+ModPlasmaConduitsDesc Improves power effeciency ship wide.
+ModCrewQuarters Crew Quarters
+ModCrewQuartersDesc Room for additional crew
+ModBridge Bridge
+ModBridgeDesc Command center for the ship.
+ModCommandBridge Command Bridge
+ModCommandBridgeDesc More advanced bridge with command support for other ships in the fleet
+ModTacticalBridge Tactical Bridge
+ModTacticalBridgeDesc More advanced bridge specialized for combat
+ModNeutronCannon Neutron Cannon
+ModNeutronCannonDesc Energy cannon specialized against armor
+ModAmmoFabricator Ammo Fabricator
+ModAmmoFabricatorDesc Converters power into ammo
+ModTargetingComputer Targeting Computer
+ModTargetingComputerDesc Improves damage output for all weapons
+ModDamageControlComputer Damage Control Computer
+ModDamageControlComputerDesc Decreases damage taken in combat
+ModLaboratory Laboratory
+ModLaboratoryDesc Allows for research to be done
+ModConferenceRoom Conference Room
+ModConferenceRoomDesc A place for diplomatic matters
+ModTroopBarracks Troop Barracks
+ModTroopBarracksDesc Quarters for troops to stay in
+ModMedical Medical Bay
+ModMedicalDesc Helps recover causalities from battles
+ModHoloDeck Holo Deck
+ModHoloDeckDesc Boosts experience gain
+ModFusionBeam Fusion Beam Array
+ModFusionBeamDesc A medium power beam weapon
+ModPhaserBeam Phaser Beam Array
+ModPhaserBeamDesc Powerfull beam weapon
+ModIonBeam Ion Beam Array
+ModIonBeamDesc Specialize beam weapon good against shields and drains enemy power, but very weak against armor.
+ModMaintenance Maintenance Section
+ModMaintenanceDesc Increases repair rate
+ModBombBayNuclear Nuclear Bomb Bay
+ModBombBayNuclearDesc Used to bombard planets with nuclear bombs
+ModIonCannon Ion Cannon
+ModIonCannonDesc Specialized energy cannon good against shields and drains enemy power, but very weak against armor.
+ModArmory Armory
+ModArmoryDesc Stocked with small arms weapons to help defend against boarding attacks.
+ModArmorTritanium Tritanium Armor
+ModArmorTritaniumDesc Uses quantum machining to bond three titanium atoms together, which results in one the strong materials known 
+ModArmorTitaniumSmart Smart Titanium Armor
+ModArmorTitaniumSmartDesc Uses sensors and computers to adjust the armor plates to maximize protection
+ModArmorStealth Stealth Armor
+ModArmorStealthDesc Absorbs most forms of radiation such that it is next to impossible to detect by long range sensors
+ModArmorQuantanium Quantanium Armor
+ModArmorQuantaniumDesc Created using quantum machining to create a material both incredibly strong and light
+ModArmorNeutronium Neutronium Armor
+ModArmorNeutroniumDesc A material composed of mostly neutrons 
+ModArmorCarbonium Carbonium Armor
+ModArmorCarboniumDesc A complex alloy with nano carbon mesh reinforcement
+ModArmorAdamantium Adamantium Armor
+ModArmorAdamantiumDesc A protective layer of nearly indestructible alloy.
+ModBulkheadSteel Steel Bulkhead
+ModBulkheadSteelDesc Reinforces the internal structure
+ModBulkheadTitanium Titanium Bulkhead
+ModBulkheadTitaniumDesc Reinforces the internal structure
+ModBulkheadNeutronium Neutronium Bulkhead
+ModBulkheadNeutroniumDesc Reinforces the internal structure
+ModBulkheadCarbonium Carbonium Bulkhead
+ModBulkheadCarboniumDesc Reinforces the internal structure
+ModBulkheadQuantanium Quantanium Bulkhead
+ModBulkheadQuantaniumDesc Reinforces the internal structure
+ModBulkheadTritanium Tritanium Bulkhead
+ModBulkheadTritaniumDesc Reinforces the internal structure
+ModBulkheadAdamantium Adamantium Bulkhead
+ModBulkheadAdamantiumDesc Reinforces the internal structure
+ModStructuralFieldClassI Structural Field Class I
+ModStructuralFieldClassIDesc Energy barriers used to reinforce the interal structure
+ModStructuralFieldClassII Structural Field Class II
+ModStructuralFieldClassIIDesc Energy barriers used to reinforce the interal structure
+ModStructuralFieldClassIII Structural Field Class III
+ModStructuralFieldClassIIIDesc Energy barriers used to reinforce the interal structure
+ModStructuralFieldClassIV Structural Field Class IV
+ModStructuralFieldClassIVDesc Energy barriers used to reinforce the interal structure
+ModStructuralFieldClassV Structural Field Class V
+ModStructuralFieldClassVDesc Energy barriers used to reinforce the interal structure
+ModGaussCannonLightTriple Triple Link Light Gauss Cannon
+ModGaussCannonLightTripleDesc Three light gauss cannons linked together
+ModGaussCannonDual Dual Link Gauss Cannon
+ModGaussCannonDualDesc Two gauss cannons linked together
+ModCannonGatling Gatling Cannon
+ModCannonGatlingDesc A rapid fire cannon good at mid range
+ModTorpedoAntimatter Antimatter Torpedo Launcher
+ModTorpedoAntimatterDesc Advanced torpedoes resistant to jamming and deal massive damage.
+ModTorpedoPhotonLight Light Photon Torpedo Launcher
+ModTorpedoPhotonLightDesc Advanced energy torpedo resistant to point defense and jamming
+ModTorpedoPhoton Photon Torpedo Launcher
+ModTorpedoPhotonDesc Energy torpedo resistant to point defence and jamming
+ModTorpedoQuantum Quantum Torpedo Launcher
+ModTorpedoQuantumDesc Advanced energy torpedo laucnher resistant to point defense and jamming.
+ModMissileMirv Mirv Missile Pods
+ModMissileMirvDesc Improved missile system that separates into five smaller missiles to avoid missile defenses.
+ModCannonArtillery Artillery Cannon
+ModCannonArtilleryDesc Long range cannon with slow reload.
+ModPolarizerClassI Class I Polarizer
+ModPolarizerClassIDesc Uses power to strengthen all armor in the same section.
+ModPolarizerClassII Class II Polarizer
+ModPolarizerClassIIDesc Uses power to strengthen all armor in the same section.
+ModPolarizerClassIII Class III Polarizer
+ModPolarizerClassIIIDesc Uses power to strengthen all armor in the same section.
+ModPolarizerClassIV Class VI Polarizer
+ModPolarizerClassIVDesc Uses power to strengthen all armor in the same section.
+ModPolarizerClassV Class V Polarizer
+ModPolarizerClassVDesc Uses power to strengthen all armor in the same section.
+ModCannonAntimatterLight Light Antimatter Cannon
+ModCannonAntimatterLightDesc Uses magnets to fire an antimatter shell
+ModCannonAntimatter Antimatter Cannon
+ModCannonAntimatterDesc Uses magnets to fire an antimatter shell
+ModCannonAntimatterHeavy Heavy Antimatter Cannon
+ModCannonAntimatterHeavyDesc Uses magnets to fire an antimatter shell
+ModComputerCommand Command Computer
+ModComputerCommandDesc Reduces required command points
+ModComputerFleetSupport Fleet Support Computer
+ModComputerFleetSupportDesc Improves weapon damage and damage control of the entire fleet
+ModComputerFleetCommand Fleet Command Computer
+ModComputerFleetCommandDesc Flagships with this computer increase the fleet command limit

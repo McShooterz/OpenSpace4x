@@ -1,0 +1,13 @@
+﻿<Module>
+	<Texture>BulkheadTritanium_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>54</ProductionCost>
+	<AlloyCost>18</AlloyCost>
+	<AdvancedAlloyCost>18</AdvancedAlloyCost>
+	<SuperiorAlloyCost>9</SuperiorAlloyCost>
+	
+	<Health>99000</Health>
+	<Mass>27</Mass>
+</Module>

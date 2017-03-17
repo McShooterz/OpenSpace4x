@@ -1,0 +1,20 @@
+<Module>
+	<Texture>AstrometricsLab_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>12</ProductionCost>
+	<AlloyCost>8</AlloyCost>
+	<AdvancedAlloyCost>4</AdvancedAlloyCost>
+	<CrystalCost>8</CrystalCost>
+	<RareCrystalCost>4</RareCrystalCost>
+	
+	<Health>400</Health>
+	<Mass>8</Mass>
+	<Power>12</Power>
+	<RequiredCrew>10</RequiredCrew>
+	
+	<Sensor>16</Sensor>
+	<LongRangeSensor>24</LongRangeSensor>
+	<AdvancedSensor>8</AdvancedSensor>
+</Module>

@@ -1,0 +1,28 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<AmmoCost>5</AmmoCost>
+	<Arc>15</Arc>
+	<Delay>9</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>2.95</ProjectileLife>
+	<ProjectileSpeed>9.0</ProjectileSpeed>
+	<WeaponEffect>ballisticbolt</WeaponEffect>
+	<FireSound>BasicCannon</FireSound>
+	<HitEffect>ballisticimpact</HitEffect>
+	<HitEffectTime>1.4</HitEffectTime>
+	<HitEffectScale>0.1</HitEffectScale>
+	<Scale>0.14</Scale>
+	<Spread>2</Spread>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>1512</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>505</Range>
+			<Damage>1104</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

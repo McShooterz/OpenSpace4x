@@ -1,0 +1,21 @@
+<Module>
+	<Texture>BridgeTactical_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>27</ProductionCost>
+	<AlloyCost>27</AlloyCost>
+	<AdvancedAlloyCost>9</AdvancedAlloyCost>
+	<SuperiorAlloyCost>9</SuperiorAlloyCost>
+	<CrystalCost>18</CrystalCost>
+	<RareCrystalCost>9</RareCrystalCost>
+	<ExoticParticleCost>9</ExoticParticleCost>
+	
+	<Health>1260</Health>
+	<Mass>13.5</Mass>
+	<Power>15.75</Power>
+	<RequiredCrew>45</RequiredCrew>
+	
+	<DamageBonus>0.20</DamageBonus>
+	<DefenseBonus>0.10</DefenseBonus>
+</Module>
