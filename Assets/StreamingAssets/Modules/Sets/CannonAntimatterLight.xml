@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCannonAntimatterLight</Name>
+	<Description>ModCannonAntimatterLightDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>CannonAntimatterLight_1x5</string>
+		<string>CannonAntimatterLight_1x4</string>
+		<string>CannonAntimatterLight_1x3</string>
+		<string>CannonAntimatterLight_1x2</string>
+	</Modules>
+</ModuleSet>

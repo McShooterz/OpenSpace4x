@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModArmorStealth</Name>
+	<Description>ModArmorStealthDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Armor</SwapType>
+	<Modules>
+		<string>ArmorStealth_4x4</string>
+		<string>ArmorStealth_3x3</string>
+		<string>ArmorStealth_2x2</string>
+		<string>ArmorStealth_1x1</string>
+	</Modules>
+</ModuleSet>

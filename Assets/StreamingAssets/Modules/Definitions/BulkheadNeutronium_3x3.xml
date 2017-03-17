@@ -1,0 +1,11 @@
+﻿<Module>
+	<Texture>BulkheadNeutronium_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>18</ProductionCost>
+	<AlloyCost>18</AlloyCost>
+	
+	<Health>45000</Health>
+	<Mass>18</Mass>
+</Module>

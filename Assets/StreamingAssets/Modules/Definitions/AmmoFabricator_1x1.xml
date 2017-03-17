@@ -1,0 +1,17 @@
+<Module>
+	<Texture>AmmoFabricator_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>3</ProductionCost>
+	<CrystalCost>3</CrystalCost>
+	<RareCrystalCost>1</RareCrystalCost>
+	
+	<Health>40</Health>
+	<Mass>1</Mass>
+	<Power>10</Power>
+	<RequiredCrew>1</RequiredCrew>
+	
+	<Ammo>20</Ammo>
+	<AmmoGenerated>1</AmmoGenerated>
+</Module>

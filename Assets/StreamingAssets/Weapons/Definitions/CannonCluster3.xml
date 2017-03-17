@@ -1,0 +1,26 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<AmmoCost>0.95</AmmoCost>
+	<Arc>30</Arc>
+	<Delay>8</Delay>
+	<SalvoSize>1</SalvoSize>
+	<Projectiles>6</Projectiles>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>1.95</ProjectileLife>
+	<ProjectileSpeed>12.0</ProjectileSpeed>
+	<WeaponEffect>ballisticbolt</WeaponEffect>
+	<FireSound>ClusterCannon</FireSound>
+	<Scale>0.1</Scale>	
+	<Spread>9</Spread>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>810</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>300</Range>
+			<Damage>527</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

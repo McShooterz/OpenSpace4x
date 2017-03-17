@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModArmorNeutronium</Name>
+	<Description>ModArmorNeutroniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Armor</SwapType>
+	<Modules>
+		<string>ArmorNeutronium_4x4</string>
+		<string>ArmorNeutronium_3x3</string>
+		<string>ArmorNeutronium_2x2</string>
+		<string>ArmorNeutronium_1x1</string>
+	</Modules>
+</ModuleSet>

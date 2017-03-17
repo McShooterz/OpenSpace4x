@@ -1,0 +1,20 @@
+<Module>
+	<Texture>ShieldClassIII_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>3</ProductionCost>
+	<AlloyCost>2</AlloyCost>
+	<CrystalCost>1</CrystalCost>
+	<RareCrystalCost>1</RareCrystalCost>
+	
+	<Health>105</Health>
+	<Mass>1</Mass>
+	<Power>8</Power>
+	<RequiredCrew>3</RequiredCrew>
+	
+	<ShieldHealth>4400</ShieldHealth>
+	<ShieldRating>300</ShieldRating>
+	<ShieldRechargeRate>7</ShieldRechargeRate>
+	<ShieldRechargeDelay>5</ShieldRechargeDelay>
+</Module>

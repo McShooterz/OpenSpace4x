@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModTroopBarracks</Name>
+	<Description>ModTroopBarracksDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>TroopBarracks_4x4</string>
+		<string>TroopBarracks_3x3</string>
+		<string>TroopBarracks_2x2</string>
+		<string>TroopBarracks_1x1</string>
+	</Modules>
+</ModuleSet>

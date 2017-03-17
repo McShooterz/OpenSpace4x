@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>CannonGatling_2x3</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>15</ProductionCost>
+	<AlloyCost>6</AlloyCost>
+	
+	<Health>1020</Health>
+	<Mass>6</Mass>
+	<Power>18</Power>	
+	<Ammo>102</Ammo>
+	<RequiredCrew>15</RequiredCrew>
+	
+	<Weapon>CannonGatling2</Weapon>
+</Module>

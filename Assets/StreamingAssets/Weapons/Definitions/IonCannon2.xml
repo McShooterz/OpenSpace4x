@@ -1,0 +1,29 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<PowerCost>50</PowerCost>
+	<Arc>30</Arc>
+	<Delay>8</Delay>	
+	<SalvoSize>2</SalvoSize>
+	<SalvoDelay>0.7</SalvoDelay>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>2.1</ProjectileLife>
+	<ProjectileSpeed>8.8</ProjectileSpeed>
+	<WeaponEffect>ionbolt</WeaponEffect>
+	<FireSound>IonCannon</FireSound>
+	<Scale>0.19</Scale>
+	<Spread>4</Spread>
+	<ShieldDamageModifier>2.0</ShieldDamageModifier>
+	<ArmorDamageModifier>0.2</ArmorDamageModifier>
+	<PowerDamageModifier>0.5</PowerDamageModifier>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>1296</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>280</Range>
+			<Damage>907</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

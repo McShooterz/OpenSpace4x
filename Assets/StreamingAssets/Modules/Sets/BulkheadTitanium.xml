@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModBulkheadTitanium</Name>
+	<Description>ModBulkheadTitaniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Bulkhead</SwapType>
+	<Modules>
+		<string>BulkheadTitanium_4x4</string>
+		<string>BulkheadTitanium_3x3</string>
+		<string>BulkheadTitanium_2x2</string>
+		<string>BulkheadTitanium_1x1</string>
+	</Modules>
+</ModuleSet>

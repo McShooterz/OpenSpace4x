@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModShieldsClassV</Name>
+	<Description>ModShieldsClassVDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Shields</SwapType>
+	<Modules>
+		<string>ShieldClassV_4x4</string>
+		<string>ShieldClassV_3x3</string>
+		<string>ShieldClassV_2x2</string>
+		<string>ShieldClassV_1x1</string>
+	</Modules>
+</ModuleSet>

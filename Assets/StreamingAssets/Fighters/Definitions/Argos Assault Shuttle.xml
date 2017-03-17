@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<FighterDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Argos Assault Shuttle</Name>
+  <FighterObject>Argos Assault Shuttle</FighterObject>
+  <Icon>Argos_128</Icon>
+  <MaxSquadronSize>6</MaxSquadronSize>
+  <Health>275</Health>
+  <ArmorHealth>0</ArmorHealth>
+  <ArmorRating>0</ArmorRating>
+  <ShieldHealth>0</ShieldHealth>
+  <ShieldRating>0</ShieldRating>
+  <ShieldRecharge>0</ShieldRecharge>
+  <ShieldDelay>0</ShieldDelay>
+  <AssaultPod>true</AssaultPod>
+  <Troops>4</Troops>
+  <Crew>1</Crew>
+  <EngineTrust>2.4</EngineTrust>
+  <EngineTurn>2</EngineTurn>
+  <ExperienceKillValue>0.15</ExperienceKillValue>
+  <WeaponNames />
+</FighterDefinition>

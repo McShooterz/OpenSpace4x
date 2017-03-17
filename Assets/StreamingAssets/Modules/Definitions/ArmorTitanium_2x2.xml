@@ -1,0 +1,20 @@
+﻿<Module>
+	<Texture>ArmorTitanium_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>4</ProductionCost>
+	<AlloyCost>8</AlloyCost>
+	<AdvancedAlloyCost>0</AdvancedAlloyCost>
+	<SuperiorAlloyCost>0</SuperiorAlloyCost>
+	<CrystalCost>0</CrystalCost>
+	<RareCrystalCost>0</RareCrystalCost>
+	<ExoticCrystalCost>0</ExoticCrystalCost>
+	<ExoticParticleCost>0</ExoticParticleCost>	
+	
+	<Health>4400</Health>
+	<Mass>12</Mass>
+	
+	<ArmorHealth>6600</ArmorHealth>
+	<ArmorRating>168</ArmorRating>
+</Module>

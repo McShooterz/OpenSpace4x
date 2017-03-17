@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModBulkheadNeutronium</Name>
+	<Description>ModBulkheadNeutroniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Bulkhead</SwapType>
+	<Modules>
+		<string>BulkheadNeutronium_4x4</string>
+		<string>BulkheadNeutronium_3x3</string>
+		<string>BulkheadNeutronium_2x2</string>
+		<string>BulkheadNeutronium_1x1</string>
+	</Modules>
+</ModuleSet>

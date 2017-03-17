@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModBulkheadSteel</Name>
+	<Description>ModBulkheadSteelDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Bulkhead</SwapType>
+	<Modules>
+		<string>BulkheadSteel_4x4</string>
+		<string>BulkheadSteel_3x3</string>
+		<string>BulkheadSteel_2x2</string>
+		<string>BulkheadSteel_1x1</string>
+	</Modules>
+</ModuleSet>

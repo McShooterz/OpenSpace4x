@@ -1,0 +1,15 @@
+﻿<Module>
+	<Texture>ArmorCarbonium_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>64</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	<AdvancedAlloyCost>16</AdvancedAlloyCost>
+	
+	<Health>51200</Health>
+	<Mass>64</Mass>
+	
+	<ArmorHealth>72000</ArmorHealth>
+	<ArmorRating>1152</ArmorRating>
+</Module>

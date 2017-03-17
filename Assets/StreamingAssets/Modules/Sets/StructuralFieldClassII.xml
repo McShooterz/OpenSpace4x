@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModStructuralFieldClassII</Name>
+	<Description>ModStructuralFieldClassIIDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>StructuralFields</SwapType>
+	<Modules>
+		<string>StructuralFieldClassII_4x4</string>
+		<string>StructuralFieldClassII_3x3</string>
+		<string>StructuralFieldClassII_2x2</string>
+		<string>StructuralFieldClassII_1x1</string>
+	</Modules>
+</ModuleSet>

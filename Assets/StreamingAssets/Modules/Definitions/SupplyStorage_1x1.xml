@@ -1,0 +1,12 @@
+<Module>
+	<Texture>SupplyStorage_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>1</ProductionCost>
+	
+	<Health>60</Health>
+	<Mass>1</Mass>
+	
+	<Supplies>2</Supplies>
+</Module>

@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModArmorTitanium</Name>
+	<Description>ModArmorTitaniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Armor</SwapType>
+	<Modules>
+		<string>ArmorTitanium_4x4</string>
+		<string>ArmorTitanium_3x3</string>
+		<string>ArmorTitanium_2x2</string>
+		<string>ArmorTitanium_1x1</string>
+	</Modules>
+</ModuleSet>

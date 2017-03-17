@@ -1,0 +1,18 @@
+<Module>
+	<Texture>Transporter_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>12</AlloyCost>
+	<CrystalCost>8</CrystalCost>
+	<RareCrystalCost>16</RareCrystalCost>
+	<ExoticParticleCost>4</ExoticParticleCost>
+	
+	<Health>400</Health>
+	<Mass>8</Mass>
+	<Power>24</Power>
+	<RequiredCrew>19</RequiredCrew>
+	
+	<Transporter>8</Transporter>
+</Module>

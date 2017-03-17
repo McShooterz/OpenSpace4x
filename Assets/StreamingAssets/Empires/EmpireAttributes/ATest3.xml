@@ -1,0 +1,38 @@
+<EmpireAttribute>
+	<Name>EmpCultTest</Name>
+	<Description></Description>
+	<AttributeType>Culture</AttributeType>
+	
+	<StartingMoney>1</StartingMoney>
+	<TaxRate>1</TaxRate>
+	<TaxModifier>1</TaxModifier>
+	<TradeModifier>1</TradeModifier>
+	
+	<MoralPerTurn>1</MoralPerTurn>
+	
+	<ProductionModifier>1</ProductionModifier>
+	<ProductionSpaceModifier>1</ProductionSpaceModifier>
+	<ResearchModifier>1</ResearchModifier>
+	<FarmingModifier>1</FarmingModifier>
+	<MiningModifier>1</MiningModifier>
+	
+	<PlanetDistrictUpkeepModifier>1</PlanetDistrictUpkeepModifier>
+	<PlanetObitalStructureUpkeepModifier>1</PlanetObitalStructureUpkeepModifier>
+	<ShipUpkeepModifier>1</ShipUpkeepModifier>
+	<StationUpkeepModifier>1</StationUpkeepModifier>
+	<ArmyUpkeepModifier>1</ArmyUpkeepModifier>
+	
+	<LeaderQualityModifier>1</LeaderQualityModifier>
+	<GovernorQualityModifier>1</GovernorQualityModifier>
+	<AdmiralQualityModifier>1</AdmiralQualityModifier>
+	<ScientistQualityModifier>1</ScientistQualityModifier>
+	<SpyQualityModifier>1</SpyQualityModifier>
+	
+	<PlanetDistrictCostModifier>1</PlanetDistrictCostModifier>
+	<PlanetObitalStructureCostModifier>1</PlanetObitalStructureCostModifier>
+	<ShipCostModifier>1</ShipCostModifier>
+	<StationCostModifier>1</StationCostModifier>
+	<ArmyCostModifier>1</ArmyCostModifier>
+	<MarketResourceBuyModifier>1</MarketResourceBuyModifier>
+	<MarketResourceSellModifier>1</MarketResourceSellModifier>
+</EmpireAttribute>

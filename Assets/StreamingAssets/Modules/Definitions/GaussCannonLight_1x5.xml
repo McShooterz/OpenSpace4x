@@ -1,0 +1,19 @@
+﻿<Module>
+	<Texture>GaussCannonLight_1x5</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>5</SizeY>
+	
+	<ProductionCost>10</ProductionCost>
+	<AlloyCost>10</AlloyCost>
+	<AdvancedAlloyCost>5</AdvancedAlloyCost>
+	<CrystalCost>10</CrystalCost>
+	
+	<Health>775</Health>
+	<Mass>5</Mass>
+	<Power>15</Power>	
+	<Ammo>105</Ammo>
+	<PowerStorage>75</PowerStorage>
+	<RequiredCrew>15</RequiredCrew>
+	
+	<Weapon>GaussCannonLight4</Weapon>
+</Module>

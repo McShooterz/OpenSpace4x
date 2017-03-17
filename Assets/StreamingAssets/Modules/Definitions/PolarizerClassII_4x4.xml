@@ -1,0 +1,20 @@
+﻿<Module>
+	<Texture>PolarizerClassII_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	<AdvancedAlloyCost>0</AdvancedAlloyCost>
+	<SuperiorAlloyCost>0</SuperiorAlloyCost>
+	<CrystalCost>27</CrystalCost>
+	<RareCrystalCost>0</RareCrystalCost>
+	<ExoticCrystalCost>0</ExoticCrystalCost>
+	
+	<Health>2560</Health>
+	<Mass>16</Mass>
+	<Power>96</Power>
+	<RequiredCrew>24</RequiredCrew>
+	
+	<ArmorRating>1584</ArmorRating>
+</Module>

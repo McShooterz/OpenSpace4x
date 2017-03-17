@@ -1,0 +1,13 @@
+<Module>
+	<Texture>AmmoStorage_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>4</ProductionCost>
+	
+	<Health>720</Health>
+	<Mass>4</Mass>
+	<RequiredCrew>1</RequiredCrew>
+	
+	<Ammo>240</Ammo>
+</Module>

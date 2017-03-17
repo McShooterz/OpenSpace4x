@@ -1,0 +1,9 @@
+<ModuleSet>
+	<Name>ModECMClassII</Name>
+	<Description>ModECMClassIIDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<Modules>
+		<string>ECMClassII_4x4</string>
+		<string>ECMClassII_2x2</string>
+	</Modules>
+</ModuleSet>

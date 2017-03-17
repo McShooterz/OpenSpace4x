@@ -1,0 +1,19 @@
+﻿<Module>
+	<Texture>FusionBeam_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>8</ProductionCost>
+	<AlloyCost>8</AlloyCost>
+	<AdvancedAlloyCost>4</AdvancedAlloyCost>
+	<CrystalCost>8</CrystalCost>
+	<RareCrystalCost>4</RareCrystalCost>
+	
+	<Health>440</Health>
+	<Mass>8</Mass>
+	<Power>10</Power>
+	<PowerStorage>152</PowerStorage>
+	<RequiredCrew>15</RequiredCrew>
+	
+	<Weapon>FusionBeam2</Weapon>
+</Module>

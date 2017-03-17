@@ -1,0 +1,10 @@
+﻿<Module>
+	<Texture>BulkheadSteel_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>1</ProductionCost>
+	
+	<Health>2200</Health>
+	<Mass>3</Mass>
+</Module>

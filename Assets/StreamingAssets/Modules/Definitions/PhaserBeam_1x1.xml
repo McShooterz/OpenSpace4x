@@ -1,0 +1,21 @@
+﻿<Module>
+	<Texture>PhaserBeam_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>4</ProductionCost>
+	<AlloyCost>4</AlloyCost>
+	<AdvancedAlloyCost>2</AdvancedAlloyCost>
+	<SuperiorAlloyCost>2</SuperiorAlloyCost>
+	<CrystalCost>5</CrystalCost>
+	<RareCrystalCost>2</RareCrystalCost>
+	<ExoticCrystalCost>1</ExoticCrystalCost>
+	
+	<Health>100</Health>
+	<Mass>2</Mass>
+	<Power>4.5</Power>
+	<PowerStorage>38</PowerStorage>
+	<RequiredCrew>4</RequiredCrew>
+	
+	<Weapon>PhaserBeam1</Weapon>
+</Module>

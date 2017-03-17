@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModPhaserBeam</Name>
+	<Description>ModPhaserBeamDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>PhaserBeam_4x4</string>
+		<string>PhaserBeam_3x3</string>
+		<string>PhaserBeam_2x2</string>
+		<string>PhaserBeam_1x1</string>
+	</Modules>
+</ModuleSet>

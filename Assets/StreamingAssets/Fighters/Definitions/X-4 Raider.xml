@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<FighterDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>X-4 Raider</Name>
+  <FighterObject>X-4 Raider</FighterObject>
+  <Icon>Raider_128</Icon>
+  <MaxSquadronSize>4</MaxSquadronSize>
+  <Health>1400</Health>
+  <ArmorHealth>700</ArmorHealth>
+  <ArmorRating>121</ArmorRating>
+  <ShieldHealth>500</ShieldHealth>
+  <ShieldRating>200</ShieldRating>
+  <ShieldRecharge>4</ShieldRecharge>
+  <ShieldDelay>6</ShieldDelay>
+  <AssaultPod>false</AssaultPod>
+  <Troops>0</Troops>
+  <Crew>1</Crew>
+  <EngineTrust>3.3</EngineTrust>
+  <EngineTurn>1.6</EngineTurn>
+  <ExperienceKillValue>0.45</ExperienceKillValue>
+  <WeaponNames>
+    <string>CannonLightFighter</string>
+    <string>MissileLightFighter</string>
+  </WeaponNames>
+</FighterDefinition>

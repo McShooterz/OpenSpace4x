@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModShieldEmitter</Name>
+	<Description>ModShieldEmitterDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<Modules>
+		<string>ShieldEmitter_4x4</string>
+		<string>ShieldEmitter_3x3</string>
+		<string>ShieldEmitter_2x2</string>
+		<string>ShieldEmitter_1x1</string>
+	</Modules>
+</ModuleSet>

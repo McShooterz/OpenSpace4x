@@ -1,0 +1,19 @@
+<Module>
+	<Texture>CloakingDevice_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	<CrystalCost>40</CrystalCost>
+	<RareCrystalCost>16</RareCrystalCost>
+	<ExoticCrystalCost>4</ExoticCrystalCost>
+	
+	<Health>400</Health>
+	<Mass>4</Mass>
+	<Power>20</Power>
+	<RequiredCrew>16</RequiredCrew>
+	
+	<CloakingPowerPerMass>1</CloakingPowerPerMass>
+	<PowerStorage>264</PowerStorage>
+</Module>

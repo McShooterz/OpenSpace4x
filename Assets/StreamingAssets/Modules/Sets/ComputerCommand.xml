@@ -1,0 +1,9 @@
+<ModuleSet>
+	<Name>ModComputerCommand</Name>
+	<Description>ModComputerCommandDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>ComputerCommand_3x3</string>
+		<string>ComputerCommand_2x2</string>
+	</Modules>
+</ModuleSet>

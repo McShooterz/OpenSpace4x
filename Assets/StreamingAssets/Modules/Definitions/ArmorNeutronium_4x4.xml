@@ -1,0 +1,14 @@
+﻿<Module>
+	<Texture>ArmorNeutronium_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<AlloyCost>48</AlloyCost>
+	
+	<Health>38400</Health>
+	<Mass>48</Mass>
+	
+	<ArmorHealth>54400</ArmorHealth>
+	<ArmorRating>976</ArmorRating>
+</Module>

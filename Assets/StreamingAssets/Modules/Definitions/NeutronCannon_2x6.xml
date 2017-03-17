@@ -1,0 +1,18 @@
+﻿<Module>
+	<Texture>NeutronCannon_2x6</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>6</SizeY>
+	
+	<ProductionCost>24</ProductionCost>
+	<AlloyCost>24</AlloyCost>
+	<CrystalCost>12</CrystalCost>
+	<RareCrystalCost>24</RareCrystalCost>
+	
+	<Health>2520</Health>
+	<Mass>18</Mass>
+	<Power>36</Power>
+	<PowerStorage>780</PowerStorage>
+	<RequiredCrew>42</RequiredCrew>
+	
+	<Weapon>NeutronCannon4</Weapon>
+</Module>

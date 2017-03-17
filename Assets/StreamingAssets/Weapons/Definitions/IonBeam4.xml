@@ -1,0 +1,29 @@
+<Weapon>
+	<Category>Beam</Category>
+	<isBeam>true</isBeam>
+	<BeamPowerCost>688</BeamPowerCost>
+	<Delay>6</Delay>
+	<BeamDuration>1.0</BeamDuration>	
+	<Arc>150</Arc>
+	<FirePowerRating>1</FirePowerRating>
+	<WeaponEffect>ionbeam</WeaponEffect>
+	<FireSound>FusionBeam</FireSound>
+	<Scale>0.2</Scale>
+	<ShieldDamageModifier>2.0</ShieldDamageModifier>
+	<ArmorDamageModifier>0.2</ArmorDamageModifier>
+	<PowerDamageModifier>0.5</PowerDamageModifier>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>4512</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>100</Range>
+			<Damage>3384</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>200</Range>
+			<Damage>1353.6</Damage>
+		</DamageNode>
+	</DamageGraph>
+</Weapon>

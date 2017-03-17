@@ -1,0 +1,10 @@
+<ModuleSet>
+	<Name>ModArmory</Name>
+	<Description>ModArmoryDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>Armory_4x4</string>
+		<string>Armory_3x3</string>
+		<string>Armory_2x2</string>
+	</Modules>
+</ModuleSet>

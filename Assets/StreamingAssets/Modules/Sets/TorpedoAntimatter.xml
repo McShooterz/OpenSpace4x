@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModTorpedoAntimatter</Name>
+	<Description>ModTorpedoAntimatterDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>TorpedoAntimatter_3x7</string>
+		<string>TorpedoAntimatter_3x6</string>
+		<string>TorpedoAntimatter_3x5</string>
+		<string>TorpedoAntimatter_3x4</string>
+	</Modules>
+</ModuleSet>

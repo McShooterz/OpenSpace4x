@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>Cannon_1x5</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>5</SizeY>
+	
+	<ProductionCost>5</ProductionCost>
+	<AlloyCost>5</AlloyCost>
+	
+	<Health>725</Health>
+	<Mass>5</Mass>
+	<Power>10</Power>	
+	<Ammo>70</Ammo>
+	<RequiredCrew>12.5</RequiredCrew>
+	
+	<Weapon>Cannon3</Weapon>
+</Module>

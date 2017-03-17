@@ -1,0 +1,29 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<PowerCost>190</PowerCost>
+	<Arc>30</Arc>
+	<Delay>6</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>1.55</ProjectileLife>
+	<ProjectileSpeed>11.4</ProjectileSpeed>
+	<WeaponEffect>plasmabolt</WeaponEffect>
+	<FireSound>PlasmaCannon</FireSound>
+	<HitEffect>explosionplasma</HitEffect>
+	<HitEffectTime>1.4</HitEffectTime>
+	<HitEffectScale>0.1</HitEffectScale>
+	<Scale>0.14</Scale>
+	<Spread>2</Spread>
+	<ShieldDamageModifier>1.25</ShieldDamageModifier>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>5112</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>355</Range>
+			<Damage>4345</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

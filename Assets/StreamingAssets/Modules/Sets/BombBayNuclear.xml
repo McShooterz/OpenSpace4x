@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModBombBayNuclear</Name>
+	<Description>ModBombBayNuclearDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>BombBayNuclear_4x4</string>
+		<string>BombBayNuclear_3x3</string>
+		<string>BombBayNuclear_2x2</string>
+		<string>BombBayNuclear_1x1</string>
+	</Modules>
+</ModuleSet>

@@ -1,0 +1,17 @@
+﻿<Module>
+	<Texture>StructuralFieldClassV_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>6</ProductionCost>
+	<AlloyCost>3</AlloyCost>
+	<AdvancedAlloyCost>2</AdvancedAlloyCost>
+	<CrystalCost>3</CrystalCost>
+	<RareCrystalCost>2</RareCrystalCost>
+	<ExoticCrystalCost>2</ExoticCrystalCost>	
+	
+	<Health>14000</Health>
+	<Mass>1</Mass>
+	<Power>11</Power>
+	<RequiredCrew>3</RequiredCrew>
+</Module>

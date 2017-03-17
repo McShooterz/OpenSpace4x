@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModArmorSteelHardened</Name>
+	<Description>ModArmorSteelHardenedDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Armor</SwapType>
+	<Modules>
+		<string>ArmorSteelHardened_4x4</string>
+		<string>ArmorSteelHardened_3x3</string>
+		<string>ArmorSteelHardened_2x2</string>
+		<string>ArmorSteelHardened_1x1</string>
+	</Modules>
+</ModuleSet>

@@ -1,0 +1,18 @@
+<Module>
+	<Texture>HangarBay_5x4</Texture>
+	<SizeX>5</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>20</ProductionCost>
+	<AlloyCost>40</AlloyCost>
+	
+	<Health>2400</Health>
+	<Mass>40</Mass>
+	<Power>10</Power>
+	<RequiredCrew>32</RequiredCrew>
+	<Crew>4</Crew>
+	
+	<HeavyFighters>
+		<string>X-4 Raider</string>
+	</HeavyFighters>
+</Module>

@@ -1,0 +1,26 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<Delay>8</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>1.3</ProjectileLife>
+	<ProjectileSpeed>8.0</ProjectileSpeed>
+	<WeaponEffect>missile</WeaponEffect>
+	<FireSound>BasicMissile</FireSound>
+	<HitEffect>explosion1</HitEffect>
+	<HitSound>ExplodeMissile</HitSound>
+	<HitEffectTime>2.2</HitEffectTime>
+	<HitEffectScale>0.027</HitEffectScale>
+	<Scale>0.075</Scale>
+	<ProjectileHealth>25</ProjectileHealth>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>270</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>180</Range>
+			<Damage>220</Damage>
+		</DamageNode>
+	</DamageGraph>
+</Weapon>

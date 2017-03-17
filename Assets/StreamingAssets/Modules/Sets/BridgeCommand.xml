@@ -1,0 +1,10 @@
+<ModuleSet>
+	<Name>ModCommandBridge</Name>
+	<Description>ModCommandBridgeDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>BridgeCommand_5x5</string>
+		<string>BridgeCommand_4x4</string>
+		<string>BridgeCommand_3x3</string>
+	</Modules>
+</ModuleSet>

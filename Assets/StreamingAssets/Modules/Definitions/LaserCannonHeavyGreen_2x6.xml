@@ -1,0 +1,17 @@
+﻿<Module>
+	<Texture>LaserCannonHeavyGreen_2x6</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>6</SizeY>
+	
+	<ProductionCost>24</ProductionCost>
+	<AlloyCost>24</AlloyCost>
+	<CrystalCost>12</CrystalCost>
+	
+	<Health>2340</Health>
+	<Mass>18</Mass>
+	<Power>36</Power>
+	<PowerStorage>720</PowerStorage>
+	<RequiredCrew>42</RequiredCrew>
+	
+	<Weapon>LaserCannonHeavyGreen4</Weapon>
+</Module>

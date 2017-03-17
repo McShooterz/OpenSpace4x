@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModIonBeam</Name>
+	<Description>ModIonBeamDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>IonBeam_4x4</string>
+		<string>IonBeam_3x3</string>
+		<string>IonBeam_2x2</string>
+		<string>IonBeam_1x1</string>
+	</Modules>
+</ModuleSet>

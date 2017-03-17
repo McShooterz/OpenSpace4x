@@ -1,0 +1,19 @@
+<Module>
+	<Texture>ShieldClassII_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	<CrystalCost>32</CrystalCost>
+	
+	<Health>2880</Health>
+	<Mass>16</Mass>
+	<Power>96</Power>
+	<RequiredCrew>24</RequiredCrew>
+	
+	<ShieldHealth>64000</ShieldHealth>
+	<ShieldRating>5440</ShieldRating>
+	<ShieldRechargeRate>168</ShieldRechargeRate>
+	<ShieldRechargeDelay>6</ShieldRechargeDelay>
+</Module>

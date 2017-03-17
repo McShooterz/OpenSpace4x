@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCannonHeavyHE</Name>
+	<Description>ModCannonHeavyHEDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>CannonHeavyHE_2x6</string>
+		<string>CannonHeavyHE_2x5</string>
+		<string>CannonHeavyHE_2x4</string>
+		<string>CannonHeavyHE_2x3</string>
+	</Modules>
+</ModuleSet>

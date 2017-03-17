@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ShipHullData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Emperor Class</Name>
+  <ShipObject>Emperor Class</ShipObject>
+  <SlotLayout>Emperor Class</SlotLayout>
+  <HardPoints>Emperor Class</HardPoints>
+  <Classification>Dreadnought</Classification>
+  <Icon>Emperor_128</Icon>
+  <MaxTurnTilt>30</MaxTurnTilt>
+  <ExplosionScale>2</ExplosionScale>
+  <BaseCommandPoints>31</BaseCommandPoints>
+  <BaseCrew>625</BaseCrew>
+  <BaseFTL>3</BaseFTL>
+  <BaseSupply>20</BaseSupply>
+  <BaseFuel>100</BaseFuel>
+  <BaseSensor>20</BaseSensor>
+  <BaseLongRangeSensor>25</BaseLongRangeSensor>
+  <BaseAdvancedSensor>0</BaseAdvancedSensor>
+  <BaseResearch>0</BaseResearch>
+  <BaseRepair>0.5</BaseRepair>
+  <BaseHealthPerSlot>8</BaseHealthPerSlot>
+  <BaseArmorPerSlot>2</BaseArmorPerSlot>
+  <ModuleLimitFore>NoEngines</ModuleLimitFore>
+  <ModuleLimitAft>AllowAll</ModuleLimitAft>
+  <ModuleLimitPort>NoEngines</ModuleLimitPort>
+  <ModuleLimitStarboard>NoEngines</ModuleLimitStarboard>
+  <ModuleLimitCenter>NoWeaponsOrEngines</ModuleLimitCenter>
+</ShipHullData>

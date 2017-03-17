@@ -1,0 +1,11 @@
+﻿<Module>
+	<Texture>BulkheadNeutronium_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	
+	<Health>86400</Health>
+	<Mass>32</Mass>
+</Module>

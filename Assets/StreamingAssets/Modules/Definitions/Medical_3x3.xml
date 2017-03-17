@@ -1,0 +1,19 @@
+<Module>
+	<Texture>Medical_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>36</ProductionCost>
+	<AlloyCost>18</AlloyCost>
+	<AdvancedAlloyCost>18</AdvancedAlloyCost>
+	<CrystalCost>9</CrystalCost>
+	<RareCrystalCost>18</RareCrystalCost>
+	<ExoticCrystalCost>18</ExoticCrystalCost>
+
+	<Health>945</Health>
+	<Mass>18</Mass>
+	<Power>27</Power>
+	<RequiredCrew>36</RequiredCrew>
+	
+	<Medical>54</Medical>
+</Module>

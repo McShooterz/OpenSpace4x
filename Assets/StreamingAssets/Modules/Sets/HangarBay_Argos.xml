@@ -1,0 +1,8 @@
+<ModuleSet>
+	<Name>ModHangarBayArgos</Name>
+	<Description>ModHangarBayArgosDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>HangarBay_Argos_3x3</string>
+	</Modules>
+</ModuleSet>

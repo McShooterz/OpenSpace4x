@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<ShipHullData xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>Helios Class</Name>
+  <ShipObject>Helios Class</ShipObject>
+  <SlotLayout>Helios Class</SlotLayout>
+  <HardPoints>Helios Class</HardPoints>
+  <Classification>Freighter</Classification>
+  <Icon>Helios_128</Icon>
+  <MaxTurnTilt>30</MaxTurnTilt>
+  <ExplosionScale>1</ExplosionScale>
+  <BaseCommandPoints>1</BaseCommandPoints>
+  <BaseCrew>176</BaseCrew>
+  <BaseFTL>3</BaseFTL>
+  <BaseSupply>30</BaseSupply>
+  <BaseFuel>100</BaseFuel>
+  <BaseSensor>20</BaseSensor>
+  <BaseLongRangeSensor>25</BaseLongRangeSensor>
+  <BaseAdvancedSensor>0</BaseAdvancedSensor>
+  <BaseResearch>0</BaseResearch>
+  <BaseRepair>0.5</BaseRepair>
+  <BaseHealthPerSlot>2</BaseHealthPerSlot>
+  <BaseArmorPerSlot>2</BaseArmorPerSlot>
+  <ModuleLimitFore>NoWeaponsOrEngines</ModuleLimitFore>
+  <ModuleLimitAft>NoWeapons</ModuleLimitAft>
+  <ModuleLimitPort>NoWeaponsOrEngines</ModuleLimitPort>
+  <ModuleLimitStarboard>NoWeaponsOrEngines</ModuleLimitStarboard>
+  <ModuleLimitCenter>NoWeaponsOrEngines</ModuleLimitCenter>
+</ShipHullData>

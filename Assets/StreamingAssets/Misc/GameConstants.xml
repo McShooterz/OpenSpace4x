@@ -1,0 +1,77 @@
+<GameConstants>
+	<ScreenTransitionRate>2.5</ScreenTransitionRate>
+
+	<BaseFleetCommandPointLimit>60</BaseFleetCommandPointLimit>
+	<BaseFoodValue>1</BaseFoodValue>
+	<BaseProductionValue>1</BaseProductionValue>
+	<BaseOreValue>0.5</BaseOreValue>
+	<BaseAlloyValue>1</BaseAlloyValue>
+	<BaseRareOreValue>1.25</BaseRareOreValue>
+	<BaseAdvancedAlloyValue>2</BaseAdvancedAlloyValue>
+	<BaseExoticOreValue>1.5</BaseExoticOreValue>
+	<BaseSuperiorAlloyValue>3</BaseSuperiorAlloyValue>
+	<BaseCrystalValue>1.5</BaseCrystalValue>
+	<BaseRareCrystalValue>2.5</BaseRareCrystalValue>
+	<BaseExoticCrystalValue>3.5</BaseExoticCrystalValue>
+	<BaseExoticParticleValue>5</BaseExoticParticleValue>
+	
+	<Highlight_Player>
+		<Red>0</Red>
+		<Green>1</Green>
+		<Blue>0</Blue>
+		<Alpha>1</Alpha>
+	</Highlight_Player>
+	
+	<Highlight_Enemy>
+		<Red>1</Red>
+		<Green>0</Green>
+		<Blue>0</Blue>
+		<Alpha>1</Alpha>
+	</Highlight_Enemy>
+	
+	<Highlight_Ally>
+		<Red>0</Red>
+		<Green>1</Green>
+		<Blue>1</Blue>
+		<Alpha>1</Alpha>
+	</Highlight_Ally>
+	
+	<Highlight_Neutral>
+		<Red>1</Red>
+		<Green>1</Green>
+		<Blue>0</Blue>
+		<Alpha>1</Alpha>
+	</Highlight_Neutral>
+	
+	<ShipSTLSpeedMultiplier>1.0</ShipSTLSpeedMultiplier>
+	<ShipSTLTurnMultiplier>1.0</ShipSTLTurnMultiplier>
+	<FighterTurnMultiplier>1.4</FighterTurnMultiplier>
+	<ShipTiltRate>0.25</ShipTiltRate>
+	<ShipDrag>0.9925</ShipDrag>
+	<ShipBrakeDrag>0.925</ShipBrakeDrag>
+	<FiringRangeFactor>0.05</FiringRangeFactor>
+	<AllowCombatRepair>true</AllowCombatRepair>
+	<MinShieldAbsorb>0.334</MinShieldAbsorb>
+	<CloakingTime>0.5</CloakingTime>
+	<CloakingTransparency>0.4</CloakingTransparency>
+	<boardingIntervalMax>0.25</boardingIntervalMax>
+	<boardingIntervalMin>0.0</boardingIntervalMin>
+	<MinCrewPercent>0.15</MinCrewPercent>
+	<RetreatTime>10</RetreatTime>
+	<SelfDestructTime>5</SelfDestructTime>
+	<WeaponCheckTime>0.2</WeaponCheckTime>
+	<BeamDamageIntervalTime>0.25</BeamDamageIntervalTime>
+	<ShipLevelDamageBonus>0.02</ShipLevelDamageBonus>
+	<ShipLevelDefenseBonus>0.02</ShipLevelDefenseBonus>
+	
+	<CameraSpeed>15</CameraSpeed>
+	<CameraZoomRate>150</CameraZoomRate>
+	<CameraLimitUp>200</CameraLimitUp>
+	<CameraLimitDown>-200</CameraLimitDown>
+	<CameraLimitLeft>-200</CameraLimitLeft>
+	<CameraLimitRight>200</CameraLimitRight>
+	<CameraLimitZoomMax>30</CameraLimitZoomMax>
+	<CameraLimitZoomMin>2</CameraLimitZoomMin>
+	<CameraBoarderArea>5</CameraBoarderArea>
+	<CameraRotateRate>30</CameraRotateRate>
+</GameConstants>

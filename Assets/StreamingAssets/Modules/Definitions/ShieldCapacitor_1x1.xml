@@ -1,0 +1,15 @@
+<Module>
+	<Texture>ShieldCapacitor_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>1</ProductionCost>
+	<AlloyCost>1</AlloyCost>
+	
+	<Health>80</Health>
+	<Mass>1</Mass>
+	<Power>.5</Power>
+	<RequiredCrew>2</RequiredCrew>
+	
+	<ShieldHealth>2800</ShieldHealth>
+</Module>

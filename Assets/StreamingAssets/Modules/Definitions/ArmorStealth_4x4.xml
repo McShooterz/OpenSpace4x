@@ -1,0 +1,18 @@
+﻿<Module>
+	<Texture>ArmorStealth_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>96</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	<AdvancedAlloyCost>32</AdvancedAlloyCost>
+	<CrystalCost>48</CrystalCost>
+	
+	<Health>30400</Health>
+	<Mass>64</Mass>
+	
+	<ArmorHealth>41600</ArmorHealth>
+	<ArmorRating>832</ArmorRating>
+	
+	<Stealth>288</Stealth>
+</Module>

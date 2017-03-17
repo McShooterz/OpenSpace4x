@@ -1,0 +1,21 @@
+﻿<Module>
+	<Texture>TorpedoAntimatter_3x5</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>5</SizeY>
+	
+	<ProductionCost>75</ProductionCost>
+	<AlloyCost>75</AlloyCost>
+	<AdvancedAlloyCost>30</AdvancedAlloyCost>
+	<SuperiorAlloyCost>15</SuperiorAlloyCost>
+	<CrystalCost>60</CrystalCost>
+	<RareCrystalCost>30</RareCrystalCost>
+	<ExoticCrystalCost>15</ExoticCrystalCost>
+	
+	<Health>2400</Health>
+	<Mass>15</Mass>
+	<Power>90</Power>	
+	<Ammo>270</Ammo>
+	<RequiredCrew>26</RequiredCrew>
+	
+	<Weapon>TorpedoAntimatter2</Weapon>
+</Module>

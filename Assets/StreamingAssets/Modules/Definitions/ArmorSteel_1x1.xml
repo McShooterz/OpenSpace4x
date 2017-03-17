@@ -1,0 +1,13 @@
+﻿<Module>
+	<Texture>ArmorSteel_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>1</ProductionCost>
+	
+	<Health>1200</Health>
+	<Mass>4</Mass>
+	
+	<ArmorHealth>900</ArmorHealth>
+	<ArmorRating>20</ArmorRating>
+</Module>

@@ -1,0 +1,30 @@
+<Weapon>
+	<Category>Cannon</Category>
+	<AlwaysForward>true</AlwaysForward>
+	<PowerCost>130</PowerCost>
+	<Arc>30</Arc>
+	<Delay>4</Delay>	
+	<SalvoSize>1</SalvoSize>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>1.45</ProjectileLife>
+	<ProjectileSpeed>10.8</ProjectileSpeed>
+	<WeaponEffect>laserbolt_green</WeaponEffect>
+	<FireSound>BasicLaser</FireSound>
+	<HitEffect>laserimpactgreen</HitEffect>
+	<HitSound>LaserImpact</HitSound>
+	<HitEffectTime>1.4</HitEffectTime>
+	<HitEffectScale>0.24</HitEffectScale>
+	<Scale>0.28</Scale>
+	<Spread>3</Spread>
+	<ArmorDamageModifier>0.9</ArmorDamageModifier>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>2040</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>270</Range>
+			<Damage>1632</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

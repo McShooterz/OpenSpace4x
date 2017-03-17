@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<FighterDefinition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Name>F-61 Wraith</Name>
+  <FighterObject>F-61 Wraith</FighterObject>
+  <Icon>Wraith_128</Icon>
+  <MaxSquadronSize>6</MaxSquadronSize>
+  <Health>500</Health>
+  <ArmorHealth>400</ArmorHealth>
+  <ArmorRating>24</ArmorRating>
+  <ShieldHealth>200</ShieldHealth>
+  <ShieldRating>50</ShieldRating>
+  <ShieldRecharge>3</ShieldRecharge>
+  <ShieldDelay>8</ShieldDelay>
+  <AssaultPod>false</AssaultPod>
+  <Troops>0</Troops>
+  <Crew>1</Crew>
+  <EngineTrust>3</EngineTrust>
+  <EngineTurn>2</EngineTurn>
+  <ExperienceKillValue>0.2</ExperienceKillValue>
+  <WeaponNames>
+    <string>CannonLightFighter</string>
+  </WeaponNames>
+</FighterDefinition>

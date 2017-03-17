@@ -1,0 +1,21 @@
+﻿<Module>
+	<Texture>ArmorTitaniumSmart_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>9</ProductionCost>
+	<AlloyCost>9</AlloyCost>
+	<AdvancedAlloyCost>0</AdvancedAlloyCost>
+	<SuperiorAlloyCost>0</SuperiorAlloyCost>
+	<CrystalCost>9</CrystalCost>
+	<RareCrystalCost>0</RareCrystalCost>
+	<ExoticCrystalCost>0</ExoticCrystalCost>
+	<ExoticParticleCost>0</ExoticParticleCost>	
+	
+	<Health>13050</Health>
+	<Mass>18</Mass>
+	<Power>18</Power>
+	
+	<ArmorHealth>18900</ArmorHealth>
+	<ArmorRating>423</ArmorRating>
+</Module>

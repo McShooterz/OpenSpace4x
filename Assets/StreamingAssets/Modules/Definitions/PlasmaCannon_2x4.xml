@@ -1,0 +1,18 @@
+﻿<Module>
+	<Texture>PlasmaCannon_2x4</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>24</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	<CrystalCost>16</CrystalCost>
+	<RareCrystalCost>8</RareCrystalCost>
+	
+	<Health>1440</Health>
+	<Mass>12</Mass>
+	<Power>32</Power>
+	<PowerStorage>480</PowerStorage>
+	<RequiredCrew>36</RequiredCrew>
+	
+	<Weapon>PlasmaCannon2</Weapon>
+</Module>

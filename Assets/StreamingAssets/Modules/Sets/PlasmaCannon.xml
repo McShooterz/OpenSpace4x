@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModPlasmaCannon</Name>
+	<Description>ModPlasmaCannonDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>PlasmaCannon_2x6</string>
+		<string>PlasmaCannon_2x5</string>
+		<string>PlasmaCannon_2x4</string>
+		<string>PlasmaCannon_2x3</string>
+	</Modules>
+</ModuleSet>

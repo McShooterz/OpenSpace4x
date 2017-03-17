@@ -1,0 +1,14 @@
+<Module>
+	<Texture>FuelStorage_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>1</ProductionCost>
+	<AlloyCost>1</AlloyCost>
+	<CrystalCost>1</CrystalCost>
+	
+	<Health>50</Health>
+	<Mass>1</Mass>
+	
+	<Fuel>15</Fuel>
+</Module>

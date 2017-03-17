@@ -1,0 +1,18 @@
+<Module>
+	<Texture>ReactorAntimatter_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>80</ProductionCost>
+	<AlloyCost>64</AlloyCost>
+	<AdvancedAlloyCost>32</AdvancedAlloyCost>
+	<CrystalCost>48</CrystalCost>
+	<RareCrystalCost>16</RareCrystalCost>
+	
+	<Health>560</Health>
+	<Mass>32</Mass>
+	<RequiredCrew>28</RequiredCrew>
+	
+	<PowerGenerated>752</PowerGenerated>
+	<PowerStorage>1840</PowerStorage>
+</Module>

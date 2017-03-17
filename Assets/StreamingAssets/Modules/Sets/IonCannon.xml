@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModIonCannon</Name>
+	<Description>ModIonCannonDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>IonCannon_2x5</string>
+		<string>IonCannon_2x4</string>
+		<string>IonCannon_2x3</string>
+		<string>IonCannon_2x2</string>
+	</Modules>
+</ModuleSet>

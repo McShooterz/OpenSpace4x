@@ -1,0 +1,25 @@
+<Module>
+	<Texture>BridgeCommand_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>64</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	<AdvancedAlloyCost>32</AdvancedAlloyCost>
+	<SuperiorAlloyCost>16</SuperiorAlloyCost>
+	<CrystalCost>16</CrystalCost>
+	<RareCrystalCost>16</RareCrystalCost>
+	<ExoticCrystalCost>16</ExoticCrystalCost>
+	<ExoticParticleCost>16</ExoticParticleCost>
+	
+	<Health>1840</Health>
+	<Mass>32</Mass>
+	<Power>32</Power>
+	<RequiredCrew>96</RequiredCrew>
+	
+	<DamageBonusFleet>0.10</DamageBonusFleet>
+	<DefenseBonusFleet>0.10</DefenseBonusFleet>
+	
+	<CommandPointReduction>3</CommandPointReduction>
+	<CommandPointBonusFleet>12</CommandPointBonusFleet>
+</Module>

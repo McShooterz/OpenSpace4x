@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModSupplyStorage</Name>
+	<Description>ModSupplyStorageDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>SupplyStorage_4x4</string>
+		<string>SupplyStorage_3x3</string>
+		<string>SupplyStorage_2x2</string>
+		<string>SupplyStorage_1x1</string>
+	</Modules>
+</ModuleSet>

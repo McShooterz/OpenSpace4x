@@ -1,0 +1,33 @@
+<Weapon>
+	<Category>Torpedo</Category>
+	<isHoming>true</isHoming>
+	<AlwaysForward>true</AlwaysForward>
+	<AmmoCost>24</AmmoCost>
+	<PowerCost>240</PowerCost>
+	<Arc>30</Arc>
+	<Delay>11</Delay>	
+	<SalvoSize>3</SalvoSize>
+	<SalvoDelay>0.2</SalvoDelay>
+	<FirePowerRating>2</FirePowerRating>
+	<ProjectileLife>16</ProjectileLife>
+	<ProjectileSpeed>6.2</ProjectileSpeed>
+	<ProjectileTurnRate>5.0</ProjectileTurnRate>
+	<WeaponEffect>torpedophoton</WeaponEffect>
+	<FireSound>BasicTorpedo</FireSound>
+	<HitEffect>explosionphoton</HitEffect>
+	<HitSound>ExplodeMissile</HitSound>
+	<HitEffectTime>2.0</HitEffectTime>
+	<HitEffectScale>0.1</HitEffectScale>
+	<Scale>0.02</Scale>
+	<HomingAdditionalTargets>4</HomingAdditionalTargets>
+	<DamageGraph>
+		<DamageNode>
+			<Range>0</Range>
+			<Damage>3630</Damage>
+		</DamageNode>
+		<DamageNode>
+			<Range>460</Range>
+			<Damage>3448.5</Damage>
+		</DamageNode>
+	</DamageGraph>	
+</Weapon>

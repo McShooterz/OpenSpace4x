@@ -1,0 +1,12 @@
+﻿<Module>
+	<Texture>BulkheadQuantanium_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>48</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	<AdvancedAlloyCost>16</AdvancedAlloyCost>
+	
+	<Health>134400</Health>
+	<Mass>32</Mass>
+</Module>

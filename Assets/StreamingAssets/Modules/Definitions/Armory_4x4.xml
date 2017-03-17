@@ -1,0 +1,16 @@
+<Module>
+	<Texture>Armory_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	<AlloyCost>32</AlloyCost>
+	
+	<Health>2560</Health>
+	<Mass>16</Mass>
+	<Power>32</Power>
+	<RequiredCrew>32</RequiredCrew>
+	
+	<BoardingDefense>40</BoardingDefense>
+	<Troops>64</Troops>
+</Module>

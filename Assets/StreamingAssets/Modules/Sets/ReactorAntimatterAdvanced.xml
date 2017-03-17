@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModReactorAntimatterAdvanced</Name>
+	<Description>ModReactorAntimatterAdvancedDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<SwapType>PowerPlant</SwapType>
+	<Modules>
+		<string>ReactorAntimatterAdvanced_4x4</string>
+		<string>ReactorAntimatterAdvanced_3x3</string>
+		<string>ReactorAntimatterAdvanced_2x2</string>
+		<string>ReactorAntimatterAdvanced_1x1</string>
+	</Modules>
+</ModuleSet>

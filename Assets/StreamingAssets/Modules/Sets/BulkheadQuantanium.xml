@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModBulkheadQuantanium</Name>
+	<Description>ModBulkheadQuantaniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Bulkhead</SwapType>
+	<Modules>
+		<string>BulkheadQuantanium_4x4</string>
+		<string>BulkheadQuantanium_3x3</string>
+		<string>BulkheadQuantanium_2x2</string>
+		<string>BulkheadQuantanium_1x1</string>
+	</Modules>
+</ModuleSet>

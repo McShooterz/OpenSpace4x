@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>MissileLight_3x1</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>3</ProductionCost>
+	<AlloyCost>3</AlloyCost>
+	
+	<Health>330</Health>
+	<Mass>3</Mass>
+	<Power>6</Power>	
+	<Ammo>36</Ammo>
+	<RequiredCrew>9</RequiredCrew>
+	
+	<Weapon>MissileLight3</Weapon>
+</Module>

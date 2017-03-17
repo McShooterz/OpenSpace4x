@@ -1,0 +1,16 @@
+﻿<Module>
+	<Texture>CannonHeavyHE_2x4</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>12</ProductionCost>
+	<AlloyCost>8</AlloyCost>
+	
+	<Health>1400</Health>
+	<Mass>8</Mass>
+	<Power>16</Power>
+	<Ammo>128</Ammo>
+	<RequiredCrew>18</RequiredCrew>
+	
+	<Weapon>CannonHeavyHE2</Weapon>
+</Module>

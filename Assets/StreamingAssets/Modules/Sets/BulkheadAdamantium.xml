@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModBulkheadAdamantium</Name>
+	<Description>ModBulkheadAdamantiumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Bulkhead</SwapType>
+	<Modules>
+		<string>BulkheadAdamantium_4x4</string>
+		<string>BulkheadAdamantium_3x3</string>
+		<string>BulkheadAdamantium_2x2</string>
+		<string>BulkheadAdamantium_1x1</string>
+	</Modules>
+</ModuleSet>

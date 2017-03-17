@@ -1,0 +1,13 @@
+<ModuleSet>
+	<Name>ModEnginesCombatClassI</Name>
+	<Description>ModEnginesCombatClassIDesc</Description>
+	<ModuleCategory>Engines</ModuleCategory>
+	<SetRestriction>ShipsOnly</SetRestriction>
+	<SwapType>Engines</SwapType>
+	<Modules>
+		<string>EnginesCombatClassI_4x4</string>
+		<string>EnginesCombatClassI_3x3</string>
+		<string>EnginesCombatClassI_2x2</string>
+		<string>EnginesCombatClassI_1x1</string>
+	</Modules>
+</ModuleSet>

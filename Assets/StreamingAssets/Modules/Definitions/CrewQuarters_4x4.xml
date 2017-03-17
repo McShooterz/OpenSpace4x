@@ -1,0 +1,13 @@
+<Module>
+	<Texture>CrewQuarters_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	
+	<Health>1920</Health>
+	<Mass>16</Mass>
+	<Power>8</Power>
+	
+	<Crew>352</Crew>
+</Module>

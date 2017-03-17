@@ -1,0 +1,9 @@
+<ModuleSet>
+	<Name>ModConferenceRoom</Name>
+	<Description>ModConferenceRoomDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>ConferenceRoom_4x3</string>
+		<string>ConferenceRoom_2x2</string>
+	</Modules>
+</ModuleSet>

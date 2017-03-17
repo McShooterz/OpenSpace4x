@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModCannonArtillery</Name>
+	<Description>ModCannonArtilleryDesc</Description>
+	<ModuleCategory>Weapons</ModuleCategory>
+	<Modules>
+		<string>CannonArtillery_2x5</string>
+		<string>CannonArtillery_2x4</string>
+		<string>CannonArtillery_2x3</string>
+		<string>CannonArtillery_2x2</string>
+	</Modules>
+</ModuleSet>

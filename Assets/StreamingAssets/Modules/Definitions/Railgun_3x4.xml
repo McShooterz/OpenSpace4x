@@ -1,0 +1,20 @@
+﻿<Module>
+	<Texture>Railgun_3x4</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>48</ProductionCost>
+	<AlloyCost>48</AlloyCost>
+	<AdvancedAlloyCost>36</AdvancedAlloyCost>
+	<CrystalCost>24</CrystalCost>
+	<RareCrystalCost>12</RareCrystalCost>
+	
+	<Health>1800</Health>
+	<Mass>12</Mass>
+	<Power>72</Power>	
+	<Ammo>240</Ammo>
+	<PowerStorage>300</PowerStorage>
+	<RequiredCrew>39</RequiredCrew>
+	
+	<Weapon>Railgun1</Weapon>
+</Module>

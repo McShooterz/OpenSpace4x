@@ -1,0 +1,14 @@
+﻿<Module>
+	<Texture>ArmorSteelSmart_4x4</Texture>
+	<SizeX>4</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>32</ProductionCost>
+	
+	<Health>22400</Health>
+	<Mass>48</Mass>
+	<Power>8</Power>
+	
+	<ArmorHealth>28800</ArmorHealth>
+	<ArmorRating>672</ArmorRating>
+</Module>

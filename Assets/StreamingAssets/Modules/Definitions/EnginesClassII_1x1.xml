@@ -1,0 +1,19 @@
+<Module>
+	<Texture>EnginesClassII_1x1</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>1</SizeY>
+	
+	<ProductionCost>2</ProductionCost>
+	<AlloyCost>1</AlloyCost>
+	<AdvancedAlloyCost>1</AdvancedAlloyCost>
+	<CrystalCost>2</CrystalCost>
+	
+	<Health>100</Health>
+	<Mass>2</Mass>
+	<Power>5</Power>
+	<RequiredCrew>3</RequiredCrew>
+	
+	<EngineFTL>7</EngineFTL>
+	<EngineThrust>25</EngineThrust>
+	<EngineTurn>18</EngineTurn>
+</Module>

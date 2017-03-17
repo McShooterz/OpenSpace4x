@@ -1,0 +1,19 @@
+<Module>
+	<Texture>EnginesCombatClassIII_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>36</ProductionCost>
+	<AlloyCost>18</AlloyCost>
+	<AdvancedAlloyCost>18</AdvancedAlloyCost>
+	<CrystalCost>18</CrystalCost>
+	<RareCrystalCost>9</RareCrystalCost>
+	
+	<Health>1080</Health>
+	<Mass>13.5</Mass>
+	<Power>54</Power>
+	<RequiredCrew>18</RequiredCrew>
+
+	<EngineThrust>468</EngineThrust>
+	<EngineTurn>423</EngineTurn>
+</Module>

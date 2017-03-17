@@ -1,0 +1,22 @@
+﻿<Module>
+	<Texture>CannonAntimatterHeavy_3x6</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>6</SizeY>
+	
+	<ProductionCost>126</ProductionCost>
+	<AlloyCost>90</AlloyCost>
+	<AdvancedAlloyCost>54</AdvancedAlloyCost>
+	<SuperiorAlloyCost>36</SuperiorAlloyCost>
+	<CrystalCost>90</CrystalCost>
+	<RareCrystalCost>54</RareCrystalCost>
+	<ExoticCrystalCost>18</ExoticCrystalCost>
+	
+	<Health>3600</Health>
+	<Mass>18</Mass>
+	<Power>144</Power>	
+	<Ammo>576</Ammo>
+	<PowerStorage>720</PowerStorage>
+	<RequiredCrew>50</RequiredCrew>
+	
+	<Weapon>CannonAntimatterHeavy2</Weapon>
+</Module>

@@ -1,0 +1,15 @@
+﻿<Module>
+	<Texture>ArmorQuantanium_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>45</ProductionCost>
+	<AlloyCost>18</AlloyCost>
+	<AdvancedAlloyCost>18</AdvancedAlloyCost>
+	
+	<Health>26100</Health>
+	<Mass>27</Mass>
+	
+	<ArmorHealth>36900</ArmorHealth>
+	<ArmorRating>612</ArmorRating>
+</Module>

@@ -1,0 +1,11 @@
+<ModuleSet>
+	<Name>ModTacticalBridge</Name>
+	<Description>ModTacticalBridgeDesc</Description>
+	<ModuleCategory>Systems</ModuleCategory>
+	<Modules>
+		<string>BridgeTactical_5x5</string>
+		<string>BridgeTactical_4x4</string>
+		<string>BridgeTactical_3x3</string>
+		<string>BridgeTactical_2x2</string>
+	</Modules>
+</ModuleSet>

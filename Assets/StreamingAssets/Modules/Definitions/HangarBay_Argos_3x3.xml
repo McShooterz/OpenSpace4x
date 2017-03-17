@@ -1,0 +1,19 @@
+<Module>
+	<Texture>HangarBay_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>20</AlloyCost>
+	
+	<Health>450</Health>
+	<Mass>18</Mass>
+	<Power>4.5</Power>
+	<RequiredCrew>30</RequiredCrew>
+	<Crew>6</Crew>
+	<Troops>24</Troops>
+	
+	<AssaultPods>
+		<string>Argos Assault Shuttle</string>
+	</AssaultPods>
+</Module>

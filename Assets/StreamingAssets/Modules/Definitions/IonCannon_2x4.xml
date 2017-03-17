@@ -1,0 +1,17 @@
+﻿<Module>
+	<Texture>IonCannon_2x4</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>16</AlloyCost>
+	<CrystalCost>24</CrystalCost>
+	
+	<Health>1200</Health>
+	<Mass>8</Mass>
+	<Power>16</Power>
+	<PowerStorage>400</PowerStorage>
+	<RequiredCrew>30</RequiredCrew>
+	
+	<Weapon>IonCannon3</Weapon>
+</Module>

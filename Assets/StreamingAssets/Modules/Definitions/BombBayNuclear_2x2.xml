@@ -1,0 +1,19 @@
+<Module>
+	<Texture>BombBayNuclear_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>4</ProductionCost>
+	<AlloyCost>8</AlloyCost>
+	<CrystalCost>4</CrystalCost>
+	
+	<Health>220</Health>
+	<Mass>4</Mass>
+	<Power>8</Power>
+	<RequiredCrew>6</RequiredCrew>
+	
+	<BombArmyDamage>6</BombArmyDamage>
+	<BombStructureDamage>6</BombStructureDamage>
+	<BombPopulationDamage>6</BombPopulationDamage>
+	<BombPollution>16</BombPollution>
+</Module>

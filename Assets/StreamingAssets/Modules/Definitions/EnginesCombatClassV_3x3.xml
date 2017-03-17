@@ -1,0 +1,20 @@
+<Module>
+	<Texture>EnginesCombatClassV_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>81</ProductionCost>
+	<AlloyCost>36</AlloyCost>
+	<AdvancedAlloyCost>27</AdvancedAlloyCost>
+	<CrystalCost>36</CrystalCost>
+	<RareCrystalCost>27</RareCrystalCost>
+	<ExoticCrystalCost>18</ExoticCrystalCost>
+	
+	<Health>1080</Health>
+	<Mass>9</Mass>
+	<Power>90</Power>
+	<RequiredCrew>18</RequiredCrew>
+	
+	<EngineThrust>630</EngineThrust>
+	<EngineTurn>558</EngineTurn>
+</Module>

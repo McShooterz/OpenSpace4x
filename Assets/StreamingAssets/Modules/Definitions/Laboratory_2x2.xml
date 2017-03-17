@@ -1,0 +1,17 @@
+<Module>
+	<Texture>Laboratory_2x2</Texture>
+	<SizeX>2</SizeX>
+	<SizeY>2</SizeY>
+	
+	<ProductionCost>16</ProductionCost>
+	<AlloyCost>8</AlloyCost>
+	<AdvancedAlloyCost>4</AdvancedAlloyCost>
+	<ExoticParticleCost>4</ExoticParticleCost>
+	
+	<Health>400</Health>
+	<Mass>8</Mass>
+	<Power>12</Power>
+	<RequiredCrew>10</RequiredCrew>
+	
+	<Research>4</Research>
+</Module>

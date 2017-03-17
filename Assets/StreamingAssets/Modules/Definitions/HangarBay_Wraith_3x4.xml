@@ -1,0 +1,18 @@
+<Module>
+	<Texture>HangarBay_3x4</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>4</SizeY>
+	
+	<ProductionCost>12</ProductionCost>
+	<AlloyCost>12</AlloyCost>
+	
+	<Health>1200</Health>
+	<Mass>24</Mass>
+	<Power>6</Power>
+	<RequiredCrew>24</RequiredCrew>
+	<Crew>6</Crew>
+	
+	<Fighters>
+		<string>F-61 Wraith</string>
+	</Fighters>
+</Module>

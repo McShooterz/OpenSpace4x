@@ -1,0 +1,15 @@
+﻿<Module>
+	<Texture>CannonLight_1x3</Texture>
+	<SizeX>1</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>3</ProductionCost>
+	
+	<Health>330</Health>
+	<Mass>3</Mass>
+	<Power>6</Power>	
+	<Ammo>36</Ammo>
+	<RequiredCrew>9</RequiredCrew>
+	
+	<Weapon>CannonLight3</Weapon>
+</Module>

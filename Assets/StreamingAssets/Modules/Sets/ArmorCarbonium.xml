@@ -1,0 +1,12 @@
+<ModuleSet>
+	<Name>ModArmorCarbonium</Name>
+	<Description>ModArmorCarboniumDesc</Description>
+	<ModuleCategory>Defences</ModuleCategory>
+	<SwapType>Armor</SwapType>
+	<Modules>
+		<string>ArmorCarbonium_4x4</string>
+		<string>ArmorCarbonium_3x3</string>
+		<string>ArmorCarbonium_2x2</string>
+		<string>ArmorCarbonium_1x1</string>
+	</Modules>
+</ModuleSet>

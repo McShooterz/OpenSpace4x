@@ -1,0 +1,21 @@
+<Module>
+	<Texture>EnginesClassIV_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>54</ProductionCost>
+	<AlloyCost>27</AlloyCost>
+	<AdvancedAlloyCost>18</AdvancedAlloyCost>
+	<CrystalCost>27</CrystalCost>
+	<RareCrystalCost>18</RareCrystalCost>
+	<ExoticCrystalCost>9</ExoticCrystalCost>
+	
+	<Health>1080</Health>
+	<Mass>9</Mass>
+	<Power>72</Power>
+	<RequiredCrew>18</RequiredCrew>
+	
+	<EngineFTL>180</EngineFTL>
+	<EngineThrust>477</EngineThrust>
+	<EngineTurn>414</EngineTurn>
+</Module>

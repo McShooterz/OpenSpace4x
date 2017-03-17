@@ -1,0 +1,16 @@
+<Module>
+	<Texture>HoloDeck_3x3</Texture>
+	<SizeX>3</SizeX>
+	<SizeY>3</SizeY>
+	
+	<ProductionCost>18</ProductionCost>
+	<AlloyCost>27</AlloyCost>
+	<CrystalCost>9</CrystalCost>
+	
+	<Health>900</Health>
+	<Mass>9</Mass>
+	<Power>27</Power>
+	<RequiredCrew>27</RequiredCrew>
+	
+	<ExperienceBonus>0.5</ExperienceBonus>
+</Module>
