@@ -6,8 +6,7 @@ Open source space 4x game foundation
 
 * Clone repository to local drive
 * Download and install Unity 5.5.2f1
-* Download [OpenSpaceProtected.dll](https://bitbucket.org/McShooterz/openspace4x/downloads/OpenSpaceProtected.dll)
-* Move OpenSpaceProtected.dll to OpenSpace4x\Assets\Scripts\DLL\
+* Download [OpenSpaceProtected.dll](https://bitbucket.org/McShooterz/openspace4x/downloads/OpenSpaceProtected.dll) and move to OpenSpace4x\Assets\Scripts\DLL\
 
 ***
 
