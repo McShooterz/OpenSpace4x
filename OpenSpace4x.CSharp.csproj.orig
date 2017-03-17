@@ -1,0 +1,437 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{34F199D3-47A3-3C1F-99F6-E6F180115864}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkIdentifier>.NETFramework</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Unity Subset v3.5</TargetFrameworkProfile>
+    <CompilerResponseFile></CompilerResponseFile>
+    <UnityProjectType>Game:1</UnityProjectType>
+    <UnityBuildTarget>StandaloneWindows:5</UnityBuildTarget>
+    <UnityVersion>5.3.5f1</UnityVersion>
+    <RootNamespace></RootNamespace>
+    <LangVersion Condition=" '$(VisualStudioVersion)' != '10.0' ">4</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Debug\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Debug\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_5;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\UnityVS_bin\Release\</OutputPath>
+    <IntermediateOutputPath>Temp\UnityVS_obj\Release\</IntermediateOutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DefineConstants>TRACE;UNITY_5_3_OR_NEWER;UNITY_5_3_5;UNITY_5_3;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SINGLE_INSTANCE_BUILD_SETTING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_LOG_MIXED_STACKTRACE;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;DEBUG;TRACE;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN</DefineConstants>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="Boo.Lang" />
+    <Reference Include="UnityScript.Lang" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>Library\UnityAssemblies\UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenSpaceProtected">
+      <HintPath>Assets\Scripts\DLL\OpenSpaceProtected.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="openspace4x.CSharp.Plugins.csproj">
+      <Project>{F32120FC-D260-04DF-3BE3-C6BAEC637989}</Project>
+      <Name>openspace4x.CSharp.Plugins</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\Scripts\AttachedWeapon.cs" />
+    <Compile Include="Assets\Scripts\Controllers\CampaignController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\GalaxyController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\GameController.cs" />
+    <Compile Include="Assets\Scripts\Controllers\ResourceManager.cs" />
+    <Compile Include="Assets\Scripts\Data\DesignModule.cs" />
+    <Compile Include="Assets\Scripts\Data\Empire.cs" />
+    <Compile Include="Assets\Scripts\Data\FleetManager.cs" />
+    <Compile Include="Assets\Scripts\Data\GameConstants.cs" />
+    <Compile Include="Assets\Scripts\Data\HardPointSet.cs" />
+    <Compile Include="Assets\Scripts\Data\HardPoints.cs" />
+    <Compile Include="Assets\Scripts\Data\HullData.cs" />
+    <Compile Include="Assets\Scripts\Data\PlanetaryDistrict.cs" />
+    <Compile Include="Assets\Scripts\Data\SavedWeapon.cs" />
+    <Compile Include="Assets\Scripts\Data\ShipDesign.cs" />
+    <Compile Include="Assets\Scripts\Data\ShipDesignData.cs" />
+    <Compile Include="Assets\Scripts\Data\ShipDesignQuadData.cs" />
+    <Compile Include="Assets\Scripts\Data\ShipManager.cs" />
+    <Compile Include="Assets\Scripts\Data\ShipQuadrant.cs" />
+    <Compile Include="Assets\Scripts\Data\SolarSystem.cs" />
+    <Compile Include="Assets\Scripts\Enum\GalaxyType.cs" />
+    <Compile Include="Assets\Scripts\Enum\Language.cs" />
+    <Compile Include="Assets\Scripts\Enum\ModuleCategory.cs" />
+    <Compile Include="Assets\Scripts\Enum\ModuleLimitType.cs" />
+    <Compile Include="Assets\Scripts\Enum\PlanetType.cs" />
+    <Compile Include="Assets\Scripts\Enum\QuadrantTypes.cs" />
+    <Compile Include="Assets\Scripts\Enum\ScreenStates.cs" />
+    <Compile Include="Assets\Scripts\Enum\ShipType.cs" />
+    <Compile Include="Assets\Scripts\Enum\StarType.cs" />
+    <Compile Include="Assets\Scripts\Enum\WeaponCategory.cs" />
+    <Compile Include="Assets\Scripts\GUI_Helpers\GUILine.cs" />
+    <Compile Include="Assets\Scripts\GUI_Helpers\GUIStatBar.cs" />
+    <Compile Include="Assets\Scripts\GUI_Helpers\GUIToolTip.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\Beam.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\Fighter.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\Fleet.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\Planet.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\PopupMessage.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\Projectile.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\Sector.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\SelfDestructor.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\Ship.cs" />
+    <Compile Include="Assets\Scripts\Object Controllers\ShipOrderLine.cs" />
+    <Compile Include="Assets\Scripts\Object Data\FleetData.cs" />
+    <Compile Include="Assets\Scripts\Object Data\PlanetData.cs" />
+    <Compile Include="Assets\Scripts\Object Data\SectorData.cs" />
+    <Compile Include="Assets\Scripts\Object Data\ShipData.cs" />
+    <Compile Include="Assets\Scripts\Screens\CampaignPlayMenu.cs" />
+    <Compile Include="Assets\Scripts\Screens\CampaignPlayScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\CampaignSetupScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\CampaignShipYardScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\CustomBattleScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\DiplomacyScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\EmpireManagementScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\EspionageScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\FleetManagementScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\DesignDataListEntry.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\DesignListEntry.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\HullListEntry.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\IconStatEntry.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\ModuleListEntry.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\ModuleSetEntry.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\ShipCombatInfoPanel.cs" />
+    <Compile Include="Assets\Scripts\Screens\Helpers\SlotedModule.cs" />
+    <Compile Include="Assets\Scripts\Screens\LoadingScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\MainMenuScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\ResearchScreen.cs" />
+    <Compile Include="Assets\Scripts\Screens\ScreenParent.cs" />
+    <Compile Include="Assets\Scripts\SelectionCirle.cs" />
+    <Compile Include="Assets\Scripts\Tools\CreateAssetBundles.cs" />
+    <Compile Include="Assets\Scripts\Tools\HullDesigner.cs" />
+    <Compile Include="Assets\Scripts\Tools\Slot.cs" />
+    <Compile Include="Assets\Scripts\Tools\SlotLayout.cs" />
+    <Compile Include="Assets\Scripts\XML Serialization\ModInfo.cs" />
+    <Compile Include="Assets\Scripts\XML Serialization\ModLoadConfig.cs" />
+    <Compile Include="Assets\Scripts\XML Serialization\Module.cs" />
+    <Compile Include="Assets\Scripts\XML Serialization\ModuleSet.cs" />
+    <Compile Include="Assets\Scripts\XML Serialization\Weapon.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\GalaxyBox1\instructions.txt" />
+    <None Include="Assets\Materials\UI-Default-No-Alpha.shader" />
+    <None Include="Assets\Shaders\SectorShader.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlendForBloom.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BlurAndFlares.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\BrightPassFilter2.shader" />
+    <None Include="Assets\Standard Assets\Effects\ImageEffects\Shaders\_BloomAndFlares\LensFlareCreate.shader" />
+    <None Include="Assets\StreamingAssets\Designs\Defiant Class II Test.xml" />
+    <None Include="Assets\StreamingAssets\Designs\Defiant Class Test.xml" />
+    <None Include="Assets\StreamingAssets\Designs\Galaxy Class II Test.xml" />
+    <None Include="Assets\StreamingAssets\Designs\Galaxy Class III Test.xml" />
+    <None Include="Assets\StreamingAssets\Designs\Galaxy Class Test.xml" />
+    <None Include="Assets\StreamingAssets\Designs\Oberth Test.xml" />
+    <None Include="Assets\StreamingAssets\Localization\English.txt" />
+    <None Include="Assets\StreamingAssets\Misc\GameConstants.xml" />
+    <None Include="Assets\StreamingAssets\Mods\ModLoadConfig.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Localization\English.txt" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\ModInfo.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\AmmoStorage_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\AmmoStorage_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\AmmoStorage_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\AmmoStorage_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorDuranium_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorDuranium_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorDuranium_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorDuranium_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorNeutronium_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorNeutronium_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorNeutronium_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorNeutronium_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolarized_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolarized_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolarized_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolarized_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolyDuranium_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolyDuranium_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolyDuranium_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorPolyDuranium_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTerminium_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTerminium_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTerminium_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTerminium_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTitanium_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTitanium_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTitanium_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTitanium_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTritanium_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTritanium_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTritanium_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorTritanium_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorVicturium_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorVicturium_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorVicturium_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ArmorVicturium_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Armory_3x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\AstrometricsLab_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\AstrometricsLab_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\AstrometricsLab_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\BridgeBasic_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\BridgeBasic_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\BridgeBasic_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\CargoBay_3x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\CloakingDevice_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ColonyBay_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\CommandBridge_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\CommandBridge_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\CommandBridge_5x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ConferenceRoom_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ConferenceRoom_4x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\CrewQuarters_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\CrewQuarters_3x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EngineeringAdvanced_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EngineeringAdvanced_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EngineeringAdvanced_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EngineeringAdvanced_5x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Engineering_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Engineering_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Engineering_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Engineering_5x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIII_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIII_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIII_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIII_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassII_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassII_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassII_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassII_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIV_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIV_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIV_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassIV_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassI_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassI_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassI_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\EnginesClassI_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhaserCannon_1x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhaserCannon_2x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassIII_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassIII_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassIII_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassIII_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassII_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassII_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassII_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassII_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassI_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassI_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassI_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_PhasersClassI_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_2x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_2x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_2x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_2x6.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Heavy_3x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Heavy_3x6.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Heavy_3x7.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Heavy_3x8.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Micro_1x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Micro_1x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Micro_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Photon_Micro_2x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Quantum_Heavy_4x10.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Quantum_Micro_1x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Quantum_Micro_1x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Quantum_Micro_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Fed_Torpedo_Quantum_Micro_2x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\FuelStorage_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\FuelStorage_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\FuelStorage_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\FuelStorage_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\GeoLab_3x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\GeoLab_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Laboratory_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Laboratory_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Laboratory_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Laboratory_5x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Medical_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Medical_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Medical_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\Medical_5x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\MessHall_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\MessHall_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\MessHall_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\MessHall_5x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\PowerStorage_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\PowerStorage_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\PowerStorage_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\PowerStorage_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIII_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIII_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIII_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIII_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassII_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassII_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassII_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassII_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIV_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIV_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIV_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassIV_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassI_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassI_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassI_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShieldClassI_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShuttleBayHeavy_5x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\ShuttleBay_4x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TacticalBridge_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TacticalBridge_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TacticalBridge_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TacticalBridge_5x5.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TestModule.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TestModule1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TestModule2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TorpedoBay_3x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TorpedoBay_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TransporterRoom_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TransporterRoom_3x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TransporterRoom_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TransporterRoom_4x4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TroopBarracks_2x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\TroopBarracks_3x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\WarpCore_1x1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\WarpCore_1x2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\WarpCore_1x3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Definitions\zTest.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\AmmoStorage.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorDuranium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorNeutronium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorPolarized.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorPolyDuranium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorTerminium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorTitanium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorTritanium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ArmorVicturium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Armory.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Astrometrics.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\BridgeBasic.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\CargoBay.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\CloakingDevice.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ColonyBay.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\CommandBridge.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ConferenceRoom.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\CrewQuarters.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Engineering.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\EngineeringAdvanced.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\EnginesClassI.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\EnginesClassII.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\EnginesClassIII.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\EnginesClassIV.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_PhaserCannons.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_PhasersClassI.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_PhasersClassII.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_PhasersClassIII.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_Torpedo_Photon.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_Torpedo_Photon_Heavy.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_Torpedo_Photon_Micro.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_Torpedo_Quantum_Heavy.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Fed_Torpedo_Quantum_Micro.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\FuelStorage.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\GeoLab.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Laboratory.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\Medical.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\MessHall.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\PowerStorage.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ShieldClassI.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ShieldClassII.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ShieldClassIII.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ShieldClassIV.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ShuttleBay.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\ShuttleBayHeavy.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\TacticalBridge.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\TestModules.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\TorpedoBay.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\TransporterRoom.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\TroopBarracks.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Modules\Sets\WarpCore.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhaserCannons1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhaserCannons2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassIII_Huge.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassIII_Large.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassIII_Medium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassIII_Small.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassII_Huge.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassII_Large.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassII_Medium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassII_Small.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassI_Huge.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassI_Large.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassI_Medium.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_PhasersClassI_Small.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhoton1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhoton2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhoton3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhoton4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonHeavy1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonHeavy2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonHeavy3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonHeavy4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonMicro1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonMicro2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonMicro3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoPhotonMicro4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoQuantumHeavy.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoQuantumMicro1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoQuantumMicro2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoQuantumMicro3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Fed_TorpedoQuantumMicro4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhoton1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhoton2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhoton3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhoton4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonHeavy1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonHeavy2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonHeavy3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonHeavy4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonMicro1.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonMicro2.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonMicro3.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\Kling_TorpedoPhotonMicro4.xml" />
+    <None Include="Assets\StreamingAssets\Mods\Star Trek Shattered Alliance II\Weapons\Definitions\TestWeapon.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
+</Project>
