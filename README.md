@@ -14,7 +14,7 @@ Open source space 4x game foundation
 
 ### Contributions
 
-* All contributions must be done under the respositories MIT open source licence.
+* All contributions must be done under the respositories [MIT open source licence](https://github.com/McShooterz/OpenSpace4x/blob/master/LICENSE).
 
 ***
 
