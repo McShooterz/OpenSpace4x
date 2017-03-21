@@ -15,8 +15,10 @@ public class ScreenManager : MonoBehaviour
     #region Variables
     public static ScreenManager instance;
 
-
+    [SerializeField]
     GameObject CurrentScreen;
+    [SerializeField]
+    GameObject LastScreen;
 
 
     #endregion
@@ -49,13 +51,26 @@ public class ScreenManager : MonoBehaviour
         GameObject newScreen = ResourceManager.GetScreenObject(screenName);
         if(newScreen != null)
         {
+            if (LastScreen != null)
+                Destroy(LastScreen);
             if (CurrentScreen != null)
-                Destroy(CurrentScreen);
+            {
+                LastScreen = CurrentScreen;
+                LastScreen.SetActive(false);
+            }
             CurrentScreen = newScreen;
         }
-        else
+    }
+
+    public void ChangeLastScreen()
+    {
+        if(LastScreen != null)
         {
-            print("Screen not returned: " + screenName);
+            if (CurrentScreen != null)
+                Destroy(CurrentScreen);
+            CurrentScreen = LastScreen;
+            LastScreen = null;
+            CurrentScreen.SetActive(true);
         }
     }
 }

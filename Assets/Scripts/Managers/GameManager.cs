@@ -177,6 +177,16 @@ public class GameManager : MonoBehaviour
         OpenSpaceProtected.OutlineSystem ObjectOutlinerNeutral = ResourceManager.CreateOutLineSystem();
 		ObjectOutlinerNeutral.outlineLayer = NeutralLayer;
 		ObjectOutlinerNeutral.outlineColor = NeutralColor;
+
+        ObjectOutlinerPlayer.transform.parent = transform;
+        ObjectOutlinerEnemy.transform.parent = transform;
+        ObjectOutlinerAllied.transform.parent = transform;
+        ObjectOutlinerNeutral.transform.parent = transform;
+
+        ObjectOutlinerPlayer.name = "PlayerOutLiner";
+        ObjectOutlinerEnemy.name = "EnemyOutLiner";
+        ObjectOutlinerAllied.name = "AlliedOutLiner";
+        ObjectOutlinerNeutral.name = "NeutralOutLiner";
     }
 
     public void SetGameSpeed(float speed)

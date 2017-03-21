@@ -45,7 +45,7 @@ public class QuitResumeSubScreen
         if(GUI.Button(OptionsButtonRect, "Options"))
         {
             Open = false;
-            GameManager.instance.ChangeScreen(new OptionsScreen(screenParent));
+            //GameManager.instance.ChangeScreen(new OptionsScreen(screenParent));
         }
 
         if (GUI.Button(QuitButtonRect, "Quit"))
