@@ -970,7 +970,7 @@ public sealed class MainCustomBattleScreen : CombatScreens
     {
         base.CloseScreen();
         DestroyAllShips();
-        GameManager.instance.ChangeScreen(new MainMenuScreen());
+        //GameManager.instance.ChangeScreen(new MainMenuScreen());
     }
 
     bool ScreenElementsContains(Vector2 point)

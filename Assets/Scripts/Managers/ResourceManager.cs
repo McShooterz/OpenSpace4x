@@ -69,6 +69,8 @@ public class ResourceManager : MonoBehaviour
 
     public static Dictionary<string, Material> SkyBoxes = new Dictionary<string, Material>();
 
+    static Dictionary<string, GameObject> Screens = new Dictionary<string, GameObject>();
+
     public static GameConstants gameConstants;
     public static EmpireRacialTraitsConfig RacialTraitsConfig;
     public static GameObject outLineSystem;
@@ -98,6 +100,8 @@ public class ResourceManager : MonoBehaviour
         LoadAll();
 
         ChangeSkyBox("PurpleNebula");
+
+        ScreenManager.instance.ChangeScreen("MainMenuScreen");
     }
 
     public static GameObject CreateShip(ShipHullData hullData, Vector3 Position, Quaternion Rotation)
@@ -468,6 +472,8 @@ public class ResourceManager : MonoBehaviour
     void LoadAll()
     {
         System.DateTime LoadStartTime = System.DateTime.Now;
+
+        LoadBuiltInScreens();
 
         ErrorTexture = Resources.Load("Textures/ErrorTexture") as Texture2D;
 
@@ -954,6 +960,18 @@ public class ResourceManager : MonoBehaviour
 
         newShields.GetComponent<MeshFilter>().mesh = ParentMeshFilter.mesh;
         newShields.GetComponent<MeshCollider>().sharedMesh = ParentMeshFilter.mesh;
+    }
+
+    void LoadBuiltInScreens()
+    {
+        Object[] ScreenObjects = Resources.LoadAll("UI/Screens");
+
+        foreach (Object screenObject in ScreenObjects)
+        {
+            GameObject gameObjectScreen = screenObject as GameObject;
+
+            Screens.Add(gameObjectScreen.name, gameObjectScreen);
+        }
     }
 
     void LoadShipDesigns(string path)
@@ -2026,6 +2044,23 @@ public class ResourceManager : MonoBehaviour
             else
             {
                 print("Ship hull data not found: " + hullName);
+            }
+        }
+        return null;
+    }
+
+    public static GameObject GetScreenObject(string screenName)
+    {
+        if(screenName != null)
+        {
+            GameObject screenObject;
+            if(Screens.TryGetValue(screenName, out screenObject))
+            {
+                return Instantiate(screenObject);
+            }
+            else
+            {
+                print("Screen not found: " + screenName);
             }
         }
         return null;

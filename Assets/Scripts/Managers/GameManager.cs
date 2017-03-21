@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         exploder = GameObject.Find("Exploder").GetComponent<OpenSpaceProtected.ExploderObject>();
         startingCameraRotation = Camera.main.transform.rotation;
         SetScreenElementSizes();
-        ChangeScreen(new MainMenuScreen());
+        //ChangeScreen(new MainMenuScreen());
     }
 	
 	// Update is called once per frame

@@ -51,7 +51,7 @@ public class CampaignPlayMenu : ScreenParent
         }
         if (GUI.Button(RectMenuQuitGameButton, "Quit Campaign"))
         {
-            GameManager.instance.ChangeScreen(new MainMenuScreen());
+            //GameManager.instance.ChangeScreen(new MainMenuScreen());
         }
         if (GUI.Button(RectMenuQuitProgramButton, "Quit Program"))
         {

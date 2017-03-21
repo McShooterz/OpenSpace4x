@@ -40,6 +40,6 @@ public class CampaignSetupScreen : ScreenParent
 
     protected override void CloseScreen()
     {
-        GameManager.instance.ChangeScreen(new MainMenuScreen());
+        //GameManager.instance.ChangeScreen(new MainMenuScreen());
     }
 }

@@ -42,7 +42,7 @@ public class ScenarioSelectScreen : ScreenParent
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            GameManager.instance.ChangeScreen(new MainMenuScreen());
+            //GameManager.instance.ChangeScreen(new MainMenuScreen());
         }
     }
 
@@ -76,7 +76,7 @@ public class ScenarioSelectScreen : ScreenParent
         }
         if(GUI.Button(BackButtonRect, "Back", GameManager.instance.standardButtonStyle))
         {
-            GameManager.instance.ChangeScreen(new MainMenuScreen());
+            //GameManager.instance.ChangeScreen(new MainMenuScreen());
         }
     }
 

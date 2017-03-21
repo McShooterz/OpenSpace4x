@@ -32,6 +32,6 @@ public sealed class MainShipyardScreen : ShipyardBaseScreen
     {
         if (unitModel != null)
             Object.Destroy(unitModel);
-        GameManager.instance.ChangeScreen(new MainMenuScreen());
+        //GameManager.instance.ChangeScreen(new MainMenuScreen());
     }
 }
