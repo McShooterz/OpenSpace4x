@@ -1,84 +1,79 @@
-﻿using UnityEngine;
+﻿/*****************************************************************************************************************************************
+Author: Michael Shoots
+Email: michael.shoots@live.com
+Project: Open Space 4x
+License: MIT License
+Notes:
+******************************************************************************************************************************************/
+
+using UnityEngine;
+using UnityEngine.UI;
 using System.Collections.Generic;
 using System;
 
-public sealed class CreditsScreen : ScreenParent
+public sealed class CreditsScreen : BaseScreen
 {
-    List<creditItem> creditItems = new List<creditItem>();
+    [SerializeField]
+    Text GameTitle;
+    [SerializeField]
+    Text Header;
+    [SerializeField]
+    Text Entry;
 
-    float ScrollSpeed = -1f;
+    List<Text> creditItems = new List<Text>();
 
-    public CreditsScreen()
+    [SerializeField]
+    float ScrollSpeed = 1f;
+
+    void Start()
     {
-        Vector2 TitleSize = new Vector2(Screen.width * 0.1f, Screen.height * 0.06f);
-        Vector2 EntrySize = new Vector2(Screen.width * 0.08f, Screen.height * 0.05f);
-        float TitleIndent = (Screen.width - TitleSize.x) / 2f;
-        float EntryIndent = (Screen.width - EntrySize.x) / 2f;
-        float GroupSpacing = Screen.height * 0.15f;
-        float cursorY = Screen.height;
+        creditItems.Add(GameTitle);
 
-        Credits credits = ResourceManager.instance.GetCredits();
+        float GroupSpacing = GameTitle.rectTransform.position.y - Header.rectTransform.position.y;
+        float EntrySpacing = Header.rectTransform.position.y - Entry.rectTransform.position.y;
 
-        foreach(Credits.CreditsGroup group in credits.CreditGroups)
+        float XPosition = Header.rectTransform.position.x;
+        float YPosition = Header.rectTransform.position.y;
+
+        foreach (Credits.CreditsGroup group in ResourceManager.instance.GetCredits().CreditGroups)
         {
-            creditItems.Add(new creditItem(new Rect(TitleIndent, cursorY, TitleSize.x, TitleSize.y), group.GroupName, GameManager.instance.CreditsTitleStyle));
-            cursorY += TitleSize.y;
+            Text GroupHeader = Instantiate(Header.gameObject).GetComponent<Text>();
+            GroupHeader.text = group.GroupName;
+            YPosition -= EntrySpacing;
+            Vector2 Position = new Vector2(XPosition, YPosition);
+            GroupHeader.rectTransform.position = Position;
+            GroupHeader.rectTransform.SetParent(GameTitle.rectTransform.parent);
+            creditItems.Add(GroupHeader);
             foreach (string entry in group.GroupItems)
             {
-                creditItems.Add(new creditItem(new Rect(EntryIndent, cursorY, EntrySize.x, EntrySize.y), entry, GameManager.instance.CreditsEntryStyle));
-                cursorY += EntrySize.y;
+                Text GroupEntry = Instantiate(Entry.gameObject).GetComponent<Text>();
+                GroupEntry.text = entry;
+                YPosition -= EntrySpacing;
+                Position = new Vector2(XPosition, YPosition);
+                GroupEntry.rectTransform.position = Position;
+                GroupEntry.rectTransform.SetParent(GameTitle.rectTransform.parent);
+                creditItems.Add(GroupEntry);
             }
-            cursorY += GroupSpacing;
+            YPosition -= GroupSpacing;
         }
+
+        Destroy(Header.gameObject);
+        Destroy(Entry.gameObject);
     }
 
-    public override void Update()
+    // Update is called once per frame
+    void Update()
     {
         if (Input.anyKeyDown)
         {
-            CloseScreen();
+            ChangeLastScreen();
         }
 
-        foreach (creditItem item in creditItems)
+        foreach (Text item in creditItems)
         {
-            item.Scroll(ScrollSpeed);
-        }
-    }
-
-    public override void Draw()
-    {
-        foreach (creditItem item in creditItems)
-        {
-            item.Draw();
-        }
-    }
-
-    protected override void CloseScreen()
-    {
-        //GameManager.instance.ChangeScreen(new MainMenuScreen());
-    }
-
-    class creditItem
-    {
-        Rect rect;
-        string name;
-        GUIStyle style;
-
-        public creditItem(Rect r, string n, GUIStyle s)
-        {
-            rect = r;
-            name = n;
-            style = s;
-        }
-
-        public void Draw()
-        {
-            GUI.Label(rect, name, style);
-        }
-
-        public void Scroll(float amount)
-        {
-            rect.y += amount;
+            Vector3 Position = item.rectTransform.position;
+            Position = new Vector2(Position.x, Position.y + ScrollSpeed);
+            item.rectTransform.position = Position;
         }
     }
 }
