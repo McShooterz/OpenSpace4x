@@ -21,12 +21,41 @@ public class OptionsScreen : BaseScreen
     [SerializeField]
     GameObject AudioGroup;
 
+    [SerializeField]
+    Button GameplayButton;
+    [SerializeField]
+    Button VideoButton;
+    [SerializeField]
+    Button AudioButton;
 
     //Gameplay Options
+    [Header("Gameplay")]
+    [SerializeField]
+    Text GameplayTitle;
     [SerializeField]
     Toggle ShowCombatDamageToggle;
 
+    //Video Options
+    [Header("Video")]
+    [SerializeField]
+    Text VideoTitle;
+
     //Audio Options
+    [Header("Audio")]
+    [SerializeField]
+    Text AudioTitle;
+
+    [SerializeField]
+    Text VoumeLabel;
+    [SerializeField]
+    Text MasterVoumeLabel;
+    [SerializeField]
+    Text MusicVolumeLabel;
+    [SerializeField]
+    Text UIVolumeLabel;
+    [SerializeField]
+    Text EffectsVolumeLabel;
+
     [SerializeField]
     Slider MasterVolumeSlider;
     [SerializeField]
@@ -45,9 +74,26 @@ public class OptionsScreen : BaseScreen
         VideoGroup.SetActive(false);
         AudioGroup.SetActive(false);
 
+        GameplayButton.GetComponentInChildren<Text>().text = "Gameplay";
+        VideoButton.GetComponentInChildren<Text>().text = "Video";
+        AudioButton.GetComponentInChildren<Text>().text = "Audio";
+
+        GameplayTitle.text = "Gameplay";
+
+        ShowCombatDamageToggle.GetComponentInChildren<Text>().text = "Show Combat Damage";
         ShowCombatDamageToggle.isOn = GameManager.instance.GetShowCombatDamage();
 
-        MasterVolumeSlider.value = AudioManager.instance.MasterVolume;
+        VideoTitle.text = "Video";
+
+        AudioTitle.text = "Audio";
+
+        VoumeLabel.text = "Volume";
+        MasterVoumeLabel.text = "Master";
+        MusicVolumeLabel.text = "Music";
+        UIVolumeLabel.text = "UI";
+        EffectsVolumeLabel.text = "Effects";
+
+    MasterVolumeSlider.value = AudioManager.instance.MasterVolume;
         MusicVolumeSlider.value = AudioManager.instance.MusicVolume;
         UIVolumeSlider.value = AudioManager.instance.UIVolume;
         EffectsVolumeSlider.value = AudioManager.instance.EffectsVolume;

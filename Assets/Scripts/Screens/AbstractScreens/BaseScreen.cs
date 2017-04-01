@@ -12,14 +12,21 @@ using UnityEngine;
 
 public abstract class BaseScreen : MonoBehaviour
 {
-	// Use this for initialization
-	void Start ()
+    #region Variables
+    protected Vector2 mousePosition;
+
+
+
+    #endregion
+
+    // Use this for initialization
+    protected virtual void Start ()
     {
 		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    // Update is called once per frame
+    protected virtual void Update ()
     {
 		
 	}
@@ -37,5 +44,15 @@ public abstract class BaseScreen : MonoBehaviour
     public void PlayButtonClick()
     {
         AudioManager.instance.PlayUIClip("MainButtonClick");
+    }
+
+    protected void SetMousePosition()
+    {
+        mousePosition = new Vector2(Input.mousePosition.x, Screen.height - Input.mousePosition.y);
+    }
+
+    public static string GetFormatedTime(float time)
+    {
+        return (Mathf.Floor(time / 60)).ToString("0") + ":" + (Mathf.Floor(time % 60)).ToString("00");
     }
 }

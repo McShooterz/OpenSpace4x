@@ -6,13 +6,17 @@ License: MIT License
 Notes:
 ******************************************************************************************************************************************/
 
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
+using UnityEngine;
 
-public abstract class UnitDesignBaseScreen : ScreenParent
+public class BaseSpaceUnitDesignScreen : BaseScreen
 {
     #region Variables
+
+    [SerializeField]
+    protected ModulePanel ModulePanel;
+
     protected GameObject unitModel;
     protected ModuleListTypes moduleCategory = ModuleListTypes.Weapon;
     protected ModuleSet selectedModuleSet = null;
@@ -21,89 +25,15 @@ public abstract class UnitDesignBaseScreen : ScreenParent
     protected Texture2D SlotTexture = ResourceManager.GetUITexture("ShipSlot");
     protected Texture2D WeaponArcCircle = ResourceManager.GetUITexture("WeaponArcCircle");
     protected Texture2D WeaponArcTex;
-    protected Rect SelectedModuleRect;
-    protected Rect SlotsAreaRect;
 
-    protected Rect RightSidePanelRect;
-    protected Vector2 ModuleListEntrySize;
-    protected Vector2 DesignListEntrySize;
-    protected float HullListEntrySize;
-
-    //Weapon Arc Rects
-    protected Rect WeaponArcRect;
-
-    //Modules
-    protected Rect LeftSidePanelRect;
-    protected Rect WeaponCategoryButtonRect;
-    protected Rect DefenseCategoryButtonRect;
-    protected Rect SystemCategoryButtonRect;
-    protected Rect ModuleScrollWindowRect;
-    protected Rect ModuleScrollViewRect;
-    protected Vector2 ModuleScrollPosition;
-    protected Vector2 ModuleStatPosition;
-    protected float moduleScale = 32f;
-    protected float ModuleListY;
-    protected float ModuleRotation = 0;
-    protected Vector2 ModuleStatSize;
-    protected List<ModuleSetEntry> ModuleSetWeaponList = new List<ModuleSetEntry>();
-    protected List<ModuleSetEntry> ModuleSetDefenceList = new List<ModuleSetEntry>();
-    protected List<ModuleSetEntry> ModuleSetSystemList = new List<ModuleSetEntry>();
-    protected List<ModuleListEntry> ModuleList = new List<ModuleListEntry>();
-    protected List<IconStatEntry> ModuleStatsList = new List<IconStatEntry>();
-    protected List<DesignIconStatEntry> DesignStatList = new List<DesignIconStatEntry>();
-
-    //Module Weapon Graph
-    protected Rect ModuleWeaponGraphRect;
-    protected Rect ModuleWeaponGraphInnerRect;
-    protected Rect ModuleWeaponGraphTitleRect;
-    protected Rect ModuleWeaponDamageRect;
-    protected Rect ModuleWeaponRangeRect;
-    protected float SelectedWeaponMaxDamage = -1;
-    protected float SelectedWeaponMaxRange = -1;
-    protected List<GUILine> GraphLines = new List<GUILine>();
-
-    //Design Stat Window
-    protected Rect DesignStatsWindowRect;
-    protected Rect DesignStatsViewRect;
-    protected Vector2 DesignStatsPosition;
-
-    //Buttons
-    protected Rect CloseButtonRect;
-    protected Rect ModuleRotationButtonRect;
-    protected Rect ModuleSwapButtonRect;
-    protected Rect MirrirModeButtonRect;
-
-    //Naming and saving
     protected string DesignName = "";
-    protected Rect DesignNameFieldRect;
-    protected Rect DesignSaveButtonRect;
 
     //Symmetric design/mirror mode
     protected bool useSymmetricCursor = false;
     protected Vector2 SymmetricMouse;
 
-    //Overwrite design window
-    protected bool overwriteWarningPopupOpen = false;
-    protected Rect overwriteWarningRect;
-    protected Rect overwriteWarningMessageRect;
-    protected Rect overwriteAcceptButtonRect;
-    protected Rect overwriteCancelButtonRect;
-
-    //Hull info Rects
-    protected Rect HullNameRect;
-    protected string FormattedHullName;
-
-    //Design stats Header Rects
-    protected Rect DesignResourceCostHeaderRect;
-    protected Rect DesignPersonnelHeaderRect;
-    protected Rect DesignPowerHeaderRect;
-    protected Rect DesignAmmoHeaderRect;
-    protected Rect DesignSensorsHeaderRect;
-    protected Rect DesignCombatBonusHeaderRect;
-    protected Rect DesignJammingHeaderRect;
-    protected Rect DesignHangarHeaderRect;
-    protected Rect DesignEngineeringHeaderRect;
-    protected Rect DesignMiscHeaderRect;
+    protected float moduleScale = 32f;
+    protected float ModuleRotation = 0;
 
     //Design stats
     protected float DesignProductionCost;
@@ -161,18 +91,17 @@ public abstract class UnitDesignBaseScreen : ScreenParent
     protected float DesignFirepower;
     protected float DesignDefenseRating;
 
-    //Hovered Module Data
-    protected Module LastHoveredModule;
-    protected List<IconStatEntry> LastHoveredModuleStats;
-
-    protected QuitResumeSubScreen quitResumeSubScreen;
-
     #endregion
 
-    public override void Update()
+    // Use this for initialization
+    protected override void Start ()
     {
-        SetMousePosition();
-
+		
+	}
+	
+	// Update is called once per frame
+	protected override void Update ()
+    {
         if (Input.GetKeyDown(KeyCode.R))
         {
             RotateModule();
@@ -187,186 +116,11 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         if (Input.GetMouseButton(1))
         {
             DeselectModule();
-            if (SlotsAreaRect.Contains(mousePosition))
-            {
-                CheckModuleRemoval();
-            }
+            //if (SlotsAreaRect.Contains(mousePosition))
+            //{
+                //CheckModuleRemoval();
+            //}
         }
-    }
-
-    public override void Draw()
-    {
-        if (PopupOpen())
-        {
-            GUI.enabled = false;
-        }
-
-        GUI.Box(LeftSidePanelRect, "", GameManager.instance.standardBackGround);
-        GUI.Box(RightSidePanelRect, "", GameManager.instance.standardBackGround);
-
-        if (GUI.Button(WeaponCategoryButtonRect, "Weapons", GameManager.instance.standardButtonStyle))
-        {
-            if (moduleCategory != ModuleListTypes.Weapon)
-                ChangeModuleSetList(ModuleListTypes.Weapon);
-            PlayMainButtonClick();
-        }
-        if (GUI.Button(DefenseCategoryButtonRect, "Defences", GameManager.instance.standardButtonStyle))
-        {
-            if (moduleCategory != ModuleListTypes.Defence)
-                ChangeModuleSetList(ModuleListTypes.Defence);
-            PlayMainButtonClick();
-        }
-        if (GUI.Button(SystemCategoryButtonRect, "Systems", GameManager.instance.standardButtonStyle))
-        {
-            if (moduleCategory != ModuleListTypes.System)
-                ChangeModuleSetList(ModuleListTypes.System);
-            PlayMainButtonClick();
-        }
-
-        //Draw Module set scrolling list
-        ModuleScrollPosition = GUI.BeginScrollView(ModuleScrollWindowRect, ModuleScrollPosition, ModuleScrollViewRect);
-        List<ModuleSetEntry> ModuleSetList;
-        if (moduleCategory == ModuleListTypes.Weapon)
-        {
-            ModuleSetList = ModuleSetWeaponList;
-        }
-        else if (moduleCategory == ModuleListTypes.Defence)
-        {
-            ModuleSetList = ModuleSetDefenceList;
-        }
-        else
-        {
-            ModuleSetList = ModuleSetSystemList;
-        }
-        foreach (ModuleSetEntry entry in ModuleSetList)
-        {
-            entry.Draw(selectedModuleSet);
-        }
-        GUI.EndScrollView();
-
-        //Draw modules of selected module set
-        foreach (ModuleListEntry entry in ModuleList)
-        {
-            entry.Draw(selectedModule);
-        }
-
-        if (selectedModuleSet != null && ModuleSetCanSwap(selectedModuleSet))
-        {
-            if (ModuleSwapButtonRect.Contains(mousePosition))
-            {
-                ToolTip.SetText("armorSwap", "armorSwapDesc");
-            }
-
-            if (GUI.Button(ModuleSwapButtonRect, ResourceManager.GetIconTexture("Icon_Swap")))
-            {
-                ModuleSwap(selectedModuleSet);
-                PlayMainButtonClick();
-            }
-        }
-
-        DrawModuleStats();
-
-        DrawWeaponGraph();
-
-        DrawDesignStats();
-
-        DesignName = GUI.TextField(DesignNameFieldRect, DesignName);
-    }
-
-    protected void DrawSelectedModuleTexture()
-    {
-        Matrix4x4 matrixBackup = GUI.matrix;
-        GUIUtility.RotateAroundPivot(ModuleRotation, SelectedModuleRect.center);
-        if (selectedModuleTexture != null)
-            GUI.DrawTexture(SelectedModuleRect, selectedModuleTexture);
-        if (useSymmetricCursor)
-        {
-            GUI.matrix = matrixBackup;
-            SymmetricMouse.y = mousePosition.y;
-            SymmetricMouse.x = Screen.width - mousePosition.x;
-            if (ModuleRotation == 0 || ModuleRotation == 180)
-            {
-                SymmetricMouse.x -= selectedModule.SizeX * moduleScale - moduleScale;
-                SelectedModuleRect.x = SymmetricMouse.x - moduleScale;
-            }
-            else
-            {
-                SymmetricMouse.x -= selectedModule.SizeY * moduleScale - moduleScale;
-                SelectedModuleRect.x = SymmetricMouse.x;
-            }
-            GUIUtility.RotateAroundPivot(ModuleRotation, SelectedModuleRect.center);
-            if (selectedModuleTexture != null)
-                GUI.DrawTexture(SelectedModuleRect, selectedModuleTexture);
-        }
-        GUI.matrix = matrixBackup;
-    }
-
-    protected void DrawWeaponGraph()
-    {
-        if (selectedModule != null && selectedModule.GetWeaponExists())
-        {
-            //Check for Weapon Graph hover
-            if (ModuleWeaponGraphInnerRect.Contains(mousePosition))
-            {
-                float range = (mousePosition.x - ModuleWeaponGraphInnerRect.x) / ModuleWeaponGraphInnerRect.width * SelectedWeaponMaxRange;
-                float damage = (ModuleWeaponGraphInnerRect.yMax - mousePosition.y) / ModuleWeaponGraphInnerRect.height * SelectedWeaponMaxDamage;
-                GUI.Box(new Rect(new Vector2(mousePosition.x, mousePosition.y - GameManager.instance.StandardLabelSize.y), new Vector2(GameManager.instance.StandardLabelSize.x, GameManager.instance.StandardLabelSize.y)), range.ToString("0") + " : " + damage.ToString("0"));
-            }
-
-            GUI.DrawTexture(ModuleWeaponGraphRect, ResourceManager.GetUITexture("WeaponDamageGraph"));
-            GUI.Label(ModuleWeaponGraphTitleRect, "Weapon Damage Over Range", GameManager.instance.ModuleTitleStyle);
-            GUI.Label(ModuleWeaponDamageRect, "Damage: " + SelectedWeaponMaxDamage.ToString("0"), GameManager.instance.standardLabelStyle);
-            GUI.Label(ModuleWeaponRangeRect, "Range: " + SelectedWeaponMaxRange.ToString("0"), GameManager.instance.standardLabelStyle);
-            foreach (GUILine line in GraphLines)
-            {
-                line.Draw();
-            }
-        }
-    }
-
-    protected virtual void Initialize()
-    {
-        LeftSidePanelRect = new Rect(0, 0, Screen.width * 0.25f, Screen.height);
-        RightSidePanelRect = new Rect(Screen.width - Screen.width * 0.25f, 0, Screen.width * 0.25f, Screen.height);
-
-        WeaponCategoryButtonRect = new Rect(LeftSidePanelRect.width * 0.5f - GameManager.instance.StandardButtonSize.x * 1.5f, LeftSidePanelRect.y + GameManager.instance.QuarterButtonSpacing, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
-        DefenseCategoryButtonRect = new Rect(LeftSidePanelRect.width * 0.5f - GameManager.instance.StandardButtonSize.x * 0.5f, WeaponCategoryButtonRect.y, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
-        SystemCategoryButtonRect = new Rect(LeftSidePanelRect.width * 0.5f + GameManager.instance.StandardButtonSize.x * 0.5f, WeaponCategoryButtonRect.y, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
-
-        ModuleScrollWindowRect = new Rect(LeftSidePanelRect.width * 0.5f - LeftSidePanelRect.width * 0.45f, DefenseCategoryButtonRect.y + GameManager.instance.StandardButtonSize.y + GameManager.instance.QuarterButtonSpacing, LeftSidePanelRect.width * 0.9f, LeftSidePanelRect.height * 0.39f);
-        ModuleScrollViewRect = new Rect(0, 0, ModuleScrollWindowRect.width * 0.9f, ModuleScrollWindowRect.height * 5f);
-        ModuleScrollPosition = Vector2.zero;
-
-        WeaponArcRect = new Rect(Screen.width / 2 - Screen.width * 0.2f, Screen.height / 2 - Screen.width * 0.2f, Screen.width * 0.4f, Screen.width * 0.4f);    
-
-        CloseButtonRect = new Rect(Screen.width - GameManager.instance.StandardButtonSize.x * 1.15f, Screen.height - GameManager.instance.StandardButtonSize.y * 1.2f, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
-        MirrirModeButtonRect = new Rect(RightSidePanelRect.x + (RightSidePanelRect.width - GameManager.instance.StandardButtonSize.x) / 2f, CloseButtonRect.y, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
-
-        ModuleListEntrySize = new Vector2(ModuleScrollViewRect.width, ModuleScrollWindowRect.height * 0.2f);
-        
-        DesignSaveButtonRect = new Rect(RightSidePanelRect.x + RightSidePanelRect.width - GameManager.instance.StandardButtonSize.x, Screen.height * 0.34f + GameManager.instance.QuarterButtonSpacing, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
-        DesignNameFieldRect = new Rect(RightSidePanelRect.x + GameManager.instance.StandardButtonSize.x * 0.025f, DesignSaveButtonRect.y, RightSidePanelRect.width - GameManager.instance.StandardButtonSize.x * 1.05f, GameManager.instance.StandardButtonSize.y);
-
-        DesignStatsWindowRect = new Rect(RightSidePanelRect.x, DesignNameFieldRect.yMax + DesignNameFieldRect.height * 0.08f, RightSidePanelRect.width, Screen.height * .57f);
-        DesignStatsViewRect = new Rect(0, 0, DesignStatsWindowRect.width * 0.95f, DesignStatsWindowRect.height * 2f);
-        DesignStatsPosition = Vector2.zero;
-
-        ModuleListY = ModuleScrollWindowRect.y + ModuleScrollWindowRect.height + HullListEntrySize * 0.25f;
-
-        ModuleRotationButtonRect = new Rect(LeftSidePanelRect.xMax - GameManager.instance.StandardButtonSize.y * 1.5f, ModuleListY, GameManager.instance.StandardButtonSize.y * 1.2f, GameManager.instance.StandardButtonSize.y);
-        ModuleSwapButtonRect = new Rect(ModuleRotationButtonRect.x, ModuleRotationButtonRect.yMax, GameManager.instance.StandardButtonSize.y, GameManager.instance.StandardButtonSize.y);
-
-        ModuleStatPosition = new Vector2(ModuleScrollWindowRect.x, ModuleListY + ModuleListEntrySize.y + GameManager.instance.standardLabelSpacing);
-
-        ModuleStatSize = new Vector2(ModuleScrollViewRect.width * 0.2f, GameManager.instance.StandardLabelSize.y);   
-
-        ModuleWeaponGraphRect = new Rect(LeftSidePanelRect.width * 0.25f, LeftSidePanelRect.height * 0.84f, LeftSidePanelRect.width * 0.5f, LeftSidePanelRect.height * 0.13f);
-        ModuleWeaponGraphInnerRect = new Rect(ModuleWeaponGraphRect.x + ModuleWeaponGraphRect.width * 0.05f, ModuleWeaponGraphRect.y + ModuleWeaponGraphRect.height * 0.05f, ModuleWeaponGraphRect.width * 0.9f, ModuleWeaponGraphRect.height * 0.9f);
-        ModuleWeaponGraphTitleRect = new Rect(ModuleWeaponGraphRect.x, ModuleWeaponGraphRect.y - GameManager.instance.StandardLabelSize.y * 1.05f, ModuleWeaponGraphRect.width, GameManager.instance.StandardLabelSize.y);
-        ModuleWeaponDamageRect = new Rect(ModuleWeaponGraphRect.x - ModuleStatSize.x, ModuleWeaponGraphRect.y, ModuleStatSize.x, ModuleStatSize.y);
-        ModuleWeaponRangeRect = new Rect(ModuleWeaponGraphRect.xMax - ModuleStatSize.x, ModuleWeaponGraphRect.yMax, ModuleStatSize.x, ModuleStatSize.y);
-
-        ToolTip = new GUIToolTip(new Vector2(LeftSidePanelRect.xMax, 0), LeftSidePanelRect.width * 0.6f);
     }
 
     protected bool CheckHullModuleAllow(ModuleLimitType limit, ModuleCategory category)
@@ -392,7 +146,10 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         return true;
     }
 
-    protected abstract void CheckPlacedModuleHover();
+    protected virtual void CheckPlacedModuleHover()
+    {
+
+    }
 
     protected void SetWeaponArcTexture(int angle)
     {
@@ -466,43 +223,22 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         }
     }
 
-    protected void DrawModuleStats()
-    {
-        foreach (IconStatEntry entry in ModuleStatsList)
-        {
-            entry.Draw();
-        }
-
-        if(LeftSidePanelRect.Contains(mousePosition))
-        {
-            foreach (IconStatEntry entry in ModuleStatsList)
-            {
-                if (entry.CheckForToolTip(mousePosition))
-                {
-                    break;
-                }
-            }
-        }
-    }
-
-    protected abstract void DrawDesignStats();
-
     protected void ChangeModule(Module module)
     {
         selectedModule = module;
-        ModuleStatsList = BuildModuleStats(module, ModuleStatPosition);
+        //ModuleStatsList = BuildModuleStats(module, ModuleStatPosition);
         Weapon weapon = module.GetWeapon();
-        if(weapon != null)
+        if (weapon != null)
         {
-            BuildWeaponDamageGraph(weapon);
+            //BuildWeaponDamageGraph(weapon);
         }
-        SelectedModuleRect = new Rect(0, 0, moduleScale * selectedModule.SizeX, moduleScale * selectedModule.SizeY);
+        //SelectedModuleRect = new Rect(0, 0, moduleScale * selectedModule.SizeX, moduleScale * selectedModule.SizeY);
         selectedModuleTexture = selectedModule.GetTexture();
         ModuleRotation = 0;
 
         if (selectedModuleSet != selectedModule.GetParentSet())
         {
-            ChangeModuleSet(selectedModule.GetParentSet());
+            //ChangeModuleSet(selectedModule.GetParentSet());
         }
     }
 
@@ -529,7 +265,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
     protected bool ModuleCanRotate(Module module)
     {
         Weapon weapon = module.GetWeapon();
-        if(weapon != null && weapon.AlwaysForward || weapon == null && module.SizeX != module.SizeY)
+        if (weapon != null && weapon.AlwaysForward || weapon == null && module.SizeX != module.SizeY)
         {
             return true;
         }
@@ -783,7 +519,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
             AddModuleStatEntry(statList, position, "Icon_BombPolution", module.BombPollution.ToString("0.##"), "BombingPollution", "BombingPollutionDesc");
         }
         float defenseRating = module.GetDefenseRating();
-        if(defenseRating > 0)
+        if (defenseRating > 0)
         {
             AddModuleStatEntry(statList, position, "Icon_DefenseRating", defenseRating.ToString("0.##"), "defenseRating", "moduleDefenseRating");
         }
@@ -866,24 +602,24 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 {
                     AddModuleStatEntry(statList, position, "Icon_HeavyFighterFirePower", firePower.ToString("0.##"), "modHeavyFighterFirepower", "modHeavyFighterFirepowerDesc");
                 }
-                if(firstHeavyFighter.Crew > 0)
+                if (firstHeavyFighter.Crew > 0)
                 {
                     AddModuleStatEntry(statList, position, "Icon_HeavyFighterCrew", firstHeavyFighter.Crew.ToString("0.##"), "HeavyFighterCrew", "HeavyFighterCrewDesc");
                 }
             }
         }
-        if(module.AssaultPods.Count > 0)
+        if (module.AssaultPods.Count > 0)
         {
             FighterDefinition firstAssaultPod = module.GetFirstAssaultPod();
-            if(firstAssaultPod != null)
+            if (firstAssaultPod != null)
             {
                 AddModuleStatEntry(statList, position, "Icon_AssaultPod", firstAssaultPod.MaxSquadronSize.ToString("0.##"), "assaultPods", "modHeavyFighters");
                 AddModuleStatEntry(statList, position, "Icon_AssaultPodHealth", firstAssaultPod.Health.ToString("0.##"), "AssaultPodHealth", "AssaultPodHealthDesc");
-                if(firstAssaultPod.Troops > 0)
+                if (firstAssaultPod.Troops > 0)
                 {
                     AddModuleStatEntry(statList, position, "Icon_AssaultPodTroops", firstAssaultPod.Troops.ToString("0.##"), "AssaultPodTroops", "AssaultPodTroopsDesc");
                 }
-                if(firstAssaultPod.Crew > 0)
+                if (firstAssaultPod.Crew > 0)
                 {
                     AddModuleStatEntry(statList, position, "Icon_AssaultPodCrew", firstAssaultPod.Crew.ToString("0.##"), "AssaultPodCrew", "AssaultPodCrewDesc");
                 }
@@ -982,7 +718,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 AddModuleStatEntry(statList, position, "Icon_ProjectileHealth", weapon.ProjectileHealth.ToString("0.##"), "ProjectileHealth", "ProjectileHealthDesc");
             }
             float firePowerRating = weapon.GetAverageDPS() / 10f;
-            if(firePowerRating > 0)
+            if (firePowerRating > 0)
             {
                 AddModuleStatEntry(statList, position, "Icon_FirePower", firePowerRating.ToString("0.##"), "firepower", "weaponFirepower");
             }
@@ -990,66 +726,24 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         return statList;
     }
 
-    protected void BuildWeaponDamageGraph(Weapon weapon)
-    {
-        //Get max damage and range
-        float DamageBonus = GetModifiedDamage(weapon);
-        SelectedWeaponMaxDamage = weapon.GetMaxDamage() + weapon.GetMaxDamage() * DamageBonus;
-        SelectedWeaponMaxRange = weapon.GetMaxRangeDisplay();
-
-        //Prevent possibility of divide by zero
-        if (SelectedWeaponMaxDamage == 0) SelectedWeaponMaxDamage = 1;
-        if (SelectedWeaponMaxRange == 0) SelectedWeaponMaxRange = 1;
-
-        //Build Damage graph
-        GraphLines.Clear();
-        List<Vector2> Points = new List<Vector2>();
-        foreach (Weapon.DamageNode node in weapon.DamageGraph)
-        {
-            Points.Add(new Vector2(ModuleWeaponGraphInnerRect.x + ModuleWeaponGraphInnerRect.width * (node.GetDisplayRange() / SelectedWeaponMaxRange), ModuleWeaponGraphInnerRect.yMax - ModuleWeaponGraphInnerRect.height * ((node.Damage + node.Damage * DamageBonus) / SelectedWeaponMaxDamage)));
-        }
-        for (int i = 0; i < Points.Count - 1; i++)
-        {
-            GraphLines.Add(new GUILine(Points[i], Points[i + 1], Color.red));
-        }
-    }
-
     protected void AddModuleStatEntry(List<IconStatEntry> list, Vector2 position, string iconTexture, string Value, string ToolTipTitle, string ToolTipBody)
     {
-        Rect rect = new Rect(position.x + (list.Count % 5) * ModuleStatSize.x, position.y + (list.Count / 5) * ModuleStatSize.y, ModuleStatSize.x, ModuleStatSize.y);
-        IconStatEntry iconStatEntry = new IconStatEntry(rect, iconTexture, Value, ToolTipTitle, ToolTipBody, ToolTip);
-        list.Add(iconStatEntry);
+        //Rect rect = new Rect(position.x + (list.Count % 5) * ModuleStatSize.x, position.y + (list.Count / 5) * ModuleStatSize.y, ModuleStatSize.x, ModuleStatSize.y);
+        //IconStatEntry iconStatEntry = new IconStatEntry(rect, iconTexture, Value, ToolTipTitle, ToolTipBody, ToolTip);
+        //list.Add(iconStatEntry);
     }
-
-    protected abstract void ClearFormatedSlots();
-
-    protected abstract void ClearSlottedModules();
-
-    protected abstract void CheckModuleRemoval();
 
     protected void DeselectModule()
     {
         selectedModule = null;
-        ModuleStatsList.Clear();
+        //ModuleStatsList.Clear();
     }
-
-    protected abstract void CheckPlacedModuleSelected();
-
-    protected abstract void ClearDesignModuleStats();
-
-    protected abstract void RecalculateDesignStats();
 
     //This currently just sums, but needs more complex calculations to account for enough ammo and energy
     protected void CalculateFirePower()
     {
         DesignFirepower = (DesignFirePowerAmmo + DesignFirePowerPower + DesignFirePowerCombination + DesignFirePowerFighter) / 10f;
     }
-
-    protected abstract bool CheckValidDesign();
-
-    protected abstract void SaveDesign();
-
-    protected abstract void ModuleSwap(ModuleSet newModuleSet);
 
     protected void SwapModulesInList(ModuleSet newModuleSet, List<SlotedModule> sectionModules)
     {
@@ -1077,18 +771,18 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         return false;
     }
 
-    protected virtual bool PopupOpen()
+    /*protected virtual bool PopupOpen()
     {
         return overwriteWarningPopupOpen;
-    }
+    }*/
 
-    protected void ChangeModuleSet(ModuleSet modset)
+    /*protected void ChangeModuleSet(ModuleSet modset)
     {
         selectedModuleSet = modset;
         ModuleList.Clear();
         //Determine where the individual modules will be draw and create their entries
         float Indent = LeftSidePanelRect.width / 2 - selectedModuleSet.Modules.Count * ModuleListEntrySize.y / 2;
-        foreach(Module module in modset.GetModules())
+        foreach (Module module in modset.GetModules())
         {
             Rect rect = new Rect(Indent + ModuleList.Count * ModuleListEntrySize.y, ModuleListY, ModuleListEntrySize.y, ModuleListEntrySize.y);
             ModuleListEntry MLE = new ModuleListEntry(rect, module, module.GetTexture(), ChangeModule);
@@ -1098,7 +792,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         if (selectedModule == null || selectedModule.GetParentSet() != selectedModuleSet)
         {
             Module firstModule = modset.GetFirstModule();
-            if(firstModule != null)
+            if (firstModule != null)
                 ChangeModule(firstModule);
         }
 
@@ -1117,9 +811,9 @@ public abstract class UnitDesignBaseScreen : ScreenParent
             if (moduleCategory != ModuleListTypes.System)
                 ChangeModuleSetList(ModuleListTypes.System);
         }
-    }
+    }*/
 
-    protected virtual void BuildModuleSetLists()
+    /*protected virtual void BuildModuleSetLists()
     {
         ModuleSetWeaponList.Clear();
         ModuleSetDefenceList.Clear();
@@ -1151,9 +845,9 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 setList.Add(MLE);
             }
         }
-    }
+    }*/
 
-    protected void ChangeModuleSetList(ModuleListTypes listCategory)
+    /*protected void ChangeModuleSetList(ModuleListTypes listCategory)
     {
         moduleCategory = listCategory;
         List<ModuleSetEntry> setList;
@@ -1216,16 +910,16 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 return;
             }
         }
-    }
+    }*/
 
     protected float GetTotalValue(float production, float alloy, float advancedAlloy, float superiorAlloy, float crystal, float rareCrystal, float exoticCrystal, float exoticParticle)
     {
         return ResourceManager.gameConstants.GetBaseResourceValue(production, alloy, advancedAlloy, superiorAlloy, crystal, rareCrystal, exoticCrystal, exoticParticle);
     }
 
-    protected void DrawHoveredModuleInfo(Vector2 position, Module module)
+    /*protected void DrawHoveredModuleInfo(Vector2 position, Module module)
     {
-        if(LastHoveredModule == null || LastHoveredModule != module)
+        if (LastHoveredModule == null || LastHoveredModule != module)
         {
             LastHoveredModule = module;
             LastHoveredModuleStats = BuildModuleStats(module, Vector2.zero);
@@ -1259,13 +953,13 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         GUI.Label(ModuleSetNameRect, ResourceManager.GetLocalization(module.GetParentSet().Name), GameManager.instance.ModuleTitleStyle);
         GUI.Label(ModuleSetDescRect, ResourceManager.GetLocalization(module.GetParentSet().Description), GameManager.instance.ModuleDescStyle);
 
-        for(int i = 0; i < LastHoveredModuleStats.Count; i++)
+        for (int i = 0; i < LastHoveredModuleStats.Count; i++)
         {
             Vector2 statPosition = new Vector2(Indent + ModuleStatSize.x * (i % 4), ModuleSetDescRect.yMax + ModuleStatSize.y * (i / 4));
             LastHoveredModuleStats[i].DrawOffset(statPosition);
         }
 
-        if(weapon != null)
+        if (weapon != null)
         {
             float DamageBonus = GetModifiedDamage(weapon);
             float maxDamage = Mathf.Max(weapon.GetMaxDamage() + weapon.GetMaxDamage() * DamageBonus, 1f);
@@ -1300,7 +994,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 new GUILine(Points[i], Points[i + 1], Color.red).Draw();
             }
         }
-    }
+    }*/
 
     protected virtual bool CheckDesignAllowed(ShipDesign design)
     {

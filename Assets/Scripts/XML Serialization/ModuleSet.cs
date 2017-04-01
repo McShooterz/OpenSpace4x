@@ -32,6 +32,15 @@ public class ModuleSet
         return parentMod;
     }
 
+    public string GetParentModName()
+    {
+        if(parentMod != null)
+        {
+            return parentMod.Name;
+        }
+        return "N/A";
+    }
+
     public string GetName()
     {
         return ResourceManager.GetLocalization(Name);
