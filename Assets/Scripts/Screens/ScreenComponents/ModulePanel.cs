@@ -24,6 +24,9 @@ public class ModulePanel : MonoBehaviour
     [SerializeField]
     StatEntryList ModuleStatEntries;
 
+    [SerializeField]
+    WeaponDamageGraph weaponDamageGraph;
+
     List<ModuleSet> WeaponModuleSets = new List<ModuleSet>();
     List<ModuleSet> DefenseModuleSets = new List<ModuleSet>();
     List<ModuleSet> SystemModuleSets = new List<ModuleSet>();
@@ -561,6 +564,13 @@ public class ModulePanel : MonoBehaviour
             {
                 AddModuleStatEntry("Icon_FirePower", firePowerRating.ToString("0.##"), "firepower", "weaponFirepower");
             }
+
+            weaponDamageGraph.gameObject.SetActive(true);
+            weaponDamageGraph.SetWeapon(weapon);
+        }
+        else
+        {
+            weaponDamageGraph.gameObject.SetActive(false);
         }
     }
 
