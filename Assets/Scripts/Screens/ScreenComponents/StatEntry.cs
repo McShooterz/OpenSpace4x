@@ -6,20 +6,38 @@ License: MIT License
 Notes:
 ******************************************************************************************************************************************/
 
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System.Collections;
 
-public class MainMenuScreen : BaseScreen
+public class StatEntry : MonoBehaviour
 {
+    [SerializeField]
+    Image Icon;
 
-    void Start()
+    [SerializeField]
+    Text Label;
+
+	// Use this for initialization
+	void Start ()
     {
+		
+	}
+	
+	// Update is called once per frame
+	void Update ()
+    {
+		
+	}
 
+    public void SetImage(Sprite sprite)
+    {
+        Icon.overrideSprite = sprite;
     }
 
-    public void ClickQuit()
+    public void SetText(string text)
     {
-        Application.Quit();
+        Label.text = text;
     }
 }

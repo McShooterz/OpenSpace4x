@@ -6,20 +6,22 @@ License: MIT License
 Notes:
 ******************************************************************************************************************************************/
 
-using UnityEngine;
-using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class MainMenuScreen : BaseScreen
+public class WeaponDamageGraph : MonoBehaviour
 {
 
-    void Start()
+	// Use this for initialization
+	void Start ()
     {
-
-    }
-
-    public void ClickQuit()
+		
+	}
+	
+	// Update is called once per frame
+	void Update ()
     {
-        Application.Quit();
-    }
+		
+	}
 }
