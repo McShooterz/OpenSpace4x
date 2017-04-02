@@ -813,40 +813,6 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
         }
     }*/
 
-    /*protected virtual void BuildModuleSetLists()
-    {
-        ModuleSetWeaponList.Clear();
-        ModuleSetDefenceList.Clear();
-        ModuleSetSystemList.Clear();
-        ModuleList.Clear();
-        selectedModuleSet = null;
-        selectedModule = null;
-        foreach (KeyValuePair<string, ModuleSet> keyVal in ResourceManager.ModuleSets)
-        {
-            if (CheckModuleSetAllowed(keyVal.Value))
-            {
-                List<ModuleSetEntry> setList;
-
-                if (keyVal.Value.ModuleCategory == ModuleCategory.Weapons)
-                {
-                    setList = ModuleSetWeaponList;
-                }
-                else if (keyVal.Value.ModuleCategory == ModuleCategory.Defences)
-                {
-                    setList = ModuleSetDefenceList;
-                }
-                else
-                {
-                    setList = ModuleSetSystemList;
-                }
-
-                Rect rect = new Rect(0, ModuleListEntrySize.y * setList.Count, ModuleListEntrySize.x, ModuleListEntrySize.y);
-                ModuleSetEntry MLE = new ModuleSetEntry(rect, keyVal.Value, keyVal.Value.GetTexture(), ChangeModuleSet);
-                setList.Add(MLE);
-            }
-        }
-    }*/
-
     /*protected void ChangeModuleSetList(ModuleListTypes listCategory)
     {
         moduleCategory = listCategory;

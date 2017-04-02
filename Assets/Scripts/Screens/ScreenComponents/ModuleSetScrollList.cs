@@ -43,6 +43,7 @@ public class ModuleSetScrollList : BaseScrollList
             {
                 SelectedButton = newButton;
                 SelectedButton.SetHighlight(true);
+                ChangeModuleSet(moduleSet);
             }
         }
     }

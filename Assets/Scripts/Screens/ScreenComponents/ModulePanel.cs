@@ -25,6 +25,11 @@ public class ModulePanel : MonoBehaviour
     [SerializeField]
     ModuleSetScrollList moduleSetScrollList;
 
+    [SerializeField]
+    ModuleButtonList moduleButtonList;
+
+    List<ModuleButton> ModuleButtons = new List<ModuleButton>();
+
     List<ModuleSet> WeaponModuleSets = new List<ModuleSet>();
     List<ModuleSet> DefenseModuleSets = new List<ModuleSet>();
     List<ModuleSet> SystemModuleSets = new List<ModuleSet>();
@@ -40,15 +45,6 @@ public class ModulePanel : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        //testing
-        List<ModuleSet> ModuleSets = new List<ModuleSet>();
-        foreach(KeyValuePair<string, ModuleSet> keyVal in ResourceManager.ModuleSets)
-        {
-            ModuleSets.Add(keyVal.Value);
-        }
-        moduleSetScrollList.BuildModuleSetsButtons(ModuleSets, ChangeModuleSet);
-
-
         // Set localization
         WeaponsButton.GetComponentInChildren<Text>().text = ResourceManager.GetLocalization("Weapons");
         DefensesButton.GetComponentInChildren<Text>().text = ResourceManager.GetLocalization("Defenses");
@@ -77,9 +73,9 @@ public class ModulePanel : MonoBehaviour
         SystemModuleSets = moduleSetList;
     }
 
-    void BuildModuleSetButtons(List<ModuleSet> moduleSetList)
+    public void BuildModuleSetButtons(List<ModuleSet> moduleSetList)
     {
-
+        moduleSetScrollList.BuildModuleSetsButtons(moduleSetList, ChangeModuleSet);
     }
 
     public void ClickWeaponsCategory()
@@ -87,8 +83,7 @@ public class ModulePanel : MonoBehaviour
         if(Category != ModuleCategory.Weapons)
         {
             Category = ModuleCategory.Weapons;
-
-            ClearModuleButtons();
+            BuildModuleSetButtons(WeaponModuleSets);
         }
     }
 
@@ -97,8 +92,7 @@ public class ModulePanel : MonoBehaviour
         if (Category != ModuleCategory.Defenses)
         {
             Category = ModuleCategory.Defenses;
-
-            ClearModuleButtons();
+            BuildModuleSetButtons(DefenseModuleSets);
         }
     }
 
@@ -107,12 +101,11 @@ public class ModulePanel : MonoBehaviour
         if (Category != ModuleCategory.Systems)
         {
             Category = ModuleCategory.Systems;
-
-            ClearModuleButtons();
+            BuildModuleSetButtons(SystemModuleSets);
         }
     }
 
-    void ClearModuleButtons()
+    void ClearModuleSetButtons()
     {
         moduleSetScrollList.Clear();
     }
@@ -124,7 +117,12 @@ public class ModulePanel : MonoBehaviour
 
     public void ChangeModuleSet(ModuleSet moduleSet)
     {
+        moduleButtonList.CreateModuleButtons(moduleSet.GetModules(), ChangeModule);
+    }
 
+    public void ChangeModule(Module module)
+    {
+        
     }
 
     public enum ModuleCategory

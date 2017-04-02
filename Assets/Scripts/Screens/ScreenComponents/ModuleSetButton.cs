@@ -34,9 +34,6 @@ public class ModuleSetButton : baseToggleButton
     protected override void Start ()
     {
         base.Start();
-
-        Button button = GetComponent<Button>();
-        button.onClick.AddListener(ClickModuleSetButton);
     }
 	
 	// Update is called once per frame
