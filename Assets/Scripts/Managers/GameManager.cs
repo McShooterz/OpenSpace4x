@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
         exploder = GameObject.Find("Exploder").GetComponent<OpenSpaceProtected.ExploderObject>();
         startingCameraRotation = Camera.main.transform.rotation;
         SetScreenElementSizes();
-        ChangeScreen(new MainMenuScreen());
+        //ChangeScreen(new MainMenuScreen());
     }
 	
 	// Update is called once per frame
@@ -177,6 +177,16 @@ public class GameManager : MonoBehaviour
         OpenSpaceProtected.OutlineSystem ObjectOutlinerNeutral = ResourceManager.CreateOutLineSystem();
 		ObjectOutlinerNeutral.outlineLayer = NeutralLayer;
 		ObjectOutlinerNeutral.outlineColor = NeutralColor;
+
+        ObjectOutlinerPlayer.transform.parent = transform;
+        ObjectOutlinerEnemy.transform.parent = transform;
+        ObjectOutlinerAllied.transform.parent = transform;
+        ObjectOutlinerNeutral.transform.parent = transform;
+
+        ObjectOutlinerPlayer.name = "PlayerOutLiner";
+        ObjectOutlinerEnemy.name = "EnemyOutLiner";
+        ObjectOutlinerAllied.name = "AlliedOutLiner";
+        ObjectOutlinerNeutral.name = "NeutralOutLiner";
     }
 
     public void SetGameSpeed(float speed)

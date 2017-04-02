@@ -78,7 +78,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
     protected Rect DesignNameFieldRect;
     protected Rect DesignSaveButtonRect;
 
-    //Symmetric design
+    //Symmetric design/mirror mode
     protected bool useSymmetricCursor = false;
     protected Vector2 SymmetricMouse;
 

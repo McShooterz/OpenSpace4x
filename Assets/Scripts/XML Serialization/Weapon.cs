@@ -208,6 +208,21 @@ public class Weapon
         return ResourceManager.GetWeapon(SecondaryWeapon);
     }
 
+    public Vector2[] GetGraphDamagePoints()
+    {
+        Vector2[] Points = new Vector2[DamageGraph.Count];
+
+        float MaxDamage = GetMaxDamage();
+        float MaxRange = GetMaxRange();
+
+        for(int i = 0; i < DamageGraph.Count; i++)
+        {
+            Points[i] = new Vector2(DamageGraph[i].Range / MaxRange, DamageGraph[i].Damage / MaxDamage);
+        }
+
+        return Points;
+    }
+
     public class DamageNode
     {
         public float Range;

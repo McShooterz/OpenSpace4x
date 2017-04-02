@@ -431,3 +431,12 @@ Diplomacy Diplomacy
 DiplomacyDesc Effectiveness of diplomatic actions at improving relations
 DiplomacyTradeValue Diplomacy Trade Value
 DiplomacyTradeValueDesc The value of your items being traded with other empires.
+NewCampaign New Campaign
+EmpireEditor Empire Editor
+Scenarios Scenarios
+Shipyard Shipyard
+Stationyard Stationyard
+CombatSimulator Combat Simulator
+Options Options
+Credits Credits
+Quit Quit

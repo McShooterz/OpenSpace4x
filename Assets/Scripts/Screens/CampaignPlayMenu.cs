@@ -39,7 +39,7 @@ public class CampaignPlayMenu : ScreenParent
         }
         if (GUI.Button(RectMenuOptionsButton, "Options"))
         {
-            GameManager.instance.ChangeScreen(new OptionsScreen(this));
+            //GameManager.instance.ChangeScreen(new OptionsScreen(this));
         }
         if (GUI.Button(RectMenuSaveButton, "Save Game"))
         {
@@ -51,7 +51,7 @@ public class CampaignPlayMenu : ScreenParent
         }
         if (GUI.Button(RectMenuQuitGameButton, "Quit Campaign"))
         {
-            GameManager.instance.ChangeScreen(new MainMenuScreen());
+            //GameManager.instance.ChangeScreen(new MainMenuScreen());
         }
         if (GUI.Button(RectMenuQuitProgramButton, "Quit Program"))
         {
