@@ -12,101 +12,110 @@ using System.Collections.Generic;
 public class Module
 {
     #region Variables
-    public string Texture = "";
-    public int SizeX;
-    public int SizeY;
+    public string Texture { get; set; }
+    public int SizeX { get; set; }
+    public int SizeY { get; set; }
 
     //Cost
-    public float ProductionCost;
-    public float AlloyCost;
-    public float AdvancedAlloyCost;
-    public float SuperiorAlloyCost;
-    public float CrystalCost;
-    public float RareCrystalCost;
-    public float ExoticCrystalCost;
-    public float ExoticParticleCost;
+    public float ProductionCost { get; set; }
+    public float AlloyCost { get; set; }
+    public float AdvancedAlloyCost { get; set; }
+    public float SuperiorAlloyCost { get; set; }
+    public float CrystalCost { get; set; }
+    public float RareCrystalCost { get; set; }
+    public float ExoticCrystalCost { get; set; }
+    public float ExoticParticleCost { get; set; }
 
     //General
-    public float Health;
-    public float Mass;
-    public float Power;
-    public float PowerGenerated;
-    public float Fuel;
-    public float Ammo;
-    public float PowerStorage;
+    public float Health { get; set; }
+    public float Mass { get; set; }
+    public float Power { get; set; }
+    public float PowerGenerated { get; set; }
+    public float Fuel { get; set; }
+    public float Ammo { get; set; }
+    public float PowerStorage { get; set; }
 
     //Defense
-    public float ArmorHealth;
-    public float ArmorRating;
-    public float ShieldHealth;
-    public float ShieldRating;
-    public float ShieldRechargeRate;
-    public float ShieldRechargeDelay;
+    public float ArmorHealth { get; set; }
+    public float ArmorRating { get; set; }
+    public float ShieldHealth { get; set; }
+    public float ShieldRating { get; set; }
+    public float ShieldRechargeRate { get; set; }
+    public float ShieldRechargeDelay { get; set; }
 
     //Supplies
-    public int Crew;
-    public float RequiredCrew;
-    public float Supplies;
+    public int Crew { get; set; }
+    public float RequiredCrew { get; set; }
+    public float Supplies { get; set; }
 
     //Engines
-    public float EngineFTL;
-    public float EngineThrust;
-    public float EngineTurn;
-    public float EngineBonus;
+    public float EngineFTL { get; set; }
+    public float EngineThrust { get; set; }
+    public float EngineTurn { get; set; }
+    public float EngineBonus { get; set; }
 
     //Sensors
-    public float Sensor;
-    public float LongRangeSensor;
-    public float AdvancedSensor;
+    public float Sensor { get; set; }
+    public float LongRangeSensor { get; set; }
+    public float AdvancedSensor { get; set; }
 
     //Bonuses
-    public float DamageBonus;
-    public float DefenseBonus;
-    public float DamageBonusFleet;
-    public float DefenseBonusFleet;
-    public float PowerEfficiency;
-    public int CommandPointBonusFleet;
+    public float DamageBonus { get; set; }
+    public float DefenseBonus { get; set; }
+    public float DamageBonusFleet { get; set; }
+    public float DefenseBonusFleet { get; set; }
+    public float PowerEfficiency { get; set; }
+    public int CommandPointBonusFleet { get; set; }
 
     //Fighters
-    public List<string> Fighters = new List<string>();
-    public List<string> HeavyFighters = new List<string>();
-    public List<string> AssaultPods = new List<string>();
+    public List<string> Fighters { get; set; }
+    public List<string> HeavyFighters { get; set; }
+    public List<string> AssaultPods { get; set; }
 
     //Misc
-    public float Research;
-    public float Mining;
-    public float Repair;
-    public float AmmoGenerated;
-    public int Transporter;
-    public int Troops;
-    public int CommandPointReduction;
-    public float Medical;
-    public float CloakingPowerPerMass;
-    public float Stealth;
-    public float BoardingDefense;
-    public float Colonies;
-    public float Diplomacy;
-    public float Construction;
-    public float ExperienceBonus;
+    public float Research { get; set; }
+    public float Mining { get; set; }
+    public float Repair { get; set; }
+    public float AmmoGenerated { get; set; }
+    public int Transporter { get; set; }
+    public int Troops { get; set; }
+    public int CommandPointReduction { get; set; }
+    public float Medical { get; set; }
+    public float CloakingPowerPerMass { get; set; }
+    public float Stealth { get; set; }
+    public float BoardingDefense { get; set; }
+    public float Colonies { get; set; }
+    public float Diplomacy { get; set; }
+    public float Construction { get; set; }
+    public float ExperienceBonus { get; set; }
 
     //Bombing
-    public float BombArmyDamage;
-    public float BombStructureDamage;
-    public float BombPopulationDamage;
-    public float BombPollution;
+    public float BombArmyDamage { get; set; }
+    public float BombStructureDamage { get; set; }
+    public float BombPopulationDamage { get; set; }
+    public float BombPollution { get; set; }
 
     //Jamming
-    public int JammingCount;
-    public float JammingRange;
-    public float JammingDelay;
+    public int JammingCount { get; set; }
+    public float JammingRange { get; set; }
+    public float JammingDelay { get; set; }
 
     //Weapon
-    public string Weapon = "";
+    public string Weapon { get; set; }
 
     ModuleSet ParentSet = null;
     #endregion
 
-    public Module() { }
+    //Set default values in constructor
+    public Module()
+    {
+        Texture = "";
+        Weapon = "";
+
+        Fighters = new List<string>();
+        HeavyFighters = new List<string>();
+        AssaultPods = new List<string>();
+    }
 
     public void SetParentSet(ModuleSet parent)
     {

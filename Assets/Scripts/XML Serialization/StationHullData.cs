@@ -11,30 +11,51 @@ using System.Collections;
 
 public class StationHullData
 {
-    public string Name;
+    public string Name { get; set; }
 
-    public string StationObject;
-    public string SlotLayout;
-    public string HardPoints;
+    public string StationObject { get; set; }
+    public string SlotLayout { get; set; }
+    public string HardPoints { get; set; }
 
-    public StationType Classification;
-    public string Icon;
+    public StationType Classification { get; set; }
+    public string Icon { get; set; }
 
     //Base Stats
-    public int BaseCrew = 100;
-    public float BaseSensor = 20f;
-    public float BaseLongRangeSensor = 25f;
-    public float BaseAdvancedSensor = 0f;
-    public float BaseResearch = 0f;
-    public float BaseTrading = 0f;
-    public float BaseMining = 0f;
-    public float BaseRepair = 0.5f;
-    public float BaseHealthPerSlot = 5f;
-    public float BaseArmorPerSlot = 2f;
+    public int BaseCrew { get; set; }
+    public float BaseSensor { get; set; }
+    public float BaseLongRangeSensor { get; set; }
+    public float BaseAdvancedSensor { get; set; }
+    public float BaseResearch { get; set; }
+    public float BaseTrading { get; set; }
+    public float BaseMining { get; set; }
+    public float BaseRepair { get; set; }
+    public float BaseHealthPerSlot { get; set; }
+    public float BaseArmorPerSlot { get; set; }
 
-    public float ExperienceKillValue;
+    public float ExperienceKillValue { get; set; }
 
-    public ModuleLimitType ModuleLimitations = ModuleLimitType.NoEngines;
+    public ModuleLimitType ModuleLimitations { get; set; }
+
+    public StationHullData()
+    {
+        Name = "";
+        StationObject = "";
+        SlotLayout = "";
+        HardPoints = "";
+        Icon = "";
+        BaseCrew = 100;
+        BaseSensor = 20f;
+        BaseLongRangeSensor = 25f;
+        BaseAdvancedSensor = 0f;
+        BaseResearch = 0f;
+        BaseTrading = 0f;
+        BaseMining = 0f;
+        BaseRepair = 0.5f;
+        BaseHealthPerSlot = 5f;
+        BaseArmorPerSlot = 2f;
+        ExperienceKillValue = 1;
+        ModuleLimitations = ModuleLimitType.NoEngines;
+}
 
     public Texture2D GetIcon()
     {

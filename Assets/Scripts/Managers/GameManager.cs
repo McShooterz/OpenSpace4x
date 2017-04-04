@@ -101,7 +101,6 @@ public class GameManager : MonoBehaviour
 
         if (screenTransitionTimer > 0)
         {
-            screenTransitionTimer -= Time.deltaTime * ResourceManager.gameConstants.ScreenTransitionRate;
             if (screenTransitionTimer <= 0)
             {
                 screenTransitionTimer = 0;

@@ -71,17 +71,19 @@ public class ResourceManager : MonoBehaviour
 
     static Dictionary<string, GameObject> Screens = new Dictionary<string, GameObject>();
 
-    public static GameConstants gameConstants;
-    public static EmpireRacialTraitsConfig RacialTraitsConfig;
-    public static GameObject outLineSystem;
-    public static GameObject ShieldsObject;
+    public static GameConstants gameConstants { get; set; }
+    public static EmpireRacialTraitsConfig RacialTraitsConfig { get; set; }
+
+    public static Texture2D ErrorTexture { get; set; }
+
+    static GameObject outLineSystem;
+    static GameObject ShieldsObject;
+
     ModLoadConfig modLoadConfig;
 
     List<ModInfo> ModInfos = new List<ModInfo>();
 
     Credits credits;
-
-    public static Texture2D ErrorTexture;
 
     void Awake()
     {

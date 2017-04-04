@@ -7,7 +7,12 @@ public class Credits
 
     public class CreditsGroup
     {
-        public string GroupName;
-        public List<string> GroupItems = new List<string>();
+        public string GroupName { get; set; }
+        public List<string> GroupItems { get; set; }
+
+        public CreditsGroup()
+        {
+            GroupItems = new List<string>();
+        }
     }
 }

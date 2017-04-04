@@ -11,122 +11,98 @@ using System.Collections;
 
 public class GameConstants
 {
-    //Game Settings
-    public float ScreenTransitionRate = 3;
-
-    //
-    public int BaseFleetCommandPointLimit = -1;
+    #region Variables
 
     //Economy
-    public float BaseFoodValue = -1;
-    public float BaseProductionValue = -1;
-    public float BaseOreValue = -1;
-    public float BaseAlloyValue = -1;
-    public float BaseRareOreValue = -1;
-    public float BaseAdvancedAlloyValue = -1;
-    public float BaseExoticOreValue = -1;
-    public float BaseSuperiorAlloyValue = -1;
-    public float BaseCrystalValue = -1;
-    public float BaseRareCrystalValue = -1;
-    public float BaseExoticCrystalValue = -1;
-    public float BaseExoticParticleValue = -1;
+    public float BaseFoodValue { get; set; }
+    public float BaseProductionValue { get; set; }
+    public float BaseOreValue { get; set; }
+    public float BaseAlloyValue { get; set; }
+    public float BaseRareOreValue { get; set; }
+    public float BaseAdvancedAlloyValue { get; set; }
+    public float BaseExoticOreValue { get; set; }
+    public float BaseSuperiorAlloyValue { get; set; }
+    public float BaseCrystalValue { get; set; }
+    public float BaseRareCrystalValue { get; set; }
+    public float BaseExoticCrystalValue { get; set; }
+    public float BaseExoticParticleValue { get; set; }
 
     //Highlight colors
-    public ColorXML Highlight_Player;
-    public ColorXML Highlight_Enemy;
-    public ColorXML Highlight_Ally;
-	public ColorXML Highlight_Neutral;
+    public ColorXML Highlight_Player { get; set; }
+    public ColorXML Highlight_Enemy { get; set; }
+    public ColorXML Highlight_Ally { get; set; }
+    public ColorXML Highlight_Neutral { get; set; }
 
     //Ships
-    public float ShipSTLSpeedMultiplier;
-    public float ShipSTLTurnMultiplier;
-	public float FighterTurnMultiplier;
-    public float ShipTiltRate;
-    public float ShipDrag;
-	public float ShipBrakeDrag;
-    public float FiringRangeFactor;
-    public bool AllowCombatRepair;
-    public float MinShieldAbsorb;
-    public float CloakingTime;
-    public float CloakingTransparency;
-	public float boardingIntervalMax;
-    public float boardingIntervalMin;
-    public float MinCrewPercent;
-    public float RetreatTime;
-    public float SelfDestructTime;
-    public float WeaponCheckTime;
-    public float BeamDamageIntervalTime;
-    public float ShipLevelDamageBonus;
-    public float ShipLevelDefenseBonus;
+    public float ShipSTLSpeedMultiplier { get; set; }
+    public float ShipSTLTurnMultiplier { get; set; }
+    public float FighterTurnMultiplier { get; set; }
+    public float ShipTiltRate { get; set; }
+    public float ShipDrag { get; set; }
+    public float ShipBrakeDrag { get; set; }
+    public float FiringRangeFactor { get; set; }
+    public bool AllowCombatRepair { get; set; }
+    public float MinShieldAbsorb { get; set; }
+    public float CloakingTime { get; set; }
+    public float CloakingTransparency { get; set; }
+    public float boardingIntervalMax { get; set; }
+    public float boardingIntervalMin { get; set; }
+    public float MinCrewPercent { get; set; }
+    public float RetreatTime { get; set; }
+    public float SelfDestructTime { get; set; }
+    public float WeaponCheckTime { get; set; }
+    public float BeamDamageIntervalTime { get; set; }
+    public float ShipLevelDamageBonus { get; set; }
+    public float ShipLevelDefenseBonus { get; set; }
 
     //Camera
-    public float CameraSpeed = 10;
-    public int CameraLimitUp = 200;
-    public int CameraLimitDown = -200;
-    public int CameraLimitLeft = -200;
-    public int CameraLimitRight = 200;
-    public float CameraZoomRate = 10;
-    public int CameraLimitZoomMax = 30;
-    public int CameraLimitZoomMin = 1;
-    public int CameraBoarderArea = 5;
-    public float CameraRotateRate = 3;
+    public float CameraSpeed { get; set; }
+    public int CameraLimitUp { get; set; }
+    public int CameraLimitDown { get; set; }
+    public int CameraLimitLeft { get; set; }
+    public int CameraLimitRight { get; set; }
+    public float CameraZoomRate { get; set; }
+    public int CameraLimitZoomMax { get; set; }
+    public int CameraLimitZoomMin { get; set; }
+    public int CameraBoarderArea { get; set; }
+    public float CameraRotateRate { get; set; }
 
-    public GameConstants() { }
+    #endregion
 
+    public GameConstants()
+    {
+        BaseFoodValue = -1;
+        BaseProductionValue = -1;
+        BaseOreValue = -1;
+        BaseAlloyValue = -1;
+        BaseRareOreValue = -1;
+        BaseAdvancedAlloyValue = -1;
+        BaseExoticOreValue = -1;
+        BaseSuperiorAlloyValue = -1;
+        BaseCrystalValue = -1;
+        BaseRareCrystalValue = -1;
+        BaseExoticCrystalValue = -1;
+        BaseExoticParticleValue = -1;
+
+        CameraSpeed = 10;
+        CameraLimitUp = 200;
+        CameraLimitDown = -200;
+        CameraLimitLeft = -200;
+        CameraLimitRight = 200;
+        CameraZoomRate = 10;
+        CameraLimitZoomMax = 30;
+        CameraLimitZoomMin = 1;
+        CameraBoarderArea = 5;
+        CameraRotateRate = 3;
+    }
+
+    /// <summary>
+    /// Takes in a new GameConstants and determines what needs to be updated
+    /// </summary>
+    /// <param name="newConstants"></param>
     public void UpdateConstants(GameConstants newConstants)
     {
-        if(newConstants.BaseFleetCommandPointLimit != -1)
-        {
-            BaseFleetCommandPointLimit = newConstants.BaseFleetCommandPointLimit;
-        }
-        if (newConstants.BaseFoodValue != -1)
-        {
-            BaseFoodValue = newConstants.BaseFoodValue;
-        }
-        if (newConstants.BaseProductionValue != -1)
-        {
-            BaseProductionValue = newConstants.BaseProductionValue;
-        }
-        if (newConstants.BaseOreValue != -1)
-        {
-            BaseOreValue = newConstants.BaseOreValue;
-        }
-        if (newConstants.BaseAlloyValue != -1)
-        {
-            this.BaseAlloyValue = newConstants.BaseAlloyValue;
-        }
-        if (newConstants.BaseRareOreValue != -1)
-        {
-            this.BaseRareOreValue = newConstants.BaseRareOreValue;
-        }
-        if (newConstants.BaseAdvancedAlloyValue != -1)
-        {
-            this.BaseAdvancedAlloyValue = newConstants.BaseAdvancedAlloyValue;
-        }
-        if (newConstants.BaseExoticOreValue != -1)
-        {
-            this.BaseExoticOreValue = newConstants.BaseExoticOreValue;
-        }
-        if (newConstants.BaseSuperiorAlloyValue != -1)
-        {
-            this.BaseSuperiorAlloyValue = newConstants.BaseSuperiorAlloyValue;
-        }
-        if (newConstants.BaseCrystalValue != -1)
-        {
-            this.BaseCrystalValue = newConstants.BaseCrystalValue;
-        }
-        if (newConstants.BaseRareCrystalValue != -1)
-        {
-            this.BaseRareCrystalValue = newConstants.BaseRareCrystalValue;
-        }
-        if (newConstants.BaseExoticCrystalValue != -1)
-        {
-            this.BaseExoticCrystalValue = newConstants.BaseExoticCrystalValue;
-        }
-        if (newConstants.BaseExoticParticleValue != -1)
-        {
-            this.BaseExoticParticleValue = newConstants.BaseExoticParticleValue;
-        }
+
     }
 
     public float GetBaseResourceValue(float production, float alloy, float advAlloy, float supAlloy, float crystal, float rareCrystal, float exCrystal, float exParticle)
@@ -164,9 +140,9 @@ public class GameConstants
         return RareCrystal * BaseRareCrystalValue;
     }
 
-    public float GetBaseExoticCrystalValue(float ExoticCrytsl)
+    public float GetBaseExoticCrystalValue(float ExoticCrystal)
     {
-        return ExoticCrytsl * BaseExoticCrystalValue;
+        return ExoticCrystal * BaseExoticCrystalValue;
     }
 
     public float GetBaseExoticParticleValue(float ExoticParticle)

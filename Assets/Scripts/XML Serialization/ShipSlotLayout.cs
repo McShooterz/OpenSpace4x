@@ -12,13 +12,20 @@ using System.Collections.Generic;
 
 public class ShipSlotLayout
 {
-    public List<Rect> ForeSlots = new List<Rect>();
-    public List<Rect> AftSlots = new List<Rect>();
-    public List<Rect> PortSlots = new List<Rect>();
-    public List<Rect> StarboardSlots = new List<Rect>();
-    public List<Rect> CenterSlots = new List<Rect>();
+    public List<Rect> ForeSlots { get; set; }
+    public List<Rect> AftSlots { get; set; }
+    public List<Rect> PortSlots { get; set; }
+    public List<Rect> StarboardSlots { get; set; }
+    public List<Rect> CenterSlots { get; set; }
 
-    public ShipSlotLayout() { }
+    public ShipSlotLayout()
+    {
+        ForeSlots = new List<Rect>();
+        AftSlots = new List<Rect>();
+        PortSlots = new List<Rect>();
+        StarboardSlots = new List<Rect>();
+        CenterSlots = new List<Rect>();
+    }
 
     public ShipSlotLayout(ShipSlotLayout slotLayout)
     {

@@ -3,24 +3,31 @@ using System.Collections.Generic;
 
 public class Scenario
 {
-    public string Name;
-    public string Description;
-    public float TimeLimit;
-    public int CommandLimit;
-    public float MoneyLimit;
-    public ScenarioDifficulty Difficulty;
-    public Vector3 DeploymentAreaPosition;
+    public string Name { get; set; }
+    public string Description { get; set; }
+    public float TimeLimit { get; set; }
+    public int CommandLimit { get; set; }
+    public float MoneyLimit { get; set; }
+    public ScenarioDifficulty Difficulty { get; set; }
+    public Vector3 DeploymentAreaPosition { get; set; }
 
-    public List<ShipEntry> PlayerShips = new List<ShipEntry>();
-    public List<ShipEntry> EnemyShips = new List<ShipEntry>();
-    public List<ShipEntry> AlliedShips = new List<ShipEntry>();
-    public List<ShipEntry> NeutralShips = new List<ShipEntry>();
+    public List<ShipEntry> PlayerShips { get; set; }
+    public List<ShipEntry> EnemyShips { get; set; }
+    public List<ShipEntry> AlliedShips { get; set; }
+    public List<ShipEntry> NeutralShips { get; set; }
 
-    public bool Deleted = false;
+    public bool Deleted { get; set; }
+
     //Path is set by code, no need to set in file.
     string path = "";
 
-    public Scenario(){}
+    public Scenario()
+    {
+        PlayerShips = new List<ShipEntry>();
+        EnemyShips = new List<ShipEntry>();
+        AlliedShips = new List<ShipEntry>();
+        NeutralShips = new List<ShipEntry>();
+    }
 
     public void SetPath(string newPath)
     {
