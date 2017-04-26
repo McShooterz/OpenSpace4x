@@ -41,4 +41,9 @@ public sealed class ShipDesign : UnitDesign
     {
         return ResourceManager.GetShipHull(Hull);
     }
+
+    public ShipDesignData GetShipDesignData()
+    {
+        return ResourceManager.GetShipDesignData(this);
+    }
 }

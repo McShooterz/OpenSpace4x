@@ -13,16 +13,18 @@ using UnityEngine;
 public sealed class MainShipyardScreen : BaseShipDesignScreen
 {
     #region Variables
+
+    [SerializeField]
+    ShipHullPanel shipHullPanel;
+
     #endregion
 
 
     protected override void Start()
     {
         BuildModuleSetLists();
+        BuildShipHullDatas();
     }
-
-
-
 
     void BuildModuleSetLists()
     {
@@ -56,5 +58,22 @@ public sealed class MainShipyardScreen : BaseShipDesignScreen
         ModulePanel.SetSystemModuleSetList(SystemModuleSets);
 
         ModulePanel.BuildModuleSetButtons(WeaponModuleSets);
+    }
+
+    void BuildShipHullDatas()
+    {
+        List<ShipHullData> shipHullDatas = new List<ShipHullData>();
+
+        foreach(KeyValuePair<string, ShipHullData> keyVal in ResourceManager.GetShipHulls())
+        {
+            shipHullDatas.Add(keyVal.Value);
+        }
+
+        shipHullPanel.SetShipHullDatas(shipHullDatas, ChangeHull);
+    }
+
+    public void ChangeHull(ShipHullData data)
+    {
+
     }
 }

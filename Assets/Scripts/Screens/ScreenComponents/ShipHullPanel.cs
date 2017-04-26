@@ -25,10 +25,14 @@ public class ShipHullPanel : MonoBehaviour
     GameObject VisualGroup;
 
 
+    [Header("Hulls Group")]
+    [SerializeField]
+    ShipHullDataScrollList shipHullDataScrollList;
 
 
-	// Use this for initialization
-	void Start ()
+
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -38,10 +42,6 @@ public class ShipHullPanel : MonoBehaviour
     {
 		
 	}
-
-
-
-
 
 
 
@@ -77,4 +77,9 @@ public class ShipHullPanel : MonoBehaviour
 
     }
 
+
+    public void SetShipHullDatas(List<ShipHullData> shipHullDatas, ShipHullDataButton.ButtonPress buttonPress)
+    {
+        shipHullDataScrollList.BuildShipHullDataButtons(shipHullDatas, buttonPress);
+    }
 }
