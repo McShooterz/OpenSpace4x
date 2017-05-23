@@ -10,12 +10,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseSpaceUnitDesignScreen : BaseScreen
+public abstract class BaseSpaceUnitDesignScreen : BaseScreen
 {
     #region Variables
 
     [SerializeField]
     protected ModulePanel ModulePanel;
+
+    protected Rect SelectedModuleRect;
+    protected Rect SlotsAreaRect;
 
     protected GameObject unitModel;
     protected ModuleListTypes moduleCategory = ModuleListTypes.Weapon;
@@ -121,6 +124,11 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
                 //CheckModuleRemoval();
             //}
         }
+    }
+
+    protected virtual void BuildModuleSetLists()
+    {
+
     }
 
     protected bool CheckHullModuleAllow(ModuleLimitType limit, ModuleCategory category)

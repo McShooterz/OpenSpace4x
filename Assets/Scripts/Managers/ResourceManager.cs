@@ -1051,7 +1051,7 @@ public class ResourceManager : MonoBehaviour
         string name = Path.GetFileNameWithoutExtension(file.Name);
         WWW www = new WWW("file://" + file.FullName);
         yield return www;
-        AudioClip clip = www.audioClip;
+        AudioClip clip = www.GetAudioClip();
         if (AudioClips.ContainsKey(name))
         {
             AudioClips[name] = clip;
@@ -2068,9 +2068,36 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Dictionary<string, ShipHullData> GetShipHulls()
+    public static List<ShipHullData> GetShipHulls()
     {
-        return ShipHulls;
+        List<ShipHullData> shipHulls = new List<ShipHullData>();
+
+        foreach(KeyValuePair<string, ShipHullData> keyVal in ShipHulls)
+        {
+            shipHulls.Add(keyVal.Value);
+        }
+
+        return shipHulls;
+    }
+
+    public static List<ShipDesign> GetShipDesigns(ShipHullData hull, bool includeDeletedDesigns)
+    {
+        Dictionary<string, ShipDesign> designDictionary;
+
+        List<ShipDesign> designs = new List<ShipDesign>();
+
+        if (shipDesigns.TryGetValue(hull.Name, out designDictionary))
+        {
+            foreach(KeyValuePair<string, ShipDesign> keyVal in designDictionary)
+            {
+                ShipDesign design = keyVal.Value;
+                if (includeDeletedDesigns || !design.Deleted)
+                {
+                    designs.Add(design);
+                }
+            }
+        }
+        return designs;
     }
 
     public static ShipSlotLayout GetShipSlotLayout(string slotLayoutName)

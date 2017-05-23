@@ -22,7 +22,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
     protected Rect ShipDesignScrollViewRect;
     protected Vector2 ShipDesignScrollPosition; 
 
-    protected List<DesignListEntry> DesignList = new List<DesignListEntry>();  
+    protected List<DesignListEntry> DesignList = new List<DesignListEntry>();
     protected ShipDesign DesignToDelete = null;
 
     protected List<Rect> ForeSlots = new List<Rect>();

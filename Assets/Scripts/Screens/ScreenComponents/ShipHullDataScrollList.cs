@@ -52,4 +52,13 @@ public class ShipHullDataScrollList : BaseScrollList
             selectedButton.SetHighlight(true);
         }
     }
+
+    public ShipHullData GetSelectedShipHullData()
+    {
+        if(selectedButton != null)
+        {
+            selectedButton.GetShipHullData();
+        }
+        return null;
+    }
 }

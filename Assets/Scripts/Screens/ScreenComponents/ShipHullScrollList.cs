@@ -24,12 +24,12 @@ public class ShipHullScrollList : ScrollListBase
         HullList.Clear();
         float EntrySize = ScrollViewRect.width / 5f;
         int index = 0;
-        foreach (KeyValuePair<string, ShipHullData> keyVal in ResourceManager.GetShipHulls())
+        foreach (ShipHullData hull in ResourceManager.GetShipHulls())
         {
-            if (checkHulls(keyVal.Value))
+            if (checkHulls(hull))
             {
                 Rect entryRect = new Rect(EntrySize * (HullList.Count % 5), EntrySize * (HullList.Count / 5), EntrySize, EntrySize);
-                HullListEntry HLE = new HullListEntry(entryRect, keyVal.Value, index, changeHullCallBack, ChangeSelectionIndex);
+                HullListEntry HLE = new HullListEntry(entryRect, hull, index, changeHullCallBack, ChangeSelectionIndex);
                 HullList.Add(HLE);
                 index++;
             }

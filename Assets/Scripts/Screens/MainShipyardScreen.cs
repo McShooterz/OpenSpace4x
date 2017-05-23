@@ -14,19 +14,28 @@ public sealed class MainShipyardScreen : BaseShipDesignScreen
 {
     #region Variables
 
-    [SerializeField]
-    ShipHullPanel shipHullPanel;
-
     #endregion
-
 
     protected override void Start()
     {
+        base.Start();
+
         BuildModuleSetLists();
         BuildShipHullDatas();
     }
 
-    void BuildModuleSetLists()
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
+    }
+
+    protected override void OnGUI()
+    {
+        base.OnGUI();
+    }
+
+    protected override void BuildModuleSetLists()
     {
         List<ModuleSet> WeaponModuleSets = new List<ModuleSet>();
         List<ModuleSet> DefenseModuleSets = new List<ModuleSet>();
@@ -60,19 +69,22 @@ public sealed class MainShipyardScreen : BaseShipDesignScreen
         ModulePanel.BuildModuleSetButtons(WeaponModuleSets);
     }
 
-    void BuildShipHullDatas()
+    protected override void BuildShipHullDatas()
     {
-        List<ShipHullData> shipHullDatas = new List<ShipHullData>();
-
-        foreach(KeyValuePair<string, ShipHullData> keyVal in ResourceManager.GetShipHulls())
-        {
-            shipHullDatas.Add(keyVal.Value);
-        }
-
-        shipHullPanel.SetShipHullDatas(shipHullDatas, ChangeHull);
+        shipHullPanel.SetShipHullDatas(ResourceManager.GetShipHulls(), ChangeHull);
     }
 
-    public void ChangeHull(ShipHullData data)
+    public override void BuildShipDesigns(ShipHullData hullData)
+    {
+        shipHullPanel.SetShipDesigns(ResourceManager.GetShipDesigns(hullData, false), LoadShipDesign, DeleteShipDesign);
+    }
+
+    protected override void ChangeHull(ShipHullData data)
+    {
+        base.ChangeHull(data);
+    }
+
+    protected override void LoadShipDesign(ShipDesign design)
     {
 
     }

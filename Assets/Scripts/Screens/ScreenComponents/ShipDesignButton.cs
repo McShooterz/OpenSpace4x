@@ -29,8 +29,8 @@ public class ShipDesignButton : baseToggleButton
     public delegate void ButtonPress(ShipDesign design);
     protected ButtonPress buttonCallBack;
 
-    public delegate void Select(ShipDesignButton button);
-    protected Select selectCallBack;
+    public delegate void DeleteButtonPress(ShipDesign design);
+    DeleteButtonPress deleteCallBack;
 
     // Use this for initialization
     protected override void Start()
@@ -44,11 +44,11 @@ public class ShipDesignButton : baseToggleButton
 		
 	}
 
-    public void SetShipDesign(ShipDesign design, ButtonPress callBack, Select select)
+    public void SetShipDesign(ShipDesign design, ButtonPress callBack, DeleteButtonPress deleteMethod)
     {
         shipDesign = design;
         buttonCallBack = callBack;
-        selectCallBack = select;
+        deleteCallBack = deleteMethod;
 
         ShipDesignData designData = shipDesign.GetShipDesignData();
 
@@ -56,7 +56,7 @@ public class ShipDesignButton : baseToggleButton
         CommandValue.text = designData.CommandPoints.ToString();
         CostValue.text = designData.GetTotalValue().ToString("0.#");
 
-        Texture2D texture = ResourceManager.GetIconTexture("Icon_Command");
+        Texture2D texture = ResourceManager.GetIconTexture("Icon_CommandPoint");
         CommandIcon.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         CommandIcon.preserveAspect = true;
 
@@ -67,7 +67,11 @@ public class ShipDesignButton : baseToggleButton
 
     public void ButtonClick()
     {
-        selectCallBack(this);
         buttonCallBack(shipDesign);
+    }
+
+    public void DeleteButtonClick()
+    {
+        deleteCallBack(shipDesign);
     }
 }
