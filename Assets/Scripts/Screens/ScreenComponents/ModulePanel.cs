@@ -37,6 +37,14 @@ public class ModulePanel : MonoBehaviour
 
     ModuleCategory Category = ModuleCategory.Weapons;
 
+    bool useSymmetricCursor = false;
+
+    Rect SelectedModuleCursorRect = new Rect();
+    Texture2D SelectedModuleTexture;
+
+    float ModuleScale = 32;
+    int ModuleRotation = 0;
+
     #endregion
 
     // Use this for initialization
@@ -48,8 +56,31 @@ public class ModulePanel : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
-	}
+		if(Input.GetMouseButtonDown(1))
+        {
+            DeselectModule();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            RotateModule();
+        }
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            ToggleMirrorMode();
+        }
+
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+
+        }
+    }
+
+    void OnGUI()
+    {
+        //DrawSelectedModuleTexture();
+    }
 
     public void SetWeaponModuleSetList(List<ModuleSet> moduleSetList)
     {
@@ -70,6 +101,8 @@ public class ModulePanel : MonoBehaviour
     {
         moduleSetScrollList.BuildModuleSetsButtons(moduleSetList, ChangeModuleSet);
     }
+
+#region Button Clicks
 
     public void ClickWeaponsCategory()
     {
@@ -98,14 +131,45 @@ public class ModulePanel : MonoBehaviour
         }
     }
 
+    public void ClickMirrorButton()
+    {
+        ToggleMirrorMode();
+    }
+
+    public void ClickRotateButton()
+    {
+        RotateModule();
+    }
+
+    public void ClickSwapButton()
+    {
+
+    }
+
+#endregion
+
     void ClearModuleSetButtons()
     {
         moduleSetScrollList.Clear();
     }
 
+    public Module GetSelectedModule()
+    {
+        return SelectedModule;
+    }
+
     public ModuleSet GetSelectedModuleSet()
     {
         return SelectedModuleSet;
+    }
+
+    public void DeselectModule()
+    {
+        SelectedModule = null;
+
+        moduleButtonList.DeselectModuleButton();
+
+        ModuleStatEntries.Clear();
     }
 
     public void ChangeModuleSet(ModuleSet moduleSet)
@@ -117,6 +181,18 @@ public class ModulePanel : MonoBehaviour
     public void ChangeModule(Module module)
     {
         SelectedModule = module;
+
+        ModuleRotation = 0;
+
+        SelectedModuleTexture = SelectedModule.GetTexture();
+
+        ApplyModuleScale();
+
+        AddModuleStatEntries(SelectedModule);
+    }
+
+    void AddModuleStatEntries(Module module)
+    {
         ModuleStatEntries.Clear();
 
         float cost = module.GetCost();
@@ -577,6 +653,86 @@ public class ModulePanel : MonoBehaviour
     void AddModuleStatEntry(string IconName, string text, string ToolTipTitle, string ToolTipDescription)
     {
         ModuleStatEntries.AddEntry(ResourceManager.GetIconTexture(IconName), text);
+    }
+
+    public void SetModuleScale(float scale)
+    {
+        ModuleScale = scale;
+
+        ApplyModuleScale();
+    }
+
+    void ApplyModuleScale()
+    {
+        if (SelectedModule != null)
+        {
+            SelectedModuleCursorRect.size = new Vector2(SelectedModule.SizeX * ModuleScale, SelectedModule.SizeY * ModuleScale);
+        }
+    }
+
+    public float GetModuleScale()
+    {
+        return ModuleScale;
+    }
+
+    public int GetModuleRotation()
+    {
+        return ModuleRotation;
+    }
+
+    public void ResetModuleRotation()
+    {
+        ModuleRotation = 0;
+    }
+
+    public void RotateModule()
+    {
+        ModuleRotation += 90;
+
+        if(ModuleRotation == 360)
+        {
+            ModuleRotation = 0;
+        }
+    }
+
+    void ToggleMirrorMode()
+    {
+        useSymmetricCursor = !useSymmetricCursor;
+    }
+
+    public void DrawSelectedModuleTexture()
+    {
+        if (SelectedModule != null)
+        {
+            Vector2 mousePosition = Input.mousePosition;
+            mousePosition.y = Screen.height - mousePosition.y;
+
+            SelectedModuleCursorRect.position = mousePosition;
+
+            Matrix4x4 matrixBackup = GUI.matrix;
+            GUIUtility.RotateAroundPivot(ModuleRotation, SelectedModuleCursorRect.center);
+            if (SelectedModuleTexture != null)
+                GUI.DrawTexture(SelectedModuleCursorRect, SelectedModuleTexture);
+            if (useSymmetricCursor)
+            {
+                GUI.matrix = matrixBackup;
+                mousePosition.x = Screen.width - mousePosition.x;
+                if (ModuleRotation == 0 || ModuleRotation == 180)
+                {
+                    mousePosition.x -= SelectedModule.SizeX * ModuleScale - ModuleScale;
+                    SelectedModuleCursorRect.x = mousePosition.x - ModuleScale;
+                }
+                else
+                {
+                    mousePosition.x -= SelectedModule.SizeY * ModuleScale - ModuleScale;
+                    SelectedModuleCursorRect.x = mousePosition.x;
+                }
+                GUIUtility.RotateAroundPivot(ModuleRotation, SelectedModuleCursorRect.center);
+                if (SelectedModuleTexture != null)
+                    GUI.DrawTexture(SelectedModuleCursorRect, SelectedModuleTexture);
+            }
+            GUI.matrix = matrixBackup;
+        }
     }
 
     public enum ModuleCategory

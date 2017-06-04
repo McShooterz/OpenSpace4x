@@ -62,9 +62,4 @@ public class ShipHullDataButton : baseToggleButton
         selectCallBack(this);
         buttonCallBack(shipHullData);
     }
-
-    public ShipHullData GetShipHullData()
-    {
-        return shipHullData;
-    }
 }

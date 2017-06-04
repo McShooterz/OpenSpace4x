@@ -12,8 +12,14 @@ using UnityEngine;
 
 public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
 {
+#region Variables
+
     [SerializeField]
     protected ShipHullPanel shipHullPanel;
+
+    protected ShipHullData selectedShipHull;
+
+#endregion
 
     //Slots
     protected List<Rect> ForeSlots = new List<Rect>();
@@ -38,13 +44,13 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
     // Use this for initialization
     protected override void Start ()
     {
-		
+        base.Start();
 	}
 	
 	// Update is called once per frame
 	protected override void Update ()
     {
-		
+        base.Update();
 	}
 
     protected virtual void OnGUI()
@@ -52,6 +58,8 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
         DrawSlots();
 
         DrawPlacedModules();
+
+        ModulePanel.DrawSelectedModuleTexture();
     }
 
     protected override void BuildModuleSetLists()
@@ -71,13 +79,18 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
 
     protected virtual void ChangeHull(ShipHullData data)
     {
-        BuildShipDesigns(data);
+        selectedShipHull = data;
 
-        ShipSlotLayout slotLayout = ResourceManager.GetShipSlotLayout(data.Name);
-
-        if(slotLayout != null)
+        if (selectedShipHull != null)
         {
-            FormatSlotLayout(slotLayout);
+            BuildShipDesigns(selectedShipHull);
+
+            ShipSlotLayout slotLayout = ResourceManager.GetShipSlotLayout(selectedShipHull.Name);
+
+            if (slotLayout != null)
+            {
+                FormatSlotLayout(slotLayout);
+            }
         }
     }
 
@@ -90,99 +103,98 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
     {
         design.Deleted = true;
 
-        ShipHullData selectedShipHullData = GetSelectedShipHullData();
-
-        if(selectedShipHullData != null)
+        if(selectedShipHull != null)
         {
-            BuildShipDesigns(selectedShipHullData);
+            BuildShipDesigns(selectedShipHull);
         }
     }
 
-    protected ShipHullData GetSelectedShipHullData()
-    {
-        return shipHullPanel.GetSelectedShipHullData();
-    }
-
-    // GUI draw functions
+#region GUI functions
 
     protected void DrawSlots()
     {
-        if (selectedModule != null)
+        if (selectedShipHull != null)
         {
-            if (CheckHullModuleAllow(GetSelectedShipHullData().ModuleLimitFore, selectedModuleSet.ModuleCategory))
+            Module selectedModule = GetSelectedModule();
+            ModuleSet selectedModuleSet = GetSelectedModuleSet();
+
+            if (selectedModule != null)
             {
-                GUI.color = Color.white;
+                if (CheckHullModuleAllow(selectedShipHull.ModuleLimitFore, selectedModuleSet.ModuleCategory))
+                {
+                    GUI.color = Color.white;
+                }
+                else
+                {
+                    GUI.color = Color.red;
+                }
             }
-            else
+            foreach (Rect slot in ForeSlots)
             {
-                GUI.color = Color.red;
+                GUI.DrawTexture(slot, SlotTexture);
             }
-        }
-        foreach (Rect slot in ForeSlots)
-        {
-            GUI.DrawTexture(slot, SlotTexture);
-        }
-        if (selectedModule != null)
-        {
-            if (CheckHullModuleAllow(GetSelectedShipHullData().ModuleLimitAft, selectedModuleSet.ModuleCategory))
+            if (selectedModule != null)
             {
-                GUI.color = Color.white;
+                if (CheckHullModuleAllow(selectedShipHull.ModuleLimitAft, selectedModuleSet.ModuleCategory))
+                {
+                    GUI.color = Color.white;
+                }
+                else
+                {
+                    GUI.color = Color.red;
+                }
             }
-            else
+            foreach (Rect slot in AftSlots)
             {
-                GUI.color = Color.red;
+                GUI.DrawTexture(slot, SlotTexture);
             }
-        }
-        foreach (Rect slot in AftSlots)
-        {
-            GUI.DrawTexture(slot, SlotTexture);
-        }
-        if (selectedModule != null)
-        {
-            if (CheckHullModuleAllow(GetSelectedShipHullData().ModuleLimitPort, selectedModuleSet.ModuleCategory))
+            if (selectedModule != null)
             {
-                GUI.color = Color.white;
+                if (CheckHullModuleAllow(selectedShipHull.ModuleLimitPort, selectedModuleSet.ModuleCategory))
+                {
+                    GUI.color = Color.white;
+                }
+                else
+                {
+                    GUI.color = Color.red;
+                }
             }
-            else
+            foreach (Rect slot in PortSlots)
             {
-                GUI.color = Color.red;
+                GUI.DrawTexture(slot, SlotTexture);
             }
-        }
-        foreach (Rect slot in PortSlots)
-        {
-            GUI.DrawTexture(slot, SlotTexture);
-        }
-        if (selectedModule != null)
-        {
-            if (CheckHullModuleAllow(GetSelectedShipHullData().ModuleLimitStarboard, selectedModuleSet.ModuleCategory))
+            if (selectedModule != null)
             {
-                GUI.color = Color.white;
+                if (CheckHullModuleAllow(selectedShipHull.ModuleLimitStarboard, selectedModuleSet.ModuleCategory))
+                {
+                    GUI.color = Color.white;
+                }
+                else
+                {
+                    GUI.color = Color.red;
+                }
             }
-            else
+            foreach (Rect slot in StarboardSlots)
             {
-                GUI.color = Color.red;
+                GUI.DrawTexture(slot, SlotTexture);
             }
-        }
-        foreach (Rect slot in StarboardSlots)
-        {
-            GUI.DrawTexture(slot, SlotTexture);
-        }
-        if (selectedModule != null)
-        {
-            if (CheckHullModuleAllow(GetSelectedShipHullData().ModuleLimitCenter, selectedModuleSet.ModuleCategory))
+            if (selectedModule != null)
             {
-                GUI.color = Color.white;
+                if (CheckHullModuleAllow(selectedShipHull.ModuleLimitCenter, selectedModuleSet.ModuleCategory))
+                {
+                    GUI.color = Color.white;
+                }
+                else
+                {
+                    GUI.color = Color.red;
+                }
             }
-            else
+            foreach (Rect slot in CenterSlots)
             {
-                GUI.color = Color.red;
+                GUI.DrawTexture(slot, SlotTexture);
             }
+            GUI.color = Color.white;
         }
-        foreach (Rect slot in CenterSlots)
-        {
-            GUI.DrawTexture(slot, SlotTexture);
-        }
-        GUI.color = Color.white;
     }
 
     protected void DrawPlacedModules()
@@ -209,18 +221,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
+#endregion
 
     protected void FormatSlotLayout(ShipSlotLayout sourceLayout)
     {
@@ -323,9 +324,9 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
         CenterSize *= moduleScale;
         MaxSlotsVertical *= moduleScale;
         MaxSlotsHorizontal *= moduleScale;
-        if (selectedModule != null)
+        if (GetSelectedModule() != null)
         {
-            SelectedModuleRect = new Rect(0, 0, selectedModule.SizeX * moduleScale, selectedModule.SizeY * moduleScale);
+            SelectedModuleRect = new Rect(0, 0, GetSelectedModule().SizeX * moduleScale, GetSelectedModule().SizeY * moduleScale);
         }
 
         //Determine the center of the layout

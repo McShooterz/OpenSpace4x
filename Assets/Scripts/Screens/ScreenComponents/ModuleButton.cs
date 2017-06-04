@@ -56,4 +56,9 @@ public class ModuleButton : baseToggleButton
         }
         selectCallBack(this);
     }
+
+    public Module GetModule()
+    {
+        return module;
+    }
 }

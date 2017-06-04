@@ -96,9 +96,4 @@ public class ShipHullPanel : MonoBehaviour
     {
         shipDesignScrollList.BuildShipDesignButtons(shipDesigns, buttonPress, deleteButtonPress);
     }
-
-    public ShipHullData GetSelectedShipHullData()
-    {
-        return shipHullDataScrollList.GetSelectedShipHullData();
-    }
 }

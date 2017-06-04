@@ -21,9 +21,6 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
     protected Rect SlotsAreaRect;
 
     protected GameObject unitModel;
-    protected ModuleListTypes moduleCategory = ModuleListTypes.Weapon;
-    protected ModuleSet selectedModuleSet = null;
-    protected Module selectedModule = null;
     protected Texture2D selectedModuleTexture;
     protected Texture2D SlotTexture = ResourceManager.GetUITexture("ShipSlot");
     protected Texture2D WeaponArcCircle = ResourceManager.GetUITexture("WeaponArcCircle");
@@ -99,8 +96,9 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
     // Use this for initialization
     protected override void Start ()
     {
-		
-	}
+        
+
+    }
 	
 	// Update is called once per frame
 	protected override void Update ()
@@ -124,6 +122,16 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
                 //CheckModuleRemoval();
             //}
         }
+    }
+
+    protected virtual Module GetSelectedModule()
+    {
+        return ModulePanel.GetSelectedModule();
+    }
+
+    protected ModuleSet GetSelectedModuleSet()
+    {
+        return ModulePanel.GetSelectedModuleSet();
     }
 
     protected virtual void BuildModuleSetLists()
@@ -231,34 +239,10 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
         }
     }
 
-    protected void ChangeModule(Module module)
-    {
-        selectedModule = module;
-        //ModuleStatsList = BuildModuleStats(module, ModuleStatPosition);
-        Weapon weapon = module.GetWeapon();
-        if (weapon != null)
-        {
-            //BuildWeaponDamageGraph(weapon);
-        }
-        //SelectedModuleRect = new Rect(0, 0, moduleScale * selectedModule.SizeX, moduleScale * selectedModule.SizeY);
-        selectedModuleTexture = selectedModule.GetTexture();
-        ModuleRotation = 0;
-
-        if (selectedModuleSet != selectedModule.GetParentSet())
-        {
-            //ChangeModuleSet(selectedModule.GetParentSet());
-        }
-    }
-
     protected void RotateModule()
     {
         //Check to make sure there is a module and it should be able to rotate     
-        if (selectedModule == null)
-        {
-            return;
-        }
-        Weapon weapon = selectedModule.GetWeapon();
-        if (weapon != null && !weapon.AlwaysForward)
+        if (GetSelectedModule() == null)
         {
             return;
         }
@@ -282,7 +266,7 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
 
     protected void DeselectModule()
     {
-        selectedModule = null;
+        ModulePanel.DeselectModule();
         //ModuleStatsList.Clear();
     }
 
@@ -317,113 +301,6 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
         }
         return false;
     }
-
-    /*protected virtual bool PopupOpen()
-    {
-        return overwriteWarningPopupOpen;
-    }*/
-
-    /*protected void ChangeModuleSet(ModuleSet modset)
-    {
-        selectedModuleSet = modset;
-        ModuleList.Clear();
-        //Determine where the individual modules will be draw and create their entries
-        float Indent = LeftSidePanelRect.width / 2 - selectedModuleSet.Modules.Count * ModuleListEntrySize.y / 2;
-        foreach (Module module in modset.GetModules())
-        {
-            Rect rect = new Rect(Indent + ModuleList.Count * ModuleListEntrySize.y, ModuleListY, ModuleListEntrySize.y, ModuleListEntrySize.y);
-            ModuleListEntry MLE = new ModuleListEntry(rect, module, module.GetTexture(), ChangeModule);
-            ModuleList.Add(MLE);
-        }
-
-        if (selectedModule == null || selectedModule.GetParentSet() != selectedModuleSet)
-        {
-            Module firstModule = modset.GetFirstModule();
-            if (firstModule != null)
-                ChangeModule(firstModule);
-        }
-
-        if (selectedModuleSet.ModuleCategory == ModuleCategory.Weapons)
-        {
-            if (moduleCategory != ModuleListTypes.Weapon)
-                ChangeModuleSetList(ModuleListTypes.Weapon);
-        }
-        else if (selectedModuleSet.ModuleCategory == ModuleCategory.Defences)
-        {
-            if (moduleCategory != ModuleListTypes.Defence)
-                ChangeModuleSetList(ModuleListTypes.Defence);
-        }
-        else
-        {
-            if (moduleCategory != ModuleListTypes.System)
-                ChangeModuleSetList(ModuleListTypes.System);
-        }
-    }*/
-
-    /*protected void ChangeModuleSetList(ModuleListTypes listCategory)
-    {
-        moduleCategory = listCategory;
-        List<ModuleSetEntry> setList;
-
-        bool resetSelectedModuleSet = false;
-
-        if (listCategory == ModuleListTypes.Weapon)
-        {
-            setList = ModuleSetWeaponList;
-            if (selectedModuleSet != null && selectedModuleSet.ModuleCategory != ModuleCategory.Weapons)
-                resetSelectedModuleSet = true;
-        }
-        else if (listCategory == ModuleListTypes.Defence)
-        {
-            setList = ModuleSetDefenceList;
-            if (selectedModuleSet != null && selectedModuleSet.ModuleCategory != ModuleCategory.Defences)
-                resetSelectedModuleSet = true;
-        }
-        else
-        {
-            setList = ModuleSetSystemList;
-            if (selectedModuleSet != null && selectedModuleSet.ModuleCategory != ModuleCategory.Systems && selectedModuleSet.ModuleCategory != ModuleCategory.Engines)
-                resetSelectedModuleSet = true;
-        }
-
-        ModuleScrollViewRect.height = Mathf.Max(setList.Count * ModuleListEntrySize.y, ModuleScrollWindowRect.height);
-
-        if (selectedModuleSet == null)
-            resetSelectedModuleSet = true;
-
-        if (resetSelectedModuleSet && setList.Count > 0)
-        {
-            ModuleScrollPosition = Vector2.zero;
-            ChangeModuleSet(setList[0].moduleSet);
-        }
-    }
-
-    protected void ScrollToModuleSet(ModuleSet moduleSet)
-    {
-        List<ModuleSetEntry> setList;
-
-        if (moduleCategory == ModuleListTypes.Weapon)
-        {
-            setList = ModuleSetWeaponList;
-        }
-        else if (moduleCategory == ModuleListTypes.Defence)
-        {
-            setList = ModuleSetDefenceList;
-        }
-        else
-        {
-            setList = ModuleSetSystemList;
-        }
-
-        foreach (ModuleSetEntry entry in setList)
-        {
-            if (entry.GetModuleSet() == moduleSet)
-            {
-                ModuleScrollPosition = entry.GetPosition();
-                return;
-            }
-        }
-    }*/
 
     protected float GetTotalValue(float production, float alloy, float advancedAlloy, float superiorAlloy, float crystal, float rareCrystal, float exoticCrystal, float exoticParticle)
     {
@@ -813,12 +690,5 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
         {
             return "<color=red>" + GetStandardDesignStatFormat(value) + "</color>";
         }
-    }
-
-    protected enum ModuleListTypes
-    {
-        Weapon,
-        Defence,
-        System
     }
 }
