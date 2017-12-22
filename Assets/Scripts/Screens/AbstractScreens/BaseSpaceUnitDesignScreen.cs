@@ -17,6 +17,8 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
     [SerializeField]
     protected ModulePanel ModulePanel;
 
+    protected Vector2 mirrorMousePosition;
+
     protected Rect SelectedModuleRect;
     protected Rect SlotsAreaRect;
 
@@ -28,12 +30,7 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
 
     protected string DesignName = "";
 
-    //Symmetric design/mirror mode
-    protected bool useSymmetricCursor = false;
-    protected Vector2 SymmetricMouse;
 
-    protected float moduleScale = 32f;
-    protected float ModuleRotation = 0;
 
     //Design stats
     protected float DesignProductionCost;
@@ -103,24 +100,11 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
 	// Update is called once per frame
 	protected override void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RotateModule();
-        }
+        SetMousePosition();
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if(ModulePanel.GetUseMirrorMode())
         {
-            useSymmetricCursor = !useSymmetricCursor;
-        }
-
-        //Remove modules with right click
-        if (Input.GetMouseButton(1))
-        {
-            DeselectModule();
-            //if (SlotsAreaRect.Contains(mousePosition))
-            //{
-                //CheckModuleRemoval();
-            //}
+            mirrorMousePosition = ModulePanel.GetMirrorModePosition(mousePosition);
         }
     }
 
@@ -237,31 +221,6 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
                     break;
                 }
         }
-    }
-
-    protected void RotateModule()
-    {
-        //Check to make sure there is a module and it should be able to rotate     
-        if (GetSelectedModule() == null)
-        {
-            return;
-        }
-
-        ModuleRotation += 90;
-        if (ModuleRotation == 360)
-        {
-            ModuleRotation = 0;
-        }
-    }
-
-    protected bool ModuleCanRotate(Module module)
-    {
-        Weapon weapon = module.GetWeapon();
-        if (weapon != null && weapon.AlwaysForward || weapon == null && module.SizeX != module.SizeY)
-        {
-            return true;
-        }
-        return false;
     }
 
     protected void DeselectModule()

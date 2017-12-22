@@ -27,6 +27,9 @@ public class ModulePanel : MonoBehaviour
     [SerializeField]
     WeaponDamageGraph weaponDamageGraph;
 
+    [SerializeField]
+    ImageController selectedModuleImage;
+
     List<ModuleSet> WeaponModuleSets = new List<ModuleSet>();
     List<ModuleSet> DefenseModuleSets = new List<ModuleSet>();
     List<ModuleSet> SystemModuleSets = new List<ModuleSet>();
@@ -37,7 +40,9 @@ public class ModulePanel : MonoBehaviour
 
     ModuleCategory Category = ModuleCategory.Weapons;
 
-    bool useSymmetricCursor = false;
+    bool useMirrorMode = false;
+
+    bool mouseHovered = false;
 
     Rect SelectedModuleCursorRect = new Rect();
     Texture2D SelectedModuleTexture;
@@ -75,6 +80,8 @@ public class ModulePanel : MonoBehaviour
         {
 
         }
+
+        selectedModuleImage.SetPosition(Input.mousePosition);
     }
 
     void OnGUI()
@@ -185,6 +192,8 @@ public class ModulePanel : MonoBehaviour
         ModuleRotation = 0;
 
         SelectedModuleTexture = SelectedModule.GetTexture();
+
+        selectedModuleImage.SetTexture(SelectedModuleTexture);
 
         ApplyModuleScale();
 
@@ -666,7 +675,9 @@ public class ModulePanel : MonoBehaviour
     {
         if (SelectedModule != null)
         {
-            SelectedModuleCursorRect.size = new Vector2(SelectedModule.SizeX * ModuleScale, SelectedModule.SizeY * ModuleScale);
+            Vector2 size = new Vector2(SelectedModule.SizeX * ModuleScale, SelectedModule.SizeY * ModuleScale);
+            SelectedModuleCursorRect.size = size;
+            selectedModuleImage.SetSize(size);
         }
     }
 
@@ -697,42 +708,49 @@ public class ModulePanel : MonoBehaviour
 
     void ToggleMirrorMode()
     {
-        useSymmetricCursor = !useSymmetricCursor;
+        useMirrorMode = !useMirrorMode;
     }
 
-    public void DrawSelectedModuleTexture()
+    public bool GetUseMirrorMode()
+    {
+        return useMirrorMode;
+    }
+
+    public Vector2 GetMirrorModePosition(Vector2 mousePosition)
     {
         if (SelectedModule != null)
         {
-            Vector2 mousePosition = Input.mousePosition;
-            mousePosition.y = Screen.height - mousePosition.y;
+            mousePosition.x = Screen.width - mousePosition.x;
 
-            SelectedModuleCursorRect.position = mousePosition;
+            if (ModuleRotation == 0 || ModuleRotation == 180)
+            {
+                mousePosition.x -= SelectedModule.SizeX * ModuleScale - ModuleScale;
+            }
+            else
+            {
+                mousePosition.x -= SelectedModule.SizeY * ModuleScale - ModuleScale;
+            }
+        }
+
+        return mousePosition;
+    }
+
+    public void DrawSelectedModuleTexture(Vector2 position)
+    {
+        if (SelectedModule != null && SelectedModuleTexture != null && !mouseHovered)
+        {
+            SelectedModuleCursorRect.position = position;
 
             Matrix4x4 matrixBackup = GUI.matrix;
             GUIUtility.RotateAroundPivot(ModuleRotation, SelectedModuleCursorRect.center);
-            if (SelectedModuleTexture != null)
-                GUI.DrawTexture(SelectedModuleCursorRect, SelectedModuleTexture);
-            if (useSymmetricCursor)
-            {
-                GUI.matrix = matrixBackup;
-                mousePosition.x = Screen.width - mousePosition.x;
-                if (ModuleRotation == 0 || ModuleRotation == 180)
-                {
-                    mousePosition.x -= SelectedModule.SizeX * ModuleScale - ModuleScale;
-                    SelectedModuleCursorRect.x = mousePosition.x - ModuleScale;
-                }
-                else
-                {
-                    mousePosition.x -= SelectedModule.SizeY * ModuleScale - ModuleScale;
-                    SelectedModuleCursorRect.x = mousePosition.x;
-                }
-                GUIUtility.RotateAroundPivot(ModuleRotation, SelectedModuleCursorRect.center);
-                if (SelectedModuleTexture != null)
-                    GUI.DrawTexture(SelectedModuleCursorRect, SelectedModuleTexture);
-            }
+            GUI.DrawTexture(SelectedModuleCursorRect, SelectedModuleTexture);
             GUI.matrix = matrixBackup;
         }
+    }
+
+    public void SetMouseHovered(bool state)
+    {
+        mouseHovered = state;
     }
 
     public enum ModuleCategory

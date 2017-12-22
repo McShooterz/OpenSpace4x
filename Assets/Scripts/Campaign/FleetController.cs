@@ -7,29 +7,39 @@ Notes: Attaches to fleet game object to define it's behavior on the campaign map
 ******************************************************************************************************************************************/
 
 using UnityEngine;
-using System.Collections;
 
-public class Fleet : MonoBehaviour
+public class FleetController : MonoBehaviour
 {
-    //Variables
-    public FleetData fleetData;
+    [SerializeField]
+    GameObject target;
 
-    GameObject Target;
-    LineRenderer GoalLine;
-    GameObject ShipMesh;
+    [SerializeField]
+    Vector3 goalPosition;
 
-    float GoalLineOffset;
+    [SerializeField]
+    LineRenderer goalLine;
 
-    bool ValidGoalPosition = false;
-    bool ValidTarget = false;
-    bool Selected;
+    [SerializeField]
+    GameObject shipMesh;
 
+    [SerializeField]
+    float goalLineOffset;
+
+    [SerializeField]
+    bool validGoalPosition = false;
+
+    [SerializeField]
+    bool validTarget = false;
+
+    [SerializeField]
+    bool selected;
+
+    [SerializeField]
+    FleetData fleetData;
 
     // Use this for initialization
     void Start ()
     {
-        GoalLine = GetComponent<LineRenderer>();
-        //ShipMesh = AddShipMesh("Galaxy Class");
         Highlight(false);
     }
 	
@@ -37,26 +47,36 @@ public class Fleet : MonoBehaviour
 	void Update ()
     {
         //Animate goal line if fleet is selected
-	    if(Selected)
+	    if(selected)
         {
-            GoalLineOffset -= 2f * Time.deltaTime;
-            GoalLine.material.SetTextureOffset("_MainTex", new Vector2(GoalLineOffset, 0));
+            goalLineOffset -= 2f * Time.deltaTime;
+            goalLine.material.SetTextureOffset("_MainTex", new Vector2(goalLineOffset, 0));
         }
 	}
+
+    public FleetData GetFleetData()
+    {
+        return fleetData;
+    }
+
+    public void SetFleetData(FleetData data)
+    {
+        fleetData = data;
+    }
 
     public void SetGoalPosition(Vector3 goal)
     {
         Vector3 Direction = (goal - transform.position).normalized;
 
-        ValidGoalPosition = true;
-        ValidTarget = false;
+        validGoalPosition = true;
+        validTarget = false;
 
         //Set goal line
-        GoalLine.SetPosition(0, transform.position);
-        GoalLine.SetPosition(1, goal);
+        goalLine.SetPosition(0, transform.position);
+        goalLine.SetPosition(1, goal);
 
         //Set scaling for goal line
-        GoalLine.material.mainTextureScale = new Vector2(Vector3.Distance(transform.position,goal),1);
+        goalLine.material.mainTextureScale = new Vector2(Vector3.Distance(transform.position,goal),1);
 
         //Rotate towards goal
         transform.rotation = Quaternion.LookRotation(Direction);
@@ -65,21 +85,21 @@ public class Fleet : MonoBehaviour
     //Turning on and off being in selected state visually
     public void Highlight(bool isSelected)
     {
-        GoalLine.enabled = isSelected;      
-        Selected = isSelected;
+        goalLine.enabled = isSelected;      
+        selected = isSelected;
         if (isSelected)
         {
-            ShipMesh.GetComponentInChildren<Renderer>().material.SetFloat("_OutlinePower", 1.0f);
+            shipMesh.GetComponentInChildren<Renderer>().material.SetFloat("_OutlinePower", 1.0f);
         }
         else
         {
-            ShipMesh.GetComponentInChildren<Renderer>().material.SetFloat("_OutlinePower", 0.0f);
+            shipMesh.GetComponentInChildren<Renderer>().material.SetFloat("_OutlinePower", 0.0f);
         }
     }
 
     public void SetHighlightColor(Color color)
     {
-        ShipMesh.GetComponentInChildren<Renderer>().material.SetColor("_OutlineColor", color);
+        shipMesh.GetComponentInChildren<Renderer>().material.SetColor("_OutlineColor", color);
     }
 
     public GameObject AddShipMesh(ShipHullData hullData)
@@ -101,7 +121,7 @@ public class Fleet : MonoBehaviour
 
     public void RemoveShipMesh()
     {
-        Destroy(ShipMesh);
+        Destroy(shipMesh);
     }
 
     public Vector3 GetPosition()

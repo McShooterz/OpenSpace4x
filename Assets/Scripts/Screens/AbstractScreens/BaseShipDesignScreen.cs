@@ -59,7 +59,12 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
 
         DrawPlacedModules();
 
-        ModulePanel.DrawSelectedModuleTexture();
+        ModulePanel.DrawSelectedModuleTexture(mousePosition);
+
+        if(ModulePanel.GetUseMirrorMode())
+        {
+            ModulePanel.DrawSelectedModuleTexture(mirrorMousePosition);
+        }
     }
 
     protected override void BuildModuleSetLists()
@@ -225,7 +230,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
 
     protected void FormatSlotLayout(ShipSlotLayout sourceLayout)
     {
-        moduleScale = 32f;
+        float moduleScale = ModulePanel.GetModuleScale();
 
         ClearFormatedSlots();
         ClearSlottedModules();
@@ -488,6 +493,8 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
         }
         AftSlotsAreaRect = new Rect(AftMinX, AftMinY, AftMaxX - AftMinX, AftMaxY - AftMinY);
         SlotsAreaRect = new Rect(MinX, MinY, MaxX - MinX, MaxY - MinY);
+
+        ModulePanel.SetModuleScale(moduleScale);
     }
 
     protected void ClearFormatedSlots()

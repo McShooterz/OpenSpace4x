@@ -10,18 +10,34 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class FleetData
 {
-    //Variables
+    [SerializeField]
     public Empire Owner;
+
+    [SerializeField]
     List<ShipData> Ships = new List<ShipData>();
+
+    [SerializeField]
     List<StationData> Stations = new List<StationData>();
+
+    [SerializeField]
     ShipData FlagShip;
 
+    [SerializeField]
 	int CommandPoints = 0;
+
+    [SerializeField]
     float SpeedFTL = 0;
+
+    [SerializeField]
     float ShipDefenceBonus = 0;
+
+    [SerializeField]
     float ShipDamageBonus = 0;
+
+    [SerializeField]
 	float Transport = 0;
 
 

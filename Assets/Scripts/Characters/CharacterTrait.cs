@@ -6,19 +6,12 @@ License: MIT License
 Notes:
 ******************************************************************************************************************************************/
 
-using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
-public class TargetInfo
+public class CharacterTrait
 {
-    public SpaceUnit Target;
-    public Vector2 Direction;
-    public float RangeSqr;    
 
-    public TargetInfo(SpaceUnit target, Vector2 direction, float rangeSqr)
-    {
-        Target = target;       
-        Direction = direction;
-        RangeSqr = rangeSqr;
-    }
+	
 }

@@ -13,8 +13,8 @@ using System.Collections.Generic;
 public class FleetManager
 {
     //Variables
-    List<Fleet> Fleets = new List<Fleet>();
-    List<Fleet> SelectedFleets = new List<Fleet>();
+    List<FleetController> Fleets = new List<FleetController>();
+    List<FleetController> SelectedFleets = new List<FleetController>();
     Empire Owner;
 
 
@@ -25,14 +25,14 @@ public class FleetManager
 
     public void DeslectFleets()
     {
-        foreach(Fleet fleet in SelectedFleets)
+        foreach(FleetController fleet in SelectedFleets)
         {
             fleet.Highlight(false);
         }
         SelectedFleets.Clear();
     }
 
-    public void AddToSelection(Fleet fleet)
+    public void AddToSelection(FleetController fleet)
     {
         SelectedFleets.Add(fleet);
         fleet.Highlight(true);
@@ -41,14 +41,14 @@ public class FleetManager
     public void CreateFleet(FleetData FD, Vector3 Position)
     {
         GameObject fleet = ResourceManager.CreateFleet(Position, Quaternion.identity);
-        Fleet FleetScript = fleet.GetComponent<Fleet>();
-        FleetScript.fleetData = FD;
+        FleetController FleetScript = fleet.GetComponent<FleetController>();
+        FleetScript.SetFleetData(FD);
         Fleets.Add(FleetScript);
     }
 
     public void SetGoalPoint(Vector3 point)
     {
-        foreach (Fleet fleet in SelectedFleets)
+        foreach (FleetController fleet in SelectedFleets)
         {
             fleet.SetGoalPosition(point);
         }
@@ -61,7 +61,7 @@ public class FleetManager
         float MinZ = Mathf.Min(Start.z, End.z);
         float MaxZ = Mathf.Max(Start.z, End.z);
 
-        foreach (Fleet fleet in Fleets)
+        foreach (FleetController fleet in Fleets)
         {
             Vector3 Position = fleet.GetPosition();
             if (Position.x > MinX && Position.x < MaxX && Position.z > MinZ && Position.z < MaxZ)
