@@ -10,32 +10,68 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class FleetManager
+public class FleetManager : MonoBehaviour
 {
     //Variables
-    List<FleetController> Fleets = new List<FleetController>();
-    List<FleetController> SelectedFleets = new List<FleetController>();
+    [SerializeField]
+    List<FleetController> fleets = new List<FleetController>();
+
+    [SerializeField]
+    List<FleetController> selectedFleets = new List<FleetController>();
+
+    [SerializeField]
+    FleetController selectedOtherFleet;
+
+    [SerializeField]
     Empire Owner;
 
-
-	public FleetManager(Empire owner)
+    void Start()
     {
-        Owner = owner;
+        
+    }
+
+    void Update()
+    {
+        
+    }
+
+    public List<FleetController> GetFleets()
+    {
+        return fleets;
+    }
+
+    public List<FleetController> GetSelectedFleets()
+    {
+        return selectedFleets;
+    }
+
+    public FleetController GetSelectedOtherFleet()
+    {
+        return selectedOtherFleet;
     }
 
     public void DeslectFleets()
     {
-        foreach(FleetController fleet in SelectedFleets)
+        foreach(FleetController fleet in selectedFleets)
         {
-            fleet.Highlight(false);
+            fleet.ToggleLineRender(false);
         }
-        SelectedFleets.Clear();
+        selectedFleets.Clear();
+        selectedOtherFleet = null;
     }
 
     public void AddToSelection(FleetController fleet)
     {
-        SelectedFleets.Add(fleet);
-        fleet.Highlight(true);
+        if (!selectedFleets.Contains(fleet))
+        {
+            selectedFleets.Add(fleet);
+            fleet.ToggleLineRender(true);
+        }
+    }
+
+    public void SetSelectedOtherFleet(FleetController fleet)
+    {
+        selectedOtherFleet = fleet;
     }
 
     public void CreateFleet(FleetData FD, Vector3 Position)
@@ -43,14 +79,14 @@ public class FleetManager
         GameObject fleet = ResourceManager.CreateFleet(Position, Quaternion.identity);
         FleetController FleetScript = fleet.GetComponent<FleetController>();
         FleetScript.SetFleetData(FD);
-        Fleets.Add(FleetScript);
+        fleets.Add(FleetScript);
     }
 
-    public void SetGoalPoint(Vector3 point)
+    public void SetSelectedGoalPosition(Vector3 position)
     {
-        foreach (FleetController fleet in SelectedFleets)
+        foreach (FleetController fleet in selectedFleets)
         {
-            fleet.SetGoalPosition(point);
+            fleet.SetGoalPosition(position);
         }
     }
 
@@ -61,7 +97,7 @@ public class FleetManager
         float MinZ = Mathf.Min(Start.z, End.z);
         float MaxZ = Mathf.Max(Start.z, End.z);
 
-        foreach (FleetController fleet in Fleets)
+        foreach (FleetController fleet in fleets)
         {
             Vector3 Position = fleet.GetPosition();
             if (Position.x > MinX && Position.x < MaxX && Position.z > MinZ && Position.z < MaxZ)
@@ -69,5 +105,10 @@ public class FleetManager
                 AddToSelection(fleet);
             }
         }
+    }
+
+    public bool OwnsFleet(FleetController fleet)
+    {
+        return fleets.Contains(fleet);
     }
 }

@@ -10,20 +10,31 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-public class Empire
+public class Empire : MonoBehaviour
 {
-    //Variables
-    public bool isPlayer = false;
-    public List<ShipData> Ships = new List<ShipData>();
-    public List<FleetData> Fleets = new List<FleetData>();
+    [SerializeField]
+    EmpireData empireData;
 
-    public FleetManager fleetManager;
+    [SerializeField]
+    bool isPlayer = false;
 
-    public void Initialize()
+    [SerializeField]
+    List<ShipData> Ships = new List<ShipData>();
+
+    [SerializeField]
+    List<FleetData> Fleets = new List<FleetData>();
+
+    [SerializeField]
+    FleetManager fleetManager;
+
+    void Start()
     {
-        //fleetManager = new FleetManager(this);
-        //Testing create fleet
-        //AddEmptyFleet(new Vector3(0,0,0));
+        
+    }
+
+    void Update()
+    {
+        
     }
 
     public void AddShipData(string DesignName)
@@ -39,5 +50,10 @@ public class Empire
         FleetData FD = new FleetData();
         FD.Owner = this;
         fleetManager.CreateFleet(FD, Position);
+    }
+
+    public FleetManager GetFleetManager()
+    {
+        return fleetManager;
     }
 }

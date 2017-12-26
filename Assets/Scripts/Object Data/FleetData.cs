@@ -211,4 +211,9 @@ public class FleetData
     {
         return Stations;
     }
+
+    public float GetSpeedFTL()
+    {
+        return 0.1f;
+    }
 }

@@ -89,9 +89,13 @@ public class ResourceManager : MonoBehaviour
     {
         //Make a Singleton
         if (instance == null)
+        {
             instance = this;
+        }
         else if (instance != this)
+        {
             Destroy(this);
+        }
         //This stays in every scene
         DontDestroyOnLoad(gameObject);
     }

@@ -34,23 +34,35 @@ public class FleetController : MonoBehaviour
     [SerializeField]
     bool selected;
 
+    //[SerializeField]
+
+
     [SerializeField]
     FleetData fleetData;
 
     // Use this for initialization
     void Start ()
     {
-        Highlight(false);
+        
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        //Animate goal line if fleet is selected
-	    if(selected)
+	    if(validGoalPosition && goalLine.enabled)
         {
+            goalLine.SetPosition(0, transform.position);
+            goalLine.SetPosition(1, goalPosition);
+
+            //Animate goal line if fleet is selected
             goalLineOffset -= 2f * Time.deltaTime;
             goalLine.material.SetTextureOffset("_MainTex", new Vector2(goalLineOffset, 0));
+            goalLine.material.mainTextureScale = new Vector2(Vector3.Distance(transform.position, goalPosition), 1);
+        }
+
+        if (validGoalPosition)
+        {
+            moveTowardsPosition(goalPosition);
         }
 	}
 
@@ -64,42 +76,28 @@ public class FleetController : MonoBehaviour
         fleetData = data;
     }
 
-    public void SetGoalPosition(Vector3 goal)
+    public void SetGoalPosition(Vector3 position)
     {
-        Vector3 Direction = (goal - transform.position).normalized;
-
+        goalPosition = position;
         validGoalPosition = true;
+        ClearTarget();
+    }
+
+    public void ToggleLineRender(bool state)
+    {
+        goalLine.enabled = state;
+    }
+
+    public void ClearTarget()
+    {
+        target = null;
         validTarget = false;
-
-        //Set goal line
-        goalLine.SetPosition(0, transform.position);
-        goalLine.SetPosition(1, goal);
-
-        //Set scaling for goal line
-        goalLine.material.mainTextureScale = new Vector2(Vector3.Distance(transform.position,goal),1);
-
-        //Rotate towards goal
-        transform.rotation = Quaternion.LookRotation(Direction);
     }
 
-    //Turning on and off being in selected state visually
-    public void Highlight(bool isSelected)
+    public void ClearGoalPosition()
     {
-        goalLine.enabled = isSelected;      
-        selected = isSelected;
-        if (isSelected)
-        {
-            shipMesh.GetComponentInChildren<Renderer>().material.SetFloat("_OutlinePower", 1.0f);
-        }
-        else
-        {
-            shipMesh.GetComponentInChildren<Renderer>().material.SetFloat("_OutlinePower", 0.0f);
-        }
-    }
-
-    public void SetHighlightColor(Color color)
-    {
-        shipMesh.GetComponentInChildren<Renderer>().material.SetColor("_OutlineColor", color);
+        goalLine.enabled = false;
+        validGoalPosition = false;
     }
 
     public GameObject AddShipMesh(ShipHullData hullData)
@@ -127,5 +125,14 @@ public class FleetController : MonoBehaviour
     public Vector3 GetPosition()
     {
         return transform.position;
+    }
+
+    void moveTowardsPosition(Vector3 position)
+    {
+        Vector3 direction = position - transform.position;
+
+        transform.rotation = Quaternion.LookRotation(direction);
+
+        transform.position = Vector3.MoveTowards(transform.position, position, fleetData.GetSpeedFTL());
     }
 }
