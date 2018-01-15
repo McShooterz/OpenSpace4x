@@ -38,8 +38,8 @@ public class ModuleSetEntry
         Description = new Rect(Name.x, Name.yMax, Name.width, Entry.height * 0.5f);
         Mod = new Rect(Name.x, Description.yMax, Name.width, Entry.height * 0.25f);
 
-        DisplayName = ResourceManager.GetLocalization(moduleSet.Name);
-        DisplayDiscription = ResourceManager.GetLocalization(moduleSet.Description);
+        DisplayName = ResourceManager.instance.GetLocalization(moduleSet.Name);
+        DisplayDiscription = ResourceManager.instance.GetLocalization(moduleSet.Description);
 
         if (moduleSet.GetParentMod() != null)
         {

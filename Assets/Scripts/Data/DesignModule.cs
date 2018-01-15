@@ -26,6 +26,6 @@ public class DesignModule
 
     public bool ModuleExists()
     {
-        return ResourceManager.ModuleExists(Module);
+        return ResourceManager.instance.ModuleExists(Module);
     }
 }

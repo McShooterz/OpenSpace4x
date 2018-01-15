@@ -41,6 +41,18 @@ public class FleetData
 	float Transport = 0;
 
 
+
+
+
+    [SerializeField]
+    float experience = 0;
+
+    [SerializeField]
+    int level = 0;
+
+    [SerializeField]
+    int legacyTradionPoints = 0;
+
     public void AddShip(ShipData data)
     {
         if (data.fleetData != null)

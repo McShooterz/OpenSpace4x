@@ -19,7 +19,7 @@ public class ShipDragSelectionBox
 
     public ShipDragSelectionBox()
     {
-        texture = ResourceManager.GetUITexture("SelectionBox");
+        texture = ResourceManager.instance.GetUITexture("SelectionBox");
     }
 
     public void Draw()

@@ -42,7 +42,7 @@ public sealed class MainShipyardScreen : BaseShipDesignScreen
         List<ModuleSet> SystemModuleSets = new List<ModuleSet>();
 
         //Distribute modules into lists
-        foreach (KeyValuePair<string, ModuleSet> keyVal in ResourceManager.ModuleSets)
+        foreach (KeyValuePair<string, ModuleSet> keyVal in ResourceManager.instance.GetModuleSets())
         {
             if (CheckModuleSetAllowed(keyVal.Value))
             {
@@ -71,12 +71,12 @@ public sealed class MainShipyardScreen : BaseShipDesignScreen
 
     protected override void BuildShipHullDatas()
     {
-        shipHullPanel.SetShipHullDatas(ResourceManager.GetShipHulls(), ChangeHull);
+        shipHullPanel.SetShipHullDatas(ResourceManager.instance.GetShipHulls(), ChangeHull);
     }
 
     public override void BuildShipDesigns(ShipHullData hullData)
     {
-        shipHullPanel.SetShipDesigns(ResourceManager.GetShipDesigns(hullData, false), LoadShipDesign, DeleteShipDesign);
+        shipHullPanel.SetShipDesigns(ResourceManager.instance.GetShipDesigns(hullData, false), LoadShipDesign, DeleteShipDesign);
     }
 
     protected override void ChangeHull(ShipHullData data)

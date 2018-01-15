@@ -36,9 +36,9 @@ public class DesignDataListEntry
 
         GameManager.instance.UIContent.image = null;
         GameManager.instance.UIContent.text = Name;
-        Command.image = ResourceManager.GetIconTexture("Icon_CommandPoint");
+        Command.image = ResourceManager.instance.GetIconTexture("Icon_CommandPoint");
         Command.text = ":" + Design.CommandPoints.ToString("0") + "  ";
-        Money.image = ResourceManager.GetIconTexture("Icon_Money");
+        Money.image = ResourceManager.instance.GetIconTexture("Icon_Money");
         Money.text = ":" + Design.GetTotalValue().ToString("0.#");
 
         float nameWidthMax;

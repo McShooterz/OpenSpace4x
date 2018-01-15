@@ -90,7 +90,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
             }
             if (GUI.Button(DesignSaveButtonRect, "Save", GameManager.instance.standardButtonStyle))
             {
-                if (ResourceManager.CheckForStationDesign(selectedHullData.Name, DesignName))
+                if (ResourceManager.instance.CheckForStationDesign(selectedHullData.Name, DesignName))
                 {
                     overwriteWarningPopupOpen = true;
                     DeselectModule();
@@ -165,7 +165,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
                         ToolTip.SetText("rotateModule", "rotateModuleDesc");
                     }
 
-                    if (GUI.Button(ModuleRotationButtonRect, ResourceManager.GetIconTexture("Icon_Rotate")))
+                    if (GUI.Button(ModuleRotationButtonRect, ResourceManager.instance.GetIconTexture("Icon_Rotate")))
                     {
                         RotateModule();
                         PlayMainButtonClick();
@@ -218,15 +218,15 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
             if (overwriteWarningPopupOpen)
             {
                 GUI.Box(overwriteWarningRect, "", GameManager.instance.standardBackGround);
-                GUI.Box(overwriteWarningMessageRect, ResourceManager.GetLocalization("overwriteWarning"));
+                GUI.Box(overwriteWarningMessageRect, ResourceManager.instance.GetLocalization("overwriteWarning"));
 
-                if (GUI.Button(overwriteAcceptButtonRect, ResourceManager.GetLocalization("overwrite"), GameManager.instance.standardButtonStyle))
+                if (GUI.Button(overwriteAcceptButtonRect, ResourceManager.instance.GetLocalization("overwrite"), GameManager.instance.standardButtonStyle))
                 {
                     SaveDesign();
                     overwriteWarningPopupOpen = false;
                     PlayMainButtonClick();
                 }
-                if (GUI.Button(overwriteCancelButtonRect, ResourceManager.GetLocalization("cancel"), GameManager.instance.standardButtonStyle))
+                if (GUI.Button(overwriteCancelButtonRect, ResourceManager.instance.GetLocalization("cancel"), GameManager.instance.standardButtonStyle))
                 {
                     overwriteWarningPopupOpen = false;
                     PlayMainButtonClick();
@@ -467,7 +467,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
                     if (module.module.GetWeaponExists())
                     {
                         GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
-                        GUI.DrawTexture(WeaponArcRect, ResourceManager.GetUITexture("WeaponArc360"));
+                        GUI.DrawTexture(WeaponArcRect, ResourceManager.instance.GetUITexture("WeaponArc360"));
                     }
                     DrawHoveredModuleInfo(mousePosition, module.module);
                     return;
@@ -538,7 +538,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
         ClearFormatedSlots();
         ClearSlottedModules();
         selectedHullData = hullData;
-        FormatSlotLayout(ResourceManager.GetStationSlotLayout(hullData.Name));
+        FormatSlotLayout(ResourceManager.instance.GetStationSlotLayout(hullData.Name));
         SetStationModel(hullData);
         BuildDesignList(selectedHullData);
         ClearDesignModuleStats();
@@ -675,7 +675,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
         {
             Object.Destroy(unitModel);
         }
-        unitModel = ResourceManager.CreateStation(hullData, Position, Quaternion.identity);
+        unitModel = ResourceManager.instance.CreateStation(hullData, Position, Quaternion.identity);
     }
 
     protected override void ClearFormatedSlots()
@@ -1070,11 +1070,11 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
 
         foreach (SlotedModule slotmod in SlotedModules)
         {
-            DesignModule module = new DesignModule(ResourceManager.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
+            DesignModule module = new DesignModule(ResourceManager.instance.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
             design.Modules.Add(module);
         }
 
-        ResourceManager.SaveStationDesign(design);
+        ResourceManager.instance.SaveStationDesign(design);
 
         BuildDesignList(selectedHullData);
         selectedDesign = design;
@@ -1089,7 +1089,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
             selectedDesign = null;
         }
         design.Deleted = true;
-        ResourceManager.SaveStationDesign(design);
+        ResourceManager.instance.SaveStationDesign(design);
         BuildDesignList(selectedHullData);
     }
 
@@ -1106,26 +1106,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
 
     protected void BuildDesignList(StationHullData data)
     {
-        DesignList.Clear();
-        selectedDesign = null;
-        DesignName = "";
 
-        if (ResourceManager.stationDesigns.ContainsKey(selectedHullData.Name))
-        {
-            if (ResourceManager.stationDesigns[selectedHullData.Name].Count > 0)
-            {
-                foreach (KeyValuePair<string, StationDesign> keyVal in ResourceManager.stationDesigns[selectedHullData.Name])
-                {
-                    if (!keyVal.Value.Deleted && CheckDesignAllowed(keyVal.Value))
-                    {
-                        Rect rect = new Rect(0, DesignListEntrySize.y * DesignList.Count, DesignListEntrySize.x, DesignListEntrySize.y);
-                        StationDesignListEntry DLE = new StationDesignListEntry(rect, keyVal.Value, LoadDesign, SetDesignToDelete, GameManager.instance);
-                        DesignList.Add(DLE);
-                    }
-                }
-            }
-        }
-        ShipDesignScrollViewRect.height = Mathf.Max(ShipDesignScrollWindowRect.height * 1.04f, DesignListEntrySize.y * (DesignList.Count + 1));
     }
 
     protected override bool CheckModuleSetAllowed(ModuleSet moduleSet)

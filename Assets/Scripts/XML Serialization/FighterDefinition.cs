@@ -52,12 +52,12 @@ public class FighterDefinition
 
     public Texture2D GetIcon()
     {
-        return ResourceManager.GetUnitIcon(Icon);
+        return ResourceManager.instance.GetUnitIcon(Icon);
     }
 
     public GameObject GetFighterObject()
     {
-        return ResourceManager.GetFighterObject(FighterObject);
+        return ResourceManager.instance.GetFighterObject(FighterObject);
     }
 
     public float GetFirePower()
@@ -65,7 +65,7 @@ public class FighterDefinition
         float firePower = 0;
         foreach (string weaponName in WeaponNames)
         {
-            Weapon weapon = ResourceManager.GetWeapon(weaponName);
+            Weapon weapon = ResourceManager.instance.GetWeapon(weaponName);
             if (weapon != null)
             {
                 firePower += weapon.GetAverageDPS();

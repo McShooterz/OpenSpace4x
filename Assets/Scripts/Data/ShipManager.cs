@@ -829,19 +829,19 @@ public class ShipManager
         {
             case 9:
                 {
-                    return ResourceManager.gameConstants.Highlight_Player.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor();
                 }
             case 10:
                 {
-                    return ResourceManager.gameConstants.Highlight_Enemy.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Enemy.GetColor();
                 }
             case 11:
                 {
-                    return ResourceManager.gameConstants.Highlight_Ally.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Ally.GetColor();
                 }
             case 13:
                 {
-                    return ResourceManager.gameConstants.Highlight_Neutral.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Neutral.GetColor();
                 }
             default:
                 {

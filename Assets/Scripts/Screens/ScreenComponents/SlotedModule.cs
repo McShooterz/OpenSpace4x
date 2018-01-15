@@ -25,7 +25,7 @@ public class SlotedModule
         imageRect = i;
         module = mod;
         moduleTexture = module.GetTexture();
-        backGroundTexture = ResourceManager.GetUITexture("SlotedModuleBackground");
+        backGroundTexture = ResourceManager.instance.GetUITexture("SlotedModuleBackground");
 
         Rotation = rotation;
         Position = pos;
@@ -33,7 +33,7 @@ public class SlotedModule
 
     public static SlotedModule CreateSlotedModule(DesignModule designModule, Rect slotRect)
     {
-        Module module = ResourceManager.GetModule(designModule.Module);
+        Module module = ResourceManager.instance.GetModule(designModule.Module);
         if (module != null)
         {
             float moduleScale = slotRect.width;

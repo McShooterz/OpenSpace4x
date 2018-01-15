@@ -91,15 +91,6 @@ public class ScenarioSelectScreen : ScreenParent
         selectedScenario = null;
         float entrySize = ScenarioListWindowRect.height / 4f;
 
-        foreach (KeyValuePair<string, Scenario> keyVal in ResourceManager.Scenariors)
-        {
-            if (!keyVal.Value.Deleted)
-            {
-                Rect rect = new Rect(0, entrySize * Scenarios.Count, ScenarioListViewRect.width, entrySize);
-                ScenarioListEntry entry = new ScenarioListEntry(rect, keyVal.Value, SelectScenario, GameManager.instance);
-                Scenarios.Add(entry);
-            }
-        }
         if (Scenarios.Count > 0)
         {
             selectedScenario = Scenarios[0].scenario;

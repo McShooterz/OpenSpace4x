@@ -194,7 +194,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             }
             if (GUI.Button(DesignSaveButtonRect, "Save", GameManager.instance.standardButtonStyle))
             {
-                if (ResourceManager.CheckForDesign(selectedHullData.Name, DesignName))
+                if (ResourceManager.instance.CheckForDesign(selectedHullData.Name, DesignName))
                 {
                     overwriteWarningPopupOpen = true;
                     DeselectModule();
@@ -362,7 +362,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                         ToolTip.SetText("rotateModule", "rotateModuleDesc");
                     }
 
-                    if (GUI.Button(ModuleRotationButtonRect, ResourceManager.GetIconTexture("Icon_Rotate")))
+                    if (GUI.Button(ModuleRotationButtonRect, ResourceManager.instance.GetIconTexture("Icon_Rotate")))
                     {
                         RotateModule();
                         PlayMainButtonClick();
@@ -419,15 +419,15 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             else if (overwriteWarningPopupOpen)
             {
                 GUI.Box(overwriteWarningRect, "", GameManager.instance.standardBackGround);
-                GUI.Box(overwriteWarningMessageRect, ResourceManager.GetLocalization("overwriteWarning"));
+                GUI.Box(overwriteWarningMessageRect, ResourceManager.instance.GetLocalization("overwriteWarning"));
 
-                if (GUI.Button(overwriteAcceptButtonRect, ResourceManager.GetLocalization("overwrite"), GameManager.instance.standardButtonStyle))
+                if (GUI.Button(overwriteAcceptButtonRect, ResourceManager.instance.GetLocalization("overwrite"), GameManager.instance.standardButtonStyle))
                 {
                     SaveDesign();
                     overwriteWarningPopupOpen = false;
                     PlayMainButtonClick();
                 }
-                if (GUI.Button(overwriteCancelButtonRect, ResourceManager.GetLocalization("cancel"), GameManager.instance.standardButtonStyle))
+                if (GUI.Button(overwriteCancelButtonRect, ResourceManager.instance.GetLocalization("cancel"), GameManager.instance.standardButtonStyle))
                 {
                     overwriteWarningPopupOpen = false;
                     PlayMainButtonClick();
@@ -979,7 +979,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     if (weapon != null)
                     {
                         GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
-                        GUI.DrawTexture(WeaponArcRect, ResourceManager.GetUITexture("WeaponArc360"));
+                        GUI.DrawTexture(WeaponArcRect, ResourceManager.instance.GetUITexture("WeaponArc360"));
                     }
                     DrawHoveredModuleInfo(mousePosition, module.module);
                     return;
@@ -1000,7 +1000,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("bestGuess", "bestGuessDesc");
             }
-            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.GetLocalization("bestGuess")))
+            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.instance.GetLocalization("bestGuess")))
             {
                 designBehaviorType = ShipBehaviorType.Skirmisher;
                 PlayMainButtonClick();
@@ -1012,7 +1012,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("skirmisher", "skirmisherDesc");
             }
-            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.GetLocalization("skirmisher")))
+            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.instance.GetLocalization("skirmisher")))
             {
                 designBehaviorType = ShipBehaviorType.Brawler;
                 PlayMainButtonClick();
@@ -1024,7 +1024,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("brawler", "brawlerDesc");
             }
-            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.GetLocalization("brawler")))
+            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.instance.GetLocalization("brawler")))
             {
                 designBehaviorType = ShipBehaviorType.Artillery;
                 PlayMainButtonClick();
@@ -1036,7 +1036,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("artillery", "artilleryDesc");
             }
-            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.GetLocalization("artillery")))
+            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.instance.GetLocalization("artillery")))
             {
                 designBehaviorType = ShipBehaviorType.Support;
                 PlayMainButtonClick();
@@ -1048,7 +1048,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("support", "supportDesc");
             }
-            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.GetLocalization("support")))
+            if (GUI.Button(BehaviorTypeButtonRect, ResourceManager.instance.GetLocalization("support")))
             {
                 designBehaviorType = ShipBehaviorType.BestGuess;
                 PlayMainButtonClick();
@@ -1061,7 +1061,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("holdPosition", "holdPositionDesc");
             }
-            if (GUI.Button(MovementButtonRect, ResourceManager.GetIconTexture("Icon_ShipHoldPositionAttack")))
+            if (GUI.Button(MovementButtonRect, ResourceManager.instance.GetIconTexture("Icon_ShipHoldPositionAttack")))
             {
                 designBehaviorAttackStyle = AttackStyle.strafingRuns;
                 PlayMainButtonClick();
@@ -1073,7 +1073,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("strafeAttack", "strafeAttackDesc");
             }
-            if (GUI.Button(MovementButtonRect, ResourceManager.GetIconTexture("Icon_StrafingAttack")))
+            if (GUI.Button(MovementButtonRect, ResourceManager.instance.GetIconTexture("Icon_StrafingAttack")))
             {
                 designBehaviorAttackStyle = AttackStyle.none;
                 PlayMainButtonClick();
@@ -1085,7 +1085,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("dontAttack", "dontAttackDesc");
             }
-            if (GUI.Button(MovementButtonRect, ResourceManager.GetIconTexture("Icon_DontAttack")))
+            if (GUI.Button(MovementButtonRect, ResourceManager.instance.GetIconTexture("Icon_DontAttack")))
             {
                 designBehaviorAttackStyle = AttackStyle.holdPosition;
                 PlayMainButtonClick();
@@ -1098,7 +1098,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("attackFront", "attackFrontDesc");
             }
-            if (GUI.Button(FiringDirectionButtonRect, ResourceManager.GetIconTexture("Icon_ShipAttackForward")))
+            if (GUI.Button(FiringDirectionButtonRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackForward")))
             {
                 designBehaviorAttackDirection = QuadrantTypes.Port;
                 PlayMainButtonClick();
@@ -1110,7 +1110,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("attackLeft", "attackLeftDesc");
             }
-            if (GUI.Button(FiringDirectionButtonRect, ResourceManager.GetIconTexture("Icon_ShipAttackLeft")))
+            if (GUI.Button(FiringDirectionButtonRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackLeft")))
             {
                 designBehaviorAttackDirection = QuadrantTypes.Starboard;
                 PlayMainButtonClick();
@@ -1122,7 +1122,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("attackRight", "attackRightDesc");
             }
-            if (GUI.Button(FiringDirectionButtonRect, ResourceManager.GetIconTexture("Icon_ShipAttackRight")))
+            if (GUI.Button(FiringDirectionButtonRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackRight")))
             {
                 designBehaviorAttackDirection = QuadrantTypes.Fore;
                 PlayMainButtonClick();
@@ -1134,7 +1134,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             ToolTip.SetText("attackRange", "attackRangeDesc");
         }
 
-        GUI.Label(RangeValueRect, "Range: " + (designBehaviorAttackRange / ResourceManager.gameConstants.FiringRangeFactor).ToString("0"));
+        GUI.Label(RangeValueRect, "Range: " + (designBehaviorAttackRange / ResourceManager.instance.GetGameConstants().FiringRangeFactor).ToString("0"));
         designBehaviorAttackRange = damageBarGraph.Draw();
 
         if (GUI.Button(BehaviorCloseButtonRect, "Close", GameManager.instance.standardButtonStyle))
@@ -1224,7 +1224,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
         ClearFormatedSlots();
         ClearSlottedModules();
         selectedHullData = hullData;
-        FormatSlotLayout(ResourceManager.GetShipSlotLayout(hullData.Name));
+        FormatSlotLayout(ResourceManager.instance.GetShipSlotLayout(hullData.Name));
         SetShipModel(hullData);
         BuildDesignList(selectedHullData);
         ClearDesignModuleStats();
@@ -1579,7 +1579,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
         {
             Object.Destroy(unitModel);
         }
-        unitModel = ResourceManager.CreateShip(hullData, Position, Quaternion.identity);
+        unitModel = ResourceManager.instance.CreateShip(hullData, Position, Quaternion.identity);
     }
 
     protected override void ClearFormatedSlots()
@@ -2369,32 +2369,32 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
 
         foreach (SlotedModule slotmod in ForeSlotedModules)
         {
-            DesignModule module = new DesignModule(ResourceManager.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
+            DesignModule module = new DesignModule(ResourceManager.instance.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
             design.ForeModules.Add(module);
         }
         foreach (SlotedModule slotmod in AftSlotedModules)
         {
-            DesignModule module = new DesignModule(ResourceManager.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
+            DesignModule module = new DesignModule(ResourceManager.instance.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
             design.AftModules.Add(module);
         }
         foreach (SlotedModule slotmod in PortSlotedModules)
         {
-            DesignModule module = new DesignModule(ResourceManager.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
+            DesignModule module = new DesignModule(ResourceManager.instance.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
             design.PortModules.Add(module);
         }
         foreach (SlotedModule slotmod in StarboardSlotedModules)
         {
-            DesignModule module = new DesignModule(ResourceManager.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
+            DesignModule module = new DesignModule(ResourceManager.instance.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
             design.StarboardModules.Add(module);
         }
         foreach (SlotedModule slotmod in CenterSlotedModules)
         {
-            DesignModule module = new DesignModule(ResourceManager.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
+            DesignModule module = new DesignModule(ResourceManager.instance.GetModuleName(slotmod.module), slotmod.Rotation, slotmod.Position);
             design.CenterModules.Add(module);
         }
 
 
-        ResourceManager.SaveShipDesign(design);
+        ResourceManager.instance.SaveShipDesign(design);
 
         BuildDesignList(selectedHullData);
         selectedDesign = design;
@@ -2409,7 +2409,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             selectedDesign = null;
         }
         design.Deleted = true;
-        ResourceManager.SaveShipDesign(design);
+        ResourceManager.instance.SaveShipDesign(design);
         BuildDesignList(selectedHullData);
     }
 
@@ -2492,26 +2492,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
 
     protected void BuildDesignList(ShipHullData data)
     {
-        DesignList.Clear();
-        selectedDesign = null;
-        DesignName = "";
 
-        if (ResourceManager.shipDesigns.ContainsKey(selectedHullData.Name))
-        {
-            if (ResourceManager.shipDesigns[selectedHullData.Name].Count > 0)
-            {
-                foreach (KeyValuePair<string, ShipDesign> keyVal in ResourceManager.shipDesigns[selectedHullData.Name])
-                {
-                    if (!keyVal.Value.Deleted && CheckDesignAllowed(keyVal.Value))
-                    {
-                        Rect rect = new Rect(0, DesignListEntrySize.y * DesignList.Count, DesignListEntrySize.x, DesignListEntrySize.y);
-                        DesignListEntry DLE = new DesignListEntry(rect, keyVal.Value, LoadDesign, SetDesignToDelete, GameManager.instance);
-                        DesignList.Add(DLE);
-                    }
-                }
-            }
-        }
-        ShipDesignScrollViewRect.height = Mathf.Max(ShipDesignScrollWindowRect.height * 1.04f, DesignListEntrySize.y * DesignList.Count);
     }
 
     protected override bool CheckDesignAllowed(ShipDesign design)

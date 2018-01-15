@@ -157,7 +157,7 @@ public class ShipDesignData
         FTLSpeed += EngineFTL / Mass;
         PowerGenerated -= Power * (1 - PowerEffiency);
         CloakingPower = CloakingPowerPerMass * Mass;
-        MinCrew = (int)(Crew * ResourceManager.gameConstants.MinCrewPercent);
+        MinCrew = (int)(Crew * ResourceManager.instance.GetGameConstants().MinCrewPercent);
 
         maxRange = CalculateMaxRange();
         BuildDamageGraph();
@@ -167,7 +167,7 @@ public class ShipDesignData
     {
         foreach (DesignModule designModule in modules)
         {
-            Module module = ResourceManager.GetModule(designModule.Module);
+            Module module = ResourceManager.instance.GetModule(designModule.Module);
 
             ProductionCost += module.ProductionCost;
             AlloyCost += module.AlloyCost;
@@ -274,12 +274,12 @@ public class ShipDesignData
 
     public float GetTotalValue()
     {
-        return ResourceManager.gameConstants.GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
+        return ResourceManager.instance.GetGameConstants().GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
     }
 
     void AddFighters(string fighterType, Dictionary<FighterDefinition, int> fighterDictionary)
     {
-        FighterDefinition fighterDefinition = ResourceManager.GetFighterDefinition(fighterType);
+        FighterDefinition fighterDefinition = ResourceManager.instance.GetFighterDefinition(fighterType);
         if (fighterDefinition != null)
         {
             if (fighterDictionary.ContainsKey(fighterDefinition))

@@ -273,7 +273,7 @@ public sealed class StationData : UnitData
 
             if (effectiveDamage > 0)
             {
-                float absorbDamage = effectiveDamage * Mathf.Clamp(shieldRating / effectiveDamage, ResourceManager.gameConstants.MinShieldAbsorb, 1f);
+                float absorbDamage = effectiveDamage * Mathf.Clamp(shieldRating / effectiveDamage, ResourceManager.instance.GetGameConstants().MinShieldAbsorb, 1f);
                 float damageUseRatio;
 
                 if (shieldHealth > absorbDamage)
@@ -405,7 +405,7 @@ public sealed class StationData : UnitData
     {
         if (designData.Hull.Icon != null)
             return designData.Hull.GetIcon();
-        return ResourceManager.ErrorTexture;
+        return ResourceManager.instance.GetErrorTexture();
     }
 
     protected override int GetMinCrew()

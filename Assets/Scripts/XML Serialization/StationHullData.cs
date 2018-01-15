@@ -9,6 +9,7 @@ Notes:
 using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class StationHullData
 {
     public string Name { get; set; }
@@ -59,21 +60,21 @@ public class StationHullData
 
     public Texture2D GetIcon()
     {
-        return ResourceManager.GetUnitIcon(Icon);
+        return ResourceManager.instance.GetUnitIcon(Icon);
     }
 
     public GameObject GetStationObject()
     {
-        return ResourceManager.GetStationObject(StationObject);
+        return ResourceManager.instance.GetStationObject(StationObject);
     }
 
     public StationSlotLayout GetSlotLayout()
     {
-        return ResourceManager.GetStationSlotLayout(SlotLayout);
+        return ResourceManager.instance.GetStationSlotLayout(SlotLayout);
     }
 
     public HardPointsStored GetHardPoints()
     {
-        return ResourceManager.GetHardPoints(HardPoints);
+        return ResourceManager.instance.GetHardPoints(HardPoints);
     }
 }

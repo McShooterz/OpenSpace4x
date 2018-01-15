@@ -46,7 +46,7 @@ public abstract class CombatScreens : ShipSelectingScreens
         {
             Object.Destroy(DummyUnit);
         }
-        DummyUnit = ResourceManager.CreateShip(selectedDesign.Hull, Vector3.zero, Quaternion.identity);
+        DummyUnit = ResourceManager.instance.CreateShip(selectedDesign.Hull, Vector3.zero, Quaternion.identity);
         if (DummyUnit != null)
         {
             Bounds bounds = DummyUnit.GetComponentInChildren<MeshFilter>().mesh.bounds;
@@ -64,7 +64,7 @@ public abstract class CombatScreens : ShipSelectingScreens
         {
             Object.Destroy(DummyUnit);
         }
-        DummyUnit = ResourceManager.CreateStation(selectedStationDesign.Hull, Vector3.zero, Quaternion.identity);
+        DummyUnit = ResourceManager.instance.CreateStation(selectedStationDesign.Hull, Vector3.zero, Quaternion.identity);
         if (DummyUnit != null)
         {
             Bounds bounds = DummyUnit.GetComponentInChildren<MeshFilter>().mesh.bounds;
@@ -82,7 +82,7 @@ public abstract class CombatScreens : ShipSelectingScreens
         {
             Object.Destroy(DummyUnit);
         }
-        DummyUnit = ResourceManager.CreateFighter(selectedFighter, Vector3.zero, Quaternion.identity);
+        DummyUnit = ResourceManager.instance.CreateFighter(selectedFighter, Vector3.zero, Quaternion.identity);
         if (DummyUnit != null)
         {
             Bounds bounds = DummyUnit.GetComponentInChildren<MeshFilter>().mesh.bounds;

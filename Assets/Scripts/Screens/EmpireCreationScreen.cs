@@ -306,65 +306,7 @@ public class EmpireCreationScreen : ScreenParent
         //Empire Traits Panel
         RacialTraitsTitleRect = new Rect(EmpireTraitsPanelRect.x + EmpireTraitsPanelRect.width * 0.015f, EmpireTraitsPanelRect.y, EmpireTraitsPanelRect.width * 0.12f, EmpireTraitsPanelRect.height * 0.08f);
         RacialTraitsPointsBoxRect = new Rect(EmpireTraitsPanelRect.xMax - EmpireTraitsPanelRect.width * 0.07f, EmpireTraitsPanelRect.y, EmpireTraitsPanelRect.width * 0.07f, EmpireTraitsPanelRect.height * 0.08f);
-        RacialTraitsPointsRect = new Rect(RacialTraitsPointsBoxRect.x + RacialTraitsPointsBoxRect.width * 0.1f, RacialTraitsPointsBoxRect.y + RacialTraitsPointsBoxRect.height * 0.1f, RacialTraitsPointsBoxRect.width * 0.8f, RacialTraitsPointsBoxRect.height * 0.8f);
-
-        TraitPopulationGrowth = AddRacialTrait(ResourceManager.RacialTraitsConfig.PopulationGrowth);
-        TraitPopulationMax = AddRacialTrait(ResourceManager.RacialTraitsConfig.PopulationMax);
-        TraitFoodConsumption = AddRacialTrait(ResourceManager.RacialTraitsConfig.FoodConsumption);
-        TraitSpeciesLifeSpan = AddRacialTrait(ResourceManager.RacialTraitsConfig.SpeciesLifeSpan);
-        TraitClimateTolerance = AddRacialTrait(ResourceManager.RacialTraitsConfig.ClimateTolerance);
-        TraitStartingMoney = AddRacialTrait(ResourceManager.RacialTraitsConfig.StartingMoney);
-        TraitTaxation = AddRacialTrait(ResourceManager.RacialTraitsConfig.Taxation);
-        TraitFarming = AddRacialTrait(ResourceManager.RacialTraitsConfig.Farming);
-        TraitIndustry = AddRacialTrait(ResourceManager.RacialTraitsConfig.Industry);
-        TraitSpaceConstruction = AddRacialTrait(ResourceManager.RacialTraitsConfig.SpaceConstruction);
-        TraitResearch = AddRacialTrait(ResourceManager.RacialTraitsConfig.Research);
-        TraitMining = AddRacialTrait(ResourceManager.RacialTraitsConfig.Mining);
-        TraitTrade = AddRacialTrait(ResourceManager.RacialTraitsConfig.Trade);
-        TraitDiplomacy = AddRacialTrait(ResourceManager.RacialTraitsConfig.Diplomacy);
-        TraitDiplomacyTade = AddRacialTrait(ResourceManager.RacialTraitsConfig.DiplomacyTade);
-        TraitDiplomacyTolerance = AddRacialTrait(ResourceManager.RacialTraitsConfig.DiplomacyTolerance);
-        TraitEspionage = AddRacialTrait(ResourceManager.RacialTraitsConfig.Espionage);
-        TraitCounterespionage = AddRacialTrait(ResourceManager.RacialTraitsConfig.Counterespionage);
-
-        TraitGroundCombat = AddRacialTrait(ResourceManager.RacialTraitsConfig.GroundCombat);
-        TraitArmyCost = AddRacialTrait(ResourceManager.RacialTraitsConfig.ArmyCost);
-        TraitArmyUpkeep = AddRacialTrait(ResourceManager.RacialTraitsConfig.ArmyUpkeep);
-        TraitSpaceWeaponDamage = AddRacialTrait(ResourceManager.RacialTraitsConfig.SpaceWeaponDamage);
-        TraitSpaceDamageReceived = AddRacialTrait(ResourceManager.RacialTraitsConfig.SpaceDamageReceived);
-        TraitShipCost = AddRacialTrait(ResourceManager.RacialTraitsConfig.ShipCost);
-        TraitShipUpkeep = AddRacialTrait(ResourceManager.RacialTraitsConfig.ShipUpkeep);
-        TraitShipCombatSpeed = AddRacialTrait(ResourceManager.RacialTraitsConfig.ShipCombatSpeed);
-        TraitShipRepair = AddRacialTrait(ResourceManager.RacialTraitsConfig.ShipRepair);
-        TraitStationCost = AddRacialTrait(ResourceManager.RacialTraitsConfig.StationCost);
-        TraitStationUpkeep = AddRacialTrait(ResourceManager.RacialTraitsConfig.StationUpkeep);
-        TraitFTLSpeed = AddRacialTrait(ResourceManager.RacialTraitsConfig.FTLSpeed);
-        TraitFleetCommandLimit = AddRacialTrait(ResourceManager.RacialTraitsConfig.FleetCommandLimit);
-
-        TraitPlanetDistrictCost = AddRacialTrait(ResourceManager.RacialTraitsConfig.PlanetDistrictCost);
-        TraitPlanetDistrictUpkeep = AddRacialTrait(ResourceManager.RacialTraitsConfig.PlanetDistrictUpkeep);
-        TraitPlanetOrbitalStructureCost = AddRacialTrait(ResourceManager.RacialTraitsConfig.PlanetOrbitalStructureCost);
-        TraitPlanetOrbitalStructureUpkeep = AddRacialTrait(ResourceManager.RacialTraitsConfig.PlanetOrbitalStructureUpkeep);
-
-        TraitSlavery = AddRacialTrait(ResourceManager.RacialTraitsConfig.Slavery);
-        TraitTerraforming = AddRacialTrait(ResourceManager.RacialTraitsConfig.Terraforming);
-        TraitPollution = AddRacialTrait(ResourceManager.RacialTraitsConfig.Pollution);
-        TraitMoralPerTurn = AddRacialTrait(ResourceManager.RacialTraitsConfig.MoralPerTurn);
-        TraitCrime = AddRacialTrait(ResourceManager.RacialTraitsConfig.Crime);
-        TraitLawEnforcement = AddRacialTrait(ResourceManager.RacialTraitsConfig.LawEnforcement);
-
-        TraitHomeWorldSize = AddRacialTrait(ResourceManager.RacialTraitsConfig.HomeWorldSize);
-        TraitHomeWorldFertility = AddRacialTrait(ResourceManager.RacialTraitsConfig.HomeWorldFertility);
-        TraitHomeWorldRichness = AddRacialTrait(ResourceManager.RacialTraitsConfig.HomeWorldRichness);
-
-        TraitLeaderQuality = AddRacialTrait(ResourceManager.RacialTraitsConfig.LeaderQuality);
-        TraitGovernorQuality = AddRacialTrait(ResourceManager.RacialTraitsConfig.GovernorQuality);
-        TraitAdmiralQuality = AddRacialTrait(ResourceManager.RacialTraitsConfig.AdmiralQuality);
-        TraitScientistQuality = AddRacialTrait(ResourceManager.RacialTraitsConfig.ScientistQuality);
-        TraitSpyQuality = AddRacialTrait(ResourceManager.RacialTraitsConfig.SpyQuality);
-
-        TraitMarketBuyValue = AddRacialTrait(ResourceManager.RacialTraitsConfig.MarketBuyValue);
-        TraitMarketSellValue = AddRacialTrait(ResourceManager.RacialTraitsConfig.MarketSellValue);
+        RacialTraitsPointsRect = new Rect(RacialTraitsPointsBoxRect.x + RacialTraitsPointsBoxRect.width * 0.1f, RacialTraitsPointsBoxRect.y + RacialTraitsPointsBoxRect.height * 0.1f, RacialTraitsPointsBoxRect.width * 0.8f, RacialTraitsPointsBoxRect.height * 0.8f); 
 
         empireScrollList.LoadFirstEmpire();
 
@@ -890,7 +832,7 @@ public class EmpireCreationScreen : ScreenParent
             empire.TraitMarketBuyValue = TraitMarketBuyValue.GetValue();
             empire.TraitMarketSellValue = TraitMarketSellValue.GetValue();
 
-            ResourceManager.SaveEmpireDefinition(empire);
+            //ResourceManager.SaveEmpireDefinition(empire);
         }
     }
 
@@ -1039,7 +981,7 @@ public class EmpireCreationScreen : ScreenParent
             isPercentage = percentage;
 
             content = new GUIContent();
-            content.image = ResourceManager.GetIconTexture(IconName);
+            content.image = ResourceManager.instance.GetIconTexture(IconName);
 
             ToolTip = tooltip;
             ToolTipTitle = tooltipTitle;

@@ -135,7 +135,7 @@ public class Beam : MonoBehaviour
             }
             else
             {
-                DamageIntervalTimer = ResourceManager.gameConstants.BeamDamageIntervalTime;
+                DamageIntervalTimer = ResourceManager.instance.GetGameConstants().BeamDamageIntervalTime;
                 targetProjectile.TakeDamage(attachedWeapon.baseWeapon, AccumulatedDamage);
                 AccumulatedDamage = 0;
             } 
@@ -167,7 +167,7 @@ public class Beam : MonoBehaviour
                             damage += damage * damageBonus;
                             totalDamage += damage;
                             AccumulatedDamage = damage;
-                            DamageIntervalTimer = ResourceManager.gameConstants.BeamDamageIntervalTime;
+                            DamageIntervalTimer = ResourceManager.instance.GetGameConstants().BeamDamageIntervalTime;
                             return;
                         }
                     }
@@ -195,7 +195,7 @@ public class Beam : MonoBehaviour
                         }
                         else
                         {
-                            DamageIntervalTimer = ResourceManager.gameConstants.BeamDamageIntervalTime;
+                            DamageIntervalTimer = ResourceManager.instance.GetGameConstants().BeamDamageIntervalTime;
                             DealDamage(LastHitUnit, AccumulatedDamage);
                             AccumulatedDamage = 0;
                         }
@@ -224,7 +224,7 @@ public class Beam : MonoBehaviour
                             damage += damage * damageBonus;
                             totalDamage += damage;
                             AccumulatedDamage = damage;
-                            DamageIntervalTimer = ResourceManager.gameConstants.BeamDamageIntervalTime;
+                            DamageIntervalTimer = ResourceManager.instance.GetGameConstants().BeamDamageIntervalTime;
                             return;
                         }
                     }

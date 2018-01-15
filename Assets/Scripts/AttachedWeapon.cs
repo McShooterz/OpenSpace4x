@@ -116,7 +116,7 @@ public sealed class AttachedWeapon
         if(baseWeapon.isBeam)
         {
             BeamDuration = baseWeapon.BeamDuration;
-            beam = ResourceManager.CreateBeam(baseWeapon);
+            beam = ResourceManager.instance.CreateBeam(baseWeapon);
             beam.Initialize(this, parentUnit.unitMeshObject, GetWorldOffset(CurrentHardPoints[0]), Target, TargetOffset);
         }
         else
@@ -127,7 +127,7 @@ public sealed class AttachedWeapon
                 {
 					if (CheckPowerAndAmmo ())
                     {
-						Projectile projectile = ResourceManager.CreateProjectile (baseWeapon);
+						Projectile projectile = ResourceManager.instance.CreateProjectile (baseWeapon);
 						projectile.Initialize(this, baseWeapon, GetWorldOffset(firePoint), Target, TargetOffset);
 						Projectiles.Add (projectile);
 						ConsumePowerAndAmmo();
@@ -141,7 +141,7 @@ public sealed class AttachedWeapon
                 {
 					if (CheckPowerAndAmmo ())
                     {
-						Projectile projectile = ResourceManager.CreateProjectile (baseWeapon);
+						Projectile projectile = ResourceManager.instance.CreateProjectile (baseWeapon);
 						projectile.Initialize(this, baseWeapon, GetWorldOffset(CurrentHardPoints[0]), Target, TargetOffset);
 						Projectiles.Add (projectile);
 						ConsumePowerAndAmmo();
@@ -168,7 +168,7 @@ public sealed class AttachedWeapon
             {
 				if (CheckPowerAndAmmo())
                 {
-                    Projectile projectile = ResourceManager.CreateProjectile(baseWeapon);
+                    Projectile projectile = ResourceManager.instance.CreateProjectile(baseWeapon);
                     projectile.Initialize(this, baseWeapon, GetWorldOffset(firePoint), Target, TargetOffset);
                     Projectiles.Add(projectile);
 					ConsumePowerAndAmmo();
@@ -186,7 +186,7 @@ public sealed class AttachedWeapon
             {
 				if (CheckPowerAndAmmo())
                 {
-                    Projectile projectile = ResourceManager.CreateProjectile(baseWeapon);
+                    Projectile projectile = ResourceManager.instance.CreateProjectile(baseWeapon);
                     projectile.Initialize(this, baseWeapon, GetWorldOffset(CurrentHardPoints[0]), Target, TargetOffset);
                     Projectiles.Add(projectile);
 					ConsumePowerAndAmmo();

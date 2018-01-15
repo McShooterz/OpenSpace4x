@@ -11,8 +11,11 @@ using System.Collections;
 
 public class Planet : MonoBehaviour 
 {
+    [SerializeField]
+    PlanetData planetData;
 
-	protected int HighlightLayer = 0;
+    [SerializeField]
+    GameObject planetObject;
 
 	// Use this for initialization
 	void Start () 
@@ -26,20 +29,16 @@ public class Planet : MonoBehaviour
 	
 	}
 
-	public void SetHighLightLayer(int layer)
-	{
-		HighlightLayer = layer;
-	}
+	
 
-	public void ToggleHighlight(bool state)
-	{
-		if(state)
-		{
-			transform.GetChild(0).gameObject.layer = HighlightLayer;
-		}
-		else
-		{
-			transform.GetChild(0).gameObject.layer = 0;
-		}
-	}
+    public PlanetData GetPlanetData()
+    {
+        return planetData;
+    }
+
+    public void SetPlanetData(PlanetData data)
+    {
+        planetData = data;
+    }
+
 }

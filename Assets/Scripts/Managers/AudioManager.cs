@@ -45,7 +45,7 @@ public class AudioManager : MonoBehaviour
 
     public void PlayUIClip(string clipName)
     {
-        AudioClip clip = ResourceManager.GetAudioClip(clipName);
+        AudioClip clip = ResourceManager.instance.GetAudioClip(clipName);
         if (clip != null)
         {
             uiSource.pitch = 1f;
@@ -61,7 +61,7 @@ public class AudioManager : MonoBehaviour
     {
         if (source != null && CanPlaySoundEffect() || AlwaysPlay)
         {
-            AudioClip clip = ResourceManager.GetAudioClip(clipName);
+            AudioClip clip = ResourceManager.instance.GetAudioClip(clipName);
             if (clip != null)
             {
                 source.pitch = GetRandomPitch();
@@ -81,7 +81,7 @@ public class AudioManager : MonoBehaviour
     {
         if (CanPlaySoundEffect() || AlwaysPlay)
         {
-            AudioClip clip = ResourceManager.GetAudioClip(clipName);
+            AudioClip clip = ResourceManager.instance.GetAudioClip(clipName);
             if (clip != null)
             {
                 AudioSource source = parent.AddComponent<AudioSource>();
@@ -103,7 +103,7 @@ public class AudioManager : MonoBehaviour
         if (CanPlaySoundEffect() && source != null)
         {
             string clipName = clipNames[Random.Range(0, clipNames.Length)];
-            AudioClip clip = ResourceManager.GetAudioClip(clipName);
+            AudioClip clip = ResourceManager.instance.GetAudioClip(clipName);
             if (clip != null)
             {
                 source.pitch = GetRandomPitch();

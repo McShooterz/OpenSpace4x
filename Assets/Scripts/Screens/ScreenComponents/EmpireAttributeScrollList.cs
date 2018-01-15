@@ -25,13 +25,6 @@ public class EmpireAttributeScrollList : ScrollListBase
 
         ListEntrySize = new Vector2(ScrollViewRect.width, ScrollWindowRect.height / 4f);
 
-        foreach(KeyValuePair<string, EmpireAttribute> keyVal in ResourceManager.EmpireAttributes)
-        {
-            if(keyVal.Value.AttributeType == attributeType)
-            {
-                AddEntry(keyVal);
-            }
-        }
         ScaleView();
     }
 

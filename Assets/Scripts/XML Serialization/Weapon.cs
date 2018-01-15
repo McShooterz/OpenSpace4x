@@ -106,7 +106,7 @@ public class Weapon
     {
         foreach(DamageNode node in DamageGraph)
         {
-            node.Range *= ResourceManager.gameConstants.FiringRangeFactor;
+            node.Range *= ResourceManager.instance.GetGameConstants().FiringRangeFactor;
         }
     }
 
@@ -125,7 +125,7 @@ public class Weapon
 
     public float GetMaxRangeDisplay()
     {
-        return GetMaxRange() * (1f / ResourceManager.gameConstants.FiringRangeFactor);
+        return GetMaxRange() * (1f / ResourceManager.instance.GetGameConstants().FiringRangeFactor);
     }
 
     public float GetMaxDamage()
@@ -226,7 +226,7 @@ public class Weapon
 
     public Weapon GetSecondaryWeapon()
     {
-        return ResourceManager.GetWeapon(SecondaryWeapon);
+        return ResourceManager.instance.GetWeapon(SecondaryWeapon);
     }
 
     public Vector2[] GetGraphDamagePoints()
@@ -252,7 +252,7 @@ public class Weapon
 
         public float GetDisplayRange()
         {
-            return Range * (1f / ResourceManager.gameConstants.FiringRangeFactor);
+            return Range * (1f / ResourceManager.instance.GetGameConstants().FiringRangeFactor);
         }
 
         public float GetRangedSquared()

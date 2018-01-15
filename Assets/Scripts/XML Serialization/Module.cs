@@ -129,17 +129,17 @@ public class Module
 
     public Texture2D GetTexture()
     {
-        return ResourceManager.GetModuleTexture(Texture);
+        return ResourceManager.instance.GetModuleTexture(Texture);
     }
 
     public Weapon GetWeapon()
     {
-        return ResourceManager.GetWeapon(Weapon);
+        return ResourceManager.instance.GetWeapon(Weapon);
     }
 
     public bool GetWeaponExists()
     {
-        return ResourceManager.WeaponExists(Weapon);
+        return ResourceManager.instance.WeaponExists(Weapon);
     }
 
     public int GetFighterCount()
@@ -162,7 +162,7 @@ public class Module
         int count = 0;
         foreach (string fighterName in fighterList)
         {
-            FighterDefinition fighterDefinition = ResourceManager.GetFighterDefinition(fighterName);
+            FighterDefinition fighterDefinition = ResourceManager.instance.GetFighterDefinition(fighterName);
             if (fighterDefinition != null)
             {
                 count += fighterDefinition.MaxSquadronSize;
@@ -176,7 +176,7 @@ public class Module
         float value = 0;
         foreach (string fighterName in Fighters)
         {
-            FighterDefinition fighterDefinition = ResourceManager.GetFighterDefinition(fighterName);
+            FighterDefinition fighterDefinition = ResourceManager.instance.GetFighterDefinition(fighterName);
             if(fighterDefinition != null)
             {
                 value += fighterDefinition.GetSquadronFirePower();
@@ -184,7 +184,7 @@ public class Module
         }
         foreach (string fighterName in HeavyFighters)
         {
-            FighterDefinition fighterDefinition = ResourceManager.GetFighterDefinition(fighterName);
+            FighterDefinition fighterDefinition = ResourceManager.instance.GetFighterDefinition(fighterName);
             if (fighterDefinition != null)
             {
                 value += fighterDefinition.GetSquadronFirePower();
@@ -195,32 +195,32 @@ public class Module
 
     public FighterDefinition GetFirstFighter()
     {
-        return ResourceManager.GetFighterDefinition(Fighters[0]);
+        return ResourceManager.instance.GetFighterDefinition(Fighters[0]);
     }
 
     public FighterDefinition GetFirstHeavyFighter()
     {
-        return ResourceManager.GetFighterDefinition(HeavyFighters[0]);
+        return ResourceManager.instance.GetFighterDefinition(HeavyFighters[0]);
     }
 
     public FighterDefinition GetFirstAssaultPod()
     {
-        return ResourceManager.GetFighterDefinition(AssaultPods[0]);
+        return ResourceManager.instance.GetFighterDefinition(AssaultPods[0]);
     }
 
     public void ApplyFiringRangeFactor()
     {
-        JammingRange *= ResourceManager.gameConstants.FiringRangeFactor;
+        JammingRange *= ResourceManager.instance.GetGameConstants().FiringRangeFactor;
     }
 
     public float GetJammingRangeDisplay()
     {
-        return JammingRange / ResourceManager.gameConstants.FiringRangeFactor;
+        return JammingRange / ResourceManager.instance.GetGameConstants().FiringRangeFactor;
     }
 
     public float GetCost()
     {
-        return ResourceManager.gameConstants.GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
+        return ResourceManager.instance.GetGameConstants().GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
     }
 
     public float GetDefenseRating()

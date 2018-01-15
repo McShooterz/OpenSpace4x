@@ -19,6 +19,6 @@ public sealed class StationDesign : UnitDesign
 
     public StationHullData GetHull()
     {
-        return ResourceManager.GetStationHull(Hull);
+        return ResourceManager.instance.GetStationHull(Hull);
     }
 }

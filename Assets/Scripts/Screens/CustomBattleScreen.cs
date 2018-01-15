@@ -190,7 +190,7 @@ public class CustomBattleScreen : CombatScreens
                     else if (Input.GetMouseButtonUp(0))
                     {
                         ShipData shipData = new ShipData(selectedDesign);
-                        Ship newShip = ResourceManager.CreateCombatShip(shipData, DummyUnit.transform.position, DummyUnit.transform.rotation);
+                        Ship newShip = ResourceManager.instance.CreateCombatShip(shipData, DummyUnit.transform.position, DummyUnit.transform.rotation);
                         if (newShip != null)
                         {
                             if (PlayerSelected)
@@ -322,13 +322,13 @@ public class CustomBattleScreen : CombatScreens
                             {
                                 if (PlayerShipManager.TransporterTargetingTroop)
                                 {
-                                    Cursor.SetCursor(ResourceManager.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
+                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }
                                 else if (PlayerShipManager.TransporterTargetingCrew)
                                 {
-                                    Cursor.SetCursor(ResourceManager.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
+                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }

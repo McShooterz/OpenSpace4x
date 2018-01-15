@@ -9,11 +9,16 @@ Notes:
 using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class GameConstants
 {
     #region Variables
 
+    // Time
+    public float dayTime = 1f;
+
     //Economy
+    [SerializeField]
     public float BaseFoodValue { get; set; }
     public float BaseProductionValue { get; set; }
     public float BaseOreValue { get; set; }

@@ -42,8 +42,8 @@ public class WeaponDamageGraph : MonoBehaviour
 
     public void SetWeapon(Weapon weapon)
     {
-        DamageLabel.text = ResourceManager.GetLocalization("Damage") + ": " + weapon.GetMaxDamage().ToString("0");
-        RangeLabel.text = ResourceManager.GetLocalization("Range") + ": " + weapon.GetMaxRangeDisplay().ToString("0");
+        DamageLabel.text = ResourceManager.instance.GetLocalization("Damage") + ": " + weapon.GetMaxDamage().ToString("0");
+        RangeLabel.text = ResourceManager.instance.GetLocalization("Range") + ": " + weapon.GetMaxRangeDisplay().ToString("0");
 
         Rect GraphRect = Lines.GetComponent<RectTransform>().rect;
 

@@ -8,14 +8,17 @@ public class CampaignMainScreen : MonoBehaviour
     [SerializeField]
     RayCasterCameraToMouse rayCasterCameraToMouse;
 
-    //[SerializeField]
-    
+    [SerializeField]
+    CampaignPlanetPanel planetPanel;
+
+    [SerializeField]
+    CampaignEmpireInfoBar empireInfoBar;
 
     // Use this for initialization
     void Start ()
     {
-		
-	}
+        planetPanel.gameObject.SetActive(false);
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -29,6 +32,9 @@ public class CampaignMainScreen : MonoBehaviour
                 if (hit.transform.root.tag == "Fleet")
                 {
                     Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+
+                    DeselectPlanet();
+
                     FleetController fleet = hit.collider.transform.root.gameObject.GetComponent<FleetController>();
                     bool playerOwned = playerEmpire.GetFleetManager().OwnsFleet(fleet);
 
@@ -46,10 +52,20 @@ public class CampaignMainScreen : MonoBehaviour
                         playerEmpire.GetFleetManager().SetSelectedOtherFleet(fleet);
                     }
                 }
+                else if (hit.transform.root.tag == "Planet")
+                {
+                    Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+                    playerEmpire.GetFleetManager().DeslectFleets();
+                    DeselectPlanet();
+
+                    SelectPlanet(hit.transform.root.gameObject.GetComponent<Planet>());
+                }
                 else
                 {
                     Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
                     playerEmpire.GetFleetManager().DeslectFleets();
+
+                    DeselectPlanet();
                 }
             }
         }
@@ -73,4 +89,24 @@ public class CampaignMainScreen : MonoBehaviour
         }
 
 	}
+
+
+
+
+
+
+
+    void SelectPlanet(Planet planet)
+    {
+        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+        playerEmpire.GetPlanetManager().SetSelectedPlanet(planet);
+        planetPanel.gameObject.SetActive(true);
+        planetPanel.SetPlanet(planet, playerEmpire.GetPlanetManager().OwnsPlanet(planet));
+    }
+
+    void DeselectPlanet()
+    {
+        EmpireManager.instance.GetPlayerEmpire().GetPlanetManager().SetSelectedPlanet(null);
+        planetPanel.gameObject.SetActive(false);
+    }
 }

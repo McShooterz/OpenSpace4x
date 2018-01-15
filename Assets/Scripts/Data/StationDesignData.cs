@@ -95,7 +95,7 @@ public class StationDesignData
         //Get stats from each module
         foreach (DesignModule designModule in Design.Modules)
         {
-            Module module = ResourceManager.GetModule(designModule.Module);
+            Module module = ResourceManager.instance.GetModule(designModule.Module);
 
             ProductionCost += module.ProductionCost;
             AlloyCost += module.AlloyCost;
@@ -171,18 +171,18 @@ public class StationDesignData
             }
         }
 
-        MinCrew = (int)(Crew * ResourceManager.gameConstants.MinCrewPercent);
+        MinCrew = (int)(Crew * ResourceManager.instance.GetGameConstants().MinCrewPercent);
         maxRange = CalculateMaxRange();
     }
 
     public float GetTotalValue()
     {
-        return ResourceManager.gameConstants.GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
+        return ResourceManager.instance.GetGameConstants().GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
     }
 
     void AddFighters(string fighterType, Dictionary<FighterDefinition, int> fighterDictionary)
     {
-        FighterDefinition fighterDefinition = ResourceManager.GetFighterDefinition(fighterType);
+        FighterDefinition fighterDefinition = ResourceManager.instance.GetFighterDefinition(fighterType);
         if (fighterDefinition != null)
         {
             if (fighterDictionary.ContainsKey(fighterDefinition))

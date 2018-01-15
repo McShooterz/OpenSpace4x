@@ -59,8 +59,8 @@ public class ScenarioPlayScreen : CombatScreens
     public ScenarioPlayScreen(Scenario selectedScenario)
     {
 
-        CommandIcon = ResourceManager.GetIconTexture("Icon_CommandPoint");
-        MoneyIcon = ResourceManager.GetIconTexture("Icon_Money");
+        CommandIcon = ResourceManager.instance.GetIconTexture("Icon_CommandPoint");
+        MoneyIcon = ResourceManager.instance.GetIconTexture("Icon_Money");
 
         PlayerFleet = new FleetData();
         EnemyFleet = new FleetData();
@@ -333,13 +333,13 @@ public class ScenarioPlayScreen : CombatScreens
                             {
                                 if (PlayerShipManager.TransporterTargetingTroop)
                                 {
-                                    Cursor.SetCursor(ResourceManager.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
+                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }
                                 else if (PlayerShipManager.TransporterTargetingCrew)
                                 {
-                                    Cursor.SetCursor(ResourceManager.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
+                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }
@@ -663,35 +663,6 @@ public class ScenarioPlayScreen : CombatScreens
         MoneyLimit = scenario.MoneyLimit;
         combatTimer.SetTime(scenario.TimeLimit);
 
-        foreach(Scenario.ShipEntry ship in scenario.PlayerShips)
-        {
-            Ship newShip = ResourceManager.CreateCombatShip(new ShipData(ResourceManager.GetShipDesignData(ResourceManager.shipDesigns[ship.Hull][ship.Design])), ship.Position, ship.Rotation);
-            newShip.GetShipData().DisplayName = ship.Name;
-            PlayerShipManager.AddSpaceUnit(newShip);
-            PlayerFleet.AddShip(newShip.GetShipData());
-        }
-        foreach (Scenario.ShipEntry ship in scenario.EnemyShips)
-        {
-            Ship newShip = ResourceManager.CreateCombatShip(new ShipData(ResourceManager.GetShipDesignData(ResourceManager.shipDesigns[ship.Hull][ship.Design])), ship.Position, ship.Rotation);
-            newShip.GetShipData().DisplayName = ship.Name;
-            EnemyShipManager.AddSpaceUnit(newShip);
-            EnemyFleet.AddShip(newShip.GetShipData());
-        }
-        foreach (Scenario.ShipEntry ship in scenario.AlliedShips)
-        {
-            Ship newShip = ResourceManager.CreateCombatShip(new ShipData(ResourceManager.GetShipDesignData(ResourceManager.shipDesigns[ship.Hull][ship.Design])), ship.Position, ship.Rotation);
-            newShip.GetShipData().DisplayName = ship.Name;
-            AlliedShipManager.AddSpaceUnit(newShip);
-            AlliedFleet.AddShip(newShip.GetShipData());
-        }
-        foreach (Scenario.ShipEntry ship in scenario.NeutralShips)
-        {
-            Ship newShip = ResourceManager.CreateCombatShip(new ShipData(ResourceManager.GetShipDesignData(ResourceManager.shipDesigns[ship.Hull][ship.Design])), ship.Position, ship.Rotation);
-            newShip.GetShipData().DisplayName = ship.Name;
-            NeutralShipManager.AddSpaceUnit(newShip);
-            NeutralFleet.AddShip(newShip.GetShipData());
-        }
-
         EnemyShipManager.HighLightAllShips(true);
         AlliedShipManager.HighLightAllShips(true);
         NeutralShipManager.HighLightAllShips(true);
@@ -756,7 +727,7 @@ public class ScenarioPlayScreen : CombatScreens
         MoneyUsed += selectedDesign.GetTotalValue();
 
         ShipData shipData = new ShipData(selectedDesign);
-        Ship newShip = ResourceManager.CreateCombatShip(shipData, DummyUnit.transform.position, DummyUnit.transform.rotation);
+        Ship newShip = ResourceManager.instance.CreateCombatShip(shipData, DummyUnit.transform.position, DummyUnit.transform.rotation);
         PlayerPlacedObjects.Add(newShip.gameObject);
         PlayerShipManager.AddSpaceUnit(newShip);
         PlayerFleet.AddShip(newShip.GetShipData());

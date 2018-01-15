@@ -164,16 +164,16 @@ public class GameManager : MonoBehaviour
 
 	public void CreateOutLineSystems(Color PlayerColor, Color EnemyColor, Color AlliedColor, Color NeutralColor)
     {
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerPlayer = ResourceManager.CreateOutLineSystem();
+        OpenSpaceProtected.OutlineSystem ObjectOutlinerPlayer = ResourceManager.instance.CreateOutLineSystem();
         ObjectOutlinerPlayer.outlineLayer = PlayerLayer;
         ObjectOutlinerPlayer.outlineColor = PlayerColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerEnemy = ResourceManager.CreateOutLineSystem();
+        OpenSpaceProtected.OutlineSystem ObjectOutlinerEnemy = ResourceManager.instance.CreateOutLineSystem();
         ObjectOutlinerEnemy.outlineLayer = EnemyLayer;
         ObjectOutlinerEnemy.outlineColor = EnemyColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerAllied = ResourceManager.CreateOutLineSystem();
+        OpenSpaceProtected.OutlineSystem ObjectOutlinerAllied = ResourceManager.instance.CreateOutLineSystem();
         ObjectOutlinerAllied.outlineLayer = AlliedLayer;
         ObjectOutlinerAllied.outlineColor = AlliedColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerNeutral = ResourceManager.CreateOutLineSystem();
+        OpenSpaceProtected.OutlineSystem ObjectOutlinerNeutral = ResourceManager.instance.CreateOutLineSystem();
 		ObjectOutlinerNeutral.outlineLayer = NeutralLayer;
 		ObjectOutlinerNeutral.outlineColor = NeutralColor;
 

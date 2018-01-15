@@ -152,7 +152,7 @@ public sealed class FighterWing : MonoBehaviour
 
     public void AttachMiniMapObject(Color color)
     {
-        MiniMapObject = ResourceManager.CreateMiniMapObject();
+        MiniMapObject = ResourceManager.instance.CreateMiniMapObject();
         MiniMapObject.transform.position = gameObject.transform.position;
         MiniMapObject.transform.parent = gameObject.transform;
         SetMiniMapObjectColor(shipManager.GetHighlightColor());
@@ -223,7 +223,7 @@ public sealed class FighterWing : MonoBehaviour
         {
             unit.SetNewGoalPosition(Position);
         }
-        ResourceManager.CreateClickPing(Position);
+        ResourceManager.instance.CreateClickPing(Position);
     }
 
     public void SetNewTarget(SpaceUnit target, bool isEnemy)
@@ -248,7 +248,7 @@ public sealed class FighterWing : MonoBehaviour
         if (Fighters.Count > 0)
             return Fighters[0].GetIcon();
         else
-            return ResourceManager.ErrorTexture;
+            return ResourceManager.instance.GetErrorTexture();
     }
 
     public float GetHealthRatio()

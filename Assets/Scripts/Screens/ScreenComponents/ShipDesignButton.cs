@@ -56,11 +56,11 @@ public class ShipDesignButton : baseToggleButton
         CommandValue.text = designData.CommandPoints.ToString();
         CostValue.text = designData.GetTotalValue().ToString("0.#");
 
-        Texture2D texture = ResourceManager.GetIconTexture("Icon_CommandPoint");
+        Texture2D texture = ResourceManager.instance.GetIconTexture("Icon_CommandPoint");
         CommandIcon.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         CommandIcon.preserveAspect = true;
 
-        texture = ResourceManager.GetIconTexture("Icon_Money");
+        texture = ResourceManager.instance.GetIconTexture("Icon_Money");
         CostIcon.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
         CostIcon.preserveAspect = true;
     }

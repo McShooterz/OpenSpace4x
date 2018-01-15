@@ -76,7 +76,7 @@ public class FleetManager : MonoBehaviour
 
     public void CreateFleet(FleetData FD, Vector3 Position)
     {
-        GameObject fleet = ResourceManager.CreateFleet(Position, Quaternion.identity);
+        GameObject fleet = ResourceManager.instance.CreateFleet(Position, Quaternion.identity);
         FleetController FleetScript = fleet.GetComponent<FleetController>();
         FleetScript.SetFleetData(FD);
         fleets.Add(FleetScript);

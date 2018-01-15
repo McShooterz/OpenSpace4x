@@ -27,7 +27,7 @@ public class TextLocalizer : MonoBehaviour
         Text textComponent = GetComponent<Text>();
         if(textComponent != null)
         {
-            textComponent.text = ResourceManager.GetLocalization(Localization);
+            textComponent.text = ResourceManager.instance.GetLocalization(Localization);
         }
 
         //Destroy Self

@@ -27,6 +27,9 @@ public class Empire : MonoBehaviour
     [SerializeField]
     FleetManager fleetManager;
 
+    [SerializeField]
+    PlanetManager planetManager;
+
     void Start()
     {
         
@@ -39,10 +42,10 @@ public class Empire : MonoBehaviour
 
     public void AddShipData(string DesignName)
     {
-        ShipData shipData = new ShipData(ResourceManager.shipDesignDatas[DesignName]);
-        shipData.Owner = this;
+        //ShipData shipData = new ShipData(ResourceManager.shipDesignDatas[DesignName]);
+        //shipData.Owner = this;
         //Temp add galaxy class
-        Ships.Add(shipData);
+        //Ships.Add(shipData);
     }
 
     public void AddEmptyFleet(Vector3 Position)
@@ -55,5 +58,10 @@ public class Empire : MonoBehaviour
     public FleetManager GetFleetManager()
     {
         return fleetManager;
+    }
+
+    public PlanetManager GetPlanetManager()
+    {
+        return planetManager;
     }
 }

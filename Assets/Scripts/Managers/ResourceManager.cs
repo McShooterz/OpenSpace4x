@@ -16,73 +16,86 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager instance;
 
-    static Dictionary<string, string> Localization = new Dictionary<string, string>();
+    Dictionary<string, string> Localization = new Dictionary<string, string>();
 
     //ShipDesigns is keyed on first the hull name, then design name
-    public static Dictionary<string, Dictionary<string, ShipDesign>> shipDesigns = new Dictionary<string, Dictionary<string, ShipDesign>>();
-    public static Dictionary<string, Dictionary<string, StationDesign>> stationDesigns = new Dictionary<string, Dictionary<string, StationDesign>>();
-    public static Dictionary<string, ShipDesignData> shipDesignDatas = new Dictionary<string, ShipDesignData>();
-    public static Dictionary<string, StationDesignData> stationDesignDatas = new Dictionary<string, StationDesignData>();
-    static Dictionary<string, Module> Modules = new Dictionary<string, Module>();
-    public static Dictionary<string, ModuleSet> ModuleSets = new Dictionary<string, ModuleSet>();
-    static Dictionary<string, Texture2D> ModuleTextures = new Dictionary<string, Texture2D>();
-    static Dictionary<string, Weapon> Weapons = new Dictionary<string, Weapon>();
-    public static Dictionary<string, GameObject> Beams = new Dictionary<string, GameObject>();
-    public static Dictionary<string, GameObject> Projectiles = new Dictionary<string, GameObject>();
-    public static Dictionary<string, GameObject> Explosions = new Dictionary<string, GameObject>();
+    Dictionary<string, Dictionary<string, ShipDesign>> shipDesigns = new Dictionary<string, Dictionary<string, ShipDesign>>();
+    Dictionary<string, Dictionary<string, StationDesign>> stationDesigns = new Dictionary<string, Dictionary<string, StationDesign>>();
+    Dictionary<string, ShipDesignData> shipDesignDatas = new Dictionary<string, ShipDesignData>();
+    Dictionary<string, StationDesignData> stationDesignDatas = new Dictionary<string, StationDesignData>();
+    Dictionary<string, Module> Modules = new Dictionary<string, Module>();
+    Dictionary<string, ModuleSet> ModuleSets = new Dictionary<string, ModuleSet>();
+    Dictionary<string, Texture2D> ModuleTextures = new Dictionary<string, Texture2D>();
+    Dictionary<string, Weapon> Weapons = new Dictionary<string, Weapon>();
+    Dictionary<string, GameObject> Beams = new Dictionary<string, GameObject>();
+    Dictionary<string, GameObject> Projectiles = new Dictionary<string, GameObject>();
+    Dictionary<string, GameObject> Explosions = new Dictionary<string, GameObject>();
 
-    static Dictionary<string, ShipHullData> ShipHulls = new Dictionary<string, ShipHullData>();
-    static Dictionary<string, StationHullData> StationHulls = new Dictionary<string, StationHullData>();
-    static Dictionary<string, ShipSlotLayout> ShipLayouts = new Dictionary<string, ShipSlotLayout>();
-    static Dictionary<string, StationSlotLayout> StationLayouts = new Dictionary<string, StationSlotLayout>();
-    public static Dictionary<string, GameObject> Ships = new Dictionary<string, GameObject>();
-    public static Dictionary<string, GameObject> Stations = new Dictionary<string, GameObject>();
-    public static Dictionary<string, GameObject> Fighters = new Dictionary<string, GameObject>();
+    Dictionary<string, ShipHullData> ShipHulls = new Dictionary<string, ShipHullData>();
+    Dictionary<string, StationHullData> StationHulls = new Dictionary<string, StationHullData>();
+    Dictionary<string, ShipSlotLayout> ShipLayouts = new Dictionary<string, ShipSlotLayout>();
+    Dictionary<string, StationSlotLayout> StationLayouts = new Dictionary<string, StationSlotLayout>();
+    Dictionary<string, GameObject> Ships = new Dictionary<string, GameObject>();
+    Dictionary<string, GameObject> Stations = new Dictionary<string, GameObject>();
+    Dictionary<string, GameObject> Fighters = new Dictionary<string, GameObject>();
 
-    static Dictionary<string, FighterDefinition> FighterDefinitions = new Dictionary<string, FighterDefinition>();
+    Dictionary<string, FighterDefinition> FighterDefinitions = new Dictionary<string, FighterDefinition>();
 
-    public static Dictionary<string, HardPointsStored> HardPointsStored = new Dictionary<string, HardPointsStored>();
+    Dictionary<string, HardPointsStored> HardPointsStored = new Dictionary<string, HardPointsStored>();
 
-    public static Dictionary<string, EmpireDefinition> Empires = new Dictionary<string, EmpireDefinition>();
+    Dictionary<string, EmpireDefinition> Empires = new Dictionary<string, EmpireDefinition>();
 
-    static Dictionary<string, Texture2D> IconTextures = new Dictionary<string, Texture2D>();
-    static Dictionary<string, Texture2D> UITextures = new Dictionary<string, Texture2D>();
+    Dictionary<string, Texture2D> IconTextures = new Dictionary<string, Texture2D>();
+    Dictionary<string, Texture2D> UITextures = new Dictionary<string, Texture2D>();
 
-    static Dictionary<string, Texture2D> UnitIcons = new Dictionary<string, Texture2D>();
+    Dictionary<string, Texture2D> UnitIcons = new Dictionary<string, Texture2D>();
 
-    static List<Texture2D> FlagBackgrounds = new List<Texture2D>();
-    static List<Texture2D> FlagEmblems = new List<Texture2D>();
+    [SerializeField]
+    List<Texture2D> FlagBackgrounds = new List<Texture2D>();
 
-    static Dictionary<string, AudioClip> AudioClips = new Dictionary<string, AudioClip>();
+    [SerializeField]
+    List<Texture2D> FlagEmblems = new List<Texture2D>();
 
-    public static Dictionary<string, Scenario> Scenariors = new Dictionary<string, Scenario>();
+    Dictionary<string, AudioClip> AudioClips = new Dictionary<string, AudioClip>();
 
-    public static Dictionary<string, EmpireAttribute> EmpireAttributes = new Dictionary<string, EmpireAttribute>();
+    Dictionary<string, Scenario> Scenariors = new Dictionary<string, Scenario>();
 
-    public static Dictionary<string, Technology> Technologies = new Dictionary<string, Technology>();
-    public static Dictionary<string, TechnologyTree> TechnologyTrees = new Dictionary<string, TechnologyTree>();
+    Dictionary<string, EmpireAttribute> EmpireAttributes = new Dictionary<string, EmpireAttribute>();
 
-    public static Dictionary<string, ShipNameSet> ShipNameSets = new Dictionary<string, ShipNameSet>();
-    public static Dictionary<string, CharacterNameSet> CharacterNameSets = new Dictionary<string, CharacterNameSet>();
+    Dictionary<string, Technology> Technologies = new Dictionary<string, Technology>();
+    Dictionary<string, TechnologyTree> TechnologyTrees = new Dictionary<string, TechnologyTree>();
 
-    public static Dictionary<string, DilpomacyDialogueSet> DilpomacyDialogueSets = new Dictionary<string, DilpomacyDialogueSet>();
+    Dictionary<string, ShipNameSet> ShipNameSets = new Dictionary<string, ShipNameSet>();
+    Dictionary<string, CharacterNameSet> CharacterNameSets = new Dictionary<string, CharacterNameSet>();
 
-    public static Dictionary<string, Material> SkyBoxes = new Dictionary<string, Material>();
+    Dictionary<string, DilpomacyDialogueSet> DilpomacyDialogueSets = new Dictionary<string, DilpomacyDialogueSet>();
 
-    static Dictionary<string, GameObject> Screens = new Dictionary<string, GameObject>();
+    Dictionary<string, Material> SkyBoxes = new Dictionary<string, Material>();
 
-    public static GameConstants gameConstants { get; set; }
-    public static EmpireRacialTraitsConfig RacialTraitsConfig { get; set; }
+    Dictionary<string, GameObject> Screens = new Dictionary<string, GameObject>();
 
-    public static Texture2D ErrorTexture { get; set; }
+    [SerializeField]
+    GameConstants gameConstants;
 
-    static GameObject outLineSystem;
-    static GameObject ShieldsObject;
+    [SerializeField]
+    EmpireRacialTraitsConfig RacialTraitsConfig;
 
+    [SerializeField]
+    Texture2D errorTexture { get; set; }
+
+    [SerializeField]
+    GameObject outLineSystem;
+
+    [SerializeField]
+    GameObject ShieldsObject;
+
+    [SerializeField]
     ModLoadConfig modLoadConfig;
 
+    [SerializeField]
     List<ModInfo> ModInfos = new List<ModInfo>();
 
+    [SerializeField]
     Credits credits;
 
     void Awake()
@@ -110,7 +123,7 @@ public class ResourceManager : MonoBehaviour
         ScreenManager.instance.ChangeScreen("MainMenuScreen");
     }
 
-    public static GameObject CreateShip(ShipHullData hullData, Vector3 Position, Quaternion Rotation)
+    public GameObject CreateShip(ShipHullData hullData, Vector3 Position, Quaternion Rotation)
     {
         GameObject NewShip = hullData.GetShipObject();
         if (NewShip != null)
@@ -122,7 +135,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Ship CreateCombatShip(ShipData data, Vector3 Position, Quaternion Rotation)
+    public Ship CreateCombatShip(ShipData data, Vector3 Position, Quaternion Rotation)
     {
         GameObject NewShip = CreateShip(data.designData.Hull, Position, Rotation);
         if (NewShip != null)
@@ -137,7 +150,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static GameObject CreateStation(StationHullData hullData, Vector3 Position, Quaternion Rotation)
+    public GameObject CreateStation(StationHullData hullData, Vector3 Position, Quaternion Rotation)
     {
         GameObject NewStation = hullData.GetStationObject();
         if (NewStation != null)
@@ -149,7 +162,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Station CreateCombatStation(StationData data, Vector3 Position, Quaternion Rotation)
+    public Station CreateCombatStation(StationData data, Vector3 Position, Quaternion Rotation)
     {
         GameObject stationObject = CreateStation(data.designData.Hull, Position, Rotation);
         if(stationObject != null)
@@ -164,7 +177,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static GameObject CreateFighter(FighterDefinition Definition, Vector3 Position, Quaternion Rotation)
+    public GameObject CreateFighter(FighterDefinition Definition, Vector3 Position, Quaternion Rotation)
     {
         GameObject fighterObject = Definition.GetFighterObject();
         if (fighterObject != null)
@@ -176,7 +189,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Fighter CreateCombatFighter(FighterDefinition Definition, Vector3 Position, Quaternion Rotation)
+    public Fighter CreateCombatFighter(FighterDefinition Definition, Vector3 Position, Quaternion Rotation)
     {
         GameObject fighterObject = CreateFighter(Definition, Position, Rotation);
         if(fighterObject != null)
@@ -190,7 +203,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Beam CreateBeam(Weapon weapon)
+    public Beam CreateBeam(Weapon weapon)
     {
         GameObject beamObject;
         if (Beams.TryGetValue(weapon.WeaponEffect, out beamObject))
@@ -206,7 +219,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Projectile CreateProjectile(Weapon weapon)
+    public Projectile CreateProjectile(Weapon weapon)
     {
         GameObject projectile;
         if (Projectiles.TryGetValue(weapon.WeaponEffect, out projectile))
@@ -219,7 +232,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static PopupMessage CreatePopupMessage(Vector3 Position, string message, Color color, float lifeTime)
+    public PopupMessage CreatePopupMessage(Vector3 Position, string message, Color color, float lifeTime)
     {
         GameObject popupObject = new GameObject();
         popupObject.transform.position = Position;
@@ -236,7 +249,7 @@ public class ResourceManager : MonoBehaviour
         return popupController;
     }
 
-    public static TextMeshController CreateWorldMessage(Vector3 Position, string message, Color color, int size)
+    public TextMeshController CreateWorldMessage(Vector3 Position, string message, Color color, int size)
     {
         GameObject messageObject = new GameObject();
         messageObject.transform.position = Position;
@@ -245,7 +258,7 @@ public class ResourceManager : MonoBehaviour
         return messageController;
     }
 
-    public static BoardingBalanceBar CreateBoardingBalanceBar(Vector3 Position)
+    public BoardingBalanceBar CreateBoardingBalanceBar(Vector3 Position)
     {
         GameObject ObjectInstance = Instantiate(Resources.Load("BoardingBalanceBar")) as GameObject;
         ObjectInstance.transform.position = Position;
@@ -254,14 +267,14 @@ public class ResourceManager : MonoBehaviour
         return boardingBalanceBar;
     }
 
-    public static void CreateClickPing(Vector3 Position)
+    public void CreateClickPing(Vector3 Position)
     {
         GameObject ObjectInstance = Instantiate(Resources.Load("ClickPing"), Position, Quaternion.identity) as GameObject;
         SelfDestructor detonator = ObjectInstance.AddComponent<SelfDestructor>();
         detonator.setLifeTimer(0.6f);
     }
 
-    public static void CreateExplosion(Vector3 Position, string explosionName, string explosionAudio, float Size, float lifeTime, bool AlwaysPlayAudio)
+    public void CreateExplosion(Vector3 Position, string explosionName, string explosionAudio, float Size, float lifeTime, bool AlwaysPlayAudio)
     {
         GameObject sourceExplosionObject;
         if(Explosions.TryGetValue(explosionName, out sourceExplosionObject))
@@ -314,34 +327,34 @@ public class ResourceManager : MonoBehaviour
         return fireDamage;
     }
 
-    public static OpenSpaceProtected.OutlineSystem CreateOutLineSystem()
+    public OpenSpaceProtected.OutlineSystem CreateOutLineSystem()
     {
         GameObject outLine = Instantiate(outLineSystem) as GameObject;
         outLine.SetActive(true);
         return outLine.GetComponent<OpenSpaceProtected.OutlineSystem>();
     }
 
-    public static GameObject CreateMiniMapObject()
+    public GameObject CreateMiniMapObject()
     {
         return Instantiate(Resources.Load("MiniMapObject")) as GameObject;
     }
 
-    public static GameObject CreateFleet(Vector3 Position, Quaternion Rotation)
+    public GameObject CreateFleet(Vector3 Position, Quaternion Rotation)
     {
         return Instantiate(Resources.Load("Fleet"), Position, Rotation) as GameObject;
     }
 
-    public static GameObject CreateStar(string Name, Vector3 Position, Quaternion Rotation)
+    public GameObject CreateStar(string Name, Vector3 Position, Quaternion Rotation)
     {
         return Instantiate(Resources.Load("Stars/" + Name), Position, Rotation) as GameObject;
     }
 
-    public static GameObject CreatePlanet(string Name, Vector3 Position, Quaternion Rotation)
+    public GameObject CreatePlanet(string Name, Vector3 Position, Quaternion Rotation)
     {
         return Instantiate(Resources.Load("Planets/" + Name), Position, Rotation) as GameObject;
     }
 
-    public static GameObject CreateSector(SectorData data)
+    public GameObject CreateSector(SectorData data)
     {
         GameObject Sector = Instantiate(Resources.Load("Sector")) as GameObject;
         data.sector = Sector.GetComponent<Sector>();
@@ -350,7 +363,7 @@ public class ResourceManager : MonoBehaviour
         return Sector;
     }
 
-    public static ShipDesignData GetShipDesignData(ShipDesign design)
+    public ShipDesignData GetShipDesignData(ShipDesign design)
     {
         ShipDesignData designData;
         if (shipDesignDatas.TryGetValue(design.Name, out designData))
@@ -365,7 +378,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static StationDesignData GetStationDesignData(StationDesign design)
+    public StationDesignData GetStationDesignData(StationDesign design)
     {
         StationDesignData designData;
         if (stationDesignDatas.TryGetValue(design.Name, out designData))
@@ -380,37 +393,37 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static Material GetCloackedShipMaterial()
+    public Material GetCloackedShipMaterial()
     {
         return new Material(Resources.Load("CloakedShip", typeof(Material)) as Material);
     }
 
-    public static Material GetShipDissolveMaterial()
+    public Material GetShipDissolveMaterial()
     {
         return new Material(Resources.Load("ShipDissolver", typeof(Material)) as Material);
     }
 
-    public static Texture2D GetIconTexture(string textureName)
+    public Texture2D GetIconTexture(string textureName)
     {
         return GetTexture(textureName, IconTextures);
     }
 
-    public static Texture2D GetUITexture(string textureName)
+    public Texture2D GetUITexture(string textureName)
     {
         return GetTexture(textureName, UITextures);
     }
 
-    public static Texture2D GetModuleTexture(string textureName)
+    public Texture2D GetModuleTexture(string textureName)
     {
         return GetTexture(textureName, ModuleTextures);
     }
 
-    public static Texture2D GetUnitIcon(string textureName)
+    public Texture2D GetUnitIcon(string textureName)
     {
         return GetTexture(textureName, UnitIcons);
     }
 
-    static Texture2D GetTexture(string textureName, Dictionary<string, Texture2D> textureDictionary)
+    Texture2D GetTexture(string textureName, Dictionary<string, Texture2D> textureDictionary)
     {
         if(textureName != null)
         {
@@ -421,27 +434,27 @@ public class ResourceManager : MonoBehaviour
             }
             else
             {
-                return ErrorTexture;
+                return errorTexture;
             }
         }
-        return ErrorTexture;
+        return errorTexture;
     }
 
-    public static Texture2D GetFlagBackground(int index)
+    public Texture2D GetFlagBackground(int index)
     {
         return GetTexture(index, FlagBackgrounds);
     }
 
-    public static Texture2D GetFlagEmblem(int index)
+    public Texture2D GetFlagEmblem(int index)
     {
         return GetTexture(index, FlagEmblems);
     }
 
-    static Texture2D GetTexture(int index, List<Texture2D> textures)
+    Texture2D GetTexture(int index, List<Texture2D> textures)
     {
         if (textures.Count == 0)
         {
-            return ErrorTexture;
+            return errorTexture;
         }
         else
         {
@@ -453,7 +466,12 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static AudioClip GetAudioClip(string name)
+    public Texture2D GetErrorTexture()
+    {
+        return errorTexture;
+    }
+
+    public AudioClip GetAudioClip(string name)
     {
         AudioClip clip;
         if(AudioClips.TryGetValue(name, out clip))
@@ -463,7 +481,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static void ChangeSkyBox(string SkyboxName)
+    public void ChangeSkyBox(string SkyboxName)
     {
         if(SkyboxName != null)
         {
@@ -481,7 +499,7 @@ public class ResourceManager : MonoBehaviour
 
         LoadBuiltInScreens();
 
-        ErrorTexture = Resources.Load("Textures/ErrorTexture") as Texture2D;
+        errorTexture = Resources.Load("Textures/ErrorTexture") as Texture2D;
 
         LoadGameConstants(Application.streamingAssetsPath + "/Misc/GameConstants.xml");
 
@@ -686,7 +704,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static string GetLocalization(string key)
+    public string GetLocalization(string key)
     {
         string value;
         if (Localization.TryGetValue(key, out value))
@@ -951,7 +969,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static void AttachShields(GameObject UnitNeedingShields)
+    public void AttachShields(GameObject UnitNeedingShields)
     {
         GameObject ParentMesh = UnitNeedingShields.transform.GetChild(0).gameObject;
         MeshFilter ParentMeshFilter = ParentMesh.GetComponent<MeshFilter>();
@@ -1576,7 +1594,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static ShipDesign GetShipDesign(string hull, string designName)
+    public ShipDesign GetShipDesign(string hull, string designName)
     {
         Dictionary<string, ShipDesign> hullDesigns;
         ShipDesign design;
@@ -1591,7 +1609,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static StationDesign GetStationDesign(string hull, string designName)
+    public StationDesign GetStationDesign(string hull, string designName)
     {
         Dictionary<string, StationDesign> hullDesigns;
         StationDesign design;
@@ -1610,6 +1628,25 @@ public class ResourceManager : MonoBehaviour
     {
         return credits;
     }
+
+    public GameConstants GetGameConstants()
+    {
+        return gameConstants;
+    }
+
+    public EmpireDefinition GetEmpireDefinition(string key)
+    {
+        EmpireDefinition empire;
+
+        if (Empires.TryGetValue (key, out empire))
+        {
+            return empire;
+        }
+
+        return null;
+    }
+
+    
 
     void LoadWeaponsDirectory(string path)
     {
@@ -1813,7 +1850,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static bool CheckForDesign(string hull, string designName)
+    public bool CheckForDesign(string hull, string designName)
     {
         if(shipDesigns.ContainsKey(hull))
         {
@@ -1825,7 +1862,7 @@ public class ResourceManager : MonoBehaviour
         return false;
     }
 
-    public static void SaveShipDesign(ShipDesign shipDesign)
+    public void SaveShipDesign(ShipDesign shipDesign)
     {
         StoreShipDesign(shipDesign);
         if (shipDesign.GetPath() == "")
@@ -1840,7 +1877,7 @@ public class ResourceManager : MonoBehaviour
         file.Close();
     }
 
-    public static void StoreShipDesign(ShipDesign shipDesign)
+    public void StoreShipDesign(ShipDesign shipDesign)
     {
         if (!shipDesigns.ContainsKey(shipDesign.Hull))
         {
@@ -1861,7 +1898,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static bool CheckForStationDesign(string hull, string designName)
+    public bool CheckForStationDesign(string hull, string designName)
     {
         if (stationDesigns.ContainsKey(hull))
         {
@@ -1873,7 +1910,7 @@ public class ResourceManager : MonoBehaviour
         return false;
     }
 
-    public static void SaveStationDesign(StationDesign design)
+    public void SaveStationDesign(StationDesign design)
     {
         StoreStationDesign(design);
         if (design.GetPath() == "")
@@ -1888,7 +1925,7 @@ public class ResourceManager : MonoBehaviour
         file.Close();
     }
 
-    public static void StoreStationDesign(StationDesign design)
+    public void StoreStationDesign(StationDesign design)
     {
         if (!stationDesigns.ContainsKey(design.Hull))
         {
@@ -1909,7 +1946,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static void SaveScenario(Scenario scenario)
+    public void SaveScenario(Scenario scenario)
     {
         if(Scenariors.ContainsKey(scenario.Name))
         {
@@ -1931,7 +1968,7 @@ public class ResourceManager : MonoBehaviour
         file.Close();
     }
 
-    public static void StoreEmpireDefinition(EmpireDefinition empire)
+    public void StoreEmpireDefinition(EmpireDefinition empire)
     {
         if (!Empires.ContainsKey(empire.Name))
         {
@@ -1943,7 +1980,7 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
-    public static void SaveEmpireDefinition(EmpireDefinition empire)
+    public void SaveEmpireDefinition(EmpireDefinition empire)
     {
         StoreEmpireDefinition(empire);
 
@@ -1954,7 +1991,7 @@ public class ResourceManager : MonoBehaviour
         file.Close();
     }
 
-    public static Module GetModule(string moduleName)
+    public Module GetModule(string moduleName)
     {
         Module module;
         if(Modules.TryGetValue(moduleName, out module))
@@ -1964,12 +2001,12 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static bool ModuleExists(string moduleName)
+    public bool ModuleExists(string moduleName)
     {
         return Modules.ContainsKey(moduleName);
     }
 
-    public static Weapon GetWeapon(string WeaponName)
+    public Weapon GetWeapon(string WeaponName)
     {
         Weapon weapon;
         if(Weapons.TryGetValue(WeaponName, out weapon))
@@ -1979,12 +2016,12 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static string GetModuleName(Module module)
+    public string GetModuleName(Module module)
     {
         return Modules.First(x => x.Value == module).Key;
     }
 
-    public static ModuleSet GetModuleSet(string moduleSetName)
+    public ModuleSet GetModuleSet(string moduleSetName)
     {
         ModuleSet moduleSet;
         if (ModuleSets.TryGetValue(moduleSetName, out moduleSet))
@@ -1994,12 +2031,17 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static bool WeaponExists(string weaponName)
+    public Dictionary<string, ModuleSet> GetModuleSets()
+    {
+        return ModuleSets;
+    }
+
+    public bool WeaponExists(string weaponName)
     {
         return Weapons.ContainsKey(weaponName);
     }
 
-    public static GameObject GetShipObject(string shipName)
+    public GameObject GetShipObject(string shipName)
     {
         if(shipName != null)
         {
@@ -2012,7 +2054,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static GameObject GetStationObject(string stationName)
+    public GameObject GetStationObject(string stationName)
     {
         if (stationName != null)
         {
@@ -2025,7 +2067,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static GameObject GetFighterObject(string fighterName)
+    public GameObject GetFighterObject(string fighterName)
     {
         if (fighterName != null)
         {
@@ -2038,7 +2080,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static ShipHullData GetShipHull(string hullName)
+    public ShipHullData GetShipHull(string hullName)
     {
         if(hullName != null)
         {
@@ -2055,7 +2097,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static GameObject GetScreenObject(string screenName)
+    public GameObject GetScreenObject(string screenName)
     {
         if(screenName != null)
         {
@@ -2072,7 +2114,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static List<ShipHullData> GetShipHulls()
+    public List<ShipHullData> GetShipHulls()
     {
         List<ShipHullData> shipHulls = new List<ShipHullData>();
 
@@ -2084,7 +2126,7 @@ public class ResourceManager : MonoBehaviour
         return shipHulls;
     }
 
-    public static List<ShipDesign> GetShipDesigns(ShipHullData hull, bool includeDeletedDesigns)
+    public List<ShipDesign> GetShipDesigns(ShipHullData hull, bool includeDeletedDesigns)
     {
         Dictionary<string, ShipDesign> designDictionary;
 
@@ -2104,7 +2146,7 @@ public class ResourceManager : MonoBehaviour
         return designs;
     }
 
-    public static ShipSlotLayout GetShipSlotLayout(string slotLayoutName)
+    public ShipSlotLayout GetShipSlotLayout(string slotLayoutName)
     {
         if (slotLayoutName != null)
         {
@@ -2121,7 +2163,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static StationHullData GetStationHull(string hullName)
+    public StationHullData GetStationHull(string hullName)
     {
         if (hullName != null)
         {
@@ -2138,12 +2180,12 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Dictionary<string, StationHullData> GetStationHulls()
+    public Dictionary<string, StationHullData> GetStationHulls()
     {
         return StationHulls;
     }
 
-    public static StationSlotLayout GetStationSlotLayout(string slotLayoutName)
+    public StationSlotLayout GetStationSlotLayout(string slotLayoutName)
     {
         if (slotLayoutName != null)
         {
@@ -2160,7 +2202,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static HardPointsStored GetHardPoints(string hardPointsName)
+    public HardPointsStored GetHardPoints(string hardPointsName)
     {
         if (hardPointsName != null)
         {
@@ -2177,7 +2219,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static FighterDefinition GetFighterDefinition(string FighterName)
+    public FighterDefinition GetFighterDefinition(string FighterName)
     {
         if(FighterName != null)
         {
@@ -2190,7 +2232,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public static Dictionary<string, FighterDefinition> GetFighterDefinitions()
+    public Dictionary<string, FighterDefinition> GetFighterDefinitions()
     {
         return FighterDefinitions;
     }

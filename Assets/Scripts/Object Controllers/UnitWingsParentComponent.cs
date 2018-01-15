@@ -53,7 +53,7 @@ public class UnitWingsParentComponent
                     else
                         break;
 
-                Fighter newUnit = ResourceManager.CreateCombatFighter(complement.GetFighterType(), Parent.transform.position, Quaternion.Euler(-Parent.transform.forward));
+                Fighter newUnit = ResourceManager.instance.CreateCombatFighter(complement.GetFighterType(), Parent.transform.position, Quaternion.Euler(-Parent.transform.forward));
                 newUnit.SetTroops(troopCount);
                 if (newUnit != null)
                 {

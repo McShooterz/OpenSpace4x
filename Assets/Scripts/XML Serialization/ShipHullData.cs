@@ -76,21 +76,21 @@ public class ShipHullData
 
     public Texture2D GetIcon()
     {
-        return ResourceManager.GetUnitIcon(Icon);
+        return ResourceManager.instance.GetUnitIcon(Icon);
     }
 
     public GameObject GetShipObject()
     {
-        return ResourceManager.GetShipObject(ShipObject);
+        return ResourceManager.instance.GetShipObject(ShipObject);
     }
 
     public ShipSlotLayout GetSlotLayout()
     {
-        return ResourceManager.GetShipSlotLayout(SlotLayout);
+        return ResourceManager.instance.GetShipSlotLayout(SlotLayout);
     }
 
     public HardPointsStored GetHardPoints()
     {
-        return ResourceManager.GetHardPoints(HardPoints);
+        return ResourceManager.instance.GetHardPoints(HardPoints);
     }
 }

@@ -9,6 +9,7 @@ Notes:
 using UnityEngine;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class ModuleSet
 {
     //In xml files
@@ -55,12 +56,12 @@ public class ModuleSet
 
     public string GetName()
     {
-        return ResourceManager.GetLocalization(Name);
+        return ResourceManager.instance.GetLocalization(Name);
     }
 
     public string GetDescription()
     {
-        return ResourceManager.GetLocalization(Description);
+        return ResourceManager.instance.GetLocalization(Description);
     }
 
     public List<Module> GetModules()
@@ -68,7 +69,7 @@ public class ModuleSet
         List<Module> modules = new List<Module>();
         foreach(string moduleName in Modules)
         {
-            Module module = ResourceManager.GetModule(moduleName);
+            Module module = ResourceManager.instance.GetModule(moduleName);
             if (module != null)
                 modules.Add(module);
         }
@@ -79,7 +80,7 @@ public class ModuleSet
     {
         foreach (string moduleName in Modules)
         {
-            Module module = ResourceManager.GetModule(moduleName);
+            Module module = ResourceManager.instance.GetModule(moduleName);
             if (module != null)
                 return module;
         }
@@ -90,10 +91,10 @@ public class ModuleSet
     {
         foreach (string moduleName in Modules)
         {
-            Module module = ResourceManager.GetModule(moduleName);
+            Module module = ResourceManager.instance.GetModule(moduleName);
             if (module != null)
                 return module.GetTexture();
         }
-        return ResourceManager.ErrorTexture;
+        return ResourceManager.instance.GetErrorTexture();
     }
 }

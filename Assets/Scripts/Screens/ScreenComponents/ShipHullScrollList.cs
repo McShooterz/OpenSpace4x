@@ -24,7 +24,7 @@ public class ShipHullScrollList : ScrollListBase
         HullList.Clear();
         float EntrySize = ScrollViewRect.width / 5f;
         int index = 0;
-        foreach (ShipHullData hull in ResourceManager.GetShipHulls())
+        foreach (ShipHullData hull in ResourceManager.instance.GetShipHulls())
         {
             if (checkHulls(hull))
             {

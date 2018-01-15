@@ -206,7 +206,7 @@ public class ScenarioCreateScreen : ShipSelectingScreens
                     }
                     else if (Input.GetMouseButtonUp(0))
                     {
-                        GameObject PlacedShip = ResourceManager.CreateShip(selectedDesign.Design.GetHull(), DummyUnit.transform.position, DummyUnit.transform.rotation);
+                        GameObject PlacedShip = ResourceManager.instance.CreateShip(selectedDesign.Design.GetHull(), DummyUnit.transform.position, DummyUnit.transform.rotation);
                         PlacedObjects.Add(PlacedShip);
                         ScenarioShipData data = new ScenarioShipData(selectedDesign.Design.Hull, selectedDesign.Design.Name, shipName, shipLevel);
 
@@ -214,25 +214,25 @@ public class ScenarioCreateScreen : ShipSelectingScreens
                         {
                             PlacedShip.transform.GetChild(0).gameObject.layer = 9;
                             PlayerShips.Add(PlacedShip, data);
-                            attachMiniMapObject(PlacedShip, ResourceManager.gameConstants.Highlight_Player.GetColor());
+                            attachMiniMapObject(PlacedShip, ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor());
                         }
                         else if (EnemySelected)
                         {
                             PlacedShip.transform.GetChild(0).gameObject.layer = 10;
                             EnemyShips.Add(PlacedShip, data);
-                            attachMiniMapObject(PlacedShip, ResourceManager.gameConstants.Highlight_Enemy.GetColor());
+                            attachMiniMapObject(PlacedShip, ResourceManager.instance.GetGameConstants().Highlight_Enemy.GetColor());
                         }
                         else if (AllySelected)
                         {
                             PlacedShip.transform.GetChild(0).gameObject.layer = 11;
                             AlliedShips.Add(PlacedShip, data);
-                            attachMiniMapObject(PlacedShip, ResourceManager.gameConstants.Highlight_Ally.GetColor());
+                            attachMiniMapObject(PlacedShip, ResourceManager.instance.GetGameConstants().Highlight_Ally.GetColor());
                         }
                         else if (NeutralSelected)
                         {
                             PlacedShip.transform.GetChild(0).gameObject.layer = 13;
                             NeutralShips.Add(PlacedShip, data);
-                            attachMiniMapObject(PlacedShip, ResourceManager.gameConstants.Highlight_Neutral.GetColor());
+                            attachMiniMapObject(PlacedShip, ResourceManager.instance.GetGameConstants().Highlight_Neutral.GetColor());
                         }
 
                         PivotSet = false;
@@ -547,7 +547,7 @@ public class ScenarioCreateScreen : ShipSelectingScreens
             scenario.NeutralShips.Add(shipEntry);
         }
 
-        ResourceManager.SaveScenario(scenario);
+        //ResourceManager.SaveScenario(scenario);
         BuildScenarioList();
     }
 
@@ -568,28 +568,28 @@ public class ScenarioCreateScreen : ShipSelectingScreens
 
         foreach(Scenario.ShipEntry entry in scenario.PlayerShips)
         {
-            LoadScenarioShip(entry, 9, PlayerShips, ResourceManager.gameConstants.Highlight_Player.GetColor());
+            LoadScenarioShip(entry, 9, PlayerShips, ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor());
         }
         foreach (Scenario.ShipEntry entry in scenario.EnemyShips)
         {
-            LoadScenarioShip(entry, 10, EnemyShips, ResourceManager.gameConstants.Highlight_Enemy.GetColor());
+            LoadScenarioShip(entry, 10, EnemyShips, ResourceManager.instance.GetGameConstants().Highlight_Enemy.GetColor());
         }
         foreach (Scenario.ShipEntry entry in scenario.AlliedShips)
         {
-            LoadScenarioShip(entry, 11, AlliedShips, ResourceManager.gameConstants.Highlight_Ally.GetColor());
+            LoadScenarioShip(entry, 11, AlliedShips, ResourceManager.instance.GetGameConstants().Highlight_Ally.GetColor());
         }
         foreach (Scenario.ShipEntry entry in scenario.NeutralShips)
         {
-            LoadScenarioShip(entry, 13, NeutralShips, ResourceManager.gameConstants.Highlight_Neutral.GetColor());
+            LoadScenarioShip(entry, 13, NeutralShips, ResourceManager.instance.GetGameConstants().Highlight_Neutral.GetColor());
         }
     }
 
     void LoadScenarioShip(Scenario.ShipEntry shipEntry, int layer, Dictionary<GameObject, ScenarioShipData> Container, Color miniMapColor)
     {
-        ShipHullData hullData = ResourceManager.GetShipHull(shipEntry.Hull);
+        ShipHullData hullData = ResourceManager.instance.GetShipHull(shipEntry.Hull);
         if (hullData != null)
         {
-            GameObject newShip = ResourceManager.CreateShip(hullData, shipEntry.Position, shipEntry.Rotation);
+            GameObject newShip = ResourceManager.instance.CreateShip(hullData, shipEntry.Position, shipEntry.Rotation);
             if (newShip != null)
             {
                 newShip.transform.GetChild(0).gameObject.layer = layer;
@@ -668,15 +668,7 @@ public class ScenarioCreateScreen : ShipSelectingScreens
         ScenarioDescription = "";
         float entrySize = ScenarioListWindowRect.height / 2.4f;
 
-        foreach (KeyValuePair<string, Scenario> keyVal in ResourceManager.Scenariors)
-        {
-            if (!keyVal.Value.Deleted)
-            {
-                Rect rect = new Rect(0, entrySize * Scenarios.Count, ScenarioListViewRect.width, entrySize);
-                ScenarioListEntry entry = new ScenarioListEntry(rect, keyVal.Value, SelectScenario, GameManager.instance);
-                Scenarios.Add(entry);
-            }
-        }
+        
         if(Scenarios.Count > 0)
         {
             selectedScenario = Scenarios[0].scenario;
@@ -694,7 +686,7 @@ public class ScenarioCreateScreen : ShipSelectingScreens
         ScenarioName = "";
         ScenarioDescription = "";
         scenario.Deleted = true;
-        ResourceManager.SaveScenario(scenario);
+        ResourceManager.instance.SaveScenario(scenario);
         BuildScenarioList();
     }
 
@@ -704,7 +696,7 @@ public class ScenarioCreateScreen : ShipSelectingScreens
         {
             Object.Destroy(DummyUnit);
         }
-        DummyUnit = ResourceManager.CreateShip(selectedDesign.Hull, Vector3.zero, Quaternion.identity);
+        DummyUnit = ResourceManager.instance.CreateShip(selectedDesign.Hull, Vector3.zero, Quaternion.identity);
         Bounds bounds = DummyUnit.GetComponentInChildren<MeshFilter>().mesh.bounds;
         DummyShipRadius = bounds.max.magnitude;
         foreach (Collider collider in DummyUnit.GetComponentsInChildren<Collider>())
@@ -757,7 +749,7 @@ public class ScenarioCreateScreen : ShipSelectingScreens
 
     void attachMiniMapObject(GameObject obj, Color color)
     {
-        GameObject MiniMapObject = ResourceManager.CreateMiniMapObject();
+        GameObject MiniMapObject = ResourceManager.instance.CreateMiniMapObject();
         MiniMapObject.transform.position = obj.transform.position;
         MiniMapObject.transform.parent = obj.transform;
         MiniMapObject.GetComponent<Renderer>().material.color = color;

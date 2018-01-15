@@ -25,7 +25,7 @@ public class EmpireAttributeEntry : ListEntryBase
         buttonCallBack = callBack;
         changeSelectionIndex = changeIndex;
 
-        DisplayName = ResourceManager.GetLocalization(Attribute.Value.Name);
+        DisplayName = ResourceManager.instance.GetLocalization(Attribute.Value.Name);
     }
 
     public void Draw(int selectedIndex)

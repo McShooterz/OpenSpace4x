@@ -661,7 +661,7 @@ public class ModulePanel : MonoBehaviour
 
     void AddModuleStatEntry(string IconName, string text, string ToolTipTitle, string ToolTipDescription)
     {
-        ModuleStatEntries.AddEntry(ResourceManager.GetIconTexture(IconName), text);
+        ModuleStatEntries.AddEntry(ResourceManager.instance.GetIconTexture(IconName), text);
     }
 
     public void SetModuleScale(float scale)

@@ -23,8 +23,8 @@ public class GUIStatBar
         baseRect = rect;
         ActiveRect = new Rect(Vector2.zero, baseRect.size);
         BackRect = new Rect(Vector2.zero, baseRect.size);
-        BackGroundTexture = ResourceManager.GetUITexture(backgroundTexture);
-        ActiveTexture = ResourceManager.GetUITexture(activeTexture);
+        BackGroundTexture = ResourceManager.instance.GetUITexture(backgroundTexture);
+        ActiveTexture = ResourceManager.instance.GetUITexture(activeTexture);
     }
 
     public void Draw(float Ratio, string values)

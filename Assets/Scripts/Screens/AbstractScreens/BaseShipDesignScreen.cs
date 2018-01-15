@@ -90,7 +90,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
         {
             BuildShipDesigns(selectedShipHull);
 
-            ShipSlotLayout slotLayout = ResourceManager.GetShipSlotLayout(selectedShipHull.Name);
+            ShipSlotLayout slotLayout = ResourceManager.instance.GetShipSlotLayout(selectedShipHull.Name);
 
             if (slotLayout != null)
             {

@@ -105,7 +105,7 @@ public class FleetController : MonoBehaviour
         Bounds bounds;
         float MaxDimension;
 
-        GameObject ship = ResourceManager.CreateShip(hullData, transform.position, transform.rotation);
+        GameObject ship = ResourceManager.instance.CreateShip(hullData, transform.position, transform.rotation);
         //Assign as child
         ship.transform.parent = transform;
         //Get size of ship for scaling

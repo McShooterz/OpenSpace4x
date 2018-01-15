@@ -20,7 +20,7 @@ public class DamageBarGraph
     public DamageBarGraph(Rect rect)
     {
         baseRect = rect;
-        barTexture = ResourceManager.GetUITexture("DamageBar");
+        barTexture = ResourceManager.instance.GetUITexture("DamageBar");
 
         float increment = baseRect.width / 20;
         for (int i = 0; i < 20; i++)
