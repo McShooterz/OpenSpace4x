@@ -6,13 +6,19 @@ using UnityEngine.EventSystems;
 public class CampaignMainScreen : MonoBehaviour
 {
     [SerializeField]
-    RayCasterCameraToMouse rayCasterCameraToMouse;
-
-    [SerializeField]
     CampaignPlanetPanel planetPanel;
 
     [SerializeField]
     CampaignEmpireInfoBar empireInfoBar;
+
+    [SerializeField]
+    LayerMask cursorHoveringLayerMask;
+
+    [SerializeField]
+    LayerMask leftClickLayerMask;
+
+    [SerializeField]
+    LayerMask rightClickLayerMask;
 
     // Use this for initialization
     void Start ()
@@ -23,42 +29,55 @@ public class CampaignMainScreen : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		if (Input.GetMouseButtonUp(0))
+        CheckMouseHovering();
+
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (rayCasterCameraToMouse.IsValidCast())
+            if (Input.GetMouseButtonUp(0))
             {
-                RaycastHit hit = rayCasterCameraToMouse.GetRayCastHit();
+                RaycastHit hit;
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if (hit.transform.root.tag == "Fleet")
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, leftClickLayerMask, QueryTriggerInteraction.Collide))
                 {
-                    Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
-
-                    DeselectPlanet();
-
-                    FleetController fleet = hit.collider.transform.root.gameObject.GetComponent<FleetController>();
-                    bool playerOwned = playerEmpire.GetFleetManager().OwnsFleet(fleet);
-
-                    if (!Input.GetKey(KeyCode.LeftShift) || !playerOwned)
+                    if (hit.transform.root.tag == "Fleet")
                     {
-                        playerEmpire.GetFleetManager().DeslectFleets();
+                        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+
+                        DeselectPlanet();
+
+                        FleetController fleet = hit.collider.transform.root.gameObject.GetComponent<FleetController>();
+                        bool playerOwned = playerEmpire.GetFleetManager().OwnsFleet(fleet);
+
+                        if (!Input.GetKey(KeyCode.LeftShift) || !playerOwned)
+                        {
+                            playerEmpire.GetFleetManager().DeslectFleets();
+                        }
+
+                        if (playerEmpire.GetFleetManager().OwnsFleet(fleet))
+                        {
+                            playerEmpire.GetFleetManager().AddToSelection(fleet);
+                        }
+                        else
+                        {
+                            playerEmpire.GetFleetManager().SetSelectedOtherFleet(fleet);
+                        }
                     }
-
-                    if (playerEmpire.GetFleetManager().OwnsFleet(fleet))
+                    else if (hit.transform.root.tag == "Planet")
                     {
-                        playerEmpire.GetFleetManager().AddToSelection(fleet);
+                        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+                        playerEmpire.GetFleetManager().DeslectFleets();
+                        DeselectPlanet();
+
+                        SelectPlanet(hit.transform.root.gameObject.GetComponent<Planet>());
                     }
                     else
                     {
-                        playerEmpire.GetFleetManager().SetSelectedOtherFleet(fleet);
-                    }
-                }
-                else if (hit.transform.root.tag == "Planet")
-                {
-                    Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
-                    playerEmpire.GetFleetManager().DeslectFleets();
-                    DeselectPlanet();
+                        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+                        playerEmpire.GetFleetManager().DeslectFleets();
 
-                    SelectPlanet(hit.transform.root.gameObject.GetComponent<Planet>());
+                        DeselectPlanet();
+                    }
                 }
                 else
                 {
@@ -68,33 +87,41 @@ public class CampaignMainScreen : MonoBehaviour
                     DeselectPlanet();
                 }
             }
-        }
 
-        if (Input.GetMouseButtonUp(1))
-        {
-            Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
-
-            if (playerEmpire.GetFleetManager().GetSelectedFleets().Count > 0)
+            if (Input.GetMouseButtonUp(1))
             {
-                if (rayCasterCameraToMouse.IsValidCast())
-                {
-                    RaycastHit hit = rayCasterCameraToMouse.GetRayCastHit();
+                Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
 
-                    if (hit.transform.root.tag == "PlayArea")
+                if (playerEmpire.GetFleetManager().GetSelectedFleets().Count > 0)
+                {
+                    RaycastHit hit;
+                    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    if (Physics.Raycast(ray, out hit, Mathf.Infinity, rightClickLayerMask, QueryTriggerInteraction.Collide))
                     {
-                        playerEmpire.GetFleetManager().SetSelectedGoalPosition(hit.point);
+                        if (hit.transform.root.tag == "PlayArea")
+                        {
+                            playerEmpire.GetFleetManager().SetSelectedGoalPosition(hit.point);
+                        }
                     }
                 }
             }
         }
-
 	}
 
+    void CheckMouseHovering()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject())
+        {
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+            if (Physics.Raycast(ray, out hit, Mathf.Infinity, cursorHoveringLayerMask, QueryTriggerInteraction.Collide))
+            {
 
-
-
-
+            }
+        }
+    }
 
     void SelectPlanet(Planet planet)
     {

@@ -50,7 +50,7 @@ public class ModuleSetButton : baseToggleButton
 
         ModuleName.text = moduleSet.GetName();
         ModuleDescription.text = moduleSet.GetDescription();
-        ModuleMod.text = $"Mod: {moduleSet.GetParentModName()}";
+        ModuleMod.text = moduleSet.GetParentModName();
 
         Texture2D texture = moduleSet.GetTexture();
         ModuleTexture.sprite =  Sprite.Create(texture, new Rect(0,0, texture.width, texture.height), new Vector2(0.5f, 0.5f));

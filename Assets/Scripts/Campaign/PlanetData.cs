@@ -19,6 +19,14 @@ public class PlanetData
     [SerializeField]
     PlanetTileData [,] planetTiles;
 
+    [SerializeField]
+    float population;
+
+    [SerializeField]
+    float populationMax;
+
+    [SerializeField]
+    float taxRate;
 
     public string GetDisplayName()
     {

@@ -99,7 +99,7 @@ public class FleetManager : MonoBehaviour
 
         foreach (FleetController fleet in fleets)
         {
-            Vector3 Position = fleet.GetPosition();
+            Vector3 Position = fleet.gameObject.transform.position;
             if (Position.x > MinX && Position.x < MaxX && Position.z > MinZ && Position.z < MaxZ)
             {
                 AddToSelection(fleet);

@@ -62,7 +62,16 @@ public class FleetController : MonoBehaviour
 
         if (validGoalPosition)
         {
-            moveTowardsPosition(goalPosition);
+            float distanceSquare = (goalPosition - transform.position).sqrMagnitude;
+
+            if (distanceSquare > 0.2f)
+            {
+                moveTowardsPosition(goalPosition);
+            }
+            else
+            {
+                validGoalPosition = false;
+            }
         }
 	}
 
@@ -105,6 +114,11 @@ public class FleetController : MonoBehaviour
         Bounds bounds;
         float MaxDimension;
 
+        if (shipMesh != null)
+        {
+            RemoveShipMesh();
+        }
+
         GameObject ship = ResourceManager.instance.CreateShip(hullData, transform.position, transform.rotation);
         //Assign as child
         ship.transform.parent = transform;
@@ -120,11 +134,6 @@ public class FleetController : MonoBehaviour
     public void RemoveShipMesh()
     {
         Destroy(shipMesh);
-    }
-
-    public Vector3 GetPosition()
-    {
-        return transform.position;
     }
 
     void moveTowardsPosition(Vector3 position)
