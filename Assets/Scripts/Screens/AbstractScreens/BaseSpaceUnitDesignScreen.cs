@@ -24,8 +24,8 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
 
     protected GameObject unitModel;
     protected Texture2D selectedModuleTexture;
-    protected Texture2D SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
-    protected Texture2D WeaponArcCircle = ResourceManager.instance.GetUITexture("WeaponArcCircle");
+    //protected Texture2D SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
+    //protected Texture2D WeaponArcCircle = ResourceManager.instance.GetUITexture("WeaponArcCircle");
     protected Texture2D WeaponArcTex;
 
     protected string DesignName = "";
@@ -152,7 +152,7 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
     }
 
     protected void SetWeaponArcTexture(int angle)
-    {
+    {/*
         switch (angle)
         {
             case 15:
@@ -220,7 +220,7 @@ public abstract class BaseSpaceUnitDesignScreen : BaseScreen
                     WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc360");
                     break;
                 }
-        }
+        }*/
     }
 
     protected void DeselectModule()

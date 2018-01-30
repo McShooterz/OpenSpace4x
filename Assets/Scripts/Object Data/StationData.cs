@@ -401,7 +401,7 @@ public sealed class StationData : UnitData
         return 1f - health / healthMax;
     }
 
-    public override Texture2D GetIcon()
+    public override Sprite GetIcon()
     {
         if (designData.Hull.Icon != null)
             return designData.Hull.GetIcon();

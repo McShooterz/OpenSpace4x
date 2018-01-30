@@ -17,6 +17,12 @@ public class PlanetData
     string displayName;
 
     [SerializeField]
+    PlanetType planetType;
+
+    [SerializeField]
+    int planetSize;
+
+    [SerializeField]
     PlanetTileData [,] planetTiles;
 
     [SerializeField]
@@ -28,6 +34,12 @@ public class PlanetData
     [SerializeField]
     float taxRate;
 
+    public PlanetData(int size)
+    {
+        planetSize = size;
+        CreatePlanetTilesData(planetSize);
+    }
+
     public string GetDisplayName()
     {
         return displayName;
@@ -36,6 +48,16 @@ public class PlanetData
     public void SetDisplayName(string name)
     {
         displayName = name;
+    }
+
+    public int GetSize()
+    {
+        return planetSize;
+    }
+
+    public PlanetType GetPlanetType()
+    {
+        return planetType;
     }
 
     public PlanetTileData[,] GetPlanetTiles()

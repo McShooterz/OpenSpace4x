@@ -136,7 +136,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
             }
             foreach (Rect slot in ForeSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -151,7 +151,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
             }
             foreach (Rect slot in AftSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -166,7 +166,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
             }
             foreach (Rect slot in PortSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -181,7 +181,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
             }
             foreach (Rect slot in StarboardSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -196,7 +196,7 @@ public abstract class BaseShipDesignScreen : BaseSpaceUnitDesignScreen
             }
             foreach (Rect slot in CenterSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             GUI.color = Color.white;
         }

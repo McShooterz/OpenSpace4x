@@ -145,7 +145,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
             }
             foreach (Rect slot in Slots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             GUI.color = Color.white;
 
@@ -164,12 +164,12 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
                     {
                         ToolTip.SetText("rotateModule", "rotateModuleDesc");
                     }
-
+                    /*
                     if (GUI.Button(ModuleRotationButtonRect, ResourceManager.instance.GetIconTexture("Icon_Rotate")))
                     {
                         RotateModule();
                         PlayMainButtonClick();
-                    }
+                    }*/
                 }
 
                 //Don't draw or check for placement if mouse over side UI menus, this draws currently selected module on mouse cursor
@@ -466,8 +466,8 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
                 {
                     if (module.module.GetWeaponExists())
                     {
-                        GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
-                        GUI.DrawTexture(WeaponArcRect, ResourceManager.instance.GetUITexture("WeaponArc360"));
+                        //GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
+                        //GUI.DrawTexture(WeaponArcRect, ResourceManager.instance.GetUITexture("WeaponArc360"));
                     }
                     DrawHoveredModuleInfo(mousePosition, module.module);
                     return;
@@ -757,7 +757,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
                         GUI.color = Color.red;
                         foreach (Rect slot in HoveredRects)
                         {
-                            GUI.DrawTexture(slot, SlotTexture);
+                            //GUI.DrawTexture(slot, SlotTexture);
                         }
                         GUI.color = Color.white;
                         return;
@@ -783,7 +783,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
                         GUI.color = Color.yellow;
                         foreach (Rect slot in HoveredRects)
                         {
-                            GUI.DrawTexture(slot, SlotTexture);
+                            //GUI.DrawTexture(slot, SlotTexture);
                         }
                         GUI.color = Color.white;
                     }
@@ -792,7 +792,7 @@ public abstract class StationyardBaseScreen : UnitDesignBaseScreen
                         GUI.color = Color.green;
                         foreach (Rect slot in HoveredRects)
                         {
-                            GUI.DrawTexture(slot, SlotTexture);
+                            //GUI.DrawTexture(slot, SlotTexture);
                         }
                         GUI.color = Color.white;
                     }

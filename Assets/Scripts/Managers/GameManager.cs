@@ -162,32 +162,6 @@ public class GameManager : MonoBehaviour
         QuarterButtonSpacing = StandardButtonSize.y * 0.25f;
     }
 
-	public void CreateOutLineSystems(Color PlayerColor, Color EnemyColor, Color AlliedColor, Color NeutralColor)
-    {
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerPlayer = ResourceManager.instance.CreateOutLineSystem();
-        ObjectOutlinerPlayer.outlineLayer = PlayerLayer;
-        ObjectOutlinerPlayer.outlineColor = PlayerColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerEnemy = ResourceManager.instance.CreateOutLineSystem();
-        ObjectOutlinerEnemy.outlineLayer = EnemyLayer;
-        ObjectOutlinerEnemy.outlineColor = EnemyColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerAllied = ResourceManager.instance.CreateOutLineSystem();
-        ObjectOutlinerAllied.outlineLayer = AlliedLayer;
-        ObjectOutlinerAllied.outlineColor = AlliedColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerNeutral = ResourceManager.instance.CreateOutLineSystem();
-		ObjectOutlinerNeutral.outlineLayer = NeutralLayer;
-		ObjectOutlinerNeutral.outlineColor = NeutralColor;
-
-        ObjectOutlinerPlayer.transform.parent = transform;
-        ObjectOutlinerEnemy.transform.parent = transform;
-        ObjectOutlinerAllied.transform.parent = transform;
-        ObjectOutlinerNeutral.transform.parent = transform;
-
-        ObjectOutlinerPlayer.name = "PlayerOutLiner";
-        ObjectOutlinerEnemy.name = "EnemyOutLiner";
-        ObjectOutlinerAllied.name = "AlliedOutLiner";
-        ObjectOutlinerNeutral.name = "NeutralOutLiner";
-    }
-
     public void SetGameSpeed(float speed)
     {
         GameSpeed = speed;

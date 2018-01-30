@@ -34,7 +34,7 @@ public class StationDesignDataListEntry
         GameManager.instance.UIContent.image = null;
         GameManager.instance.UIContent.text = Name;
 
-        Money.image = ResourceManager.instance.GetIconTexture("Icon_Money");
+        //Money.image = ResourceManager.instance.GetIconTexture("Icon_Money");
         Money.text = ":" + Design.GetTotalValue().ToString("0.#");
 
         float nameWidthMax;

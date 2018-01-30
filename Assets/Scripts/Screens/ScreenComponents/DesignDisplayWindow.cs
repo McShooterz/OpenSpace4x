@@ -27,7 +27,7 @@ public class DesignDisplayWindow
     public DesignDisplayWindow(Rect rect)
     {
         baseRect = rect;
-        SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
+        //SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
 
         CloseButtonRect = new Rect(baseRect.x + (baseRect.width - GameManager.instance.StandardButtonSize.x) / 2f, baseRect.yMax - GameManager.instance.StandardButtonSize.y, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
         TitleRect = new Rect(CloseButtonRect.x, baseRect.y, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);

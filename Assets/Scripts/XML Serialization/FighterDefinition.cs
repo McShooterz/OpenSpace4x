@@ -50,7 +50,7 @@ public class FighterDefinition
         WeaponNames = new List<string>();
     }
 
-    public Texture2D GetIcon()
+    public Sprite GetIcon()
     {
         return ResourceManager.instance.GetUnitIcon(Icon);
     }

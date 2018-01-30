@@ -65,7 +65,7 @@ public class ColorPickerWindow
         CancelButtonRect = new Rect(baseRect.xMax - GameManager.instance.StandardButtonSize.x - Spacing, baseRect.yMax - GameManager.instance.StandardButtonSize.y - Spacing, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
         AcceptButtonRect = new Rect(CancelButtonRect.x, CancelButtonRect.y - GameManager.instance.StandardButtonSize.y - Spacing, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
 
-        ColorSpace = ResourceManager.instance.GetUITexture("HSV_Space");
+        //ColorSpace = ResourceManager.instance.GetUITexture("HSV_Space");
         CurrentColorTexture = new Texture2D(1, 1);
     }
 

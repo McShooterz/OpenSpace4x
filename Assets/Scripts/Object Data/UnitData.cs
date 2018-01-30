@@ -481,5 +481,5 @@ public abstract class UnitData
         boardingForces.Remove(force);
     }
 
-    public abstract Texture2D GetIcon();
+    public abstract Sprite GetIcon();
 }

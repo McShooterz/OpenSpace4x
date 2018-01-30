@@ -59,8 +59,8 @@ public class ScenarioPlayScreen : CombatScreens
     public ScenarioPlayScreen(Scenario selectedScenario)
     {
 
-        CommandIcon = ResourceManager.instance.GetIconTexture("Icon_CommandPoint");
-        MoneyIcon = ResourceManager.instance.GetIconTexture("Icon_Money");
+        //CommandIcon = ResourceManager.instance.GetIconTexture("Icon_CommandPoint");
+        //MoneyIcon = ResourceManager.instance.GetIconTexture("Icon_Money");
 
         PlayerFleet = new FleetData();
         EnemyFleet = new FleetData();
@@ -333,13 +333,13 @@ public class ScenarioPlayScreen : CombatScreens
                             {
                                 if (PlayerShipManager.TransporterTargetingTroop)
                                 {
-                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
+                                    //Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }
                                 else if (PlayerShipManager.TransporterTargetingCrew)
                                 {
-                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
+                                    //Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }

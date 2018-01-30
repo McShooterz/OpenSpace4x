@@ -87,7 +87,7 @@ public class ModuleSet
         return null;
     }
 
-    public Texture2D GetTexture()
+    public Sprite GetTexture()
     {
         foreach (string moduleName in Modules)
         {

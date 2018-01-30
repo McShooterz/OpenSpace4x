@@ -127,7 +127,7 @@ public class Module
         return ParentSet;
     }
 
-    public Texture2D GetTexture()
+    public Sprite GetTexture()
     {
         return ResourceManager.instance.GetModuleTexture(Texture);
     }

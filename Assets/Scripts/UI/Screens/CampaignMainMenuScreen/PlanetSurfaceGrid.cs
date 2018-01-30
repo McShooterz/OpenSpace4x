@@ -14,9 +14,6 @@ public class PlanetSurfaceGrid : MonoBehaviour
     [SerializeField]
     GameObject planetTilePrefab;
 
-
-
-
     [SerializeField]
     PlanetData planetData;
 

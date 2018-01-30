@@ -9,7 +9,7 @@ Notes:
 using UnityEngine;
 using System.Collections;
 
-public class Planet : MonoBehaviour 
+public class PlanetController : MonoBehaviour 
 {
     [SerializeField]
     PlanetData planetData;
@@ -20,7 +20,7 @@ public class Planet : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-	
+        planetData = new PlanetData(25);
 	}
 	
 	// Update is called once per frame
@@ -28,7 +28,6 @@ public class Planet : MonoBehaviour
 	{
 	
 	}
-
 	
 
     public PlanetData GetPlanetData()

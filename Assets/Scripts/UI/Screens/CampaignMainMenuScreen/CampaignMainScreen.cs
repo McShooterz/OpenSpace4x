@@ -69,7 +69,7 @@ public class CampaignMainScreen : MonoBehaviour
                         playerEmpire.GetFleetManager().DeslectFleets();
                         DeselectPlanet();
 
-                        SelectPlanet(hit.transform.root.gameObject.GetComponent<Planet>());
+                        SelectPlanet(hit.transform.root.gameObject.GetComponent<PlanetController>());
                     }
                     else
                     {
@@ -123,7 +123,7 @@ public class CampaignMainScreen : MonoBehaviour
         }
     }
 
-    void SelectPlanet(Planet planet)
+    void SelectPlanet(PlanetController planet)
     {
         Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
         playerEmpire.GetPlanetManager().SetSelectedPlanet(planet);

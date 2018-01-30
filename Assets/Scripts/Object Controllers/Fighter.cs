@@ -549,7 +549,7 @@ public sealed class Fighter : MobileSpaceUnit
         }
     }
 
-    public Texture2D GetIcon()
+    public Sprite GetIcon()
     {
         return Definition.GetIcon();
     }

@@ -58,7 +58,7 @@ public class StationHullData
         ModuleLimitations = ModuleLimitType.NoEngines;
 }
 
-    public Texture2D GetIcon()
+    public Sprite GetIcon()
     {
         return ResourceManager.instance.GetUnitIcon(Icon);
     }

@@ -266,7 +266,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             }
             foreach (Rect slot in ForeSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -281,7 +281,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             }
             foreach (Rect slot in AftSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -296,7 +296,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             }
             foreach (Rect slot in PortSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -311,7 +311,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             }
             foreach (Rect slot in StarboardSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             if (selectedModule != null)
             {
@@ -326,7 +326,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             }
             foreach (Rect slot in CenterSlots)
             {
-                GUI.DrawTexture(slot, SlotTexture);
+                //GUI.DrawTexture(slot, SlotTexture);
             }
             GUI.color = Color.white;
 
@@ -361,12 +361,12 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     {
                         ToolTip.SetText("rotateModule", "rotateModuleDesc");
                     }
-
+                    /*
                     if (GUI.Button(ModuleRotationButtonRect, ResourceManager.instance.GetIconTexture("Icon_Rotate")))
                     {
                         RotateModule();
                         PlayMainButtonClick();
-                    }
+                    }*/
                 }
 
                 //Don't draw or check for placement if mouse over side UI menus, this draws currently selected module on mouse cursor
@@ -836,7 +836,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     Weapon weapon = module.module.GetWeapon();
                     if (weapon != null)
                     {
-                        GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
+                        //GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
                         SetWeaponArcTexture((int)weapon.Arc);
                         if (weapon.AlwaysForward && module.Rotation != 0)
                         {
@@ -864,7 +864,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     Weapon weapon = module.module.GetWeapon();
                     if (weapon != null)
                     {
-                        GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
+                        //GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
                         SetWeaponArcTexture((int)weapon.Arc);
                         if (weapon.AlwaysForward)
                         {
@@ -902,7 +902,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     Weapon weapon = module.module.GetWeapon();
                     if (weapon != null)
                     {
-                        GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
+                        //GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
                         SetWeaponArcTexture((int)weapon.Arc);
                         if (weapon.AlwaysForward)
                         {
@@ -940,7 +940,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     Weapon weapon = module.module.GetWeapon();
                     if (weapon != null)
                     {
-                        GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
+                        //GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
                         SetWeaponArcTexture((int)weapon.Arc);
                         if (weapon.AlwaysForward)
                         {
@@ -978,8 +978,8 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     Weapon weapon = module.module.GetWeapon();
                     if (weapon != null)
                     {
-                        GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
-                        GUI.DrawTexture(WeaponArcRect, ResourceManager.instance.GetUITexture("WeaponArc360"));
+                        //GUI.DrawTexture(WeaponArcRect, WeaponArcCircle);
+                        //GUI.DrawTexture(WeaponArcRect, ResourceManager.instance.GetUITexture("WeaponArc360"));
                     }
                     DrawHoveredModuleInfo(mousePosition, module.module);
                     return;
@@ -1054,7 +1054,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                 PlayMainButtonClick();
             }
         }
-
+        /*
         if (designBehaviorAttackStyle == AttackStyle.holdPosition)
         {
             if (MovementButtonRect.Contains(mousePosition))
@@ -1090,31 +1090,31 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                 designBehaviorAttackStyle = AttackStyle.holdPosition;
                 PlayMainButtonClick();
             }
-        }
+        }*/
 
         if (designBehaviorAttackDirection == QuadrantTypes.Fore)
         {
             if (FiringDirectionButtonRect.Contains(mousePosition))
             {
                 ToolTip.SetText("attackFront", "attackFrontDesc");
-            }
+            }/*
             if (GUI.Button(FiringDirectionButtonRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackForward")))
             {
                 designBehaviorAttackDirection = QuadrantTypes.Port;
                 PlayMainButtonClick();
-            }
+            }*/
         }
         else if (designBehaviorAttackDirection == QuadrantTypes.Port)
         {
             if (FiringDirectionButtonRect.Contains(mousePosition))
             {
                 ToolTip.SetText("attackLeft", "attackLeftDesc");
-            }
+            }/*
             if (GUI.Button(FiringDirectionButtonRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackLeft")))
             {
                 designBehaviorAttackDirection = QuadrantTypes.Starboard;
                 PlayMainButtonClick();
-            }
+            }*/
         }
         else
         {
@@ -1122,11 +1122,12 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
             {
                 ToolTip.SetText("attackRight", "attackRightDesc");
             }
+            /*
             if (GUI.Button(FiringDirectionButtonRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackRight")))
             {
                 designBehaviorAttackDirection = QuadrantTypes.Fore;
                 PlayMainButtonClick();
-            }
+            }*/
         }
 
         if (damageBarGraph.Contains(mousePosition))
@@ -1735,7 +1736,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     GUI.color = Color.red;
                     foreach (Rect slot in HoveredRects)
                     {
-                        GUI.DrawTexture(slot, SlotTexture);
+                        //GUI.DrawTexture(slot, SlotTexture);
                     }
                     GUI.color = Color.white;
                     return false;
@@ -1761,7 +1762,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     GUI.color = Color.yellow;
                     foreach (Rect slot in HoveredRects)
                     {
-                        GUI.DrawTexture(slot, SlotTexture);
+                        //GUI.DrawTexture(slot, SlotTexture);
                     }
                     GUI.color = Color.white;
                 }
@@ -1770,7 +1771,7 @@ public abstract class ShipyardBaseScreen : UnitDesignBaseScreen
                     GUI.color = Color.green;
                     foreach (Rect slot in HoveredRects)
                     {
-                        GUI.DrawTexture(slot, SlotTexture);
+                        //GUI.DrawTexture(slot, SlotTexture);
                     }
                     GUI.color = Color.white;
                 }

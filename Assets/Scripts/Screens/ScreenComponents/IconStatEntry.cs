@@ -21,7 +21,7 @@ public class IconStatEntry
     {
         baseRect = rectangle;
         content = new GUIContent();
-        content.image = ResourceManager.instance.GetIconTexture(iconTexture);
+        //content.image = ResourceManager.instance.GetIconTexture(iconTexture);
         content.text = value;
         ToolTipTitle = toolTipTitle;
         ToolTipBody = toolTipBody;

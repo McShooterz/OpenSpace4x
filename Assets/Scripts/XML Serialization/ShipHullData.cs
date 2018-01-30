@@ -74,7 +74,7 @@ public class ShipHullData
         ModuleLimitCenter = ModuleLimitType.NoWeaponsOrEngines;
     }
 
-    public Texture2D GetIcon()
+    public Sprite GetIcon()
     {
         return ResourceManager.instance.GetUnitIcon(Icon);
     }

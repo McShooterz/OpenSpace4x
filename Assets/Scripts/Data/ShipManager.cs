@@ -1163,11 +1163,11 @@ public class ShipManager
         return null;
     }
 
-    public Texture2D GetSelectionGroupIcon(int index)
+    public Sprite GetSelectionGroupIcon(int index)
     {
         if (SelectionGroups[index] != null)
             return SelectionGroups[index].GetIcon();
-        return new Texture2D(1, 1);
+        return new Sprite();
     }
 
     class SelectionGroup
@@ -1176,7 +1176,7 @@ public class ShipManager
         public List<Station> stations = new List<Station>();
         public List<FighterWing> fighterWings = new List<FighterWing>();
 
-        public Texture2D GetIcon()
+        public Sprite GetIcon()
         {
             if (ships.Count > 0)
                 return ships[0].GetHull().GetIcon();
@@ -1184,7 +1184,7 @@ public class ShipManager
                 return stations[0].GetHull().GetIcon();
             if (fighterWings.Count > 0)
                 return fighterWings[0].GetIcon();
-            return new Texture2D(1,1);
+            return new Sprite();
         }
     }
 }

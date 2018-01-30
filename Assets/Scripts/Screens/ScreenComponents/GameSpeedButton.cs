@@ -24,11 +24,11 @@ public class GameSpeedButton
     {
         baseRect = rect;
         ToolTip = toolTip;
-        Paused = ResourceManager.instance.GetIconTexture("Icon_Pause");
-        HalfSpeed = ResourceManager.instance.GetIconTexture("Icon_HalfSpeed");
-        NormalSpeed = ResourceManager.instance.GetIconTexture("Icon_NormalSpeed");
-        FastSpeed = ResourceManager.instance.GetIconTexture("Icon_FastSpeed");
-        UltraSpeed = ResourceManager.instance.GetIconTexture("Icon_UltraSpeed");
+        //Paused = ResourceManager.instance.GetIconTexture("Icon_Pause");
+        //HalfSpeed = ResourceManager.instance.GetIconTexture("Icon_HalfSpeed");
+        //NormalSpeed = ResourceManager.instance.GetIconTexture("Icon_NormalSpeed");
+        //FastSpeed = ResourceManager.instance.GetIconTexture("Icon_FastSpeed");
+        //UltraSpeed = ResourceManager.instance.GetIconTexture("Icon_UltraSpeed");
     }
 
     public void Draw()

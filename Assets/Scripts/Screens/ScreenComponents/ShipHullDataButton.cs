@@ -52,8 +52,7 @@ public class ShipHullDataButton : baseToggleButton
         HullClassification.text = shipHullData.Classification.ToString();
         HullDescription.text = "Temp Description";
 
-        Texture2D texture = shipHullData.GetIcon();
-        HullIcon.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+        HullIcon.overrideSprite = shipHullData.GetIcon();
         HullIcon.preserveAspect = true;
     }
 

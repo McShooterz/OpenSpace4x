@@ -590,7 +590,7 @@ public sealed class ShipData : UnitData
         attackRange = range;
     }
 
-    public override Texture2D GetIcon()
+    public override Sprite GetIcon()
     {
         if (designData.Hull.Icon != null)
             return designData.Hull.GetIcon();

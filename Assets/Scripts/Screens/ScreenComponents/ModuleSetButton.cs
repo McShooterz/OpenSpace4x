@@ -52,8 +52,7 @@ public class ModuleSetButton : baseToggleButton
         ModuleDescription.text = moduleSet.GetDescription();
         ModuleMod.text = moduleSet.GetParentModName();
 
-        Texture2D texture = moduleSet.GetTexture();
-        ModuleTexture.sprite =  Sprite.Create(texture, new Rect(0,0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
+        ModuleTexture.overrideSprite = moduleSet.GetTexture();
         ModuleTexture.preserveAspect = true;
     }
 

@@ -9,7 +9,20 @@ Notes:
 using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class Technology
 {
+    public TechnologyType technologyType;
 
+    public string name;
+
+    public string description;
+
+    public int baseCost;
+
+    public string[] requiredTechnologies;
+
+    // effects
+
+    public string[] unlockShipHulls;
 }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlanetManager : MonoBehaviour
 {
     [SerializeField]
-    List<Planet> planets = new List<Planet>();
+    List<PlanetController> planets = new List<PlanetController>();
 
     [SerializeField]
-    Planet selectedPlanet;
+    PlanetController selectedPlanet;
 
 	// Use this for initialization
 	void Start ()
@@ -22,22 +22,22 @@ public class PlanetManager : MonoBehaviour
 		
 	}
 
-    public List<Planet> GetPlanets()
+    public List<PlanetController> GetPlanets()
     {
         return planets;
     }
 
-    public bool OwnsPlanet(Planet planet)
+    public bool OwnsPlanet(PlanetController planet)
     {
         return planets.Contains(planet);
     }
 
-    public Planet GetSelectedPlanet()
+    public PlanetController GetSelectedPlanet()
     {
         return selectedPlanet;
     }
 
-    public void SetSelectedPlanet(Planet planet)
+    public void SetSelectedPlanet(PlanetController planet)
     {
         selectedPlanet = planet;
     }

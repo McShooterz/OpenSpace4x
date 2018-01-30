@@ -61,7 +61,7 @@ public sealed class FighterWing : MonoBehaviour
         if (Fighters.Count == 1)
         {
             AttachToObject(fighter.gameObject);
-            SetIconTexture(fighter.GetIcon());
+            //SetIconTexture(fighter.GetIcon());
             MaxUnits = fighter.GetMaxSquadronSize();
         }
         if (targetUnit != null)
@@ -243,7 +243,7 @@ public sealed class FighterWing : MonoBehaviour
         }
     }
 
-    public Texture2D GetIcon()
+    public Sprite GetIcon()
     {
         if (Fighters.Count > 0)
             return Fighters[0].GetIcon();

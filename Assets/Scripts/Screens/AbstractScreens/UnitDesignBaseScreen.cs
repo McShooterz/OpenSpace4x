@@ -18,8 +18,8 @@ public abstract class UnitDesignBaseScreen : ScreenParent
     protected ModuleSet selectedModuleSet = null;
     protected Module selectedModule = null;
     protected Texture2D selectedModuleTexture;
-    protected Texture2D SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
-    protected Texture2D WeaponArcCircle = ResourceManager.instance.GetUITexture("WeaponArcCircle");
+    //protected Texture2D SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
+    //protected Texture2D WeaponArcCircle = ResourceManager.instance.GetUITexture("WeaponArcCircle");
     protected Texture2D WeaponArcTex;
     protected Rect SelectedModuleRect;
     protected Rect SlotsAreaRect;
@@ -257,11 +257,11 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 ToolTip.SetText("armorSwap", "armorSwapDesc");
             }
 
-            if (GUI.Button(ModuleSwapButtonRect, ResourceManager.instance.GetIconTexture("Icon_Swap")))
-            {
-                ModuleSwap(selectedModuleSet);
-                PlayMainButtonClick();
-            }
+            //if (GUI.Button(ModuleSwapButtonRect, ResourceManager.instance.GetIconTexture("Icon_Swap")))
+            //{
+               // ModuleSwap(selectedModuleSet);
+               // PlayMainButtonClick();
+            //}
         }
 
         DrawModuleStats();
@@ -313,7 +313,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 GUI.Box(new Rect(new Vector2(mousePosition.x, mousePosition.y - GameManager.instance.StandardLabelSize.y), new Vector2(GameManager.instance.StandardLabelSize.x, GameManager.instance.StandardLabelSize.y)), range.ToString("0") + " : " + damage.ToString("0"));
             }
 
-            GUI.DrawTexture(ModuleWeaponGraphRect, ResourceManager.instance.GetUITexture("WeaponDamageGraph"));
+            //GUI.DrawTexture(ModuleWeaponGraphRect, ResourceManager.instance.GetUITexture("WeaponDamageGraph"));
             GUI.Label(ModuleWeaponGraphTitleRect, "Weapon Damage Over Range", GameManager.instance.ModuleTitleStyle);
             GUI.Label(ModuleWeaponDamageRect, "Damage: " + SelectedWeaponMaxDamage.ToString("0"), GameManager.instance.standardLabelStyle);
             GUI.Label(ModuleWeaponRangeRect, "Range: " + SelectedWeaponMaxRange.ToString("0"), GameManager.instance.standardLabelStyle);
@@ -395,7 +395,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
     protected abstract void CheckPlacedModuleHover();
 
     protected void SetWeaponArcTexture(int angle)
-    {
+    {/*
         switch (angle)
         {
             case 15:
@@ -463,7 +463,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                     WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc360");
                     break;
                 }
-        }
+        }*/
     }
 
     protected void DrawModuleStats()
@@ -497,7 +497,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
             BuildWeaponDamageGraph(weapon);
         }
         SelectedModuleRect = new Rect(0, 0, moduleScale * selectedModule.SizeX, moduleScale * selectedModule.SizeY);
-        selectedModuleTexture = selectedModule.GetTexture();
+        //selectedModuleTexture = selectedModule.GetTexture();
         ModuleRotation = 0;
 
         if (selectedModuleSet != selectedModule.GetParentSet())
@@ -1091,8 +1091,8 @@ public abstract class UnitDesignBaseScreen : ScreenParent
         foreach(Module module in modset.GetModules())
         {
             Rect rect = new Rect(Indent + ModuleList.Count * ModuleListEntrySize.y, ModuleListY, ModuleListEntrySize.y, ModuleListEntrySize.y);
-            ModuleListEntry MLE = new ModuleListEntry(rect, module, module.GetTexture(), ChangeModule);
-            ModuleList.Add(MLE);
+            //ModuleListEntry MLE = new ModuleListEntry(rect, module, module.GetTexture(), ChangeModule);
+            //ModuleList.Add(MLE);
         }
 
         if (selectedModule == null || selectedModule.GetParentSet() != selectedModuleSet)
@@ -1147,8 +1147,8 @@ public abstract class UnitDesignBaseScreen : ScreenParent
                 }
 
                 Rect rect = new Rect(0, ModuleListEntrySize.y * setList.Count, ModuleListEntrySize.x, ModuleListEntrySize.y);
-                ModuleSetEntry MLE = new ModuleSetEntry(rect, keyVal.Value, keyVal.Value.GetTexture(), ChangeModuleSet);
-                setList.Add(MLE);
+                //ModuleSetEntry MLE = new ModuleSetEntry(rect, keyVal.Value, keyVal.Value.GetTexture(), ChangeModuleSet);
+                //setList.Add(MLE);
             }
         }
     }
@@ -1283,7 +1283,7 @@ public abstract class UnitDesignBaseScreen : ScreenParent
             graphPosition = new Vector2(xPos + ModuleWeaponDamageRect.width + halfIndent, graphPosition.y);
             Rect DamageGraphRect = new Rect(graphPosition.x + ModuleWeaponGraphRect.width * 0.05f, graphPosition.y + ModuleWeaponGraphRect.height * 0.05f, ModuleWeaponGraphRect.width * 0.9f, ModuleWeaponGraphRect.height * 0.9f);
 
-            GUI.DrawTexture(new Rect(graphPosition, ModuleWeaponGraphRect.size), ResourceManager.instance.GetUITexture("WeaponDamageGraph"));
+            //GUI.DrawTexture(new Rect(graphPosition, ModuleWeaponGraphRect.size), ResourceManager.instance.GetUITexture("WeaponDamageGraph"));
 
             graphPosition = new Vector2(xPos + ModuleWeaponDamageRect.width + ModuleWeaponGraphRect.width - ModuleWeaponRangeRect.width + halfIndent, graphPosition.y + ModuleWeaponGraphRect.height);
 

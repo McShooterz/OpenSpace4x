@@ -69,13 +69,13 @@ public class EmpireFlag
     public void SetBackgroundTexture(int index)
     {
         BackgroundIndex = index;
-        Background = ResourceManager.instance.GetFlagBackground(BackgroundIndex);
+        //Background = ResourceManager.instance.GetFlagBackground(BackgroundIndex);
     }
 
     public void SetEmblemTexture(int index)
     {
         EmblemIndex = index;
-        Emblem = ResourceManager.instance.GetFlagEmblem(EmblemIndex);
+        //Emblem = ResourceManager.instance.GetFlagEmblem(EmblemIndex);
     }
 
     public void SetBackgroundColor(Color color)

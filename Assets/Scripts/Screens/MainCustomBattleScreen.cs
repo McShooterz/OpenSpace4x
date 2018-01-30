@@ -470,13 +470,13 @@ public sealed class MainCustomBattleScreen : CombatScreens
                             {
                                 if (PlayerShipManager.TransporterTargetingTroop)
                                 {
-                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
+                                    //Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }
                                 else if (PlayerShipManager.TransporterTargetingCrew)
                                 {
-                                    Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
+                                    //Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }

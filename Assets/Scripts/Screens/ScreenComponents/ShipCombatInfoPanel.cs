@@ -163,8 +163,8 @@ public class ShipCombatInfoPanel
 
         DamageBonusRect = new Rect(LevelIconRect.x, TroopIconRect.yMax, GameManager.instance.StandardLabelSize.x * 0.6f, InfoDisplayElementHeight);
         DefenseBonusRect = new Rect(DamageBonusRect.xMax, DamageBonusRect.y, DamageBonusRect.width, InfoDisplayElementHeight);
-        DamageIcon = ResourceManager.instance.GetIconTexture("Icon_Damage");
-        DefenseIcon = ResourceManager.instance.GetIconTexture("Icon_Defense");
+        //DamageIcon = ResourceManager.instance.GetIconTexture("Icon_Damage");
+        //DefenseIcon = ResourceManager.instance.GetIconTexture("Icon_Defense");
 
         float buttonIndent = (OrderDisplayRect.width - OrderButtonSize * 8) / 2f;
 
@@ -186,6 +186,7 @@ public class ShipCombatInfoPanel
         ButtonSixteenRect = new Rect(ButtonFithteenRect.xMax, ButtonOneRect.yMax, OrderButtonSize, OrderButtonSize);
 
         //Order Buttons
+        /*
         cancelOrderButton = new CancelOrdersButton(ButtonOneRect, ResourceManager.instance.GetIconTexture("Icon_Stop"), PlayMainButtonClick, ToolTip);
         attackDirectionButton = new AttackDirectionButton(ButtonTwoRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackRight"), ResourceManager.instance.GetIconTexture("Icon_ShipAttackLeft"), ResourceManager.instance.GetIconTexture("Icon_ShipAttackForward"), PlayMainButtonClick, ToolTip);
         attackStyleButton = new AttackStyleButton(ButtonThreeRect, ResourceManager.instance.GetIconTexture("Icon_StrafingAttack"), ResourceManager.instance.GetIconTexture("Icon_ShipHoldPositionAttack"), ResourceManager.instance.GetIconTexture("Icon_DontAttack"), PlayMainButtonClick, ToolTip);
@@ -198,6 +199,7 @@ public class ShipCombatInfoPanel
         transportCrewButton = new TransportCrewButton(ButtonTenRect, ResourceManager.instance.GetIconTexture("Icon_TransportCrewCancel"), ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), PlayMainButtonClick, ToolTip);
         retreatButton = new RetreatButton(ButtonFithteenRect, ResourceManager.instance.GetIconTexture("Icon_RetreatCancel"), ResourceManager.instance.GetIconTexture("Icon_Retreat"), PlayMainButtonClick, ToolTip);
         selfDestructButton = new SelfDestructButton(ButtonSixteenRect, ResourceManager.instance.GetIconTexture("Icon_SelfDestructCancel"), ResourceManager.instance.GetIconTexture("Icon_SelfDestruct"), PlayMainButtonClick, ToolTip);
+        */
 
         cancelOrderButton.SetShipManager(shipManager);
         attackDirectionButton.SetShipManager(shipManager);
@@ -224,6 +226,7 @@ public class ShipCombatInfoPanel
 
     void SetBasicTextures()
     {
+        /*
         CenterShields = ResourceManager.instance.GetUITexture("ShipStats_CenterShield");
         ForeShields = ResourceManager.instance.GetUITexture("ShipStats_ForeShield");
         AftShields = ResourceManager.instance.GetUITexture("ShipStats_AftShield");
@@ -251,6 +254,7 @@ public class ShipCombatInfoPanel
         TroopIcon = ResourceManager.instance.GetIconTexture("Icon_Troop");
 
         DamageBarTexture = ResourceManager.instance.GetUITexture("DamageBar");
+        */
     }
 
     public void Draw(Vector2 mousePosition)
@@ -1069,7 +1073,7 @@ public class ShipCombatInfoPanel
         GroupShipPosition = GUI.BeginScrollView(GroupShipWindowRect, GroupShipPosition, GroupShipViewRect);
         int buttonNum = 0;
         foreach (Ship ship in ships)
-        {
+        {/*
             Rect rect = new Rect((buttonNum % 8) * shipButtonSize, (buttonNum / 8) * shipButtonSize, shipButtonSize, shipButtonSize);
             if (GUI.Button(rect, ship.GetShipData().designData.Hull.GetIcon()))
             {
@@ -1077,10 +1081,10 @@ public class ShipCombatInfoPanel
                 shipManager.AddToSelection(ship);
                 return;
             }
-            buttonNum++;
+            buttonNum++;*/
         }
         foreach (Station station in stations)
-        {
+        {/*
             Rect rect = new Rect((buttonNum % 8) * shipButtonSize, (buttonNum / 8) * shipButtonSize, shipButtonSize, shipButtonSize);
             if (GUI.Button(rect, station.stationData.designData.Hull.GetIcon()))
             {
@@ -1088,10 +1092,10 @@ public class ShipCombatInfoPanel
                 shipManager.AddToSelection(station);
                 return;
             }
-            buttonNum++;
+            buttonNum++;*/
         }
         foreach (FighterWing fighterWing in fighters)
-        {
+        {/*
             Rect rect = new Rect((buttonNum % 8) * shipButtonSize, (buttonNum / 8) * shipButtonSize, shipButtonSize, shipButtonSize);
             if (GUI.Button(rect, fighterWing.GetIcon()))
             {
@@ -1099,7 +1103,7 @@ public class ShipCombatInfoPanel
                 shipManager.AddToSelection(fighterWing);
                 return;
             }
-            buttonNum++;
+            buttonNum++;*/
         }
         GUI.EndScrollView();
         #endregion

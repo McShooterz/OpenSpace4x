@@ -58,7 +58,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(0);
-                    StoredUnitButtons[9].SetIcon(shipManager.GetSelectionGroupIcon(0));
+                    //StoredUnitButtons[9].SetIcon(shipManager.GetSelectionGroupIcon(0));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha1))
@@ -66,7 +66,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(1);
-                    StoredUnitButtons[0].SetIcon(shipManager.GetSelectionGroupIcon(1));
+                    //StoredUnitButtons[0].SetIcon(shipManager.GetSelectionGroupIcon(1));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha2))
@@ -74,7 +74,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(2);
-                    StoredUnitButtons[1].SetIcon(shipManager.GetSelectionGroupIcon(2));
+                    //StoredUnitButtons[1].SetIcon(shipManager.GetSelectionGroupIcon(2));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -82,7 +82,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(3);
-                    StoredUnitButtons[2].SetIcon(shipManager.GetSelectionGroupIcon(3));
+                    //StoredUnitButtons[2].SetIcon(shipManager.GetSelectionGroupIcon(3));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -90,7 +90,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(4);
-                    StoredUnitButtons[3].SetIcon(shipManager.GetSelectionGroupIcon(4));
+                    //StoredUnitButtons[3].SetIcon(shipManager.GetSelectionGroupIcon(4));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -98,7 +98,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(5);
-                    StoredUnitButtons[4].SetIcon(shipManager.GetSelectionGroupIcon(5));
+                    //StoredUnitButtons[4].SetIcon(shipManager.GetSelectionGroupIcon(5));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha6))
@@ -106,7 +106,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(6);
-                    StoredUnitButtons[5].SetIcon(shipManager.GetSelectionGroupIcon(6));
+                    //StoredUnitButtons[5].SetIcon(shipManager.GetSelectionGroupIcon(6));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha7))
@@ -114,7 +114,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(7);
-                    StoredUnitButtons[6].SetIcon(shipManager.GetSelectionGroupIcon(7));
+                    //StoredUnitButtons[6].SetIcon(shipManager.GetSelectionGroupIcon(7));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha8))
@@ -122,7 +122,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(8);
-                    StoredUnitButtons[7].SetIcon(shipManager.GetSelectionGroupIcon(8));
+                    //StoredUnitButtons[7].SetIcon(shipManager.GetSelectionGroupIcon(8));
                 }
             }
             else if (Input.GetKeyDown(KeyCode.Alpha9))
@@ -130,7 +130,7 @@ public class CombatStoredUnitPanel
                 if (shipManager.HasSomethingSelected())
                 {
                     shipManager.StoreSelectionGroup(9);
-                    StoredUnitButtons[8].SetIcon(shipManager.GetSelectionGroupIcon(9));
+                    //StoredUnitButtons[8].SetIcon(shipManager.GetSelectionGroupIcon(9));
                 }
             }
         }

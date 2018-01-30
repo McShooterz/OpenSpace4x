@@ -6,13 +6,18 @@ using UnityEngine.UI;
 public class CampaignPlanetPanel : MonoBehaviour
 {
     [SerializeField]
-    Planet planet;
+    PlanetController planet;
 
     [SerializeField]
     bool playerControl;
 
     [SerializeField]
     Text planetName;
+
+
+
+    [SerializeField]
+    CampaignPlanetPanelExtension panelExtension;
 
 	// Use this for initialization
 	void Start ()
@@ -26,7 +31,7 @@ public class CampaignPlanetPanel : MonoBehaviour
 		
 	}
 
-    public void SetPlanet(Planet newPlanet, bool controllable)
+    public void SetPlanet(PlanetController newPlanet, bool controllable)
     {
         planet = newPlanet;
         playerControl = controllable;
