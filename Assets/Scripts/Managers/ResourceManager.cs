@@ -16,6 +16,55 @@ public class ResourceManager : MonoBehaviour
 {
     public static ResourceManager instance;
 
+    [Header("Loading Controls for testing")]
+
+    [SerializeField]
+    bool doLoadMiscObjects;
+
+    [SerializeField]
+    bool doLoadSkyboxes;
+
+    [SerializeField]
+    bool doLoadExplosions;
+
+    [SerializeField]
+    bool doLoadLocalization;
+
+    [SerializeField]
+    bool doLoadTextureUI;
+
+    [SerializeField]
+    bool doLoadIcons;
+
+    [SerializeField]
+    bool doLoadAudio;
+
+    [SerializeField]
+    bool doLoadModules;
+
+    [SerializeField]
+    bool doLoadWeapons;
+
+    [SerializeField]
+    bool doLoadScenarios;
+
+    [SerializeField]
+    bool doLoadEmpires;
+
+    [SerializeField]
+    bool doLoadShips;
+
+    [SerializeField]
+    bool doLoadFighters;
+
+    [SerializeField]
+    bool doLoadTechnology;
+
+    [SerializeField]
+    bool doLoadMods;
+
+    [Header("Data")]
+
     Dictionary<string, string> localizationDictionary = new Dictionary<string, string>();
 
     //ShipDesigns is keyed on first the hull name, then design name
@@ -108,16 +157,127 @@ public class ResourceManager : MonoBehaviour
         }
         //This stays in every scene
         DontDestroyOnLoad(gameObject);
+
+        LoadAll();
     }
 
     // Use this for initialization
     void Start()
     {
-        LoadAll();
-
         ChangeSkyBox("PurpleNebula");
 
-        ScreenManager.instance.ChangeScreen("MainMenuScreen");
+        //ScreenManager.instance.ChangeScreen("MainMenuScreen");
+    }
+
+    void LoadAll()
+    {
+        System.DateTime LoadStartTime = System.DateTime.Now;
+
+        LoadBuiltInScreens();
+
+        errorTexture = Resources.Load("Textures/ErrorTexture") as Sprite;
+
+        LoadGameConstants(Application.streamingAssetsPath + "/Misc/GameConstants.xml");
+
+        LoadCredits(Application.streamingAssetsPath + "/Credits/Credits.xml");
+
+        //Load misc objects
+        if (doLoadMiscObjects && Directory.Exists(Application.streamingAssetsPath + "/Objects"))
+        {
+            LoadGameObjects(Application.streamingAssetsPath + "/Objects/");
+        }
+
+        if (doLoadSkyboxes && Directory.Exists(Application.streamingAssetsPath + "/SkyBoxes"))
+        {
+            LoadSkyBoxes(Application.streamingAssetsPath + "/SkyBoxes/");
+        }
+
+        //Load explosions
+        if (doLoadExplosions && Directory.Exists(Application.streamingAssetsPath + "/Explosions"))
+        {
+            LoadExplosionsDirectory(Application.streamingAssetsPath + "/Explosions/");
+        }
+
+        if (doLoadLocalization && Directory.Exists(Application.streamingAssetsPath + "/Localization"))
+        {
+            LoadLocalization(Application.streamingAssetsPath + "/Localization/");
+        }
+
+        if (Directory.Exists(Application.streamingAssetsPath + "/StationDesigns"))
+        {
+            //LoadStationDesigns(Application.streamingAssetsPath + "/StationDesigns");
+        }
+
+        //load icon textures
+        if (doLoadIcons && Directory.Exists(Application.streamingAssetsPath + "/Icons"))
+        {
+            LoadTextures(Application.streamingAssetsPath + "/Icons", iconTextures);
+        }
+        if (doLoadTextureUI && Directory.Exists(Application.streamingAssetsPath + "/UITextures"))
+        {
+            LoadTextures(Application.streamingAssetsPath + "/UITextures", texturesUI);
+        }
+        if (doLoadAudio && Directory.Exists(Application.streamingAssetsPath + "/Audio"))
+        {
+            LoadAudioClips(Application.streamingAssetsPath + "/Audio");
+        }
+
+        //Load modules
+        if (doLoadModules && Directory.Exists(Application.streamingAssetsPath + "/Modules"))
+        {
+            LoadModulesDirectory(Application.streamingAssetsPath + "/Modules");
+        }
+
+        if (doLoadWeapons && Directory.Exists(Application.streamingAssetsPath + "/Weapons"))
+        {
+            LoadWeaponsDirectory(Application.streamingAssetsPath + "/Weapons");
+        }
+
+        //Load Scenarios
+        if (doLoadScenarios && Directory.Exists(Application.streamingAssetsPath + "/Scenarios"))
+        {
+            LoadScenarios(Application.streamingAssetsPath + "/Scenarios");
+        }
+
+        //Load Empire Attributes
+        if (doLoadEmpires && Directory.Exists(Application.streamingAssetsPath + "/Empires"))
+        {
+            LoadEmpiresDirectory(Application.streamingAssetsPath + "/Empires");
+        }
+
+        //Load in Ship asset bundles
+        if (doLoadShips && Directory.Exists(Application.streamingAssetsPath + "/Ships"))
+        {
+            LoadShipsDirectory(Application.streamingAssetsPath + "/Ships");
+        }
+
+        if (Directory.Exists(Application.streamingAssetsPath + "/Stations"))
+        {
+            //LoadStationsDirectory(Application.streamingAssetsPath + "/Stations/");
+        }
+
+        if (doLoadFighters && Directory.Exists(Application.streamingAssetsPath + "/Fighters"))
+        {
+            LoadFightersDirectory(Application.streamingAssetsPath + "/Fighters/");
+        }
+
+        if (doLoadTechnology && Directory.Exists(Application.streamingAssetsPath + "/Technology"))
+        {
+            LoadTechnologyDirectory(Application.streamingAssetsPath + "/Technology/");
+        }
+
+        LoadModLoadConfig();
+        LoadModInfos();
+
+        LoadMods();
+
+        ApplyFiringRangeFactorForAllWeapons();
+        ApplyFiringRangeFactorForAllModules();
+
+        ConnectModulesToSet();
+
+        //Get the timer it took to load
+        print("Resource Load time: " + (System.DateTime.Now - LoadStartTime).TotalSeconds.ToString());
     }
 
     public GameObject CreateShip(ShipHullData hullData, Vector3 Position, Quaternion Rotation)
@@ -486,105 +646,6 @@ public class ResourceManager : MonoBehaviour
                 RenderSettings.skybox = skyBox;
             }
         }
-    }
-
-    void LoadAll()
-    {
-        System.DateTime LoadStartTime = System.DateTime.Now;
-
-        LoadBuiltInScreens();
-
-        errorTexture = Resources.Load("Textures/ErrorTexture") as Sprite;
-
-        LoadGameConstants(Application.streamingAssetsPath + "/Misc/GameConstants.xml");
-
-        LoadCredits(Application.streamingAssetsPath + "/Credits/Credits.xml");
-
-        //Load misc objects
-        if (Directory.Exists(Application.streamingAssetsPath + "/Objects"))
-        {
-            LoadGameObjects(Application.streamingAssetsPath + "/Objects/");
-        }
-
-        if (Directory.Exists(Application.streamingAssetsPath + "/SkyBoxes"))
-        {
-            LoadSkyBoxes(Application.streamingAssetsPath + "/SkyBoxes/");
-        }
-
-        //Load explosions
-        if (Directory.Exists(Application.streamingAssetsPath + "/Explosions"))
-        {
-            LoadExplosionsDirectory(Application.streamingAssetsPath + "/Explosions/");
-        }
-
-        LoadLocalization(Application.streamingAssetsPath + "/Localization/");
-
-        if (Directory.Exists(Application.streamingAssetsPath + "/StationDesigns"))
-        {
-            LoadStationDesigns(Application.streamingAssetsPath + "/StationDesigns");
-        }
-
-        //load icon textures
-        if (Directory.Exists(Application.streamingAssetsPath + "/Icons"))
-        {
-            LoadTextures(Application.streamingAssetsPath + "/Icons", iconTextures);
-        }
-        if (Directory.Exists(Application.streamingAssetsPath + "/UITextures"))
-        {
-            LoadTextures(Application.streamingAssetsPath + "/UITextures", texturesUI);
-        }
-        if (Directory.Exists(Application.streamingAssetsPath + "/Audio"))
-        {
-            LoadAudioClips(Application.streamingAssetsPath + "/Audio");
-        }
-
-        //Load modules
-        LoadModulesDirectory(Application.streamingAssetsPath + "/Modules");
-
-        LoadWeaponsDirectory(Application.streamingAssetsPath + "/Weapons");
-
-        //Load Scenarios
-        if(Directory.Exists(Application.streamingAssetsPath + "/Scenarios"))
-        {
-            LoadScenarios(Application.streamingAssetsPath + "/Scenarios");
-        }
-
-        //Load Empire Attributes
-        LoadEmpiresDirectory(Application.streamingAssetsPath + "/Empires");
-
-        //Load in Ship asset bundles
-        if (Directory.Exists(Application.streamingAssetsPath + "/Ships"))
-        {
-            LoadShipsDirectory(Application.streamingAssetsPath + "/Ships");
-        }
-
-        if (Directory.Exists(Application.streamingAssetsPath + "/Stations"))
-        {
-            LoadStationsDirectory(Application.streamingAssetsPath + "/Stations/");
-        }
-
-        if (Directory.Exists(Application.streamingAssetsPath + "/Fighters"))
-        {
-            LoadFightersDirectory(Application.streamingAssetsPath + "/Fighters/");
-        }
-
-        if (Directory.Exists(Application.streamingAssetsPath + "/Technology"))
-        {
-
-        }
-
-        LoadModLoadConfig();
-        LoadModInfos();
-
-        LoadMods();
-
-        ApplyFiringRangeFactorForAllWeapons();
-        ApplyFiringRangeFactorForAllModules();
-
-        ConnectModulesToSet();
-
-        //Get the timer it took to load
-        print("Resource Load time: " + (System.DateTime.Now - LoadStartTime).TotalSeconds.ToString());
     }
 
     void LoadGameObjects(string path)
@@ -1089,7 +1150,7 @@ public class ResourceManager : MonoBehaviour
             {
                 byte[] data = File.ReadAllBytes(file.FullName);
                 texture.LoadImage(data);
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0), 100f);
+                Sprite sprite = TextureToSprite(texture);
                 string name = Path.GetFileNameWithoutExtension(file.Name);
                 if (dictionary.ContainsKey(name))
                 {
@@ -1118,7 +1179,7 @@ public class ResourceManager : MonoBehaviour
             {
                 byte[] data = File.ReadAllBytes(file.FullName);
                 texture.LoadImage(data);
-                Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0), 100f);
+                Sprite sprite = TextureToSprite(texture);
                 list.Add(sprite);
             }
             catch
@@ -1126,6 +1187,16 @@ public class ResourceManager : MonoBehaviour
                 print("Failed to load texture: " + file.Name);
             }
         }
+    }
+
+    Sprite TextureToSprite(Texture2D texture)
+    {
+        if (texture != null)
+        {
+            return Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0, 0), 100f);
+        }
+
+        return null;
     }
 
     void LoadModules(string path)

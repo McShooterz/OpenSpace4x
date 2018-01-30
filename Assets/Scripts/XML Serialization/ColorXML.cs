@@ -9,12 +9,13 @@ Notes:
 using UnityEngine;
 using System.Collections;
 
+[System.Serializable]
 public class ColorXML
 {
-    public float Red { get; set; }
-    public float Green { get; set; }
-    public float Blue { get; set; }
-    public float Alpha { get; set; }
+    public float Red;
+    public float Green;
+    public float Blue;
+    public float Alpha;
 
     public ColorXML() { }
 
