@@ -130,7 +130,7 @@ public class ResourceManager : MonoBehaviour
     EmpireRacialTraitsConfig racialTraitsConfig;
 
     [SerializeField]
-    Sprite errorTexture { get; set; }
+    Sprite errorTexture;
 
     [SerializeField]
     GameObject shieldsObject;
@@ -175,7 +175,7 @@ public class ResourceManager : MonoBehaviour
 
         LoadBuiltInScreens();
 
-        errorTexture = Resources.Load("Textures/ErrorTexture") as Sprite;
+        //errorTexture = Resources.Load("Textures/ErrorTexture") as Sprite;
 
         LoadGameConstants(Application.streamingAssetsPath + "/Misc/GameConstants.xml");
 

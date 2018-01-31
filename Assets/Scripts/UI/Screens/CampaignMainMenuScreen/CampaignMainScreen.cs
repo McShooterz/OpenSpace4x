@@ -9,9 +9,6 @@ public class CampaignMainScreen : MonoBehaviour
     CampaignPlanetPanel planetPanel;
 
     [SerializeField]
-    CampaignEmpireInfoBar empireInfoBar;
-
-    [SerializeField]
     LayerMask cursorHoveringLayerMask;
 
     [SerializeField]

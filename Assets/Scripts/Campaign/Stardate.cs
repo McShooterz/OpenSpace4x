@@ -40,4 +40,21 @@ public class Stardate
     {
         return day;
     }
+
+    public void AddDay()
+    {
+        day++;
+
+        if (day == daysPerMonth[month])
+        {
+            day = 0;
+            month++;
+
+            if (month > 11)
+            {
+                month = 0;
+                year++;
+            }
+        }
+    }
 }

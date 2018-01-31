@@ -29,6 +29,6 @@ public class IconFetcher : MonoBehaviour
         }
 
         //Destroy Self
-        //Destroy(this);
+        Destroy(this);
     }
 }
