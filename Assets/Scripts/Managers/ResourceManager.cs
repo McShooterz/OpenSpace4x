@@ -61,6 +61,9 @@ public class ResourceManager : MonoBehaviour
     bool doLoadTechnology;
 
     [SerializeField]
+    bool doLoadBuildings;
+
+    [SerializeField]
     bool doLoadMods;
 
     [Header("Data")]
@@ -112,6 +115,7 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, EmpireAttribute> empireAttributes = new Dictionary<string, EmpireAttribute>();
 
     Dictionary<string, Technology> technologies = new Dictionary<string, Technology>();
+    Dictionary<string, TechnologyTree> technologyTrees = new Dictionary<string, TechnologyTree>();
     Dictionary<string, Sprite> technologyIcons = new Dictionary<string, Sprite>();
 
     Dictionary<string, ShipNameSet> shipNameSets = new Dictionary<string, ShipNameSet>();
@@ -266,15 +270,28 @@ public class ResourceManager : MonoBehaviour
             LoadTechnologyDirectory(Application.streamingAssetsPath + "/Technology/");
         }
 
-        LoadModLoadConfig();
-        LoadModInfos();
+        if (doLoadBuildings && Directory.Exists(Application.streamingAssetsPath + "/Buildings"))
+        {
+            LoadBuildingsDirectory(Application.streamingAssetsPath + "/Buildings/");
+        }
 
-        LoadMods();
+        if (doLoadMods && Directory.Exists(Application.streamingAssetsPath + "/Mods"))
+        {
+            LoadModLoadConfig();
+            LoadModInfos();
+            LoadMods();
+        }
 
-        ApplyFiringRangeFactorForAllWeapons();
-        ApplyFiringRangeFactorForAllModules();
+        if (doLoadWeapons)
+        {
+            ApplyFiringRangeFactorForAllWeapons();
+            ApplyFiringRangeFactorForAllModules();
+        }
 
-        ConnectModulesToSet();
+        if (doLoadModules)
+        {
+            ConnectModulesToModuleSet();
+        }
 
         //Get the timer it took to load
         print("Resource Load time: " + (System.DateTime.Now - LoadStartTime).TotalSeconds.ToString());
@@ -1603,7 +1620,33 @@ public class ResourceManager : MonoBehaviour
             }
             catch
             {
-                print("Failed to load: " + file.Name);
+                print("Failed to load technology: " + file.Name);
+            }
+        }
+    }
+
+    void LoadTechnologyTrees(string path)
+    {
+        FileInfo[] files = GetFilesByType(path, "*.xml");
+        foreach (FileInfo file in files)
+        {
+            TechnologyTree technologyTree = new TechnologyTree();
+            try
+            {
+                technologyTree = (TechnologyTree)new XmlSerializer(typeof(TechnologyTree)).Deserialize(file.OpenRead());
+                string name = Path.GetFileNameWithoutExtension(file.Name);
+                if (modules.ContainsKey(name))
+                {
+                    technologyTrees[name] = technologyTree;
+                }
+                else
+                {
+                    technologyTrees.Add(name, technologyTree);
+                }
+            }
+            catch
+            {
+                print("Failed to load technology: " + file.Name);
             }
         }
     }
@@ -1933,9 +1976,29 @@ public class ResourceManager : MonoBehaviour
         {
             LoadTechnologies(path + "/Definitions");
         }
+        if (Directory.Exists(path + "/Trees"))
+        {
+            LoadTechnologyTrees(path + "/Trees");
+        }
         if (Directory.Exists(path + "/Icons"))
         {
             LoadTextures(path + "/Icons/", technologyIcons);
+        }
+        if (Directory.Exists(path + "/Localization"))
+        {
+            LoadLocalization(path + "/Localization/");
+        }
+    }
+
+    void LoadBuildingsDirectory(string path)
+    {
+        if (Directory.Exists(path + "/Definitions"))
+        {
+            //LoadTechnologies(path + "/Definitions");
+        }
+        if (Directory.Exists(path + "/Icons"))
+        {
+            //LoadTextures(path + "/Icons/", technologyIcons);
         }
         if (Directory.Exists(path + "/Localization"))
         {
@@ -2347,7 +2410,7 @@ public class ResourceManager : MonoBehaviour
         return fighterDefinitions;
     }
 
-    void ConnectModulesToSet()
+    void ConnectModulesToModuleSet()
     {
         List<ModuleSet> Sets = new List<ModuleSet>();
         foreach(KeyValuePair<string, ModuleSet> keyVal in moduleSets)

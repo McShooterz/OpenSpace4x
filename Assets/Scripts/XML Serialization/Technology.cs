@@ -25,4 +25,20 @@ public class Technology
     // effects
 
     public string[] unlockShipHulls;
+
+
+
+
+
+
+
+
+
+    public bool MeetsRequirements(EmpireData empire)
+    {
+
+
+
+        return true;
+    }
 }

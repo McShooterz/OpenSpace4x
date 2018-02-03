@@ -46,4 +46,23 @@ public class EmpireManager : MonoBehaviour
     {
         return empires;
     }
+
+
+
+
+    public void ChangeDay()
+    {
+        foreach (Empire empire in empires)
+        {
+            empire.ChangeDay();
+        }
+    }
+
+    public void ChangeMonth()
+    {
+        foreach (Empire empire in empires)
+        {
+            empire.ChangeMonth();
+        }
+    }
 }

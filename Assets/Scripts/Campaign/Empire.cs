@@ -64,4 +64,14 @@ public class Empire : MonoBehaviour
     {
         return planetManager;
     }
+
+    public void ChangeDay()
+    {
+
+    }
+
+    public void ChangeMonth()
+    {
+
+    }
 }
