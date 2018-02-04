@@ -64,6 +64,9 @@ public class ResourceManager : MonoBehaviour
     bool doLoadBuildings;
 
     [SerializeField]
+    bool doLoadPlanets;
+
+    [SerializeField]
     bool doLoadMods;
 
     [Header("Data")]
@@ -101,6 +104,10 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, Sprite> texturesUI = new Dictionary<string, Sprite>();
 
     Dictionary<string, Sprite> unitIcons = new Dictionary<string, Sprite>();
+
+    Dictionary<string, GameObject> planets = new Dictionary<string, GameObject>();
+    Dictionary<string, PlanetTypeDefinition> planetDefinitions = new Dictionary<string, PlanetTypeDefinition>();
+    Dictionary<string, Sprite> planetTiles = new Dictionary<string, Sprite>();
 
     [SerializeField]
     List<Sprite> flagBackgrounds = new List<Sprite>();
@@ -273,6 +280,11 @@ public class ResourceManager : MonoBehaviour
         if (doLoadBuildings && Directory.Exists(Application.streamingAssetsPath + "/Buildings"))
         {
             LoadBuildingsDirectory(Application.streamingAssetsPath + "/Buildings/");
+        }
+
+        if (doLoadPlanets && Directory.Exists(Application.streamingAssetsPath + "/Planets"))
+        {
+            LoadPlanetsDirectory(Application.streamingAssetsPath + "/Planets/");
         }
 
         if (doLoadMods && Directory.Exists(Application.streamingAssetsPath + "/Mods"))
@@ -914,7 +926,7 @@ public class ResourceManager : MonoBehaviour
 
     void LoadShip(GameObject shipObject)
     {
-        GameObject shipMesh = shipObject.transform.GetChild(0).gameObject;
+        //GameObject shipMesh = shipObject.transform.GetChild(0).gameObject;
         //Set tags and layers
         shipObject.tag = "Ship";
 
@@ -953,7 +965,7 @@ public class ResourceManager : MonoBehaviour
 
     void LoadStation(GameObject stationObject)
     {
-        GameObject stationMesh = stationObject.transform.GetChild(0).gameObject;
+        //GameObject stationMesh = stationObject.transform.GetChild(0).gameObject;
         //Set tags and layers
         stationObject.tag = "Station";
 
@@ -992,7 +1004,7 @@ public class ResourceManager : MonoBehaviour
 
     void LoadFighter(GameObject fighterObject)
     {
-        GameObject fighterMesh = fighterObject.transform.GetChild(0).gameObject;
+        //GameObject fighterMesh = fighterObject.transform.GetChild(0).gameObject;
 
         //Add Tags
         fighterObject.tag = "Fighter";
@@ -1010,6 +1022,45 @@ public class ResourceManager : MonoBehaviour
             fighters.Add(fighterObject.name, fighterObject);
         }
         fighterObject.SetActive(false);
+    }
+
+    void LoadPlanets(string path)
+    {
+        FileInfo[] files = GetFilesByType(path, "*.unity3d");
+        foreach (FileInfo file in files)
+        {
+            AssetBundle asset = AssetBundle.LoadFromFile(path + file.Name);
+            foreach (string assetName in asset.GetAllAssetNames())
+            {
+                try
+                {
+                    LoadPlanet((GameObject)asset.LoadAsset(assetName));
+                }
+                catch
+                {
+                    print("Failed to load planet: " + assetName);
+                }
+            }
+        }
+    }
+
+    void LoadPlanet(GameObject planetObject)
+    {
+        //GameObject shipMesh = planetObject.transform.GetChild(0).gameObject;
+        //Set tags and layers
+        planetObject.tag = "Planet";
+
+        GameObject existingPlanet;
+        if (planets.TryGetValue(planetObject.name, out existingPlanet))
+        {
+            //Destroy(ExistingShip);
+            existingPlanet = planetObject;
+        }
+        else
+        {
+            planets.Add(planetObject.name, planetObject);
+        }
+        planetObject.SetActive(false);
     }
 
     void LoadSkyBoxes(string path)
@@ -1651,6 +1702,32 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    void LoadPlanetDefinitions(string path)
+    {
+        FileInfo[] files = GetFilesByType(path, "*.xml");
+        foreach (FileInfo file in files)
+        {
+            PlanetTypeDefinition planetDefinition = new PlanetTypeDefinition();
+            try
+            {
+                planetDefinition = (PlanetTypeDefinition)new XmlSerializer(typeof(PlanetTypeDefinition)).Deserialize(file.OpenRead());
+                string name = Path.GetFileNameWithoutExtension(file.Name);
+                if (modules.ContainsKey(name))
+                {
+                    planetDefinitions[name] = planetDefinition;
+                }
+                else
+                {
+                    planetDefinitions.Add(name, planetDefinition);
+                }
+            }
+            catch
+            {
+                print("Failed to load planet definition: " + file.Name);
+            }
+        }
+    }
+
     void LoadProjectiles(string path)
     {
         FileInfo[] files = GetFilesByType(path, "*.unity3d");
@@ -2006,6 +2083,26 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    void LoadPlanetsDirectory(string path)
+    {
+        if (Directory.Exists(path + "/Definitions"))
+        {
+            LoadPlanetDefinitions(path + "/Definitions");
+        }
+        if (Directory.Exists(path + "/Localization"))
+        {
+            LoadLocalization(path + "/Localization/");
+        }
+        if (Directory.Exists(path + "/Tiles"))
+        {
+            LoadTextures(path + "/Tiles", planetTiles);
+        }
+        if (Directory.Exists(path + "/GameObjects"))
+        {
+            LoadPlanets(path + "/GameObjects/");
+        }
+    }
+
     void ApplyFiringRangeFactorForAllWeapons()
     {
         foreach(KeyValuePair<string, Weapon> weapon in weapons)
@@ -2231,10 +2328,10 @@ public class ResourceManager : MonoBehaviour
     {
         if (stationName != null)
         {
-            GameObject shipObject;
-            if (stations.TryGetValue(stationName, out shipObject))
+            GameObject stationObject;
+            if (stations.TryGetValue(stationName, out stationObject))
             {
-                return shipObject;
+                return stationObject;
             }
         }
         return null;
@@ -2244,10 +2341,23 @@ public class ResourceManager : MonoBehaviour
     {
         if (fighterName != null)
         {
-            GameObject shipObject;
-            if (fighters.TryGetValue(fighterName, out shipObject))
+            GameObject fighterObject;
+            if (fighters.TryGetValue(fighterName, out fighterObject))
             {
-                return shipObject;
+                return fighterObject;
+            }
+        }
+        return null;
+    }
+
+    public GameObject GetPlanetObject(string planetName)
+    {
+        if (planetName != null)
+        {
+            GameObject planetObject;
+            if (planets.TryGetValue(planetName, out planetObject))
+            {
+                return planetObject;
             }
         }
         return null;
