@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class EmpireData
+public class EmpireData : Object
 {
 
     [SerializeField]
@@ -20,13 +20,13 @@ public class EmpireData
 
 
     [SerializeField]
-    TechnologyEntry activePhysicsResearch;
+    TechnologyEntry activeResearchPhysics = null;
 
     [SerializeField]
-    TechnologyEntry activeSocietyResearch;
+    TechnologyEntry activeResearchSociety = null;
 
     [SerializeField]
-    TechnologyEntry activeEngineeringResearch;
+    TechnologyEntry activeResearchEngineering = null;
 
     [SerializeField]
     List<TechnologyEntry> physicsTechnologyEntries = new List<TechnologyEntry>();
@@ -42,14 +42,30 @@ public class EmpireData
         return displayName;
     }
 
-    public void SetDisplayName(string name)
-    {
-        displayName = name;
-    }
 
     public float GetInfluence()
     {
         return influence;
+    }
+
+    public TechnologyEntry GetActiveResearchPhysics()
+    {
+        return activeResearchPhysics;
+    }
+
+    public TechnologyEntry GetActiveResearchSociety()
+    {
+        return activeResearchSociety;
+    }
+
+    public TechnologyEntry GetActiveResearchEngineering()
+    {
+        return activeResearchEngineering;
+    }
+
+    public void SetDisplayName(string name)
+    {
+        displayName = name;
     }
 
     public void SetInfluence(float value)
@@ -102,17 +118,17 @@ public class EmpireData
 
     public void ChangeMonth()
     {
-        if (activePhysicsResearch != null)
+        if (activeResearchPhysics != null)
         {
 
         }
 
-        if (activeSocietyResearch != null)
+        if (activeResearchSociety != null)
         {
 
         }
 
-        if (activeEngineeringResearch != null)
+        if (activeResearchEngineering != null)
         {
 
         }

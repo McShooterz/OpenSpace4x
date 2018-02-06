@@ -32,12 +32,17 @@ public class Empire : MonoBehaviour
 
     void Start()
     {
-        
+        empireData = new EmpireData();
     }
 
     void Update()
     {
         
+    }
+
+    public EmpireData GetEmpireData()
+    {
+        return empireData;
     }
 
     public void AddShipData(string DesignName)

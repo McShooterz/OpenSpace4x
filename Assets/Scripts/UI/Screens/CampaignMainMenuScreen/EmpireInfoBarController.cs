@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class EmpireInfoBarController : MonoBehaviour
 {
     [SerializeField]
+    CampaignMainScreen mainScreen;
+
+    [SerializeField]
     Text moneyText;
 
     [SerializeField]
@@ -43,4 +46,34 @@ public class EmpireInfoBarController : MonoBehaviour
     {
 		
 	}
+
+
+
+
+
+
+    public void ClickGovernmentButton()
+    {
+
+    }
+
+    public void ClickContactsButton()
+    {
+
+    }
+
+    public void ClickSituationLogButton()
+    {
+
+    }
+
+    public void CliclResearchButton()
+    {
+        mainScreen.ToggleResearchWindow(true);
+    }
+
+    public void ClickMoreDropDownButton()
+    {
+
+    }
 }

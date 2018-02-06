@@ -6,6 +6,12 @@ using UnityEngine.EventSystems;
 public class CampaignMainScreen : MonoBehaviour
 {
     [SerializeField]
+    EmpireInfoBarController empireInfoBar;
+
+    [SerializeField]
+    ResearchWindow researchWindow;
+
+    [SerializeField]
     CampaignPlanetPanel planetPanel;
 
     [SerializeField]
@@ -20,6 +26,8 @@ public class CampaignMainScreen : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
+        ToggleResearchWindow(false);
+
         planetPanel.gameObject.SetActive(false);
     }
 	
@@ -27,6 +35,11 @@ public class CampaignMainScreen : MonoBehaviour
 	void Update ()
     {
         CheckMouseHovering();
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            ToggleResearchWindow(false);
+        }
 
         if (!EventSystem.current.IsPointerOverGameObject())
         {
@@ -132,5 +145,10 @@ public class CampaignMainScreen : MonoBehaviour
     {
         EmpireManager.instance.GetPlayerEmpire().GetPlanetManager().SetSelectedPlanet(null);
         planetPanel.gameObject.SetActive(false);
+    }
+
+    public void ToggleResearchWindow(bool state)
+    {
+        researchWindow.gameObject.SetActive(state);
     }
 }
