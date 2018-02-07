@@ -2311,6 +2311,30 @@ public class ResourceManager : MonoBehaviour
         return weapons.ContainsKey(weaponName);
     }
 
+    public Technology GetTechnology(string techName)
+    {
+        Technology tech;
+
+        if (technologies.TryGetValue(techName, out tech))
+        {
+            return tech;
+        }
+
+        return null;
+    }
+
+    public TechnologyTree GetTechnologyTree(string techTreeName)
+    {
+        TechnologyTree techTree;
+
+        if (technologyTrees.TryGetValue(techTreeName, out techTree))
+        {
+            return techTree;
+        }
+
+        return null;
+    }
+
     public GameObject GetShipObject(string shipName)
     {
         if(shipName != null)

@@ -1,0 +1,9 @@
+<Technology>
+	<technologyType>society</technologyType>
+	<name>Tech_Hydroponics4</name>
+	<description>Tech_Hydroponics4desc</description>
+	<baseCost>800</baseCost>
+	<requiredTechnologies>
+		<string>Hydroponics3</string>
+	</requiredTechnologies>
+</Technology>

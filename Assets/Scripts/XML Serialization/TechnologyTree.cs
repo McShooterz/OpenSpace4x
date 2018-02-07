@@ -5,22 +5,58 @@ using UnityEngine;
 [System.Serializable]
 public class TechnologyTree
 {
-    Technology[] physcisTechnologies;
-    Technology[] societyTechnologies;
-    Technology[] engineeringTechnologies;
+    string[] physcisTechnologies;
+    string[] societyTechnologies;
+    string[] engineeringTechnologies;
 
-    public Technology[] GetPhysicsTechnologies()
+    public List<Technology> GetPhysicsTechnologies()
     {
-        return physcisTechnologies;
+        List<Technology> techList = new List<Technology>();
+
+        foreach(string techName in physcisTechnologies)
+        {
+            Technology tech = ResourceManager.instance.GetTechnology(techName);
+
+            if (tech != null)
+            {
+                techList.Add(tech);
+            }
+        }
+
+        return techList;
     }
 
-    public Technology[] GetSocietyTechnologies()
+    public List<Technology> GetSocietyTechnologies()
     {
-        return societyTechnologies;
+        List<Technology> techList = new List<Technology>();
+
+        foreach (string techName in societyTechnologies)
+        {
+            Technology tech = ResourceManager.instance.GetTechnology(techName);
+
+            if (tech != null)
+            {
+                techList.Add(tech);
+            }
+        }
+
+        return techList;
     }
 
-    public Technology[] GetEngineeringTechnologies()
+    public List<Technology> GetEngineeringTechnologies()
     {
-        return engineeringTechnologies;
+        List<Technology> techList = new List<Technology>();
+
+        foreach (string techName in engineeringTechnologies)
+        {
+            Technology tech = ResourceManager.instance.GetTechnology(techName);
+
+            if (tech != null)
+            {
+                techList.Add(tech);
+            }
+        }
+
+        return techList;
     }
 }
