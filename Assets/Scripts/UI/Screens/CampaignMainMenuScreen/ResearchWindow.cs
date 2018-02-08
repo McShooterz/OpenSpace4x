@@ -13,7 +13,7 @@ public class ResearchWindow : MonoBehaviour
     [SerializeField]
     GameObject technologyListPanel;
 
-    [Header("Physics")]
+    [Header("Scientist Physics")]
 
     [SerializeField]
     Text scientistNamePhysics;
@@ -48,7 +48,7 @@ public class ResearchWindow : MonoBehaviour
     [SerializeField]
     AdjustableBarController activeTechnologyPhysicsProgressBar;
 
-    [Header("Society")]
+    [Header("Scientist Society")]
 
     [SerializeField]
     Text scientistNameSociety;
@@ -83,7 +83,7 @@ public class ResearchWindow : MonoBehaviour
     [SerializeField]
     AdjustableBarController activeTechnologySocietyProgressBar;
 
-    [Header("Engineering")]
+    [Header("Scientist Engineering")]
 
     [SerializeField]
     Text scientistNameEngineering;
@@ -117,6 +117,20 @@ public class ResearchWindow : MonoBehaviour
 
     [SerializeField]
     AdjustableBarController activeTechnologyEngineeringProgressBar;
+
+    [Header("Technology list")]
+
+    [SerializeField]
+    GameObject technologyButtonPrefab;
+
+    [SerializeField]
+    Transform contentTransform;
+
+    [SerializeField]
+    List<TechnologyButtonController> technologyButtons = new List<TechnologyButtonController>();
+
+    [SerializeField]
+    Text technologyListInstructions;
 
     // Use this for initialization
     void Start ()
@@ -180,6 +194,35 @@ public class ResearchWindow : MonoBehaviour
         technologyListPanel.SetActive(state);
     }
 
+    void ClearTechButtonList()
+    {
+        foreach(TechnologyButtonController button in technologyButtons)
+        {
+            if (button != null)
+            {
+                Destroy(button.gameObject);
+            }
+        }
+
+        technologyButtons.Clear();
+    }
+
+    void BuildTechButtonList(TechnologyEntry[] techEntries, TechnologyButtonController.ButtonPress callBackFunction)
+    {
+        ClearTechButtonList();
+
+        foreach(TechnologyEntry techEntry in techEntries)
+        {
+            GameObject techButton = Instantiate(technologyButtonPrefab, contentTransform);
+            TechnologyButtonController techButtonController = techButton.GetComponent<TechnologyButtonController>();
+            Button button = techButton.GetComponent<Button>();
+
+            technologyButtons.Add(techButtonController);
+            techButtonController.SetTechnologyEntry(techEntry);
+            techButtonController.SetCallBackFunction(callBackFunction);
+        }
+    }
+
     public void ClickReseachedButton()
     {
 
@@ -197,16 +240,58 @@ public class ResearchWindow : MonoBehaviour
 
     public void ClickPhysicsSelectResearchButton()
     {
+        ToggleTechnologyListPanel(true);
 
+        Empire empire = EmpireManager.instance.GetPlayerEmpire();
+
+        if (empire != null)
+        {
+            TechnologyEntry[] technologyEntries = empire.GetEmpireData().GetCurrentTechnologiesPhysics();
+
+            BuildTechButtonList(technologyEntries, ClickedTechnologyEntryPhysics);
+        }
     }
 
     public void ClickSocietySelectResearchButton()
     {
+        ToggleTechnologyListPanel(true);
 
+        Empire empire = EmpireManager.instance.GetPlayerEmpire();
+
+        if (empire != null)
+        {
+            TechnologyEntry[] technologyEntries = empire.GetEmpireData().GetCurrentTechnologiesSociety();
+
+            BuildTechButtonList(technologyEntries, ClickedTechnologyEntrySociety);
+        }
     }
 
     public void ClickEngineeringSelectResearchButton()
     {
+        ToggleTechnologyListPanel(true);
 
+        Empire empire = EmpireManager.instance.GetPlayerEmpire();
+
+        if (empire != null)
+        {
+            TechnologyEntry[] technologyEntries = empire.GetEmpireData().GetCurrentTechnologiesEngineering();
+
+            BuildTechButtonList(technologyEntries, ClickedTechnologyEntryEngineering);
+        }
+    }
+
+    public void ClickedTechnologyEntryPhysics(TechnologyEntry techEntry)
+    {
+        ToggleTechnologyListPanel(false);
+    }
+
+    public void ClickedTechnologyEntrySociety(TechnologyEntry techEntry)
+    {
+        ToggleTechnologyListPanel(false);
+    }
+
+    public void ClickedTechnologyEntryEngineering(TechnologyEntry techEntry)
+    {
+        ToggleTechnologyListPanel(false);
     }
 }

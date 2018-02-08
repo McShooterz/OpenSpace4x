@@ -160,6 +160,36 @@ public class EmpireData : Object
         return false;
     }
 
+    public TechnologyEntry[] GetCurrentTechnologiesPhysics()
+    {
+        if (currentTechnologiesPhysics.Length == 0)
+        {
+            GenerateCurrentTechnologiesPhysics(3);
+        }
+
+        return currentTechnologiesPhysics;
+    }
+
+    public TechnologyEntry[] GetCurrentTechnologiesSociety()
+    {
+        if (currentTechnologiesSociety.Length == 0)
+        {
+            GenerateCurrentTechnologiesSociety(3);
+        }
+
+        return currentTechnologiesSociety;
+    }
+
+    public TechnologyEntry[] GetCurrentTechnologiesEngineering()
+    {
+        if (currentTechnologiesEngineering.Length == 0)
+        {
+            GenerateCurrentTechnologiesEngineering(3);
+        }
+
+        return currentTechnologiesEngineering;
+    }
+
     public void GenerateCurrentTechnologiesPhysics(int count)
     {
         GenerateCurrentTechnologies(count, currentTechnologiesPhysics, physicsTechnologyEntries);
