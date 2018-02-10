@@ -44,7 +44,7 @@ public class Technology
 
 
 
-    public bool MeetsRequirements(EmpireData empire)
+    public bool MeetsRequirements(Empire empire)
     {
         foreach(string requiredTechName in requiredTechnologies)
         {

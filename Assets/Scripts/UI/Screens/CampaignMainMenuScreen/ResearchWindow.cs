@@ -148,20 +148,22 @@ public class ResearchWindow : MonoBehaviour
 
     void OnEnable()
     {
+        UpdateCurrentResearch();
+    }
+
+    public void UpdateCurrentResearch()
+    {
         Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
 
         if (playerEmpire != null)
         {
-            EmpireData playerEmpireData = playerEmpire.GetEmpireData();
-
-            TechnologyEntry activeResearchPhysics = playerEmpireData.GetActiveResearchPhysics();
-            TechnologyEntry activeResearchSociety = playerEmpireData.GetActiveResearchSociety();
-            TechnologyEntry activeResearchEngineering = playerEmpireData.GetActiveResearchEngineering();
+            TechnologyEntry activeResearchPhysics = playerEmpire.GetActiveResearchPhysics();
+            TechnologyEntry activeResearchSociety = playerEmpire.GetActiveResearchSociety();
+            TechnologyEntry activeResearchEngineering = playerEmpire.GetActiveResearchEngineering();
 
             if (activeResearchPhysics != null)
             {
-                activeResearchPhysicsGroup.SetActive(true);
-                selectResearchPhysicsButton.gameObject.SetActive(false);
+                SetActiveResearchPhysics(activeResearchPhysics);
             }
             else
             {
@@ -171,20 +173,22 @@ public class ResearchWindow : MonoBehaviour
 
             if (activeResearchSociety != null)
             {
-
+                SetActiveResearchSociety(activeResearchSociety);
             }
             else
             {
-
+                activeResearchSocietyGroup.SetActive(false);
+                selectResearchSocietyButton.gameObject.SetActive(true);
             }
 
             if (activeResearchEngineering != null)
             {
-
+                SetActiveResearchEngineering(activeResearchEngineering);
             }
             else
             {
-
+                activeResearchEngineeringGroup.SetActive(false);
+                selectResearchEngineeringButton.gameObject.SetActive(true);
             }
         }
     }
@@ -207,7 +211,7 @@ public class ResearchWindow : MonoBehaviour
         technologyButtons.Clear();
     }
 
-    void BuildTechButtonList(TechnologyEntry[] techEntries, TechnologyButtonController.ButtonPress callBackFunction)
+    void BuildTechButtonList(List<TechnologyEntry> techEntries, TechnologyButtonController.ButtonPress callBackFunction)
     {
         ClearTechButtonList();
 
@@ -242,56 +246,142 @@ public class ResearchWindow : MonoBehaviour
     {
         ToggleTechnologyListPanel(true);
 
-        Empire empire = EmpireManager.instance.GetPlayerEmpire();
-
-        if (empire != null)
-        {
-            TechnologyEntry[] technologyEntries = empire.GetEmpireData().GetCurrentTechnologiesPhysics();
-
-            BuildTechButtonList(technologyEntries, ClickedTechnologyEntryPhysics);
-        }
+        BuildTechButtonList(EmpireManager.instance.GetPlayerEmpire().GetCurrentTechnologiesPhysics(), ClickedTechnologyEntryPhysics);
     }
 
     public void ClickSocietySelectResearchButton()
     {
         ToggleTechnologyListPanel(true);
 
-        Empire empire = EmpireManager.instance.GetPlayerEmpire();
-
-        if (empire != null)
-        {
-            TechnologyEntry[] technologyEntries = empire.GetEmpireData().GetCurrentTechnologiesSociety();
-
-            BuildTechButtonList(technologyEntries, ClickedTechnologyEntrySociety);
-        }
+        BuildTechButtonList(EmpireManager.instance.GetPlayerEmpire().GetCurrentTechnologiesSociety(), ClickedTechnologyEntrySociety);
     }
 
     public void ClickEngineeringSelectResearchButton()
     {
         ToggleTechnologyListPanel(true);
 
-        Empire empire = EmpireManager.instance.GetPlayerEmpire();
-
-        if (empire != null)
-        {
-            TechnologyEntry[] technologyEntries = empire.GetEmpireData().GetCurrentTechnologiesEngineering();
-
-            BuildTechButtonList(technologyEntries, ClickedTechnologyEntryEngineering);
-        }
+        BuildTechButtonList(EmpireManager.instance.GetPlayerEmpire().GetCurrentTechnologiesEngineering(), ClickedTechnologyEntryEngineering);
     }
 
     public void ClickedTechnologyEntryPhysics(TechnologyEntry techEntry)
     {
         ToggleTechnologyListPanel(false);
+
+        Empire empire = EmpireManager.instance.GetPlayerEmpire();
+        empire.SetActiveResearchPhysics(techEntry);
+
+        UpdateCurrentResearch();
     }
 
     public void ClickedTechnologyEntrySociety(TechnologyEntry techEntry)
     {
         ToggleTechnologyListPanel(false);
+
+        Empire empire = EmpireManager.instance.GetPlayerEmpire();
+        empire.SetActiveResearchSociety(techEntry);
+
+        UpdateCurrentResearch();
     }
 
     public void ClickedTechnologyEntryEngineering(TechnologyEntry techEntry)
     {
         ToggleTechnologyListPanel(false);
+
+        Empire empire = EmpireManager.instance.GetPlayerEmpire();
+        empire.SetActiveResearchEngineering(techEntry);
+
+        UpdateCurrentResearch();
+    }
+
+    public void ClickedChangeTechnologyPhysics()
+    {
+        activeResearchPhysicsGroup.SetActive(false);
+
+        ToggleTechnologyListPanel(true);
+
+        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+
+        BuildTechButtonList(playerEmpire.GetCurrentTechnologiesPhysics(), ClickedTechnologyEntryPhysics);
+
+        playerEmpire.SetActiveResearchPhysics(null);
+    }
+
+    public void ClickedChangeTechnologySociety()
+    {
+        activeResearchSocietyGroup.SetActive(false);
+
+        ToggleTechnologyListPanel(true);
+
+        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+
+        BuildTechButtonList(playerEmpire.GetCurrentTechnologiesSociety(), ClickedTechnologyEntrySociety);
+
+        playerEmpire.SetActiveResearchSociety(null);
+    }
+
+    public void ClickedChangeTechnologyEngineering()
+    {
+        activeResearchEngineeringGroup.SetActive(false);
+
+        ToggleTechnologyListPanel(true);
+
+        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
+
+        BuildTechButtonList(playerEmpire.GetCurrentTechnologiesEngineering(), ClickedTechnologyEntryEngineering);
+
+        playerEmpire.SetActiveResearchEngineering(null);
+    }
+
+    void SetActiveResearchPhysics(TechnologyEntry techEntry)
+    {
+        if (techEntry != null)
+        {
+            activeResearchPhysicsGroup.SetActive(true);
+            selectResearchPhysicsButton.gameObject.SetActive(false);
+
+            //scientistNamePhysics;
+            //researchBonusPhysicsText;
+            //activeTechnologyPhysicsBackground;
+
+            activeTechnologyPhysicsNameText.text = techEntry.GetTechnology().GetName();
+            activeTechnologyPhysicsDescriptionText.text = techEntry.GetTechnology().GetDescription();
+            activeTechnologyPhysicsProgressPointsText.text = techEntry.GetResearchPoints().ToString() + "/" + techEntry.GetResearchCost(1.0f).ToString();
+
+            //activeTechnologyPhysicsImage;
+            //activeTechnologyPhysicsFieldIcon;
+
+            activeTechnologyPhysicsProgressBar.SetPercentage(techEntry.GetResearchPercentCompleted(1.0f));
+        }
+    }
+
+    void SetActiveResearchSociety(TechnologyEntry techEntry)
+    {
+        if (techEntry != null)
+        {
+            activeResearchSocietyGroup.SetActive(true);
+            selectResearchSocietyButton.gameObject.SetActive(false);
+
+            activeTechnologySocietyNameText.text = techEntry.GetTechnology().GetName();
+            activeTechnologySocietyDescriptionText.text = techEntry.GetTechnology().GetDescription();
+            activeTechnologySocietyProgressPointsText.text = techEntry.GetResearchPoints().ToString() + "/" + techEntry.GetResearchCost(1.0f).ToString();
+
+            activeTechnologySocietyProgressBar.SetPercentage(techEntry.GetResearchPercentCompleted(1.0f));
+        }
+    }
+
+    void SetActiveResearchEngineering(TechnologyEntry techEntry)
+    {
+        if (techEntry != null)
+        {
+            activeResearchEngineeringGroup.SetActive(true);
+            selectResearchEngineeringButton.gameObject.SetActive(false);
+
+
+            activeTechnologyEngineeringNameText.text = techEntry.GetTechnology().GetName();
+            activeTechnologyEngineeringDescriptionText.text = techEntry.GetTechnology().GetDescription();
+            activeTechnologyEngineeringProgressPointsText.text = techEntry.GetResearchPoints().ToString() + "/" + techEntry.GetResearchCost(1.0f).ToString();
+
+            activeTechnologyEngineeringProgressBar.SetPercentage(techEntry.GetResearchPercentCompleted(1.0f));
+        }
     }
 }

@@ -23,6 +23,8 @@ public class EmpireManager : MonoBehaviour
         {
             Destroy(this);
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     // Use this for initialization
@@ -46,9 +48,6 @@ public class EmpireManager : MonoBehaviour
     {
         return empires;
     }
-
-
-
 
     public void ChangeDay()
     {

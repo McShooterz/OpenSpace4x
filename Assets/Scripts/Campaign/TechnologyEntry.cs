@@ -3,12 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public class TechnologyEntry : Object
+public class TechnologyEntry : ScriptableObject
 {
-
     [SerializeField]
     Technology technology;
-
 
     [SerializeField]
     float researchPoints;
@@ -16,8 +14,7 @@ public class TechnologyEntry : Object
     [SerializeField]
     bool completed;
 
-
-    public TechnologyEntry(Technology tech)
+    public void SetTechnology(Technology tech)
     {
         technology = tech;
         researchPoints = 0;
@@ -32,6 +29,23 @@ public class TechnologyEntry : Object
     public float GetResearchPoints()
     {
         return researchPoints;
+    }
+
+    public float GetResearchCost(float modifier)
+    {
+        return technology.baseCost * modifier;
+    }
+
+    public float GetResearchPercentCompleted(float modifier)
+    {
+        if (researchPoints == 0f)
+        {
+            return 0f;
+        }
+
+        float percent = researchPoints / technology.baseCost * modifier;
+
+        return Mathf.Clamp(percent, 0f, 1.0f);
     }
 
     public bool IsCompleted()

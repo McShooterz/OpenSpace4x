@@ -1,0 +1,9 @@
+<Technology>
+	<technologyType>engineering</technologyType>
+	<name>Tech_ShipyardSize3</name>
+	<description>Tech_ShipyardSize3desc</description>
+	<baseCost>400</baseCost>
+	<requiredTechnologies>
+		<string>ShipyardSize2</string>
+	</requiredTechnologies>
+</Technology>

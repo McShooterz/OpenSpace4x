@@ -43,7 +43,12 @@ public class TechnologyButtonController : MonoBehaviour
 
     public void SetTechnologyEntry(TechnologyEntry technologyEntry)
     {
-        technologyEntry = techEntry;
+        techEntry = technologyEntry;
+
+        techNameText.text = techEntry.GetTechnology().GetName();
+        techDescriptionText.text = techEntry.GetTechnology().GetDescription();
+
+        pointsProgressText.text = techEntry.GetResearchPoints().ToString() + "/" + techEntry.GetTechnology().baseCost.ToString();
     }
 
     public void SetCallBackFunction(ButtonPress callBackFunction)

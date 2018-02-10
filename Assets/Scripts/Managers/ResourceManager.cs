@@ -1694,6 +1694,8 @@ public class ResourceManager : MonoBehaviour
                 {
                     technologyTrees.Add(name, technologyTree);
                 }
+
+                print("Loaded technology tree: " + file.Name);
             }
             catch
             {

@@ -5,58 +5,57 @@ using UnityEngine;
 [System.Serializable]
 public class TechnologyTree
 {
-    string[] physcisTechnologies;
-    string[] societyTechnologies;
-    string[] engineeringTechnologies;
+    public string[] startingPhyscisTechnologies = new string[0];
+    public string[] startingSocietyTechnologies = new string[0];
+    public string[] startingEngineeringTechnologies = new string[0];
+    public string[] physcisTechnologies = new string[0];
+    public string[] societyTechnologies = new string[0];
+    public string[] engineeringTechnologies = new string[0];
+
+    public List<Technology> GetStartingPhysicsTechnologies()
+    {
+        return GetTechnologyList(startingPhyscisTechnologies);
+    }
+
+    public List<Technology> GetStartingSocietyTechnologies()
+    {
+        return GetTechnologyList(startingSocietyTechnologies);
+    }
+
+    public List<Technology> GetStartingEngineeringTechnologies()
+    {
+        return GetTechnologyList(startingEngineeringTechnologies);
+    }
 
     public List<Technology> GetPhysicsTechnologies()
     {
-        List<Technology> techList = new List<Technology>();
-
-        foreach(string techName in physcisTechnologies)
-        {
-            Technology tech = ResourceManager.instance.GetTechnology(techName);
-
-            if (tech != null)
-            {
-                techList.Add(tech);
-            }
-        }
-
-        return techList;
+        return GetTechnologyList(physcisTechnologies);
     }
 
     public List<Technology> GetSocietyTechnologies()
     {
-        List<Technology> techList = new List<Technology>();
-
-        foreach (string techName in societyTechnologies)
-        {
-            Technology tech = ResourceManager.instance.GetTechnology(techName);
-
-            if (tech != null)
-            {
-                techList.Add(tech);
-            }
-        }
-
-        return techList;
+        return GetTechnologyList(societyTechnologies);
     }
 
     public List<Technology> GetEngineeringTechnologies()
     {
-        List<Technology> techList = new List<Technology>();
+        return GetTechnologyList(engineeringTechnologies);
+    }
 
-        foreach (string techName in engineeringTechnologies)
+    List<Technology> GetTechnologyList(string[] technologyNames)
+    {
+        List<Technology> technologyList = new List<Technology>();
+
+        foreach (string technologyName in technologyNames)
         {
-            Technology tech = ResourceManager.instance.GetTechnology(techName);
+            Technology technology = ResourceManager.instance.GetTechnology(technologyName);
 
-            if (tech != null)
+            if (technology != null)
             {
-                techList.Add(tech);
+                technologyList.Add(technology);
             }
         }
 
-        return techList;
+        return technologyList;
     }
 }
