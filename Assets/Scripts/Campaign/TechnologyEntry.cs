@@ -57,4 +57,20 @@ public class TechnologyEntry : ScriptableObject
     {
         completed = true;
     }
+
+    public float ApplyResearchPoints(float appliedPoints, float costModifier)
+    {
+        researchPoints += appliedPoints;
+
+        float totalCost = technology.baseCost * costModifier;
+
+        if (researchPoints >= totalCost)
+        {
+            completed = true;
+
+            return researchPoints - totalCost;
+        }
+
+        return 0f;
+    }
 }

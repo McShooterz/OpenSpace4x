@@ -151,4 +151,9 @@ public class CampaignMainScreen : MonoBehaviour
     {
         researchWindow.gameObject.SetActive(state);
     }
+
+    public void ChangeMonth()
+    {
+        researchWindow.UpdateCurrentResearch();
+    }
 }

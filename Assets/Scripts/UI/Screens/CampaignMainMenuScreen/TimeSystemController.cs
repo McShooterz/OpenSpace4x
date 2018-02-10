@@ -32,7 +32,7 @@ public class TimeSystemController : MonoBehaviour
     float[] timeIncrements = new float[5] { 0.25f, 0.5f, 1.0f, 1.5f, 2.0f};
     int timeIndex = 2;
 
-    float currentDay = 0f;
+    float currentDayTime = 0f;
 
 	// Use this for initialization
 	void Start ()
@@ -51,12 +51,17 @@ public class TimeSystemController : MonoBehaviour
 
 		if (!timePaused)
         {
-            currentDay += Time.deltaTime * timeModifier;
+            currentDayTime += Time.deltaTime * timeModifier;
 
-            if (currentDay > 5f)
+            if (currentDayTime > 1f)
             {
-                currentDay -= 5f;
-                stardate.AddDay();
+                currentDayTime -= 1f;
+                EmpireManager.instance.ChangeDay();
+                if (stardate.AddDay())
+                {
+                    EmpireManager.instance.ChangeMonth();
+                    parentScreen.ChangeMonth();   
+                }
                 SetStardateText();
             }
         }

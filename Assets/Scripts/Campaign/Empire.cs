@@ -46,6 +46,15 @@ public class Empire : MonoBehaviour
     [Header("Technology")]
 
     [SerializeField]
+    float researchPoolPhysics = 0f;
+
+    [SerializeField]
+    float researchPoolSociety = 0f;
+
+    [SerializeField]
+    float researchPoolEngineering = 0f;
+
+    [SerializeField]
     TechnologyTree technologyTree;
 
     [SerializeField]
@@ -395,19 +404,45 @@ public class Empire : MonoBehaviour
 
     public void ChangeMonth()
     {
+        researchPoolPhysics += 100f;
+        researchPoolSociety += 100f;
+        researchPoolEngineering += 100f;
+
+
         if (activeResearchPhysics != null)
         {
+            researchPoolPhysics = activeResearchPhysics.ApplyResearchPoints(researchPoolPhysics, 1.0f);
 
+            if (activeResearchPhysics.IsCompleted())
+            {
+                researchedTechnologiesPhysics.Add(activeResearchPhysics);
+                activeResearchPhysics = null;
+                GenerateCurrentTechnologiesPhysics(3);
+            }
         }
 
         if (activeResearchSociety != null)
         {
+            researchPoolSociety = activeResearchSociety.ApplyResearchPoints(researchPoolSociety, 1.0f);
 
+            if (activeResearchSociety.IsCompleted())
+            {
+                researchedTechnologiesSociety.Add(activeResearchSociety);
+                activeResearchSociety = null;
+                GenerateCurrentTechnologiesSociety(3);
+            }
         }
 
         if (activeResearchEngineering != null)
         {
+            researchPoolEngineering = activeResearchEngineering.ApplyResearchPoints(researchPoolEngineering, 1.0f);
 
+            if (activeResearchEngineering.IsCompleted())
+            {
+                researchedTechnologiesEngineering.Add(activeResearchEngineering);
+                activeResearchEngineering = null;
+                GenerateCurrentTechnologiesEngineering(3);
+            }
         }
     }
 }

@@ -41,7 +41,7 @@ public class Stardate
         return day;
     }
 
-    public void AddDay()
+    public bool AddDay()
     {
         day++;
 
@@ -55,6 +55,10 @@ public class Stardate
                 month = 0;
                 year++;
             }
+
+            return true;
         }
+
+        return false;
     }
 }
