@@ -108,6 +108,7 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, GameObject> planets = new Dictionary<string, GameObject>();
     Dictionary<string, PlanetTypeDefinition> planetDefinitions = new Dictionary<string, PlanetTypeDefinition>();
     Dictionary<string, Sprite> planetTiles = new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> planetTextures = new Dictionary<string, Sprite>();
 
     [SerializeField]
     List<Sprite> flagBackgrounds = new List<Sprite>();
@@ -123,7 +124,10 @@ public class ResourceManager : MonoBehaviour
 
     Dictionary<string, Technology> technologies = new Dictionary<string, Technology>();
     Dictionary<string, TechnologyTree> technologyTrees = new Dictionary<string, TechnologyTree>();
-    Dictionary<string, Sprite> technologyIcons = new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> technologyTextures = new Dictionary<string, Sprite>();
+
+    Dictionary<string, BuildingDefinition> buildings = new Dictionary<string, BuildingDefinition>();
+    Dictionary<string, Sprite> buildingTextures = new Dictionary<string, Sprite>();
 
     Dictionary<string, ShipNameSet> shipNameSets = new Dictionary<string, ShipNameSet>();
     Dictionary<string, CharacterNameSet> characterNameSets = new Dictionary<string, CharacterNameSet>();
@@ -604,7 +608,7 @@ public class ResourceManager : MonoBehaviour
 
     public Sprite GetTechnologyIcon(string textureName)
     {
-        return GetTexture(textureName, technologyIcons);
+        return GetTexture(textureName, technologyTextures);
     }
 
     Sprite GetTexture(string textureName, Dictionary<string, Sprite> textureDictionary)
@@ -1660,7 +1664,7 @@ public class ResourceManager : MonoBehaviour
             {
                 technology = (Technology)new XmlSerializer(typeof(Technology)).Deserialize(file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
-                if (modules.ContainsKey(name))
+                if (technologies.ContainsKey(name))
                 {
                     technologies[name] = technology;
                 }
@@ -1686,7 +1690,7 @@ public class ResourceManager : MonoBehaviour
             {
                 technologyTree = (TechnologyTree)new XmlSerializer(typeof(TechnologyTree)).Deserialize(file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
-                if (modules.ContainsKey(name))
+                if (technologyTrees.ContainsKey(name))
                 {
                     technologyTrees[name] = technologyTree;
                 }
@@ -1704,6 +1708,34 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    void LoadBuildingDefinitions(string path)
+    {
+        FileInfo[] files = GetFilesByType(path, "*.xml");
+        foreach (FileInfo file in files)
+        {
+            BuildingDefinition buildingDefinition = new BuildingDefinition();
+            try
+            {
+                buildingDefinition = (BuildingDefinition)new XmlSerializer(typeof(BuildingDefinition)).Deserialize(file.OpenRead());
+                string name = Path.GetFileNameWithoutExtension(file.Name);
+                if (buildings.ContainsKey(name))
+                {
+                    buildings[name] = buildingDefinition;
+                }
+                else
+                {
+                    buildings.Add(name, buildingDefinition);
+                }
+
+                print("Loaded building tree: " + file.Name);
+            }
+            catch
+            {
+                print("Failed to load building: " + file.Name);
+            }
+        }
+    }
+
     void LoadPlanetDefinitions(string path)
     {
         FileInfo[] files = GetFilesByType(path, "*.xml");
@@ -1714,7 +1746,7 @@ public class ResourceManager : MonoBehaviour
             {
                 planetDefinition = (PlanetTypeDefinition)new XmlSerializer(typeof(PlanetTypeDefinition)).Deserialize(file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
-                if (modules.ContainsKey(name))
+                if (planetDefinitions.ContainsKey(name))
                 {
                     planetDefinitions[name] = planetDefinition;
                 }
@@ -2059,9 +2091,9 @@ public class ResourceManager : MonoBehaviour
         {
             LoadTechnologyTrees(path + "/Trees");
         }
-        if (Directory.Exists(path + "/Icons"))
+        if (Directory.Exists(path + "/Textures"))
         {
-            LoadTextures(path + "/Icons/", technologyIcons);
+            LoadTextures(path + "/Textures/", technologyTextures);
         }
         if (Directory.Exists(path + "/Localization"))
         {
@@ -2073,11 +2105,11 @@ public class ResourceManager : MonoBehaviour
     {
         if (Directory.Exists(path + "/Definitions"))
         {
-            //LoadTechnologies(path + "/Definitions");
+            LoadBuildingDefinitions(path + "/Definitions");
         }
-        if (Directory.Exists(path + "/Icons"))
+        if (Directory.Exists(path + "/Textures"))
         {
-            //LoadTextures(path + "/Icons/", technologyIcons);
+            LoadTextures(path + "/Textures/", buildingTextures);
         }
         if (Directory.Exists(path + "/Localization"))
         {
@@ -2102,6 +2134,10 @@ public class ResourceManager : MonoBehaviour
         if (Directory.Exists(path + "/GameObjects"))
         {
             LoadPlanets(path + "/GameObjects/");
+        }
+        if (Directory.Exists(path + "/Textures"))
+        {
+            //LoadTextures(path + "/Textures/");
         }
     }
 
