@@ -1,7 +1,7 @@
 <Technology>
 	<technologyType>physics</technologyType>
-	<name>Tech_</name>
-	<description>Tech_desc</description>
+	<name>Tech_LaboratoryParticlePhysics1</name>
+	<description>Tech_LaboratoryParticlePhysics1desc</description>
 	<baseCost>100</baseCost>
 	<requiredTechnologies>
 		<string></string>

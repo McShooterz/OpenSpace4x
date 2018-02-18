@@ -6,6 +6,10 @@
 	<startingEngineeringTechnologies>
 	</startingEngineeringTechnologies>
 	<physcisTechnologies>
+		<string>UniversityPhysics1</string>
+		<string>LaboratoryPhysics1</string>
+		<string>LaboratoryExperimentalPhysics1</string>
+		<string>LaboratoryParticlePhysics1</string>
 	</physcisTechnologies>
 	<societyTechnologies>
 		<string>Hydroponics1</string>
@@ -16,6 +20,8 @@
 		<string>MegaCity1</string>
 		<string>LuxuryCity1</string>
 		<string>SlumCity1</string>
+		<string>LaboratorySociety1</string>
+		<string>LaboratoryGeneticsSociety1</string>
 	</societyTechnologies>
 	<engineeringTechnologies>
 		<string>ShipyardSize1</string>

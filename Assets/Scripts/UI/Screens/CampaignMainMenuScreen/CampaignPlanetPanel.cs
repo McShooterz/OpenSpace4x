@@ -16,6 +16,10 @@ public class CampaignPlanetPanel : MonoBehaviour
 
 
 
+
+    [SerializeField]
+    PlanetSurfaceGrid planetSurfaceGrid;
+
     [SerializeField]
     CampaignPlanetPanelExtension panelExtension;
 

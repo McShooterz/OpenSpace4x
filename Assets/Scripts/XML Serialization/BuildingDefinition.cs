@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class BuildingDefinition
 {
 
@@ -22,8 +21,17 @@ public class BuildingDefinition
     //Default constructor for xml serialization and setting default values
     public BuildingDefinition()
     {
-
+        displayName = "Error";
+        description = "Error";
     }
 
+    public string GetDisplayName()
+    {
+        return ResourceManager.instance.GetLocalization(displayName);
+    }
 
+    public string GetDescription()
+    {
+        return ResourceManager.instance.GetLocalization(description);
+    }
 }

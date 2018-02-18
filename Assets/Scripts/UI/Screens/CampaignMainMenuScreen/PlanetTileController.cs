@@ -36,9 +36,15 @@ public class PlanetTileController : MonoBehaviour
     [SerializeField]
     PlanetTileData planetTileData;
 
-    //to do
-    // moral bar
-    // construction bar
+
+
+
+
+    public delegate void ButtonPress(PlanetTileController planetTileController);
+    protected ButtonPress buttonCallBack;
+
+
+
 
     // Use this for initialization
     void Start ()
@@ -55,5 +61,18 @@ public class PlanetTileController : MonoBehaviour
     public void SetPlanetTileData(PlanetTileData data)
     {
         planetTileData = data;
+    }
+
+    public void SetCallBackFunction(ButtonPress callBack)
+    {
+        buttonCallBack = callBack;
+    }
+
+    public void ClickTile()
+    {
+        if (buttonCallBack != null)
+        {
+            buttonCallBack(this);
+        }
     }
 }

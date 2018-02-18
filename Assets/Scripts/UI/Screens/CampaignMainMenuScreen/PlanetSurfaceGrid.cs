@@ -12,6 +12,9 @@ public class PlanetSurfaceGrid : MonoBehaviour
     PlanetTileController[] planetTileControllers;
 
     [SerializeField]
+    PlanetTileController selectedPlanetTileController;
+
+    [SerializeField]
     GameObject planetTilePrefab;
 
     [SerializeField]
@@ -44,6 +47,7 @@ public class PlanetSurfaceGrid : MonoBehaviour
         {
             planetTileControllers[i] = Instantiate(planetTilePrefab, gameObject.transform).GetComponent<PlanetTileController>();
             planetTileControllers[i].SetPlanetTileData(planetTileDataList[i]);
+            planetTileControllers[i].SetCallBackFunction(SelectPlanetTile);
         }
 
         // Adjust the number of rows in the grid
@@ -58,5 +62,10 @@ public class PlanetSurfaceGrid : MonoBehaviour
         }
 
         planetTileControllers = null;
+    }
+
+    public void SelectPlanetTile(PlanetTileController planetTileController)
+    {
+        selectedPlanetTileController = planetTileController;
     }
 }

@@ -36,12 +36,21 @@ public class Empire : MonoBehaviour
 
 
 
+    [Header("Active stats")]
+
 
     [SerializeField]
     float influence;
 
     [SerializeField]
     float influenceMax;
+
+
+
+    List<BuildingDefinition> buildingsUnlocked = new List<BuildingDefinition>();
+
+    List<ShipHullData> shipHullsUnlocked = new List<ShipHullData>();
+
 
     [Header("Technology")]
 

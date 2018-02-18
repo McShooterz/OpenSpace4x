@@ -7,13 +7,13 @@ public class PlanetTileData
 {
 
     [SerializeField]
-    PlanetData owner;
+    PlanetData planetData;
 
 
 
     public PlanetTileData(PlanetData data)
     {
-        owner = data;
+        planetData = data;
     }
 
 

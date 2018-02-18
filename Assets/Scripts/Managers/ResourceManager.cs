@@ -101,14 +101,14 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, EmpireDefinition> empires = new Dictionary<string, EmpireDefinition>();
 
     Dictionary<string, Sprite> iconTextures = new Dictionary<string, Sprite>();
-    Dictionary<string, Sprite> texturesUI = new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> UI_Textures = new Dictionary<string, Sprite>();
 
     Dictionary<string, Sprite> unitIcons = new Dictionary<string, Sprite>();
 
     Dictionary<string, GameObject> planets = new Dictionary<string, GameObject>();
     Dictionary<string, PlanetTypeDefinition> planetDefinitions = new Dictionary<string, PlanetTypeDefinition>();
     Dictionary<string, Sprite> planetTiles = new Dictionary<string, Sprite>();
-    Dictionary<string, Sprite> planetTextures = new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> planetIcons = new Dictionary<string, Sprite>();
 
     [SerializeField]
     List<Sprite> flagBackgrounds = new List<Sprite>();
@@ -124,10 +124,10 @@ public class ResourceManager : MonoBehaviour
 
     Dictionary<string, Technology> technologies = new Dictionary<string, Technology>();
     Dictionary<string, TechnologyTree> technologyTrees = new Dictionary<string, TechnologyTree>();
-    Dictionary<string, Sprite> technologyTextures = new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> technologyIcons = new Dictionary<string, Sprite>();
 
     Dictionary<string, BuildingDefinition> buildings = new Dictionary<string, BuildingDefinition>();
-    Dictionary<string, Sprite> buildingTextures = new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> buildingIcons = new Dictionary<string, Sprite>();
 
     Dictionary<string, ShipNameSet> shipNameSets = new Dictionary<string, ShipNameSet>();
     Dictionary<string, CharacterNameSet> characterNameSets = new Dictionary<string, CharacterNameSet>();
@@ -230,7 +230,7 @@ public class ResourceManager : MonoBehaviour
         }
         if (doLoadTextureUI && Directory.Exists(Application.streamingAssetsPath + "/UITextures"))
         {
-            LoadTextures(Application.streamingAssetsPath + "/UITextures", texturesUI);
+            LoadTextures(Application.streamingAssetsPath + "/UITextures", UI_Textures);
         }
         if (doLoadAudio && Directory.Exists(Application.streamingAssetsPath + "/Audio"))
         {
@@ -593,7 +593,7 @@ public class ResourceManager : MonoBehaviour
 
     public Sprite GetUITexture(string textureName)
     {
-        return GetTexture(textureName, texturesUI);
+        return GetTexture(textureName, UI_Textures);
     }
 
     public Sprite GetModuleTexture(string textureName)
@@ -608,7 +608,7 @@ public class ResourceManager : MonoBehaviour
 
     public Sprite GetTechnologyIcon(string textureName)
     {
-        return GetTexture(textureName, technologyTextures);
+        return GetTexture(textureName, technologyIcons);
     }
 
     Sprite GetTexture(string textureName, Dictionary<string, Sprite> textureDictionary)
@@ -2091,9 +2091,9 @@ public class ResourceManager : MonoBehaviour
         {
             LoadTechnologyTrees(path + "/Trees");
         }
-        if (Directory.Exists(path + "/Textures"))
+        if (Directory.Exists(path + "/Icons"))
         {
-            LoadTextures(path + "/Textures/", technologyTextures);
+            LoadTextures(path + "/Icons/", technologyIcons);
         }
         if (Directory.Exists(path + "/Localization"))
         {
@@ -2107,9 +2107,9 @@ public class ResourceManager : MonoBehaviour
         {
             LoadBuildingDefinitions(path + "/Definitions");
         }
-        if (Directory.Exists(path + "/Textures"))
+        if (Directory.Exists(path + "/Icons"))
         {
-            LoadTextures(path + "/Textures/", buildingTextures);
+            LoadTextures(path + "/Icons/", buildingIcons);
         }
         if (Directory.Exists(path + "/Localization"))
         {
@@ -2135,9 +2135,9 @@ public class ResourceManager : MonoBehaviour
         {
             LoadPlanets(path + "/GameObjects/");
         }
-        if (Directory.Exists(path + "/Textures"))
+        if (Directory.Exists(path + "/Icons"))
         {
-            //LoadTextures(path + "/Textures/");
+            LoadTextures(path + "/Icons/", planetIcons);
         }
     }
 

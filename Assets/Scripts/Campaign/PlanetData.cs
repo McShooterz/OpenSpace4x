@@ -11,7 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [System.Serializable]
-public class PlanetData
+public class PlanetData : Object
 {
     [SerializeField]
     string displayName;

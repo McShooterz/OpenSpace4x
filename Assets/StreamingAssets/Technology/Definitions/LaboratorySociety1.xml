@@ -1,7 +1,7 @@
 <Technology>
 	<technologyType>society</technologyType>
-	<name>Tech_</name>
-	<description>Tech_desc</description>
+	<name>Tech_LaboratorySociety1</name>
+	<description>Tech_LaboratorySociety1desc</description>
 	<baseCost>100</baseCost>
 	<requiredTechnologies>
 		<string></string>
