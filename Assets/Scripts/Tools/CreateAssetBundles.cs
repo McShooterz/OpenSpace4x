@@ -1,4 +1,6 @@
-﻿#if UNITY_EDITOR
+﻿
+
+#if UNITY_EDITOR
 using UnityEditor;
 using System.IO;
 
@@ -11,7 +13,7 @@ public class CreateAssetBundles
         Directory.CreateDirectory("AssetBundles");
 
         string[] files = Directory.GetFiles("AssetBundles");
-        foreach (var asset in files)
+        foreach (string asset in files)
         {
             File.Delete(asset);
         }

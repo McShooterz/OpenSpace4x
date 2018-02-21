@@ -69,7 +69,7 @@ namespace UnityEngine.UI.Extensions
 				textPicList.Clear();
 			}
 			
-			this.Repaint();
+			Repaint();
 		}
 		#endif
 
