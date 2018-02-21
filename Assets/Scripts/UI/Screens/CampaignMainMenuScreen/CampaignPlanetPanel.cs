@@ -44,4 +44,21 @@ public class CampaignPlanetPanel : MonoBehaviour
         planetName.text = planetData.GetDisplayName();
     }
 
+
+
+
+
+
+
+
+
+
+
+
+
+    public void UpdateDay()
+    {
+
+    }
 }
+

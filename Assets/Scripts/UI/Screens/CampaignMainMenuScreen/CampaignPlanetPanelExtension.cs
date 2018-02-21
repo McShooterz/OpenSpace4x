@@ -27,6 +27,30 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
     GameObject buidlingInformationGroup;
 
     [SerializeField]
+    Image buildingIcon;
+
+    [SerializeField]
+    Text buildingNameText;
+
+    [SerializeField]
+    Text buildingDescriptionText;
+
+    [SerializeField]
+    Image buildingCostMoneyIcon;
+
+    [SerializeField]
+    Image buildingCostMetalIcon;
+
+    [SerializeField]
+    Image buildingCostCrystalIcon;
+
+    [SerializeField]
+    Image buildingCostDaysIcon;
+
+    [SerializeField]
+    Text buildingStatsText;
+
+    [SerializeField]
     GameObject buildListGroup;
 
 	// Use this for initialization

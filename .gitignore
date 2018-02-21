@@ -4,6 +4,7 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
+Assets/StreamingAssets/
 
 *.dll
 
@@ -38,6 +39,3 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
-
-Assets/StreamingAssets/README.md
-Assets/StreamingAssets/.gitignore
