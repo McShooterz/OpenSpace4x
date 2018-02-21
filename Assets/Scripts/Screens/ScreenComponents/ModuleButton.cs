@@ -43,8 +43,7 @@ public class ModuleButton : baseToggleButton
         buttonCallBack = callBack;
         selectCallBack = select;
 
-        Texture2D texture = module.GetTexture();
-        ModuleImage.sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f), 500);
+        ModuleImage.overrideSprite = module.GetTexture();
         ModuleImage.preserveAspect = true;
     }
 
@@ -55,5 +54,10 @@ public class ModuleButton : baseToggleButton
             buttonCallBack(module);
         }
         selectCallBack(this);
+    }
+
+    public Module GetModule()
+    {
+        return module;
     }
 }

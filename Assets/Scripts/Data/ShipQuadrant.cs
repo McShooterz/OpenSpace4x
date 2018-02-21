@@ -93,7 +93,7 @@ public class ShipQuadrant
         {
             ChargeShields();
         }
-        if(ResourceManager.gameConstants.AllowCombatRepair)
+        if(ResourceManager.instance.GetGameConstants().AllowCombatRepair)
         {
             CombatRepair();
         }
@@ -131,7 +131,7 @@ public class ShipQuadrant
 
             if (effectiveDamage > 0)
             {
-                float absorbDamage = effectiveDamage * Mathf.Clamp(shieldRating / effectiveDamage, ResourceManager.gameConstants.MinShieldAbsorb, 1f);
+                float absorbDamage = effectiveDamage * Mathf.Clamp(shieldRating / effectiveDamage, ResourceManager.instance.GetGameConstants().MinShieldAbsorb, 1f);
                 float damageUseRatio;
 
                 if (shieldHealth > absorbDamage)
@@ -184,7 +184,7 @@ public class ShipQuadrant
 
             if (effectiveDamage > 0)
             {
-                float absorbDamage = effectiveDamage * Mathf.Clamp(shieldRating / effectiveDamage, ResourceManager.gameConstants.MinShieldAbsorb, 1f);
+                float absorbDamage = effectiveDamage * Mathf.Clamp(shieldRating / effectiveDamage, ResourceManager.instance.GetGameConstants().MinShieldAbsorb, 1f);
                 float damageUseRatio;
 
                 if (shieldHealth > absorbDamage)

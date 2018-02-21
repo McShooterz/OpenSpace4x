@@ -10,10 +10,15 @@ using System.Collections.Generic;
 
 public sealed class StationDesign : UnitDesign
 {
-    public List<DesignModule> Modules = new List<DesignModule>();
+    public List<DesignModule> Modules { get; set; }
+
+    public StationDesign() : base()
+    {
+        Modules = new List<DesignModule>();
+    }
 
     public StationHullData GetHull()
     {
-        return ResourceManager.GetStationHull(Hull);
+        return ResourceManager.instance.GetStationHull(Hull);
     }
 }

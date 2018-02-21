@@ -14,8 +14,8 @@ public class SlotedModule
     public Rect baseRect;
     public Rect imageRect;
     public Module module;
-    Texture2D moduleTexture;
-    Texture2D backGroundTexture;
+    Sprite moduleTexture;
+    Sprite backGroundTexture;
     public int Position;
     public float Rotation;
 
@@ -25,7 +25,7 @@ public class SlotedModule
         imageRect = i;
         module = mod;
         moduleTexture = module.GetTexture();
-        backGroundTexture = ResourceManager.GetUITexture("SlotedModuleBackground");
+        //backGroundTexture = ResourceManager.instance.GetUITexture("SlotedModuleBackground");
 
         Rotation = rotation;
         Position = pos;
@@ -33,7 +33,7 @@ public class SlotedModule
 
     public static SlotedModule CreateSlotedModule(DesignModule designModule, Rect slotRect)
     {
-        Module module = ResourceManager.GetModule(designModule.Module);
+        Module module = ResourceManager.instance.GetModule(designModule.Module);
         if (module != null)
         {
             float moduleScale = slotRect.width;
@@ -67,7 +67,7 @@ public class SlotedModule
     }
 
     public void Draw()
-    {
+    {/*
         GUI.DrawTexture(baseRect, backGroundTexture);
 
         if (Rotation == 0)
@@ -80,7 +80,7 @@ public class SlotedModule
             GUIUtility.RotateAroundPivot(Rotation, imageRect.center);
             GUI.DrawTexture(imageRect, moduleTexture);
             GUI.matrix = matrixBackup;
-        }
+        }*/
     }
 
     public void SwapModule(Module newModule)

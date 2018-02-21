@@ -28,7 +28,7 @@ public class DesignIconStatEntry
         ToolTip = toolTip;
         getValue = valueFunction;
         content = new GUIContent();
-        content.image = ResourceManager.GetIconTexture(IconName);
+        //content.image = ResourceManager.instance.GetIconTexture(IconName);
     }
 
     public void Draw()

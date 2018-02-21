@@ -225,7 +225,7 @@ public class Projectile : MonoBehaviour
         {
             if (PrimaryWeapon.HitEffect != "")
             {
-                ResourceManager.CreateExplosion(transform.position, PrimaryWeapon.HitEffect, PrimaryWeapon.HitSound, PrimaryWeapon.HitEffectScale, PrimaryWeapon.HitEffectTime, false);
+                ResourceManager.instance.CreateExplosion(transform.position, PrimaryWeapon.HitEffect, PrimaryWeapon.HitSound, PrimaryWeapon.HitEffectScale, PrimaryWeapon.HitEffectTime, false);
             }
             attachedWeapon.RemoveProjectile(this);
         }
@@ -412,7 +412,7 @@ public class Projectile : MonoBehaviour
         {
             Jammed = true;
             JamTargetPosition = new Vector3(Random.Range(-200f, 200f), Random.Range(-200f, 200f), Random.Range(-200f, 200f)) + transform.position;
-            TextMeshController popupObject = ResourceManager.CreateWorldMessage(transform.position, "Jammed", Color.red, 18);
+            TextMeshController popupObject = ResourceManager.instance.CreateWorldMessage(transform.position, "Jammed", Color.red, 18);
             popupObject.transform.parent = transform;
         }
     }
@@ -431,7 +431,7 @@ public class Projectile : MonoBehaviour
 
         if(GameManager.instance.GetShowCombatDamage())
         {
-            ResourceManager.CreatePopupMessage(transform.position, damage.ToString("0"), Color.red, 3f);
+            ResourceManager.instance.CreatePopupMessage(transform.position, damage.ToString("0"), Color.red, 3f);
         }
 
         Health -= damage;
@@ -464,7 +464,7 @@ public class Projectile : MonoBehaviour
     {
         for(int i = 0; i < SecondaryWeapon.Projectiles; i++)
         {
-            Projectile projectile = ResourceManager.CreateProjectile(SecondaryWeapon);
+            Projectile projectile = ResourceManager.instance.CreateProjectile(SecondaryWeapon);
             projectile.Initialize(attachedWeapon, SecondaryWeapon, transform.position, Target, TargetOffset);
             attachedWeapon.AddProjectile(projectile);
         }

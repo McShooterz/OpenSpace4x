@@ -13,7 +13,7 @@ using UnityEngine.UI;
 
 public class ModuleSetScrollList : BaseScrollList
 {
-    ModuleSetButton SelectedButton;
+    ModuleSetButton selectedButton;
 
     // Use this for initialization
     protected override void Start ()
@@ -31,7 +31,7 @@ public class ModuleSetScrollList : BaseScrollList
     public void BuildModuleSetsButtons(List<ModuleSet> ModuleSets, ModuleSetButton.ButtonPress ChangeModuleSet)
     {
         Clear();
-        SelectedButton = null;
+        selectedButton = null;
 
         foreach (ModuleSet moduleSet in ModuleSets)
         {
@@ -39,10 +39,10 @@ public class ModuleSetScrollList : BaseScrollList
             ModuleSetButton newButton = buttonObject.GetComponent<ModuleSetButton>();
             newButton.SetModuleSet(moduleSet, ChangeModuleSet, SetModuleSetSelectionChange);
 
-            if(SelectedButton == null)
+            if(selectedButton == null)
             {
-                SelectedButton = newButton;
-                SelectedButton.SetHighlight(true);
+                selectedButton = newButton;
+                selectedButton.SetHighlight(true);
                 ChangeModuleSet(moduleSet);
             }
         }
@@ -50,15 +50,15 @@ public class ModuleSetScrollList : BaseScrollList
 
     public void SetModuleSetSelectionChange(ModuleSetButton newSelectedButton)
     {
-        if (SelectedButton != newSelectedButton)
+        if (selectedButton != newSelectedButton)
         {
-            if (SelectedButton != null)
+            if (selectedButton != null)
             {
-                SelectedButton.SetHighlight(false);
+                selectedButton.SetHighlight(false);
             }
 
-            SelectedButton = newSelectedButton;
-            SelectedButton.SetHighlight(true);
+            selectedButton = newSelectedButton;
+            selectedButton.SetHighlight(true);
         }
     }
 }

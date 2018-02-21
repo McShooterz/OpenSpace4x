@@ -82,7 +82,7 @@ public abstract class UnitData
             {
                 ProcessBoardingForces(boardingForces[0]);
                 if (boardingForces.Count > 0)
-                    boardingTimer = Random.Range(ResourceManager.gameConstants.boardingIntervalMin, ResourceManager.gameConstants.boardingIntervalMax);
+                    boardingTimer = Random.Range(ResourceManager.instance.GetGameConstants().boardingIntervalMin, ResourceManager.instance.GetGameConstants().boardingIntervalMax);
                 else
                     CurrentUnit.RemoveBoardingBalanceBar();
                       
@@ -481,5 +481,5 @@ public abstract class UnitData
         boardingForces.Remove(force);
     }
 
-    public abstract Texture2D GetIcon();
+    public abstract Sprite GetIcon();
 }

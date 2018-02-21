@@ -18,7 +18,6 @@ public class ModuleButtonList : MonoBehaviour
 
     ModuleButton selectedModuleButton;
 
-
     List<ModuleButton> ModuleButtons = new List<ModuleButton>();
 
 	// Use this for initialization
@@ -47,10 +46,8 @@ public class ModuleButtonList : MonoBehaviour
     {
         if (selectedModuleButton != newButton)
         {
-            if (selectedModuleButton != null)
-            {
-                selectedModuleButton.SetHighlight(false);
-            }
+            DeselectModuleButton();
+
             selectedModuleButton = newButton;
             selectedModuleButton.SetHighlight(true);
         }
@@ -75,6 +72,23 @@ public class ModuleButtonList : MonoBehaviour
                 selectedModuleButton.SetHighlight(true);
                 buttonPress(module);
             }
+        }
+    }
+
+    public Module GetSelectedModule()
+    {
+        if(selectedModuleButton != null)
+        {
+            return selectedModuleButton.GetModule();
+        }
+        return null;
+    }
+
+    public void DeselectModuleButton()
+    {
+        if(selectedModuleButton != null)
+        {
+            selectedModuleButton.SetHighlight(false);
         }
     }
 }

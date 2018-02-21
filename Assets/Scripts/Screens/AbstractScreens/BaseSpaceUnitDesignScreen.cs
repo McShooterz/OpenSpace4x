@@ -10,30 +10,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BaseSpaceUnitDesignScreen : BaseScreen
+public abstract class BaseSpaceUnitDesignScreen : BaseScreen
 {
     #region Variables
 
     [SerializeField]
     protected ModulePanel ModulePanel;
 
+    protected Vector2 mirrorMousePosition;
+
+    protected Rect SelectedModuleRect;
+    protected Rect SlotsAreaRect;
+
     protected GameObject unitModel;
-    protected ModuleListTypes moduleCategory = ModuleListTypes.Weapon;
-    protected ModuleSet selectedModuleSet = null;
-    protected Module selectedModule = null;
     protected Texture2D selectedModuleTexture;
-    protected Texture2D SlotTexture = ResourceManager.GetUITexture("ShipSlot");
-    protected Texture2D WeaponArcCircle = ResourceManager.GetUITexture("WeaponArcCircle");
+    //protected Texture2D SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
+    //protected Texture2D WeaponArcCircle = ResourceManager.instance.GetUITexture("WeaponArcCircle");
     protected Texture2D WeaponArcTex;
 
     protected string DesignName = "";
 
-    //Symmetric design/mirror mode
-    protected bool useSymmetricCursor = false;
-    protected Vector2 SymmetricMouse;
 
-    protected float moduleScale = 32f;
-    protected float ModuleRotation = 0;
 
     //Design stats
     protected float DesignProductionCost;
@@ -96,31 +93,34 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
     // Use this for initialization
     protected override void Start ()
     {
-		
-	}
+        
+
+    }
 	
 	// Update is called once per frame
 	protected override void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            RotateModule();
-        }
+        SetMousePosition();
 
-        if (Input.GetKeyDown(KeyCode.M))
+        if(ModulePanel.GetUseMirrorMode())
         {
-            useSymmetricCursor = !useSymmetricCursor;
+            mirrorMousePosition = ModulePanel.GetMirrorModePosition(mousePosition);
         }
+    }
 
-        //Remove modules with right click
-        if (Input.GetMouseButton(1))
-        {
-            DeselectModule();
-            //if (SlotsAreaRect.Contains(mousePosition))
-            //{
-                //CheckModuleRemoval();
-            //}
-        }
+    protected virtual Module GetSelectedModule()
+    {
+        return ModulePanel.GetSelectedModule();
+    }
+
+    protected ModuleSet GetSelectedModuleSet()
+    {
+        return ModulePanel.GetSelectedModuleSet();
+    }
+
+    protected virtual void BuildModuleSetLists()
+    {
+
     }
 
     protected bool CheckHullModuleAllow(ModuleLimitType limit, ModuleCategory category)
@@ -152,129 +152,80 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
     }
 
     protected void SetWeaponArcTexture(int angle)
-    {
+    {/*
         switch (angle)
         {
             case 15:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc15");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc15");
                     break;
                 }
             case 30:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc30");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc30");
                     break;
                 }
             case 60:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc60");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc60");
                     break;
                 }
             case 90:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc90");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc90");
                     break;
                 }
             case 120:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc120");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc120");
                     break;
                 }
             case 150:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc150");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc150");
                     break;
                 }
             case 180:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc180");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc180");
                     break;
                 }
             case 210:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc210");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc210");
                     break;
                 }
             case 240:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc240");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc240");
                     break;
                 }
             case 270:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc270");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc270");
                     break;
                 }
             case 300:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc300");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc300");
                     break;
                 }
             case 330:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc330");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc330");
                     break;
                 }
             case 360:
                 {
-                    WeaponArcTex = ResourceManager.GetUITexture("WeaponArc360");
+                    WeaponArcTex = ResourceManager.instance.GetUITexture("WeaponArc360");
                     break;
                 }
-        }
-    }
-
-    protected void ChangeModule(Module module)
-    {
-        selectedModule = module;
-        //ModuleStatsList = BuildModuleStats(module, ModuleStatPosition);
-        Weapon weapon = module.GetWeapon();
-        if (weapon != null)
-        {
-            //BuildWeaponDamageGraph(weapon);
-        }
-        //SelectedModuleRect = new Rect(0, 0, moduleScale * selectedModule.SizeX, moduleScale * selectedModule.SizeY);
-        selectedModuleTexture = selectedModule.GetTexture();
-        ModuleRotation = 0;
-
-        if (selectedModuleSet != selectedModule.GetParentSet())
-        {
-            //ChangeModuleSet(selectedModule.GetParentSet());
-        }
-    }
-
-    protected void RotateModule()
-    {
-        //Check to make sure there is a module and it should be able to rotate     
-        if (selectedModule == null)
-        {
-            return;
-        }
-        Weapon weapon = selectedModule.GetWeapon();
-        if (weapon != null && !weapon.AlwaysForward)
-        {
-            return;
-        }
-
-        ModuleRotation += 90;
-        if (ModuleRotation == 360)
-        {
-            ModuleRotation = 0;
-        }
-    }
-
-    protected bool ModuleCanRotate(Module module)
-    {
-        Weapon weapon = module.GetWeapon();
-        if (weapon != null && weapon.AlwaysForward || weapon == null && module.SizeX != module.SizeY)
-        {
-            return true;
-        }
-        return false;
+        }*/
     }
 
     protected void DeselectModule()
     {
-        selectedModule = null;
+        ModulePanel.DeselectModule();
         //ModuleStatsList.Clear();
     }
 
@@ -310,116 +261,9 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
         return false;
     }
 
-    /*protected virtual bool PopupOpen()
-    {
-        return overwriteWarningPopupOpen;
-    }*/
-
-    /*protected void ChangeModuleSet(ModuleSet modset)
-    {
-        selectedModuleSet = modset;
-        ModuleList.Clear();
-        //Determine where the individual modules will be draw and create their entries
-        float Indent = LeftSidePanelRect.width / 2 - selectedModuleSet.Modules.Count * ModuleListEntrySize.y / 2;
-        foreach (Module module in modset.GetModules())
-        {
-            Rect rect = new Rect(Indent + ModuleList.Count * ModuleListEntrySize.y, ModuleListY, ModuleListEntrySize.y, ModuleListEntrySize.y);
-            ModuleListEntry MLE = new ModuleListEntry(rect, module, module.GetTexture(), ChangeModule);
-            ModuleList.Add(MLE);
-        }
-
-        if (selectedModule == null || selectedModule.GetParentSet() != selectedModuleSet)
-        {
-            Module firstModule = modset.GetFirstModule();
-            if (firstModule != null)
-                ChangeModule(firstModule);
-        }
-
-        if (selectedModuleSet.ModuleCategory == ModuleCategory.Weapons)
-        {
-            if (moduleCategory != ModuleListTypes.Weapon)
-                ChangeModuleSetList(ModuleListTypes.Weapon);
-        }
-        else if (selectedModuleSet.ModuleCategory == ModuleCategory.Defences)
-        {
-            if (moduleCategory != ModuleListTypes.Defence)
-                ChangeModuleSetList(ModuleListTypes.Defence);
-        }
-        else
-        {
-            if (moduleCategory != ModuleListTypes.System)
-                ChangeModuleSetList(ModuleListTypes.System);
-        }
-    }*/
-
-    /*protected void ChangeModuleSetList(ModuleListTypes listCategory)
-    {
-        moduleCategory = listCategory;
-        List<ModuleSetEntry> setList;
-
-        bool resetSelectedModuleSet = false;
-
-        if (listCategory == ModuleListTypes.Weapon)
-        {
-            setList = ModuleSetWeaponList;
-            if (selectedModuleSet != null && selectedModuleSet.ModuleCategory != ModuleCategory.Weapons)
-                resetSelectedModuleSet = true;
-        }
-        else if (listCategory == ModuleListTypes.Defence)
-        {
-            setList = ModuleSetDefenceList;
-            if (selectedModuleSet != null && selectedModuleSet.ModuleCategory != ModuleCategory.Defences)
-                resetSelectedModuleSet = true;
-        }
-        else
-        {
-            setList = ModuleSetSystemList;
-            if (selectedModuleSet != null && selectedModuleSet.ModuleCategory != ModuleCategory.Systems && selectedModuleSet.ModuleCategory != ModuleCategory.Engines)
-                resetSelectedModuleSet = true;
-        }
-
-        ModuleScrollViewRect.height = Mathf.Max(setList.Count * ModuleListEntrySize.y, ModuleScrollWindowRect.height);
-
-        if (selectedModuleSet == null)
-            resetSelectedModuleSet = true;
-
-        if (resetSelectedModuleSet && setList.Count > 0)
-        {
-            ModuleScrollPosition = Vector2.zero;
-            ChangeModuleSet(setList[0].moduleSet);
-        }
-    }
-
-    protected void ScrollToModuleSet(ModuleSet moduleSet)
-    {
-        List<ModuleSetEntry> setList;
-
-        if (moduleCategory == ModuleListTypes.Weapon)
-        {
-            setList = ModuleSetWeaponList;
-        }
-        else if (moduleCategory == ModuleListTypes.Defence)
-        {
-            setList = ModuleSetDefenceList;
-        }
-        else
-        {
-            setList = ModuleSetSystemList;
-        }
-
-        foreach (ModuleSetEntry entry in setList)
-        {
-            if (entry.GetModuleSet() == moduleSet)
-            {
-                ModuleScrollPosition = entry.GetPosition();
-                return;
-            }
-        }
-    }*/
-
     protected float GetTotalValue(float production, float alloy, float advancedAlloy, float superiorAlloy, float crystal, float rareCrystal, float exoticCrystal, float exoticParticle)
     {
-        return ResourceManager.gameConstants.GetBaseResourceValue(production, alloy, advancedAlloy, superiorAlloy, crystal, rareCrystal, exoticCrystal, exoticParticle);
+        return ResourceManager.instance.GetGameConstants().GetBaseResourceValue(production, alloy, advancedAlloy, superiorAlloy, crystal, rareCrystal, exoticCrystal, exoticParticle);
     }
 
     /*protected void DrawHoveredModuleInfo(Vector2 position, Module module)
@@ -440,7 +284,7 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
 
         Rect ModuleSetNameRect = new Rect(Indent, position.y, InsideWidth, Screen.height * 0.03f);
 
-        text = ResourceManager.GetLocalization(module.GetParentSet().Description);
+        text = ResourceManager.instance.GetLocalization(module.GetParentSet().Description);
         GameManager.instance.UIContent.text = text;
         height = GameManager.instance.ModuleDescStyle.CalcHeight(GameManager.instance.UIContent, width * 0.9f);
 
@@ -455,8 +299,8 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
         Rect ModuleInfoRect = new Rect(xPos, position.y, width, height);
 
         GUI.Box(ModuleInfoRect, "", GameManager.instance.standardBackGround);
-        GUI.Label(ModuleSetNameRect, ResourceManager.GetLocalization(module.GetParentSet().Name), GameManager.instance.ModuleTitleStyle);
-        GUI.Label(ModuleSetDescRect, ResourceManager.GetLocalization(module.GetParentSet().Description), GameManager.instance.ModuleDescStyle);
+        GUI.Label(ModuleSetNameRect, ResourceManager.instance.GetLocalization(module.GetParentSet().Name), GameManager.instance.ModuleTitleStyle);
+        GUI.Label(ModuleSetDescRect, ResourceManager.instance.GetLocalization(module.GetParentSet().Description), GameManager.instance.ModuleDescStyle);
 
         for (int i = 0; i < LastHoveredModuleStats.Count; i++)
         {
@@ -482,7 +326,7 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
             graphPosition = new Vector2(xPos + ModuleWeaponDamageRect.width + halfIndent, graphPosition.y);
             Rect DamageGraphRect = new Rect(graphPosition.x + ModuleWeaponGraphRect.width * 0.05f, graphPosition.y + ModuleWeaponGraphRect.height * 0.05f, ModuleWeaponGraphRect.width * 0.9f, ModuleWeaponGraphRect.height * 0.9f);
 
-            GUI.DrawTexture(new Rect(graphPosition, ModuleWeaponGraphRect.size), ResourceManager.GetUITexture("WeaponDamageGraph"));
+            GUI.DrawTexture(new Rect(graphPosition, ModuleWeaponGraphRect.size), ResourceManager.instance.GetUITexture("WeaponDamageGraph"));
 
             graphPosition = new Vector2(xPos + ModuleWeaponDamageRect.width + ModuleWeaponGraphRect.width - ModuleWeaponRangeRect.width + halfIndent, graphPosition.y + ModuleWeaponGraphRect.height);
 
@@ -805,12 +649,5 @@ public class BaseSpaceUnitDesignScreen : BaseScreen
         {
             return "<color=red>" + GetStandardDesignStatFormat(value) + "</color>";
         }
-    }
-
-    protected enum ModuleListTypes
-    {
-        Weapon,
-        Defence,
-        System
     }
 }

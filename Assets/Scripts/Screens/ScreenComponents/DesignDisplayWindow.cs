@@ -27,7 +27,7 @@ public class DesignDisplayWindow
     public DesignDisplayWindow(Rect rect)
     {
         baseRect = rect;
-        SlotTexture = ResourceManager.GetUITexture("ShipSlot");
+        //SlotTexture = ResourceManager.instance.GetUITexture("ShipSlot");
 
         CloseButtonRect = new Rect(baseRect.x + (baseRect.width - GameManager.instance.StandardButtonSize.x) / 2f, baseRect.yMax - GameManager.instance.StandardButtonSize.y, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
         TitleRect = new Rect(CloseButtonRect.x, baseRect.y, GameManager.instance.StandardButtonSize.x, GameManager.instance.StandardButtonSize.y);
@@ -67,7 +67,7 @@ public class DesignDisplayWindow
 
         DesignName = design.Name;
 
-        ShipSlotLayout shipLayout = ResourceManager.GetShipHull(design.Hull).GetSlotLayout();
+        ShipSlotLayout shipLayout = ResourceManager.instance.GetShipHull(design.Hull).GetSlotLayout();
         if(shipLayout != null)
         {
             Vector2 ForePosition, AftPosition, PortPosition, StarboardPosition, CenterPosition;

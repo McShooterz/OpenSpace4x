@@ -104,7 +104,7 @@ public sealed class Fighter : MobileSpaceUnit
                     {
                         Target = null;
                     }
-                    WeaponCheckTimer = ResourceManager.gameConstants.WeaponCheckTime;
+                    WeaponCheckTimer = ResourceManager.instance.GetGameConstants().WeaponCheckTime;
                     CheckWeapons();
                 }
             }
@@ -142,7 +142,7 @@ public sealed class Fighter : MobileSpaceUnit
     {
         foreach (string weaponName in Definition.WeaponNames)
         {
-            Weapon weapon = ResourceManager.GetWeapon(weaponName);
+            Weapon weapon = ResourceManager.instance.GetWeapon(weaponName);
             if (weapon != null)
             {
                 AttachedWeapon attachedWeapon = new AttachedWeapon(weapon);
@@ -307,7 +307,7 @@ public sealed class Fighter : MobileSpaceUnit
 
             if (effectiveDamage > 0)
             {
-                float absorbDamage = effectiveDamage * Mathf.Clamp(ShieldRating / effectiveDamage, ResourceManager.gameConstants.MinShieldAbsorb, 1f);
+                float absorbDamage = effectiveDamage * Mathf.Clamp(ShieldRating / effectiveDamage, ResourceManager.instance.GetGameConstants().MinShieldAbsorb, 1f);
                 float damageUseRatio;
 
                 if (ShieldHealth > absorbDamage)
@@ -422,7 +422,7 @@ public sealed class Fighter : MobileSpaceUnit
         Destroyed = true;
         weapon.GetKill(this);
         shipManager.FighterKilled(this);
-        ResourceManager.CreateExplosion(transform.position, "effect_explosionfighter", "FighterExplosion", 0.33f, 5f, true);
+        ResourceManager.instance.CreateExplosion(transform.position, "effect_explosionfighter", "FighterExplosion", 0.33f, 5f, true);
         parentWing.RemoveUnit(this);
         gameObject.SetActive(false);
     }
@@ -508,7 +508,7 @@ public sealed class Fighter : MobileSpaceUnit
 
     protected override float GetTurnRate()
     {
-        return EngineTurn * ResourceManager.gameConstants.FighterTurnMultiplier;
+        return EngineTurn * ResourceManager.instance.GetGameConstants().FighterTurnMultiplier;
     }
 
     void Swarm(Vector3 Position)
@@ -549,7 +549,7 @@ public sealed class Fighter : MobileSpaceUnit
         }
     }
 
-    public Texture2D GetIcon()
+    public Sprite GetIcon()
     {
         return Definition.GetIcon();
     }

@@ -829,19 +829,19 @@ public class ShipManager
         {
             case 9:
                 {
-                    return ResourceManager.gameConstants.Highlight_Player.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor();
                 }
             case 10:
                 {
-                    return ResourceManager.gameConstants.Highlight_Enemy.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Enemy.GetColor();
                 }
             case 11:
                 {
-                    return ResourceManager.gameConstants.Highlight_Ally.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Ally.GetColor();
                 }
             case 13:
                 {
-                    return ResourceManager.gameConstants.Highlight_Neutral.GetColor();
+                    return ResourceManager.instance.GetGameConstants().Highlight_Neutral.GetColor();
                 }
             default:
                 {
@@ -1163,11 +1163,11 @@ public class ShipManager
         return null;
     }
 
-    public Texture2D GetSelectionGroupIcon(int index)
+    public Sprite GetSelectionGroupIcon(int index)
     {
         if (SelectionGroups[index] != null)
             return SelectionGroups[index].GetIcon();
-        return new Texture2D(1, 1);
+        return new Sprite();
     }
 
     class SelectionGroup
@@ -1176,7 +1176,7 @@ public class ShipManager
         public List<Station> stations = new List<Station>();
         public List<FighterWing> fighterWings = new List<FighterWing>();
 
-        public Texture2D GetIcon()
+        public Sprite GetIcon()
         {
             if (ships.Count > 0)
                 return ships[0].GetHull().GetIcon();
@@ -1184,7 +1184,7 @@ public class ShipManager
                 return stations[0].GetHull().GetIcon();
             if (fighterWings.Count > 0)
                 return fighterWings[0].GetIcon();
-            return new Texture2D(1,1);
+            return new Sprite();
         }
     }
 }

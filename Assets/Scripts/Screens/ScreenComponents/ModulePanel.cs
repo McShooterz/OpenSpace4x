@@ -27,6 +27,9 @@ public class ModulePanel : MonoBehaviour
     [SerializeField]
     WeaponDamageGraph weaponDamageGraph;
 
+    [SerializeField]
+    ImageController selectedModuleImage;
+
     List<ModuleSet> WeaponModuleSets = new List<ModuleSet>();
     List<ModuleSet> DefenseModuleSets = new List<ModuleSet>();
     List<ModuleSet> SystemModuleSets = new List<ModuleSet>();
@@ -36,6 +39,16 @@ public class ModulePanel : MonoBehaviour
     Module SelectedModule;
 
     ModuleCategory Category = ModuleCategory.Weapons;
+
+    bool useMirrorMode = false;
+
+    bool mouseHovered = false;
+
+    Rect SelectedModuleCursorRect = new Rect();
+    Texture2D SelectedModuleTexture;
+
+    float ModuleScale = 32;
+    int ModuleRotation = 0;
 
     #endregion
 
@@ -48,8 +61,33 @@ public class ModulePanel : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-		
-	}
+		if(Input.GetMouseButtonDown(1))
+        {
+            DeselectModule();
+        }
+
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            RotateModule();
+        }
+
+        if(Input.GetKeyDown(KeyCode.M))
+        {
+            ToggleMirrorMode();
+        }
+
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+
+        }
+
+        selectedModuleImage.SetPosition(Input.mousePosition);
+    }
+
+    void OnGUI()
+    {
+        //DrawSelectedModuleTexture();
+    }
 
     public void SetWeaponModuleSetList(List<ModuleSet> moduleSetList)
     {
@@ -70,6 +108,8 @@ public class ModulePanel : MonoBehaviour
     {
         moduleSetScrollList.BuildModuleSetsButtons(moduleSetList, ChangeModuleSet);
     }
+
+#region Button Clicks
 
     public void ClickWeaponsCategory()
     {
@@ -98,14 +138,45 @@ public class ModulePanel : MonoBehaviour
         }
     }
 
+    public void ClickMirrorButton()
+    {
+        ToggleMirrorMode();
+    }
+
+    public void ClickRotateButton()
+    {
+        RotateModule();
+    }
+
+    public void ClickSwapButton()
+    {
+
+    }
+
+#endregion
+
     void ClearModuleSetButtons()
     {
         moduleSetScrollList.Clear();
     }
 
+    public Module GetSelectedModule()
+    {
+        return SelectedModule;
+    }
+
     public ModuleSet GetSelectedModuleSet()
     {
         return SelectedModuleSet;
+    }
+
+    public void DeselectModule()
+    {
+        SelectedModule = null;
+
+        moduleButtonList.DeselectModuleButton();
+
+        ModuleStatEntries.Clear();
     }
 
     public void ChangeModuleSet(ModuleSet moduleSet)
@@ -117,6 +188,20 @@ public class ModulePanel : MonoBehaviour
     public void ChangeModule(Module module)
     {
         SelectedModule = module;
+
+        ModuleRotation = 0;
+
+        //SelectedModuleTexture = SelectedModule.GetTexture();
+
+        selectedModuleImage.SetTexture(SelectedModuleTexture);
+
+        ApplyModuleScale();
+
+        AddModuleStatEntries(SelectedModule);
+    }
+
+    void AddModuleStatEntries(Module module)
+    {
         ModuleStatEntries.Clear();
 
         float cost = module.GetCost();
@@ -576,7 +661,96 @@ public class ModulePanel : MonoBehaviour
 
     void AddModuleStatEntry(string IconName, string text, string ToolTipTitle, string ToolTipDescription)
     {
-        ModuleStatEntries.AddEntry(ResourceManager.GetIconTexture(IconName), text);
+        //ModuleStatEntries.AddEntry(ResourceManager.instance.GetIconTexture(IconName), text);
+    }
+
+    public void SetModuleScale(float scale)
+    {
+        ModuleScale = scale;
+
+        ApplyModuleScale();
+    }
+
+    void ApplyModuleScale()
+    {
+        if (SelectedModule != null)
+        {
+            Vector2 size = new Vector2(SelectedModule.SizeX * ModuleScale, SelectedModule.SizeY * ModuleScale);
+            SelectedModuleCursorRect.size = size;
+            selectedModuleImage.SetSize(size);
+        }
+    }
+
+    public float GetModuleScale()
+    {
+        return ModuleScale;
+    }
+
+    public int GetModuleRotation()
+    {
+        return ModuleRotation;
+    }
+
+    public void ResetModuleRotation()
+    {
+        ModuleRotation = 0;
+    }
+
+    public void RotateModule()
+    {
+        ModuleRotation += 90;
+
+        if(ModuleRotation == 360)
+        {
+            ModuleRotation = 0;
+        }
+    }
+
+    void ToggleMirrorMode()
+    {
+        useMirrorMode = !useMirrorMode;
+    }
+
+    public bool GetUseMirrorMode()
+    {
+        return useMirrorMode;
+    }
+
+    public Vector2 GetMirrorModePosition(Vector2 mousePosition)
+    {
+        if (SelectedModule != null)
+        {
+            mousePosition.x = Screen.width - mousePosition.x;
+
+            if (ModuleRotation == 0 || ModuleRotation == 180)
+            {
+                mousePosition.x -= SelectedModule.SizeX * ModuleScale - ModuleScale;
+            }
+            else
+            {
+                mousePosition.x -= SelectedModule.SizeY * ModuleScale - ModuleScale;
+            }
+        }
+
+        return mousePosition;
+    }
+
+    public void DrawSelectedModuleTexture(Vector2 position)
+    {
+        if (SelectedModule != null && SelectedModuleTexture != null && !mouseHovered)
+        {
+            SelectedModuleCursorRect.position = position;
+
+            Matrix4x4 matrixBackup = GUI.matrix;
+            GUIUtility.RotateAroundPivot(ModuleRotation, SelectedModuleCursorRect.center);
+            GUI.DrawTexture(SelectedModuleCursorRect, SelectedModuleTexture);
+            GUI.matrix = matrixBackup;
+        }
+    }
+
+    public void SetMouseHovered(bool state)
+    {
+        mouseHovered = state;
     }
 
     public enum ModuleCategory

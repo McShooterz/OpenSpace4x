@@ -11,11 +11,17 @@ using System.Collections;
 
 public abstract class UnitDesign
 {
-    public string Name;
-    public string Hull;
-    public bool Deleted;
+    public string Name { get; set; }
+    public string Hull { get; set; }
+    public bool Deleted { get; set; }
 
     protected string Path = "";
+
+    public UnitDesign()
+    {
+        Name = "";
+        Hull = "";
+    }
 
     public string GetPath()
     {

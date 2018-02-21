@@ -25,7 +25,7 @@ public sealed class FighterListEntry : ListEntryBase
         buttonCallBack = callBack;
         changeSelectionIndex = changeIndex;
 
-        Icon = fighterDefinition.GetIcon();
+        //Icon = fighterDefinition.GetIcon();
     }
 
     public void Draw(int selectedIndex)

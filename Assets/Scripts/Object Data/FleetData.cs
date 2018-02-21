@@ -10,20 +10,48 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
+[System.Serializable]
 public class FleetData
 {
-    //Variables
+    [SerializeField]
     public Empire Owner;
+
+    [SerializeField]
     List<ShipData> Ships = new List<ShipData>();
+
+    [SerializeField]
     List<StationData> Stations = new List<StationData>();
+
+    [SerializeField]
     ShipData FlagShip;
 
+    [SerializeField]
 	int CommandPoints = 0;
+
+    [SerializeField]
     float SpeedFTL = 0;
+
+    [SerializeField]
     float ShipDefenceBonus = 0;
+
+    [SerializeField]
     float ShipDamageBonus = 0;
+
+    [SerializeField]
 	float Transport = 0;
 
+
+
+
+
+    [SerializeField]
+    float experience = 0;
+
+    [SerializeField]
+    int level = 0;
+
+    [SerializeField]
+    int legacyTradionPoints = 0;
 
     public void AddShip(ShipData data)
     {
@@ -194,5 +222,10 @@ public class FleetData
     public List<StationData> GetStations()
     {
         return Stations;
+    }
+
+    public float GetSpeedFTL()
+    {
+        return 0.1f;
     }
 }

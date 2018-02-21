@@ -24,7 +24,7 @@ public sealed class StationHullScrollList : ScrollListBase
         HullList.Clear();
         float EntrySize = ScrollViewRect.width / 5f;
         int index = 0;
-        foreach (KeyValuePair<string, StationHullData> hull in ResourceManager.GetStationHulls())
+        foreach (KeyValuePair<string, StationHullData> hull in ResourceManager.instance.GetStationHulls())
         {
             if (checkHulls(hull.Value))
             {

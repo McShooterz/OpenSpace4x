@@ -50,9 +50,9 @@ public class CampaignManager : MonoBehaviour
     void CreateEmpire(bool isPlayer)
     {
         Empire empire = new Empire();
-        empire.isPlayer = isPlayer;
+        //empire.isPlayer = isPlayer;
         Empires.Add(empire);
-        empire.Initialize();
+        //empire.Initialize();
         PlayerEmpire = empire;
     }
 }

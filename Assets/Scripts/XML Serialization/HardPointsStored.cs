@@ -11,11 +11,11 @@ using System.Collections;
 
 public class HardPointsStored
 {
-    public HardPointSetStored[] ForeHardPointSets;
-    public HardPointSetStored[] AftHardPointSets;
-    public HardPointSetStored[] PortHardPointSets;
-    public HardPointSetStored[] StarboardHardPointSets;
-    public Vector3[] DamagePoints;
+    public HardPointSetStored[] ForeHardPointSets { get; set; }
+    public HardPointSetStored[] AftHardPointSets { get; set; }
+    public HardPointSetStored[] PortHardPointSets { get; set; }
+    public HardPointSetStored[] StarboardHardPointSets { get; set; }
+    public Vector3[] DamagePoints { get; set; }
 
     public HardPointsStored() { }
 

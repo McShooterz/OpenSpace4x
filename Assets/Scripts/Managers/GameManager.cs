@@ -101,7 +101,6 @@ public class GameManager : MonoBehaviour
 
         if (screenTransitionTimer > 0)
         {
-            screenTransitionTimer -= Time.deltaTime * ResourceManager.gameConstants.ScreenTransitionRate;
             if (screenTransitionTimer <= 0)
             {
                 screenTransitionTimer = 0;
@@ -161,32 +160,6 @@ public class GameManager : MonoBehaviour
         standardLabelSpacing = StandardLabelSize.y * 0.5f;
         QuarterLabelSpacing = StandardLabelSize.y * 0.25f;
         QuarterButtonSpacing = StandardButtonSize.y * 0.25f;
-    }
-
-	public void CreateOutLineSystems(Color PlayerColor, Color EnemyColor, Color AlliedColor, Color NeutralColor)
-    {
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerPlayer = ResourceManager.CreateOutLineSystem();
-        ObjectOutlinerPlayer.outlineLayer = PlayerLayer;
-        ObjectOutlinerPlayer.outlineColor = PlayerColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerEnemy = ResourceManager.CreateOutLineSystem();
-        ObjectOutlinerEnemy.outlineLayer = EnemyLayer;
-        ObjectOutlinerEnemy.outlineColor = EnemyColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerAllied = ResourceManager.CreateOutLineSystem();
-        ObjectOutlinerAllied.outlineLayer = AlliedLayer;
-        ObjectOutlinerAllied.outlineColor = AlliedColor;
-        OpenSpaceProtected.OutlineSystem ObjectOutlinerNeutral = ResourceManager.CreateOutLineSystem();
-		ObjectOutlinerNeutral.outlineLayer = NeutralLayer;
-		ObjectOutlinerNeutral.outlineColor = NeutralColor;
-
-        ObjectOutlinerPlayer.transform.parent = transform;
-        ObjectOutlinerEnemy.transform.parent = transform;
-        ObjectOutlinerAllied.transform.parent = transform;
-        ObjectOutlinerNeutral.transform.parent = transform;
-
-        ObjectOutlinerPlayer.name = "PlayerOutLiner";
-        ObjectOutlinerEnemy.name = "EnemyOutLiner";
-        ObjectOutlinerAllied.name = "AlliedOutLiner";
-        ObjectOutlinerNeutral.name = "NeutralOutLiner";
     }
 
     public void SetGameSpeed(float speed)

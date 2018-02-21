@@ -13,25 +13,36 @@ using UnityEngine;
 public sealed class MainShipyardScreen : BaseShipDesignScreen
 {
     #region Variables
-    #endregion
 
+    #endregion
 
     protected override void Start()
     {
+        base.Start();
+
         BuildModuleSetLists();
+        BuildShipHullDatas();
     }
 
+    // Update is called once per frame
+    protected override void Update()
+    {
+        base.Update();
+    }
 
+    protected override void OnGUI()
+    {
+        base.OnGUI();
+    }
 
-
-    void BuildModuleSetLists()
+    protected override void BuildModuleSetLists()
     {
         List<ModuleSet> WeaponModuleSets = new List<ModuleSet>();
         List<ModuleSet> DefenseModuleSets = new List<ModuleSet>();
         List<ModuleSet> SystemModuleSets = new List<ModuleSet>();
 
         //Distribute modules into lists
-        foreach (KeyValuePair<string, ModuleSet> keyVal in ResourceManager.ModuleSets)
+        foreach (KeyValuePair<string, ModuleSet> keyVal in ResourceManager.instance.GetModuleSets())
         {
             if (CheckModuleSetAllowed(keyVal.Value))
             {
@@ -56,5 +67,25 @@ public sealed class MainShipyardScreen : BaseShipDesignScreen
         ModulePanel.SetSystemModuleSetList(SystemModuleSets);
 
         ModulePanel.BuildModuleSetButtons(WeaponModuleSets);
+    }
+
+    protected override void BuildShipHullDatas()
+    {
+        shipHullPanel.SetShipHullDatas(ResourceManager.instance.GetShipHulls(), ChangeHull);
+    }
+
+    public override void BuildShipDesigns(ShipHullData hullData)
+    {
+        shipHullPanel.SetShipDesigns(ResourceManager.instance.GetShipDesigns(hullData, false), LoadShipDesign, DeleteShipDesign);
+    }
+
+    protected override void ChangeHull(ShipHullData data)
+    {
+        base.ChangeHull(data);
+    }
+
+    protected override void LoadShipDesign(ShipDesign design)
+    {
+
     }
 }

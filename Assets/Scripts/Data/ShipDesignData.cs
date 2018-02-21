@@ -12,81 +12,93 @@ using System.Collections.Generic;
 public class ShipDesignData
 {
     #region variables
-    public ShipDesign Design;
-    public ShipHullData Hull;
+    public ShipDesign Design { get; set; }
+    public ShipHullData Hull { get; set; }
 
-    public Dictionary<FighterDefinition, int> Fighters = new Dictionary<FighterDefinition, int>();
-    public Dictionary<FighterDefinition, int> HeavyFighters = new Dictionary<FighterDefinition, int>();
-    public Dictionary<FighterDefinition, int> AssaultPods = new Dictionary<FighterDefinition, int>();
+    public Dictionary<FighterDefinition, int> Fighters { get; set; }
+    public Dictionary<FighterDefinition, int> HeavyFighters { get; set; }
+    public Dictionary<FighterDefinition, int> AssaultPods { get; set; }
 
-    public int CommandPoints;
+    public int CommandPoints { get; set; }
 
-    public float ProductionCost = 0;
-    public float AlloyCost = 0;
-    public float AdvancedAlloyCost = 0;
-    public float SuperiorAlloyCost = 0;
-    public float CrystalCost = 0;
-    public float RareCrystalCost = 0;
-    public float ExoticCrystalCost = 0;
-    public float ExoticParticleCost = 0;
+    public float ProductionCost { get; set; }
+    public float AlloyCost { get; set; }
+    public float AdvancedAlloyCost { get; set; }
+    public float SuperiorAlloyCost { get; set; }
+    public float CrystalCost { get; set; }
+    public float RareCrystalCost { get; set; }
+    public float ExoticCrystalCost { get; set; }
+    public float ExoticParticleCost { get; set; }
 
-    public float Mass = 0;
-    public float PowerGenerated = 0;
-    public float Fuel;
-    public float Ammo = 0;
-    public float PowerStorage = 0;
-    public int Crew;
-    public int MinCrew;
-    public float RequiredCrew;
-    public float Supplies;
-    public float FTLSpeed;
+    public float Mass { get; set; }
+    public float PowerGenerated { get; set; }
+    public float Fuel { get; set; }
+    public float Ammo { get; set; }
+    public float PowerStorage { get; set; }
+    public int Crew { get; set; }
+    public int MinCrew { get; set; }
+    public float RequiredCrew { get; set; }
+    public float Supplies { get; set; }
+    public float FTLSpeed { get; set; }
 
-    public float Sensor;
-    public float LongRangeSensor;
-    public float AdvancedSensor;
+    public float Sensor { get; set; }
+    public float LongRangeSensor { get; set; }
+    public float AdvancedSensor { get; set; }
 
-    public float DamageBonus = 0;
-    public float DefenseBonus = 0;
-    public float DamageBonusFleet = 0;
-    public float DefenseBonusFleet = 0;
-    public float EngineBonus = 0;
-    public int CommandPointBonusFleet = 0;
+    public float DamageBonus { get; set; }
+    public float DefenseBonus { get; set; }
+    public float DamageBonusFleet { get; set; }
+    public float DefenseBonusFleet { get; set; }
+    public float EngineBonus { get; set; }
+    public int CommandPointBonusFleet { get; set; }
 
-    public float EngineForwardSpeed = 0;
-    public float EngineTurnSpeed = 0;
+    public float EngineForwardSpeed { get; set; }
+    public float EngineTurnSpeed { get; set; }
 
-    public float Research;
-    public float Mining = 0;
-    public float Repair;
-    public float AmmoGenerated = 0;
-    public int Transporter = 0;
-    public int Troops = 0;
-    public float Medical = 0;
-    public float CloakingPower = 0;
-    public float Stealth = 0;
-    public float BoardingDefense = 0;
-    public float Colonies = 0;
-    public float Diplomacy = 0;
-    public float Construction = 0;
-    public float ExperienceBonus = 0;
+    public float Research { get; set; }
+    public float Mining { get; set; }
+    public float Repair { get; set; }
+    public float AmmoGenerated { get; set; }
+    public int Transporter { get; set; }
+    public int Troops { get; set; }
+    public float Medical { get; set; }
+    public float CloakingPower { get; set; }
+    public float Stealth { get; set; }
+    public float BoardingDefense { get; set; }
+    public float Colonies { get; set; }
+    public float Diplomacy { get; set; }
+    public float Construction { get; set; }
+    public float ExperienceBonus { get; set; }
 
     // Jamming
-    public int JammingCount;
-    public float JammingRange = 0;
-    public float JammingDelay = 0;
+    public int JammingCount { get; set; }
+    public float JammingRange { get; set; }
+    public float JammingDelay { get; set; }
 
-    public ShipDesignQuadData ForeQuadrant = new ShipDesignQuadData();
-    public ShipDesignQuadData AftQuadrant = new ShipDesignQuadData();
-    public ShipDesignQuadData PortQuadrant = new ShipDesignQuadData();
-    public ShipDesignQuadData StarboardQuadrant = new ShipDesignQuadData();
-    public ShipDesignQuadData CenterQuadrant = new ShipDesignQuadData();
+    public ShipDesignQuadData ForeQuadrant { get; set; }
+    public ShipDesignQuadData AftQuadrant { get; set; }
+    public ShipDesignQuadData PortQuadrant { get; set; }
+    public ShipDesignQuadData StarboardQuadrant { get; set; }
+    public ShipDesignQuadData CenterQuadrant { get; set; }
 
-    public float maxRange;
-    public float[] DamageGraph = new float[20];
+    public float maxRange { get; set; }
+    public float[] DamageGraph { get; set; }
     #endregion
 
     public ShipDesignData(ShipDesign design)
     {
+        Fighters = new Dictionary<FighterDefinition, int>();
+        HeavyFighters = new Dictionary<FighterDefinition, int>();
+        AssaultPods = new Dictionary<FighterDefinition, int>();
+
+        ForeQuadrant = new ShipDesignQuadData();
+        AftQuadrant = new ShipDesignQuadData();
+        PortQuadrant = new ShipDesignQuadData();
+        StarboardQuadrant = new ShipDesignQuadData();
+        CenterQuadrant = new ShipDesignQuadData();
+
+        DamageGraph = new float[20];
+
         Design = design;
         Hull = Design.GetHull();
 
@@ -145,7 +157,7 @@ public class ShipDesignData
         FTLSpeed += EngineFTL / Mass;
         PowerGenerated -= Power * (1 - PowerEffiency);
         CloakingPower = CloakingPowerPerMass * Mass;
-        MinCrew = (int)(Crew * ResourceManager.gameConstants.MinCrewPercent);
+        MinCrew = (int)(Crew * ResourceManager.instance.GetGameConstants().MinCrewPercent);
 
         maxRange = CalculateMaxRange();
         BuildDamageGraph();
@@ -155,7 +167,7 @@ public class ShipDesignData
     {
         foreach (DesignModule designModule in modules)
         {
-            Module module = ResourceManager.GetModule(designModule.Module);
+            Module module = ResourceManager.instance.GetModule(designModule.Module);
 
             ProductionCost += module.ProductionCost;
             AlloyCost += module.AlloyCost;
@@ -262,12 +274,12 @@ public class ShipDesignData
 
     public float GetTotalValue()
     {
-        return ResourceManager.gameConstants.GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
+        return ResourceManager.instance.GetGameConstants().GetBaseResourceValue(ProductionCost, AlloyCost, AdvancedAlloyCost, SuperiorAlloyCost, CrystalCost, RareCrystalCost, ExoticCrystalCost, ExoticParticleCost);
     }
 
     void AddFighters(string fighterType, Dictionary<FighterDefinition, int> fighterDictionary)
     {
-        FighterDefinition fighterDefinition = ResourceManager.GetFighterDefinition(fighterType);
+        FighterDefinition fighterDefinition = ResourceManager.instance.GetFighterDefinition(fighterType);
         if (fighterDefinition != null)
         {
             if (fighterDictionary.ContainsKey(fighterDefinition))

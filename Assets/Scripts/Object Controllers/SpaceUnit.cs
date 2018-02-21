@@ -137,11 +137,11 @@ public abstract class SpaceUnit : MonoBehaviour
 		{
 			if(TargetIsEnemy)
 			{
-				shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Enemy.GetColor(), Target);
+				shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Enemy.GetColor(), Target);
 			}
 			else
 			{
-				shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Player.GetColor(), Target);
+				shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor(), Target);
 			}
 		}
 	}
@@ -155,9 +155,9 @@ public abstract class SpaceUnit : MonoBehaviour
             if (shipOrderLine != null)
             {
                 if (Enemy)
-                    shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Enemy.GetColor(), target);
+                    shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Enemy.GetColor(), target);
                 else
-                    shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Player.GetColor(), target);
+                    shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor(), target);
             }
         }
 	}
@@ -206,7 +206,7 @@ public abstract class SpaceUnit : MonoBehaviour
     {
         if (MiniMapObject == null)
         {
-            MiniMapObject = ResourceManager.CreateMiniMapObject();
+            MiniMapObject = ResourceManager.instance.CreateMiniMapObject();
             MiniMapObject.transform.position = gameObject.transform.position;
             MiniMapObject.transform.parent = gameObject.transform;
         }
@@ -299,39 +299,39 @@ public abstract class SpaceUnit : MonoBehaviour
 
     public void CreateShieldDamagePopup(float value)
     {
-        ResourceManager.CreatePopupMessage(transform.position, value.ToString("0"), Color.cyan, 3f);
+        ResourceManager.instance.CreatePopupMessage(transform.position, value.ToString("0"), Color.cyan, 3f);
     }
 
     public void CreateArmorDamagePopup(float value)
     {
-        ResourceManager.CreatePopupMessage(transform.position, value.ToString("0"), new Color(0.75f,0.75f,0.75f,1f), 3f);
+        ResourceManager.instance.CreatePopupMessage(transform.position, value.ToString("0"), new Color(0.75f,0.75f,0.75f,1f), 3f);
     }
 
     public void CreateHealthDamagePopup(float value)
     {
-        ResourceManager.CreatePopupMessage(transform.position, value.ToString("0"), Color.red, 3f);
+        ResourceManager.instance.CreatePopupMessage(transform.position, value.ToString("0"), Color.red, 3f);
     }
 
     public void CreateShieldDamagePopup(Vector3 position, float value)
     {
-        ResourceManager.CreatePopupMessage(position, value.ToString("0"), Color.cyan, 3f);
+        ResourceManager.instance.CreatePopupMessage(position, value.ToString("0"), Color.cyan, 3f);
     }
 
     public void CreateArmorDamagePopup(Vector3 position, float value)
     {
-        ResourceManager.CreatePopupMessage(position, value.ToString("0"), new Color(0.66f, 0.66f, 0.66f, 1f), 3f);
+        ResourceManager.instance.CreatePopupMessage(position, value.ToString("0"), new Color(0.66f, 0.66f, 0.66f, 1f), 3f);
     }
 
     public void CreateHealthDamagePopup(Vector3 position, float value)
     {
-        ResourceManager.CreatePopupMessage(position, value.ToString("0"), Color.red, 3f);
+        ResourceManager.instance.CreatePopupMessage(position, value.ToString("0"), Color.red, 3f);
     }
 
     protected void AttachTextMeshController(string message, Color color)
     {
         if (textMeshController != null)
             Destroy(textMeshController.gameObject);
-        textMeshController = ResourceManager.CreateWorldMessage(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), message, color, 36);
+        textMeshController = ResourceManager.instance.CreateWorldMessage(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), message, color, 36);
         textMeshController.transform.parent = transform;
     }
 
@@ -339,7 +339,7 @@ public abstract class SpaceUnit : MonoBehaviour
     {
         if (boardingBalanceBar != null)
             Destroy(boardingBalanceBar.gameObject);
-        boardingBalanceBar = ResourceManager.CreateBoardingBalanceBar(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z));
+        boardingBalanceBar = ResourceManager.instance.CreateBoardingBalanceBar(new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z));
         boardingBalanceBar.transform.parent = transform;
     }
 

@@ -25,7 +25,7 @@ public sealed class StationHullListEntry : ListEntryBase
         buttonCallBack = callBack;
         changeSelectionIndex = changeIndex;
 
-        Icon = stationHullData.GetIcon();
+        //Icon = stationHullData.GetIcon();
     }
 
     public void Draw(int selectedIndex)

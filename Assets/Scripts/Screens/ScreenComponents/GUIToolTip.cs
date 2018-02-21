@@ -37,8 +37,8 @@ public class GUIToolTip
             LastTitle = title;
             LastBody = body;
 
-            TitleText = ResourceManager.GetLocalization(title);
-            BodyText = ResourceManager.GetLocalization(body);
+            TitleText = ResourceManager.instance.GetLocalization(title);
+            BodyText = ResourceManager.instance.GetLocalization(body);
 
             GUIContent content = new GUIContent();
 

@@ -1,0 +1,9 @@
+<Technology>
+	<technologyType>physics</technologyType>
+	<name>Tech_LaboratoryExperimentalPhysics1</name>
+	<description>Tech_LaboratoryExperimentalPhysics1desc</description>
+	<baseCost>100</baseCost>
+	<requiredTechnologies>
+		<string></string>
+	</requiredTechnologies>
+</Technology>

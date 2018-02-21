@@ -113,7 +113,7 @@ public sealed class Ship : MobileSpaceUnit
                     if (cloakTimer > 0)
                     {
                         cloakTimer -= GetDeltaTime();
-                        float ratio = Mathf.Max(cloakTimer / ResourceManager.gameConstants.CloakingTime, ResourceManager.gameConstants.CloakingTransparency);
+                        float ratio = Mathf.Max(cloakTimer / ResourceManager.instance.GetGameConstants().CloakingTime, ResourceManager.instance.GetGameConstants().CloakingTransparency);
                         if (cloakingOut)
                         {
                             ratio = 1f - ratio;
@@ -188,7 +188,7 @@ public sealed class Ship : MobileSpaceUnit
                             {
                                 ApplyBrake();
                                 transform.rotation = Quaternion.Lerp(transform.rotation, goalRotation, shipData.engineTurn * GetDeltaTime());
-                                transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, transform.rotation, ResourceManager.gameConstants.ShipTiltRate * GetDeltaTime());
+                                transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, transform.rotation, ResourceManager.instance.GetGameConstants().ShipTiltRate * GetDeltaTime());
                             }
                         }
                         if (WeaponCheckTimer > 0)
@@ -201,7 +201,7 @@ public sealed class Ship : MobileSpaceUnit
                             {
                                 Target = null;
                             }
-                            WeaponCheckTimer = ResourceManager.gameConstants.WeaponCheckTime;
+                            WeaponCheckTimer = ResourceManager.instance.GetGameConstants().WeaponCheckTime;
                             if (!inCloakingState())
                             {
                                 if (!HoldFire)
@@ -291,7 +291,7 @@ public sealed class Ship : MobileSpaceUnit
     {
         transform.rotation = Quaternion.Lerp(transform.rotation, Rotation, GetTurnRate() * GetDeltaTime());
 
-        unitMeshObject.transform.rotation = Quaternion.Slerp(transform.GetChild(0).rotation, transform.rotation, ResourceManager.gameConstants.ShipTiltRate * GetDeltaTime());
+        unitMeshObject.transform.rotation = Quaternion.Slerp(transform.GetChild(0).rotation, transform.rotation, ResourceManager.instance.GetGameConstants().ShipTiltRate * GetDeltaTime());
     }
 
     void RotateTowards(Vector3 direction, bool tilt)
@@ -313,7 +313,7 @@ public sealed class Ship : MobileSpaceUnit
                 {
                     tiltRotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, -shipData.designData.Hull.MaxTurnTilt);
                 }
-                unitMeshObject.transform.rotation = Quaternion.Slerp(unitMeshObject.transform.rotation, tiltRotation, ResourceManager.gameConstants.ShipTiltRate * GetDeltaTime());
+                unitMeshObject.transform.rotation = Quaternion.Slerp(unitMeshObject.transform.rotation, tiltRotation, ResourceManager.instance.GetGameConstants().ShipTiltRate * GetDeltaTime());
             }
         }
     }
@@ -321,7 +321,7 @@ public sealed class Ship : MobileSpaceUnit
     new void MoveForwards()
     {
 		base.MoveForwards ();
-        transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, transform.rotation, ResourceManager.gameConstants.ShipTiltRate * GetDeltaTime());
+        transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, transform.rotation, ResourceManager.instance.GetGameConstants().ShipTiltRate * GetDeltaTime());
     }
 
     void EngageTarget()
@@ -362,7 +362,7 @@ public sealed class Ship : MobileSpaceUnit
 					if (Angle < 15f)
                     {
 						transform.rotation = Quaternion.Lerp (transform.rotation, goalRotation, shipData.engineTurn * GetDeltaTime());
-						shipMeshObject.transform.rotation = Quaternion.Slerp (shipMeshObject.transform.rotation, transform.rotation, ResourceManager.gameConstants.ShipTiltRate * GetDeltaTime());
+						shipMeshObject.transform.rotation = Quaternion.Slerp (shipMeshObject.transform.rotation, transform.rotation, ResourceManager.instance.GetGameConstants().ShipTiltRate * GetDeltaTime());
 					}*/
                 }
                 RotateTowards(AttackRotation);
@@ -389,7 +389,7 @@ public sealed class Ship : MobileSpaceUnit
     public void SetNewGoalPosition(Vector3 point, Quaternion rotation)
     {
 		SetNewGoalPosition (point);
-        ResourceManager.CreateClickPing(point);
+        ResourceManager.instance.CreateClickPing(point);
         goalRotation = rotation;
 		goalPosition = point;
     }
@@ -419,7 +419,7 @@ public sealed class Ship : MobileSpaceUnit
         Destroyed = true;
         shipManager.ShipKilled (this);
         MakeDissolve();
-        ResourceManager.CreateExplosion(transform.position, "effect_explosionship", "ShipExplosion", shipData.designData.Hull.ExplosionScale, 5f, true);     
+        ResourceManager.instance.CreateExplosion(transform.position, "effect_explosionship", "ShipExplosion", shipData.designData.Hull.ExplosionScale, 5f, true);     
         unitMeshObject.tag = "Exploder";
         Destroy(forceField.gameObject);
         unitMeshObject.transform.parent = null;
@@ -734,7 +734,7 @@ public sealed class Ship : MobileSpaceUnit
 
     public void MakeTransparent()
     {
-        Material cloackedMaterial = ResourceManager.GetCloackedShipMaterial();
+        Material cloackedMaterial = ResourceManager.instance.GetCloackedShipMaterial();
         cloackedMaterial.SetTexture("_Normal", shipMaterial.GetTexture("_BumpMap"));
         GetComponentInChildren<Renderer>().material = cloackedMaterial;
         currentMaterial = cloackedMaterial;
@@ -748,7 +748,7 @@ public sealed class Ship : MobileSpaceUnit
 
     public void MakeDissolve()
     {
-        Material dissolveMaterial = ResourceManager.GetShipDissolveMaterial();
+        Material dissolveMaterial = ResourceManager.instance.GetShipDissolveMaterial();
         dissolveMaterial.SetTexture("_MainTex", shipMaterial.GetTexture("_MainTex"));
         GetComponentInChildren<Renderer>().material = dissolveMaterial;
         currentMaterial = dissolveMaterial;
@@ -813,7 +813,7 @@ public sealed class Ship : MobileSpaceUnit
 
     public bool CanTransportCrew()
     {
-        if (shipData.fleetData.GetTransport() == 0 || shipData.crew < (shipData.crewMax * ResourceManager.gameConstants.MinCrewPercent) + 1)
+        if (shipData.fleetData.GetTransport() == 0 || shipData.crew < (shipData.crewMax * ResourceManager.instance.GetGameConstants().MinCrewPercent) + 1)
             return false;
         return true;
     }
@@ -878,7 +878,7 @@ public sealed class Ship : MobileSpaceUnit
 			{
 				targetShip.AddBoardingForce(shipManager, 1, 0);
                 shipData.troops--;
-                ResourceManager.CreatePopupMessage(targetShip.transform.position, "Troop Boarded", Color.green, 1.5f);
+                ResourceManager.instance.CreatePopupMessage(targetShip.transform.position, "Troop Boarded", Color.green, 1.5f);
             }
 		}
 		else
@@ -887,7 +887,7 @@ public sealed class Ship : MobileSpaceUnit
 
 	public void TransportCrewToShip(Ship targetShip)
 	{
-		if (shipData.crew > shipData.crewMax * ResourceManager.gameConstants.MinCrewPercent)
+		if (shipData.crew > shipData.crewMax * ResourceManager.instance.GetGameConstants().MinCrewPercent)
 		{
 			if (shipManager == targetShip.GetShipManager ()) 
 			{
@@ -906,7 +906,7 @@ public sealed class Ship : MobileSpaceUnit
 			{
 				targetShip.AddBoardingForce (shipManager, 0, 1);
                 shipData.crew--;
-                ResourceManager.CreatePopupMessage(targetShip.transform.position, "Crew Boarded", Color.cyan, 1.5f);
+                ResourceManager.instance.CreatePopupMessage(targetShip.transform.position, "Crew Boarded", Color.cyan, 1.5f);
             }
 		}
 		else
@@ -937,7 +937,7 @@ public sealed class Ship : MobileSpaceUnit
     {
         cloakingIn = true;
         cloakingOut = false;
-        cloakTimer = ResourceManager.gameConstants.CloakingTime;
+        cloakTimer = ResourceManager.instance.GetGameConstants().CloakingTime;
         MakeTransparent();
         shipData.DestroyAllBeams();
         PlaySound("Cloaking");
@@ -948,7 +948,7 @@ public sealed class Ship : MobileSpaceUnit
         if (!cloakingOut)
         {
             cloakingOut = true;
-            cloakTimer = ResourceManager.gameConstants.CloakingTime;
+            cloakTimer = ResourceManager.instance.GetGameConstants().CloakingTime;
         }
         cloakingIn = false;
         fullyCloaked = false;

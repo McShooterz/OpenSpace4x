@@ -116,7 +116,7 @@ public sealed class Station : SpaceUnit
                         {
                             Target = null;
                         }
-                        WeaponCheckTimer = ResourceManager.gameConstants.WeaponCheckTime;
+                        WeaponCheckTimer = ResourceManager.instance.GetGameConstants().WeaponCheckTime;
                         if (!HoldFire)
                         {
                             CheckWeapons();
@@ -162,7 +162,7 @@ public sealed class Station : SpaceUnit
     {
         MakeDissolve();
         Destroyed = true;
-        ResourceManager.CreateExplosion(transform.position, "effect_explosionship", "ShipExplosion", 2.5f, 5f, true);
+        ResourceManager.instance.CreateExplosion(transform.position, "effect_explosionship", "ShipExplosion", 2.5f, 5f, true);
         unitMeshObject.tag = "Exploder";
         Destroy(forceField.gameObject);
         unitMeshObject.transform.parent = null;
@@ -255,7 +255,7 @@ public sealed class Station : SpaceUnit
 
     public void MakeDissolve()
     {
-        Material dissolveMaterial = ResourceManager.GetShipDissolveMaterial();
+        Material dissolveMaterial = ResourceManager.instance.GetShipDissolveMaterial();
         dissolveMaterial.SetTexture("_MainTex", shipMaterial.GetTexture("_MainTex"));
         GetComponentInChildren<Renderer>().material = dissolveMaterial;
         currentMaterial = dissolveMaterial;
@@ -320,7 +320,7 @@ public sealed class Station : SpaceUnit
 
     public bool CanTransportCrew()
     {
-        if (stationData.fleetData.GetTransport() == 0 || stationData.crew < (stationData.crewMax * ResourceManager.gameConstants.MinCrewPercent) + 1)
+        if (stationData.fleetData.GetTransport() == 0 || stationData.crew < (stationData.crewMax * ResourceManager.instance.GetGameConstants().MinCrewPercent) + 1)
             return false;
         return true;
     }
@@ -385,7 +385,7 @@ public sealed class Station : SpaceUnit
             {
                 targetShip.AddBoardingForce(shipManager, 1, 0);
                 stationData.troops--;
-                ResourceManager.CreatePopupMessage(targetShip.transform.position, "Troop Boarded", Color.green, 1.5f);
+                ResourceManager.instance.CreatePopupMessage(targetShip.transform.position, "Troop Boarded", Color.green, 1.5f);
             }
         }
         else
@@ -394,7 +394,7 @@ public sealed class Station : SpaceUnit
 
     public void TransportCrewToShip(Ship targetShip)
     {
-        if (stationData.crew > stationData.crewMax * ResourceManager.gameConstants.MinCrewPercent)
+        if (stationData.crew > stationData.crewMax * ResourceManager.instance.GetGameConstants().MinCrewPercent)
         {
             if (shipManager == targetShip.GetShipManager())
             {
@@ -413,7 +413,7 @@ public sealed class Station : SpaceUnit
             {
                 targetShip.AddBoardingForce(shipManager, 0, 1);
                 stationData.crew--;
-                ResourceManager.CreatePopupMessage(targetShip.transform.position, "Crew Boarded", Color.cyan, 1.5f);
+                ResourceManager.instance.CreatePopupMessage(targetShip.transform.position, "Crew Boarded", Color.cyan, 1.5f);
             }
         }
         else

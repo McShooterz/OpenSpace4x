@@ -11,7 +11,10 @@ using System.Collections.Generic;
 
 public class StationSlotLayout
 {
-    public List<Rect> SlotList = new List<Rect>();
+    public List<Rect> SlotList { get; set; }
 
-    public StationSlotLayout() { }
+    public StationSlotLayout()
+    {
+        SlotList = new List<Rect>();
+    }
 }

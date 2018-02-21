@@ -260,7 +260,7 @@ public sealed class MainCustomBattleScreen : CombatScreens
                             if (SelectedUnityCategory == UnitCategory.Ships && selectedDesign != null)
                             {
                                 ShipData shipData = new ShipData(selectedDesign);
-                                Ship newShip = ResourceManager.CreateCombatShip(shipData, DummyUnit.transform.position, DummyUnit.transform.rotation);
+                                Ship newShip = ResourceManager.instance.CreateCombatShip(shipData, DummyUnit.transform.position, DummyUnit.transform.rotation);
                                 if (newShip != null)
                                 {
                                     if (PlayerSelected)
@@ -288,7 +288,7 @@ public sealed class MainCustomBattleScreen : CombatScreens
                             else if (SelectedUnityCategory == UnitCategory.Stations && selectedStationDesign != null)
                             {
                                 StationData stationData = new StationData(selectedStationDesign);
-                                Station newStation = ResourceManager.CreateCombatStation(stationData, DummyUnit.transform.position, DummyUnit.transform.rotation);
+                                Station newStation = ResourceManager.instance.CreateCombatStation(stationData, DummyUnit.transform.position, DummyUnit.transform.rotation);
                                 if (PlayerSelected)
                                 {
                                     PlayerShipManager.AddSpaceUnit(newStation);
@@ -313,14 +313,14 @@ public sealed class MainCustomBattleScreen : CombatScreens
                             else if (SelectedUnityCategory == UnitCategory.Fighters && selectedFighter != null)
                             {
                                 FighterWing wing = ResourceManager.CreateFighterWing();
-                                Fighter newFighter = ResourceManager.CreateCombatFighter(selectedFighter, DummyUnit.transform.position, DummyUnit.transform.rotation);
+                                Fighter newFighter = ResourceManager.instance.CreateCombatFighter(selectedFighter, DummyUnit.transform.position, DummyUnit.transform.rotation);
                                 wing.addFighter(newFighter);
                                 List<Fighter> createdFighters = new List<Fighter>();
                                 createdFighters.Add(newFighter);
                                 for (int i = 1; i < selectedFighter.MaxSquadronSize; i++)
                                 {
                                     Vector3 randomOffect = new Vector3(DummyUnit.transform.position.x + Random.Range(-0.5f, 0.5f), DummyUnit.transform.position.y + Random.Range(0.1f, 0.6f), DummyUnit.transform.position.z + Random.Range(-0.5f, 0.5f));
-                                    newFighter = ResourceManager.CreateCombatFighter(selectedFighter, randomOffect, DummyUnit.transform.rotation);
+                                    newFighter = ResourceManager.instance.CreateCombatFighter(selectedFighter, randomOffect, DummyUnit.transform.rotation);
                                     wing.addFighter(newFighter);
                                     createdFighters.Add(newFighter);
                                 }
@@ -470,13 +470,13 @@ public sealed class MainCustomBattleScreen : CombatScreens
                             {
                                 if (PlayerShipManager.TransporterTargetingTroop)
                                 {
-                                    Cursor.SetCursor(ResourceManager.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
+                                    //Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }
                                 else if (PlayerShipManager.TransporterTargetingCrew)
                                 {
-                                    Cursor.SetCursor(ResourceManager.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
+                                    //Cursor.SetCursor(ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), Vector2.zero, CursorMode.Auto);
                                     if (Input.GetMouseButtonDown(0))
                                         PlayerShipManager.CastActiveAbility(hoveredShip);
                                 }
@@ -1030,19 +1030,19 @@ public sealed class MainCustomBattleScreen : CombatScreens
 
     public bool isPositionInPlayArea(Vector3 position)
     {
-        if (position.z > ResourceManager.gameConstants.CameraLimitUp)
+        if (position.z > ResourceManager.instance.GetGameConstants().CameraLimitUp)
         {
             return false;
         }
-        else if (position.z < ResourceManager.gameConstants.CameraLimitDown)
+        else if (position.z < ResourceManager.instance.GetGameConstants().CameraLimitDown)
         {
             return false;
         }
-        if (position.x > ResourceManager.gameConstants.CameraLimitRight)
+        if (position.x > ResourceManager.instance.GetGameConstants().CameraLimitRight)
         {
             return false;
         }
-        else if (position.x < ResourceManager.gameConstants.CameraLimitLeft)
+        else if (position.x < ResourceManager.instance.GetGameConstants().CameraLimitLeft)
         {
             return false;
         }

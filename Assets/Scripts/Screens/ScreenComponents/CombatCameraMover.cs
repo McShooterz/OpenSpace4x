@@ -83,19 +83,19 @@ public class CombatCameraMover
             moveVector.z += 1f;
         }
         //Screen edge movement
-        if (Input.mousePosition.x < ResourceManager.gameConstants.CameraBoarderArea)
+        if (Input.mousePosition.x < ResourceManager.instance.GetGameConstants().CameraBoarderArea)
         {
             moveVector.x -= 1f;
         }
-        else if (Input.mousePosition.x > Screen.width - ResourceManager.gameConstants.CameraBoarderArea)
+        else if (Input.mousePosition.x > Screen.width - ResourceManager.instance.GetGameConstants().CameraBoarderArea)
         {
             moveVector.x += 1f;
         }
-        if (Input.mousePosition.y < ResourceManager.gameConstants.CameraBoarderArea)
+        if (Input.mousePosition.y < ResourceManager.instance.GetGameConstants().CameraBoarderArea)
         {
             moveVector.z -= 1f;
         }
-        else if (Input.mousePosition.y > Screen.height - ResourceManager.gameConstants.CameraBoarderArea)
+        else if (Input.mousePosition.y > Screen.height - ResourceManager.instance.GetGameConstants().CameraBoarderArea)
         {
             moveVector.z += 1f;
         }
@@ -122,7 +122,7 @@ public class CombatCameraMover
         Camera.main.transform.localEulerAngles = new Vector3(0, Camera.main.transform.localEulerAngles.y, Camera.main.transform.localEulerAngles.z);
 
         float panMultiplier = Mathf.Sqrt(currentCameraDistance);
-        cameraTarget = cameraTarget + Camera.main.transform.TransformDirection(effectivePanSpeed) * ResourceManager.gameConstants.CameraSpeed * panMultiplier * Time.deltaTime;
+        cameraTarget = cameraTarget + Camera.main.transform.TransformDirection(effectivePanSpeed) * ResourceManager.instance.GetGameConstants().CameraSpeed * panMultiplier * Time.deltaTime;
 
         // Set the old x rotation.
         Camera.main.transform.localEulerAngles = new Vector3(oldXRotation, Camera.main.transform.localEulerAngles.y, Camera.main.transform.localEulerAngles.z);
@@ -152,8 +152,8 @@ public class CombatCameraMover
             deltaAngleV -= deltaMousePos.y * mouseRotationMultiplier;
         }
 
-        float x = Mathf.Min(88.0f, Mathf.Max(0.0f, Camera.main.transform.localEulerAngles.x + deltaAngleV * Time.deltaTime * ResourceManager.gameConstants.CameraRotateRate));
-        float y = Camera.main.transform.localEulerAngles.y + deltaAngleH * Time.deltaTime * ResourceManager.gameConstants.CameraRotateRate;
+        float x = Mathf.Min(88.0f, Mathf.Max(0.0f, Camera.main.transform.localEulerAngles.x + deltaAngleV * Time.deltaTime * ResourceManager.instance.GetGameConstants().CameraRotateRate));
+        float y = Camera.main.transform.localEulerAngles.y + deltaAngleH * Time.deltaTime * ResourceManager.instance.GetGameConstants().CameraRotateRate;
         Camera.main.transform.localEulerAngles = new Vector3(x, y, Camera.main.transform.localEulerAngles.z);
     }
 
@@ -175,7 +175,7 @@ public class CombatCameraMover
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         deltaZoom -= scroll * mouseZoomMultiplier;
         float zoomedOutRatio = (currentCameraDistance - minZoomDistance) / (maxZoomDistance - minZoomDistance);
-        currentCameraDistance = Mathf.Max(minZoomDistance, Mathf.Min(maxZoomDistance, currentCameraDistance + deltaZoom * Time.deltaTime * ResourceManager.gameConstants.CameraZoomRate * (zoomedOutRatio * 2.0f + 1.0f)));
+        currentCameraDistance = Mathf.Max(minZoomDistance, Mathf.Min(maxZoomDistance, currentCameraDistance + deltaZoom * Time.deltaTime * ResourceManager.instance.GetGameConstants().CameraZoomRate * (zoomedOutRatio * 2.0f + 1.0f)));
     }
 
     void UpdatePosition()
@@ -204,21 +204,21 @@ public class CombatCameraMover
     void ConfineToPlayArea()
     {
         Vector3 position = Camera.main.transform.position;
-        if (position.z > ResourceManager.gameConstants.CameraLimitUp)
+        if (position.z > ResourceManager.instance.GetGameConstants().CameraLimitUp)
         {
-            position.z = ResourceManager.gameConstants.CameraLimitUp;
+            position.z = ResourceManager.instance.GetGameConstants().CameraLimitUp;
         }
-        else if (position.z < ResourceManager.gameConstants.CameraLimitDown)
+        else if (position.z < ResourceManager.instance.GetGameConstants().CameraLimitDown)
         {
-            position.z = ResourceManager.gameConstants.CameraLimitDown;
+            position.z = ResourceManager.instance.GetGameConstants().CameraLimitDown;
         }
-        if (position.x > ResourceManager.gameConstants.CameraLimitRight)
+        if (position.x > ResourceManager.instance.GetGameConstants().CameraLimitRight)
         {
-            position.x = ResourceManager.gameConstants.CameraLimitRight;
+            position.x = ResourceManager.instance.GetGameConstants().CameraLimitRight;
         }
-        else if (position.x < ResourceManager.gameConstants.CameraLimitLeft)
+        else if (position.x < ResourceManager.instance.GetGameConstants().CameraLimitLeft)
         {
-            position.x = ResourceManager.gameConstants.CameraLimitLeft;
+            position.x = ResourceManager.instance.GetGameConstants().CameraLimitLeft;
         }
         Camera.main.transform.position = position;
     }

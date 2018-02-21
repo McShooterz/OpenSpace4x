@@ -1,0 +1,33 @@
+<TechnologyTree>
+	<startingPhyscisTechnologies>
+	</startingPhyscisTechnologies>
+	<startingSocietyTechnologies>
+	</startingSocietyTechnologies>
+	<startingEngineeringTechnologies>
+	</startingEngineeringTechnologies>
+	<physcisTechnologies>
+		<string>UniversityPhysics1</string>
+		<string>LaboratoryPhysics1</string>
+		<string>LaboratoryExperimentalPhysics1</string>
+		<string>LaboratoryParticlePhysics1</string>
+	</physcisTechnologies>
+	<societyTechnologies>
+		<string>Hydroponics1</string>
+		<string>Hydroponics2</string>
+		<string>Hydroponics3</string>
+		<string>Hydroponics4</string>
+		<string>Hydroponics5</string>
+		<string>MegaCity1</string>
+		<string>LuxuryCity1</string>
+		<string>SlumCity1</string>
+		<string>LaboratorySociety1</string>
+		<string>LaboratoryGeneticsSociety1</string>
+	</societyTechnologies>
+	<engineeringTechnologies>
+		<string>ShipyardSize1</string>
+		<string>ShipyardSize2</string>
+		<string>ShipyardSize3</string>
+		<string>ShipyardSize4</string>
+		<string>ShipyardSize5</string>
+	</engineeringTechnologies>
+</TechnologyTree>

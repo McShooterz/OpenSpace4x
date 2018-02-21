@@ -2,18 +2,16 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
+[System.Serializable]
 public class Weapon
 {
-    //Default constructor for xml serialization
-	public Weapon(){}
-
     public WeaponCategory Category;
 
     // Visuals
-    public string WeaponEffect = "";
-    public string FireSound = "";
-    public string HitEffect = "";
-    public string HitSound = "";
+    public string WeaponEffect;
+    public string FireSound;
+    public string HitEffect;
+    public string HitSound;
     public float HitEffectTime;
     public float HitEffectScale;
 
@@ -30,9 +28,14 @@ public class Weapon
     public float SalvoDelay;
     public float Arc;
     public float BeamDuration;
-    public int Projectiles = 1;
-    public bool MultiHardpoint = false;
-    public float Scale = 1.0f;
+    public int projectiles;
+    public int Projectiles
+    {
+        get { return Mathf.Max(1, projectiles); }
+        set{ projectiles = Mathf.Max(1, value); }
+    }
+    public bool MultiHardpoint;
+    public float Scale;
 
     //Projectile properties
     public float ProjectileLife;
@@ -43,15 +46,15 @@ public class Weapon
     //Attributes
     public bool DamageAllQuads;
     public int HomingAdditionalTargets;
-    public float ShieldDamageModifier = 1f;
-    public float ArmorDamageModifier = 1f;
-    public float HealthDamageModifier = 1f;
-    public float FighterDamageModifier = 1f;
-    public float ProjectileDamageModifier = 1f;
-    public float PowerDamageModifier = 0f;
-    public float IgnoreShieldChance = 0f;
-    public float IgnoreArmorChance = 0f;
-    public float IgnoreArmorRatingChance = 0f;
+    public float ShieldDamageModifier;
+    public float ArmorDamageModifier;
+    public float HealthDamageModifier;
+    public float FighterDamageModifier;
+    public float ProjectileDamageModifier;
+    public float PowerDamageModifier;
+    public float IgnoreShieldChance;
+    public float IgnoreArmorChance;
+    public float IgnoreArmorRatingChance;
 
     //Missile defense
     public bool PDTargetable;
@@ -61,31 +64,25 @@ public class Weapon
     public bool PointDefense;
     public bool PointDefenseOnly;
 
-    public List<DamageNode> DamageGraph = new List<DamageNode>();
+    public List<DamageNode> DamageGraph;
 
     //SecondaryWeapon
-    public string SecondaryWeapon = "";
+    public string SecondaryWeapon;
 
     float halfArc = -1;
     float maxRangeSqr = -1;
 
-    private string Name;
-
-    public void SetName(string name)
+    //Default constructor for xml serialization and setting default values
+    public Weapon()
     {
-        Name = name;
-    }
 
-    public string GetName()
-    {
-        return Name;
     }
 
     public void ApplyFiringRangeFactor()
     {
         foreach(DamageNode node in DamageGraph)
         {
-            node.Range *= ResourceManager.gameConstants.FiringRangeFactor;
+            node.Range *= ResourceManager.instance.GetGameConstants().FiringRangeFactor;
         }
     }
 
@@ -104,7 +101,7 @@ public class Weapon
 
     public float GetMaxRangeDisplay()
     {
-        return GetMaxRange() * (1f / ResourceManager.gameConstants.FiringRangeFactor);
+        return GetMaxRange() * (1f / ResourceManager.instance.GetGameConstants().FiringRangeFactor);
     }
 
     public float GetMaxDamage()
@@ -205,7 +202,7 @@ public class Weapon
 
     public Weapon GetSecondaryWeapon()
     {
-        return ResourceManager.GetWeapon(SecondaryWeapon);
+        return ResourceManager.instance.GetWeapon(SecondaryWeapon);
     }
 
     public Vector2[] GetGraphDamagePoints()
@@ -231,7 +228,7 @@ public class Weapon
 
         public float GetDisplayRange()
         {
-            return Range * (1f / ResourceManager.gameConstants.FiringRangeFactor);
+            return Range * (1f / ResourceManager.instance.GetGameConstants().FiringRangeFactor);
         }
 
         public float GetRangedSquared()

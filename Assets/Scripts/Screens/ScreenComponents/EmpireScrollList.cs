@@ -53,10 +53,10 @@ public class EmpireScrollList : ScrollListBase
     {
         EmpireEntries.Clear();
 
-        foreach (KeyValuePair<string, EmpireDefinition> entry in ResourceManager.Empires)
-        {
-            AddEmpireListEntry(entry.Value);
-        }
+        //foreach (KeyValuePair<string, EmpireDefinition> entry in ResourceManager.Empires)
+        //{
+            //AddEmpireListEntry(entry.Value);
+        //}
 
 
 

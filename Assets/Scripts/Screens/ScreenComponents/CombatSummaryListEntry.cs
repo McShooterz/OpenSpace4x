@@ -40,7 +40,7 @@ public class CombatSummaryListEntry
         DamageDealtRect = new Rect(KillsRect.xMax + spacing, KillsRect.y, GameManager.instance.StandardLabelSize.x, GameManager.instance.StandardLabelSize.y);
         DamageTakenRect = new Rect(DamageDealtRect.xMax + spacing, DamageDealtRect.y, GameManager.instance.StandardLabelSize.x, GameManager.instance.StandardLabelSize.y);
 
-        unitIcon = unitData.GetIcon();
+        //unitIcon = unitData.GetIcon();
     }
 
     public void Draw()

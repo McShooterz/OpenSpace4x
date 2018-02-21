@@ -48,7 +48,7 @@ public class ScreenManager : MonoBehaviour
 
     public void ChangeScreen(string screenName)
     {
-        GameObject newScreen = ResourceManager.GetScreenObject(screenName);
+        GameObject newScreen = ResourceManager.instance.GetScreenObject(screenName);
         if(newScreen != null)
         {
             if (LastScreen != null)

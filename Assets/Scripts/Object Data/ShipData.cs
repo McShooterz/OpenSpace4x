@@ -203,8 +203,8 @@ public sealed class ShipData : UnitData
             TurnSum += CenterSection.engineTurn;
         }
 
-        engineThrust = ThrustSum / (mass * 2.25f) * (1f + designData.EngineBonus) * ResourceManager.gameConstants.ShipSTLSpeedMultiplier;
-		engineTurn = TurnSum / (mass * (mass / 25f)) * (1f + designData.EngineBonus) * ResourceManager.gameConstants.ShipSTLTurnMultiplier;
+        engineThrust = ThrustSum / (mass * 2.25f) * (1f + designData.EngineBonus) * ResourceManager.instance.GetGameConstants().ShipSTLSpeedMultiplier;
+		engineTurn = TurnSum / (mass * (mass / 25f)) * (1f + designData.EngineBonus) * ResourceManager.instance.GetGameConstants().ShipSTLTurnMultiplier;
     }
 
     public void AttachShip(Ship ship)
@@ -335,7 +335,7 @@ public sealed class ShipData : UnitData
 
     float GetLevelDefenseBonus()
     {
-        return Level * ResourceManager.gameConstants.ShipLevelDefenseBonus;
+        return Level * ResourceManager.instance.GetGameConstants().ShipLevelDefenseBonus;
     }
 
     public override float GetDamageBonus()
@@ -349,7 +349,7 @@ public sealed class ShipData : UnitData
 
     float GetLevelDamageBonus()
     {
-        return Level * ResourceManager.gameConstants.ShipLevelDamageBonus;
+        return Level * ResourceManager.instance.GetGameConstants().ShipLevelDamageBonus;
     }
 
     public void QuadrantDestroyed(ShipQuadrant quad, AttachedWeapon weapon, float damage, bool ignoreShields, bool ignoreArmor, bool ignoreArmorRating)
@@ -572,7 +572,7 @@ public sealed class ShipData : UnitData
 
     public float GetAttackRangeDisplay()
     {
-        return attackRange / ResourceManager.gameConstants.FiringRangeFactor;
+        return attackRange / ResourceManager.instance.GetGameConstants().FiringRangeFactor;
     }
 
     public float GetAttackRangeSqr()
@@ -590,11 +590,11 @@ public sealed class ShipData : UnitData
         attackRange = range;
     }
 
-    public override Texture2D GetIcon()
+    public override Sprite GetIcon()
     {
         if (designData.Hull.Icon != null)
             return designData.Hull.GetIcon();
-        return ResourceManager.ErrorTexture;
+        return ResourceManager.instance.GetErrorTexture();
     }
 
     protected override int GetMinCrew()

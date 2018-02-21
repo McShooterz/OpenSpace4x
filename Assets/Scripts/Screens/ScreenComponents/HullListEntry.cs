@@ -25,7 +25,7 @@ public sealed class HullListEntry : ListEntryBase
         buttonCallBack = callBack;
         changeSelectionIndex = changeIndex;
 
-        Icon = hullData.GetIcon();
+        //Icon = hullData.GetIcon();
     }
 
     public void Draw(int selectedIndex)

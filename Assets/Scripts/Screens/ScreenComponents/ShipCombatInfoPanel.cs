@@ -163,8 +163,8 @@ public class ShipCombatInfoPanel
 
         DamageBonusRect = new Rect(LevelIconRect.x, TroopIconRect.yMax, GameManager.instance.StandardLabelSize.x * 0.6f, InfoDisplayElementHeight);
         DefenseBonusRect = new Rect(DamageBonusRect.xMax, DamageBonusRect.y, DamageBonusRect.width, InfoDisplayElementHeight);
-        DamageIcon = ResourceManager.GetIconTexture("Icon_Damage");
-        DefenseIcon = ResourceManager.GetIconTexture("Icon_Defense");
+        //DamageIcon = ResourceManager.instance.GetIconTexture("Icon_Damage");
+        //DefenseIcon = ResourceManager.instance.GetIconTexture("Icon_Defense");
 
         float buttonIndent = (OrderDisplayRect.width - OrderButtonSize * 8) / 2f;
 
@@ -186,18 +186,20 @@ public class ShipCombatInfoPanel
         ButtonSixteenRect = new Rect(ButtonFithteenRect.xMax, ButtonOneRect.yMax, OrderButtonSize, OrderButtonSize);
 
         //Order Buttons
-        cancelOrderButton = new CancelOrdersButton(ButtonOneRect, ResourceManager.GetIconTexture("Icon_Stop"), PlayMainButtonClick, ToolTip);
-        attackDirectionButton = new AttackDirectionButton(ButtonTwoRect, ResourceManager.GetIconTexture("Icon_ShipAttackRight"), ResourceManager.GetIconTexture("Icon_ShipAttackLeft"), ResourceManager.GetIconTexture("Icon_ShipAttackForward"), PlayMainButtonClick, ToolTip);
-        attackStyleButton = new AttackStyleButton(ButtonThreeRect, ResourceManager.GetIconTexture("Icon_StrafingAttack"), ResourceManager.GetIconTexture("Icon_ShipHoldPositionAttack"), ResourceManager.GetIconTexture("Icon_DontAttack"), PlayMainButtonClick, ToolTip);
-        fireControlButton = new FireControlButton(ButtonFourRect, ResourceManager.GetIconTexture("Icon_ShipHoldFire"), ResourceManager.GetIconTexture("Icon_ShipFireAtWill"), PlayMainButtonClick, ToolTip);
-        fighterLaunchButton = new FighterLaunchButton(ButtonFiveRect, ResourceManager.GetIconTexture("Icon_LaunchFighters"), ResourceManager.GetIconTexture("Icon_RecallFighters"), PlayMainButtonClick, ToolTip);
-        heavyFighterLaunchButton = new HeavyFighterLaunchButton(ButtonSixRect, ResourceManager.GetIconTexture("Icon_LaunchHeavyFighters"), ResourceManager.GetIconTexture("Icon_RecallHeavyFighters"), PlayMainButtonClick, ToolTip);
-        assaultPodsLaunchButton = new AssaultPodsLaunchButton(ButtonSevenRect, ResourceManager.GetIconTexture("Icon_LaunchAssaultPods"), ResourceManager.GetIconTexture("Icon_RecallAssaultPods"), PlayMainButtonClick, ToolTip);
-        cloakingButton = new CloakingButton(ButtonEightRect, ResourceManager.GetIconTexture("Icon_CloakCancel"), ResourceManager.GetIconTexture("Icon_Cloak"), PlayMainButtonClick, ToolTip);
-        transportTroopsButton = new TransportTroopsButton(ButtonNineRect, ResourceManager.GetIconTexture("Icon_TransportTroopCancel"), ResourceManager.GetIconTexture("Icon_TransportTroop"), PlayMainButtonClick, ToolTip);
-        transportCrewButton = new TransportCrewButton(ButtonTenRect, ResourceManager.GetIconTexture("Icon_TransportCrewCancel"), ResourceManager.GetIconTexture("Icon_TransportCrew"), PlayMainButtonClick, ToolTip);
-        retreatButton = new RetreatButton(ButtonFithteenRect, ResourceManager.GetIconTexture("Icon_RetreatCancel"), ResourceManager.GetIconTexture("Icon_Retreat"), PlayMainButtonClick, ToolTip);
-        selfDestructButton = new SelfDestructButton(ButtonSixteenRect, ResourceManager.GetIconTexture("Icon_SelfDestructCancel"), ResourceManager.GetIconTexture("Icon_SelfDestruct"), PlayMainButtonClick, ToolTip);
+        /*
+        cancelOrderButton = new CancelOrdersButton(ButtonOneRect, ResourceManager.instance.GetIconTexture("Icon_Stop"), PlayMainButtonClick, ToolTip);
+        attackDirectionButton = new AttackDirectionButton(ButtonTwoRect, ResourceManager.instance.GetIconTexture("Icon_ShipAttackRight"), ResourceManager.instance.GetIconTexture("Icon_ShipAttackLeft"), ResourceManager.instance.GetIconTexture("Icon_ShipAttackForward"), PlayMainButtonClick, ToolTip);
+        attackStyleButton = new AttackStyleButton(ButtonThreeRect, ResourceManager.instance.GetIconTexture("Icon_StrafingAttack"), ResourceManager.instance.GetIconTexture("Icon_ShipHoldPositionAttack"), ResourceManager.instance.GetIconTexture("Icon_DontAttack"), PlayMainButtonClick, ToolTip);
+        fireControlButton = new FireControlButton(ButtonFourRect, ResourceManager.instance.GetIconTexture("Icon_ShipHoldFire"), ResourceManager.instance.GetIconTexture("Icon_ShipFireAtWill"), PlayMainButtonClick, ToolTip);
+        fighterLaunchButton = new FighterLaunchButton(ButtonFiveRect, ResourceManager.instance.GetIconTexture("Icon_LaunchFighters"), ResourceManager.instance.GetIconTexture("Icon_RecallFighters"), PlayMainButtonClick, ToolTip);
+        heavyFighterLaunchButton = new HeavyFighterLaunchButton(ButtonSixRect, ResourceManager.instance.GetIconTexture("Icon_LaunchHeavyFighters"), ResourceManager.instance.GetIconTexture("Icon_RecallHeavyFighters"), PlayMainButtonClick, ToolTip);
+        assaultPodsLaunchButton = new AssaultPodsLaunchButton(ButtonSevenRect, ResourceManager.instance.GetIconTexture("Icon_LaunchAssaultPods"), ResourceManager.instance.GetIconTexture("Icon_RecallAssaultPods"), PlayMainButtonClick, ToolTip);
+        cloakingButton = new CloakingButton(ButtonEightRect, ResourceManager.instance.GetIconTexture("Icon_CloakCancel"), ResourceManager.instance.GetIconTexture("Icon_Cloak"), PlayMainButtonClick, ToolTip);
+        transportTroopsButton = new TransportTroopsButton(ButtonNineRect, ResourceManager.instance.GetIconTexture("Icon_TransportTroopCancel"), ResourceManager.instance.GetIconTexture("Icon_TransportTroop"), PlayMainButtonClick, ToolTip);
+        transportCrewButton = new TransportCrewButton(ButtonTenRect, ResourceManager.instance.GetIconTexture("Icon_TransportCrewCancel"), ResourceManager.instance.GetIconTexture("Icon_TransportCrew"), PlayMainButtonClick, ToolTip);
+        retreatButton = new RetreatButton(ButtonFithteenRect, ResourceManager.instance.GetIconTexture("Icon_RetreatCancel"), ResourceManager.instance.GetIconTexture("Icon_Retreat"), PlayMainButtonClick, ToolTip);
+        selfDestructButton = new SelfDestructButton(ButtonSixteenRect, ResourceManager.instance.GetIconTexture("Icon_SelfDestructCancel"), ResourceManager.instance.GetIconTexture("Icon_SelfDestruct"), PlayMainButtonClick, ToolTip);
+        */
 
         cancelOrderButton.SetShipManager(shipManager);
         attackDirectionButton.SetShipManager(shipManager);
@@ -224,33 +226,35 @@ public class ShipCombatInfoPanel
 
     void SetBasicTextures()
     {
-        CenterShields = ResourceManager.GetUITexture("ShipStats_CenterShield");
-        ForeShields = ResourceManager.GetUITexture("ShipStats_ForeShield");
-        AftShields = ResourceManager.GetUITexture("ShipStats_AftShield");
-        PortShields = ResourceManager.GetUITexture("ShipStats_PortShield");
-        StarboardShields = ResourceManager.GetUITexture("ShipStats_StarboardShield");
-        CenterArmor = ResourceManager.GetUITexture("ShipStats_CenterArmor");
-        ForeArmor = ResourceManager.GetUITexture("ShipStats_ForeArmor");
-        AftArmor = ResourceManager.GetUITexture("ShipStats_AftArmor");
-        PortArmor = ResourceManager.GetUITexture("ShipStats_PortArmor");
-        StarboardArmor = ResourceManager.GetUITexture("ShipStats_StarboardArmor");
-        CenterHealth = ResourceManager.GetUITexture("ShipStats_CenterHealth");
-        ForeHealth = ResourceManager.GetUITexture("ShipStats_ForeHealth");
-        AftHealth = ResourceManager.GetUITexture("ShipStats_AftHealth");
-        PortHealth = ResourceManager.GetUITexture("ShipStats_PortHealth");
-        StarboardHealth = ResourceManager.GetUITexture("ShipStats_StarboardHealth");
+        /*
+        CenterShields = ResourceManager.instance.GetUITexture("ShipStats_CenterShield");
+        ForeShields = ResourceManager.instance.GetUITexture("ShipStats_ForeShield");
+        AftShields = ResourceManager.instance.GetUITexture("ShipStats_AftShield");
+        PortShields = ResourceManager.instance.GetUITexture("ShipStats_PortShield");
+        StarboardShields = ResourceManager.instance.GetUITexture("ShipStats_StarboardShield");
+        CenterArmor = ResourceManager.instance.GetUITexture("ShipStats_CenterArmor");
+        ForeArmor = ResourceManager.instance.GetUITexture("ShipStats_ForeArmor");
+        AftArmor = ResourceManager.instance.GetUITexture("ShipStats_AftArmor");
+        PortArmor = ResourceManager.instance.GetUITexture("ShipStats_PortArmor");
+        StarboardArmor = ResourceManager.instance.GetUITexture("ShipStats_StarboardArmor");
+        CenterHealth = ResourceManager.instance.GetUITexture("ShipStats_CenterHealth");
+        ForeHealth = ResourceManager.instance.GetUITexture("ShipStats_ForeHealth");
+        AftHealth = ResourceManager.instance.GetUITexture("ShipStats_AftHealth");
+        PortHealth = ResourceManager.instance.GetUITexture("ShipStats_PortHealth");
+        StarboardHealth = ResourceManager.instance.GetUITexture("ShipStats_StarboardHealth");
 
-        Health = ResourceManager.GetUITexture("FighterStats_Health");
-        Armor = ResourceManager.GetUITexture("FighterStats_Armor");
-        Shields = ResourceManager.GetUITexture("FighterStats_Shield");
+        Health = ResourceManager.instance.GetUITexture("FighterStats_Health");
+        Armor = ResourceManager.instance.GetUITexture("FighterStats_Armor");
+        Shields = ResourceManager.instance.GetUITexture("FighterStats_Shield");
 
-        LevelIcon = ResourceManager.GetIconTexture("Icon_Level");
-        PowerIcon = ResourceManager.GetIconTexture("Icon_Power");
-        AmmoIcon = ResourceManager.GetIconTexture("Icon_Ammo");
-        CrewIcon = ResourceManager.GetIconTexture("Icon_Crew");
-        TroopIcon = ResourceManager.GetIconTexture("Icon_Troop");
+        LevelIcon = ResourceManager.instance.GetIconTexture("Icon_Level");
+        PowerIcon = ResourceManager.instance.GetIconTexture("Icon_Power");
+        AmmoIcon = ResourceManager.instance.GetIconTexture("Icon_Ammo");
+        CrewIcon = ResourceManager.instance.GetIconTexture("Icon_Crew");
+        TroopIcon = ResourceManager.instance.GetIconTexture("Icon_Troop");
 
-        DamageBarTexture = ResourceManager.GetUITexture("DamageBar");
+        DamageBarTexture = ResourceManager.instance.GetUITexture("DamageBar");
+        */
     }
 
     public void Draw(Vector2 mousePosition)
@@ -481,7 +485,7 @@ public class ShipCombatInfoPanel
             ParentScreen.SetDesignWindowDesign(ship.GetShipData().designData.Design);
         }
 
-        string hull = ship.GetShipData().designData.Design.Hull + " - " + ResourceManager.GetShipHull(ship.GetShipData().designData.Design.Hull).Classification;
+        string hull = ship.GetShipData().designData.Design.Hull + " - " + ResourceManager.instance.GetShipHull(ship.GetShipData().designData.Design.Hull).Classification;
         GUI.Label(HullRect, hull, GameManager.instance.standardLabelStyle);
 
         GUI.DrawTexture(LevelIconRect, LevelIcon);
@@ -1069,7 +1073,7 @@ public class ShipCombatInfoPanel
         GroupShipPosition = GUI.BeginScrollView(GroupShipWindowRect, GroupShipPosition, GroupShipViewRect);
         int buttonNum = 0;
         foreach (Ship ship in ships)
-        {
+        {/*
             Rect rect = new Rect((buttonNum % 8) * shipButtonSize, (buttonNum / 8) * shipButtonSize, shipButtonSize, shipButtonSize);
             if (GUI.Button(rect, ship.GetShipData().designData.Hull.GetIcon()))
             {
@@ -1077,10 +1081,10 @@ public class ShipCombatInfoPanel
                 shipManager.AddToSelection(ship);
                 return;
             }
-            buttonNum++;
+            buttonNum++;*/
         }
         foreach (Station station in stations)
-        {
+        {/*
             Rect rect = new Rect((buttonNum % 8) * shipButtonSize, (buttonNum / 8) * shipButtonSize, shipButtonSize, shipButtonSize);
             if (GUI.Button(rect, station.stationData.designData.Hull.GetIcon()))
             {
@@ -1088,10 +1092,10 @@ public class ShipCombatInfoPanel
                 shipManager.AddToSelection(station);
                 return;
             }
-            buttonNum++;
+            buttonNum++;*/
         }
         foreach (FighterWing fighterWing in fighters)
-        {
+        {/*
             Rect rect = new Rect((buttonNum % 8) * shipButtonSize, (buttonNum / 8) * shipButtonSize, shipButtonSize, shipButtonSize);
             if (GUI.Button(rect, fighterWing.GetIcon()))
             {
@@ -1099,7 +1103,7 @@ public class ShipCombatInfoPanel
                 shipManager.AddToSelection(fighterWing);
                 return;
             }
-            buttonNum++;
+            buttonNum++;*/
         }
         GUI.EndScrollView();
         #endregion
@@ -2769,7 +2773,7 @@ public class ShipCombatInfoPanel
             {
                 if (GUI.Button(baseRect, textures[1]))
                 {
-                    ship.SetRetreatTimer(ResourceManager.gameConstants.RetreatTime);
+                    ship.SetRetreatTimer(ResourceManager.instance.GetGameConstants().RetreatTime);
                     ship.SetSelfDestructTime(0);
                     if (ship.inCloakingState())
                         ship.DeCloak();
@@ -2797,7 +2801,7 @@ public class ShipCombatInfoPanel
                 {
                     foreach (Ship ship in ships)
                     {
-                        ship.SetRetreatTimer(ResourceManager.gameConstants.RetreatTime);
+                        ship.SetRetreatTimer(ResourceManager.instance.GetGameConstants().RetreatTime);
                         ship.SetSelfDestructTime(0);
                         if (ship.inCloakingState())
                             ship.DeCloak();
@@ -2868,7 +2872,7 @@ public class ShipCombatInfoPanel
             {
                 if (GUI.Button(baseRect, textures[1]))
                 {
-                    ship.SetSelfDestructTime(ResourceManager.gameConstants.SelfDestructTime);
+                    ship.SetSelfDestructTime(ResourceManager.instance.GetGameConstants().SelfDestructTime);
                     ship.SetRetreatTimer(0);
                     buttonClick();
                 }
@@ -2889,7 +2893,7 @@ public class ShipCombatInfoPanel
             {
                 if (GUI.Button(baseRect, textures[1]))
                 {
-                    station.SetSelfDestructTime(ResourceManager.gameConstants.SelfDestructTime);
+                    station.SetSelfDestructTime(ResourceManager.instance.GetGameConstants().SelfDestructTime);
                     buttonClick();
                 }
             }
@@ -2918,12 +2922,12 @@ public class ShipCombatInfoPanel
                 {
                     foreach (Ship ship in ships)
                     {
-                        ship.SetSelfDestructTime(ResourceManager.gameConstants.SelfDestructTime);
+                        ship.SetSelfDestructTime(ResourceManager.instance.GetGameConstants().SelfDestructTime);
                         ship.SetRetreatTimer(0);
                     }
                     foreach (Station station in stations)
                     {
-                        station.SetSelfDestructTime(ResourceManager.gameConstants.SelfDestructTime);
+                        station.SetSelfDestructTime(ResourceManager.instance.GetGameConstants().SelfDestructTime);
                     }
                     buttonClick();
                 }

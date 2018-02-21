@@ -24,7 +24,7 @@ public sealed class FighterScrollList : ScrollListBase
         FighterList.Clear();
         float EntrySize = ScrollViewRect.width / 5f;
         int index = 0;
-        foreach (KeyValuePair<string, FighterDefinition> fighterDefinitions in ResourceManager.GetFighterDefinitions())
+        foreach (KeyValuePair<string, FighterDefinition> fighterDefinitions in ResourceManager.instance.GetFighterDefinitions())
         {
             if (checkFighters(fighterDefinitions.Value))
             {

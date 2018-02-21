@@ -11,57 +11,86 @@ using System.Collections;
 
 public class ShipHullData
 {
-    public string Name;
+    public string Name { get; set; }
 
-    public string ShipObject;
-    public string SlotLayout;
-    public string HardPoints;
+    public string ShipObject { get; set; }
+    public string SlotLayout { get; set; }
+    public string HardPoints { get; set; }
 
-    public ShipType Classification;
-    public string Icon;
-    public float MaxTurnTilt = 30.0f;
-    public float ExplosionScale = 1.0f;
+    public ShipType Classification { get; set; }
+    public string Icon { get; set; }
+    public float MaxTurnTilt { get; set; }
+    public float ExplosionScale { get; set; }
 
     //Base stats
-    public int BaseCommandPoints = 1;
-    public int BaseCrew = 100;
-    public float BaseFTL = 3f;
-    public float BaseSupply = 20f;
-    public float BaseFuel = 100f;
-    public float BaseSensor = 20f;
-    public float BaseLongRangeSensor = 25f;
-    public float BaseAdvancedSensor = 0f;
-    public float BaseResearch = 0f;
-    public float BaseRepair = 0.5f;
-    public float BaseHealthPerSlot = 5f;
-    public float BaseArmorPerSlot = 2f;
+    public int BaseCommandPoints { get; set; }
+    public int BaseCrew { get; set; }
+    public float BaseFTL { get; set; }
+    public float BaseSupply { get; set; }
+    public float BaseFuel { get; set; }
+    public float BaseSensor { get; set; }
+    public float BaseLongRangeSensor { get; set; }
+    public float BaseAdvancedSensor { get; set; }
+    public float BaseResearch { get; set; }
+    public float BaseRepair { get; set; }
+    public float BaseHealthPerSlot { get; set; }
+    public float BaseArmorPerSlot { get; set; }
 
     //Quadrant limitations
-    public ModuleLimitType ModuleLimitFore = ModuleLimitType.NoEngines;
-    public ModuleLimitType ModuleLimitAft = ModuleLimitType.AllowAll;
-    public ModuleLimitType ModuleLimitPort = ModuleLimitType.NoEngines;
-    public ModuleLimitType ModuleLimitStarboard = ModuleLimitType.NoEngines;
-    public ModuleLimitType ModuleLimitCenter = ModuleLimitType.NoWeaponsOrEngines;
+    public ModuleLimitType ModuleLimitFore { get; set; }
+    public ModuleLimitType ModuleLimitAft { get; set; }
+    public ModuleLimitType ModuleLimitPort { get; set; }
+    public ModuleLimitType ModuleLimitStarboard { get; set; }
+    public ModuleLimitType ModuleLimitCenter { get; set; }
 
-    public ShipHullData() { }
-
-    public Texture2D GetIcon()
+    //Set default values in Constructor
+    public ShipHullData()
     {
-        return ResourceManager.GetUnitIcon(Icon);
+        Name = "";
+        ShipObject = "";
+        SlotLayout = "";
+        HardPoints = "";
+        Icon = "";
+        MaxTurnTilt = 30.0f;
+        ExplosionScale = 1.0f;
+
+        BaseCommandPoints = 1;
+        BaseCrew = 100;
+        BaseFTL = 3f;
+        BaseSupply = 20f;
+        BaseFuel = 100f;
+        BaseSensor = 20f;
+        BaseLongRangeSensor = 25f;
+        BaseAdvancedSensor = 0f;
+        BaseResearch = 0f;
+        BaseRepair = 0.5f;
+        BaseHealthPerSlot = 5f;
+        BaseArmorPerSlot = 2f;
+
+        ModuleLimitFore = ModuleLimitType.NoEngines;
+        ModuleLimitAft = ModuleLimitType.AllowAll;
+        ModuleLimitPort = ModuleLimitType.NoEngines;
+        ModuleLimitStarboard = ModuleLimitType.NoEngines;
+        ModuleLimitCenter = ModuleLimitType.NoWeaponsOrEngines;
+    }
+
+    public Sprite GetIcon()
+    {
+        return ResourceManager.instance.GetUnitIcon(Icon);
     }
 
     public GameObject GetShipObject()
     {
-        return ResourceManager.GetShipObject(ShipObject);
+        return ResourceManager.instance.GetShipObject(ShipObject);
     }
 
     public ShipSlotLayout GetSlotLayout()
     {
-        return ResourceManager.GetShipSlotLayout(SlotLayout);
+        return ResourceManager.instance.GetShipSlotLayout(SlotLayout);
     }
 
     public HardPointsStored GetHardPoints()
     {
-        return ResourceManager.GetHardPoints(HardPoints);
+        return ResourceManager.instance.GetHardPoints(HardPoints);
     }
 }

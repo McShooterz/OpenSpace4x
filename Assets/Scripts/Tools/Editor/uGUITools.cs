@@ -1,6 +1,4 @@
-﻿
-
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
 
 public class uGUITools : MonoBehaviour
@@ -21,9 +19,6 @@ public class uGUITools : MonoBehaviour
         t.anchorMin = newAnchorsMin;
         t.anchorMax = newAnchorsMax;
         t.offsetMin = t.offsetMax = new Vector2(0, 0);
-
-        //
-
     }
 
     [MenuItem("uGUI/Corners to Anchors %]")]

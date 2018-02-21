@@ -49,19 +49,19 @@ public class FleetCombatInfoPanel
         GUI.Label(AdmiralNameRect, "No Admiral", gameController.standardLabelStyle);
 
         gameController.UIContent.text = fleetData.GetCommand().ToString();
-        gameController.UIContent.image = ResourceManager.GetIconTexture("Icon_CommandPoint");
+        //gameController.UIContent.image = ResourceManager.instance.GetIconTexture("Icon_CommandPoint");
         GUI.Label(CommandRect, gameController.UIContent, gameController.standardLabelStyle);
 
         gameController.UIContent.text = fleetData.GetFleetDamageBonus().ToString();
-        gameController.UIContent.image = ResourceManager.GetIconTexture("Icon_DamageFleet");
+        //gameController.UIContent.image = ResourceManager.instance.GetIconTexture("Icon_DamageFleet");
         GUI.Label(DamageBonusRect, gameController.UIContent, gameController.standardLabelStyle);
 
         gameController.UIContent.text = fleetData.GetFleetDefenseBonus().ToString();
-        gameController.UIContent.image = ResourceManager.GetIconTexture("Icon_DefenseFleet");
+        //gameController.UIContent.image = ResourceManager.instance.GetIconTexture("Icon_DefenseFleet");
         GUI.Label(DefenseBonusRect, gameController.UIContent, gameController.standardLabelStyle);
 
         gameController.UIContent.text = fleetData.GetTransport().ToString();
-        gameController.UIContent.image = ResourceManager.GetIconTexture("Icon_Transporter");
+        //gameController.UIContent.image = ResourceManager.instance.GetIconTexture("Icon_Transporter");
         GUI.Label(TransporterRect, gameController.UIContent, gameController.standardLabelStyle);
     }
 

@@ -55,12 +55,12 @@ public abstract class MobileSpaceUnit : SpaceUnit
 		transform.position += Velocity * GetDeltaTime();
 
 		//Add Drag
-		Velocity *= ResourceManager.gameConstants.ShipDrag;
+		Velocity *= ResourceManager.instance.GetGameConstants().ShipDrag;
 	}
 
 	public void ApplyBrake()
 	{
-		Velocity *= ResourceManager.gameConstants.ShipBrakeDrag;
+		Velocity *= ResourceManager.instance.GetGameConstants().ShipBrakeDrag;
 	}
 
 	public override void ActivateOrdersLine()
@@ -69,17 +69,17 @@ public abstract class MobileSpaceUnit : SpaceUnit
 			return;
 		if(ValidMoveOrder)
 		{
-			shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Player.GetColor(), goalPosition);
+			shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor(), goalPosition);
 		}
 		else if(Target != null)
 		{
 			if(TargetIsEnemy)
 			{
-				shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Enemy.GetColor(), Target);
+				shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Enemy.GetColor(), Target);
 			}
 			else
 			{
-				shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Player.GetColor(), Target);
+				shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor(), Target);
 			}
 		}
 	}
@@ -96,7 +96,7 @@ public abstract class MobileSpaceUnit : SpaceUnit
 		ValidMoveOrder = true;
 		if(shipOrderLine != null)
 		{
-			shipOrderLine.TurnOn(1.0f, ResourceManager.gameConstants.Highlight_Player.GetColor(), Position);
+			shipOrderLine.TurnOn(1.0f, ResourceManager.instance.GetGameConstants().Highlight_Player.GetColor(), Position);
         }
 	}
 
