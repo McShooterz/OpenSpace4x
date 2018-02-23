@@ -7,12 +7,15 @@ Notes:
 ******************************************************************************************************************************************/
 
 using UnityEngine;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 
-[System.Serializable]
-public class PlanetData : Object
+public class PlanetData
 {
+    [SerializeField]
+    Guid uniqueIndentifier;
+
     [SerializeField]
     string displayName;
 
@@ -36,8 +39,19 @@ public class PlanetData : Object
 
     public PlanetData(int size)
     {
-        planetSize = size;
+        uniqueIndentifier = new Guid();
+
+        // Limit planet size 1-25
+        planetSize = Mathf.Clamp(size, 1, 25);
         CreatePlanetTilesData(planetSize);
+
+
+        GalaxyManager.instance.AddPlanetData(uniqueIndentifier, this);
+    }
+
+    public Guid GetUniqueIndentifier()
+    {
+        return uniqueIndentifier;
     }
 
     public string GetDisplayName()
@@ -99,6 +113,7 @@ public class PlanetData : Object
 
         planetTiles = new PlanetTileData[columnCount, rowCount];
 
+        // Create tiles datas
         for (int i = 0; i < columnCount; i++)
         {
             for (int j = 0; j < rowCount; j++)
@@ -106,6 +121,40 @@ public class PlanetData : Object
                 if (remainderRowsCount == 0 || i == columnCount -1 && j < remainderRowsCount)
                 {
                     planetTiles[i, j] = new PlanetTileData(this);
+                }
+            }
+        }
+
+        // Assign adjacency
+        for (int i = 0; i < columnCount; i++)
+        {
+            for (int j = 0; j < rowCount; j++)
+            {
+                if (planetTiles[i, j] != null)
+                {
+                    // Adjacency Up
+                    if (i != 0)
+                    {
+                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i - 1, j]);
+                    }
+
+                    // Adjacency Down
+                    if (i != columnCount - 1)
+                    {
+                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i + 1, j]);
+                    }
+
+                    // Adjacency Left
+                    if (j != 0)
+                    {
+                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i, j - 1]);
+                    }
+
+                    // Adjacency Right
+                    if (j != rowCount - 1)
+                    {
+                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i, j + 1]);
+                    }
                 }
             }
         }
