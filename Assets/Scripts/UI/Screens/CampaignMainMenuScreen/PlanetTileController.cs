@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.UI.Extensions;
 
 public class PlanetTileController : MonoBehaviour
 {
@@ -15,25 +16,14 @@ public class PlanetTileController : MonoBehaviour
     Image buildingImage;
 
     [SerializeField]
-    Image populationImage;
-
-
-
-
+    Slider progressBar;
 
     [SerializeField]
-    Image adjacencyBottom;
+    Image tileBonusIcon;
 
     [SerializeField]
-    Image adjacencyTop;
+    Text tileBonusText;
 
-    [SerializeField]
-    Image adjacencyLeft;
-
-    [SerializeField]
-    Image adjacencyRight;
-
-    [SerializeField]
     PlanetTileData planetTileData;
 
 

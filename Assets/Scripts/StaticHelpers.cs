@@ -14,4 +14,13 @@ using UnityEngine.EventSystems;
 public static class StaticHelpers
 {
 
+
+
+
+    public static Vector2 GetRandomDirection()
+    {
+        float azimuth = Random.Range(0, 2) * Mathf.PI;
+
+        return new Vector2(Mathf.Cos(azimuth), Mathf.Sin(azimuth));
+    }
 }

@@ -37,7 +37,7 @@ public class PlanetSurfaceGrid : MonoBehaviour
         planetData = data;
     }
 
-    void CreatePlanetTiles(List<PlanetTileData> planetTileDataList)
+    public void CreatePlanetTiles(List<PlanetTileData> planetTileDataList)
     {
         ClearTiles();
 

@@ -22,6 +22,16 @@
 		<string>SlumCity1</string>
 		<string>LaboratorySociety1</string>
 		<string>LaboratoryGeneticsSociety1</string>
+		<string>FleetCapacity1</string>
+		<string>FleetCapacity2</string>
+		<string>FleetCapacity3</string>
+		<string>FleetCapacity4</string>
+		<string>FleetCapacity5</string>
+		<string>NavalCapacity1</string>
+		<string>NavalCapacity2</string>
+		<string>NavalCapacity3</string>
+		<string>NavalCapacity4</string>
+		<string>NavalCapacity5</string>
 	</societyTechnologies>
 	<engineeringTechnologies>
 		<string>ShipyardSize1</string>

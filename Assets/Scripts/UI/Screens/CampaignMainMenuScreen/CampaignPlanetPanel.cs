@@ -42,6 +42,8 @@ public class CampaignPlanetPanel : MonoBehaviour
 
         PlanetData planetData = planet.GetPlanetData();
         planetName.text = planetData.GetDisplayName();
+
+        planetSurfaceGrid.CreatePlanetTiles(planetData.GetPlanetTilesList());
     }
 
 

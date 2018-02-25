@@ -67,6 +67,9 @@ public class ResourceManager : MonoBehaviour
     bool doLoadPlanets;
 
     [SerializeField]
+    bool doLoadStars;
+
+    [SerializeField]
     bool doLoadMods;
 
     [Header("Data")]
@@ -109,6 +112,8 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, PlanetTypeDefinition> planetDefinitions = new Dictionary<string, PlanetTypeDefinition>();
     Dictionary<string, Sprite> planetTiles = new Dictionary<string, Sprite>();
     Dictionary<string, Sprite> planetIcons = new Dictionary<string, Sprite>();
+
+    Dictionary<string, GameObject> stars = new Dictionary<string, GameObject>();
 
     [SerializeField]
     List<Sprite> flagBackgrounds = new List<Sprite>();
@@ -291,6 +296,11 @@ public class ResourceManager : MonoBehaviour
             LoadPlanetsDirectory(Application.streamingAssetsPath + "/Planets/");
         }
 
+        if (doLoadStars && Directory.Exists(Application.streamingAssetsPath + "/Stars"))
+        {
+            LoadStars(Application.streamingAssetsPath + "/Stars/");
+        }
+
         if (doLoadMods && Directory.Exists(Application.streamingAssetsPath + "/Mods"))
         {
             LoadModLoadConfig();
@@ -419,6 +429,34 @@ public class ResourceManager : MonoBehaviour
             projectile.transform.localScale *= weapon.Scale;
             return projectile.GetComponent<Projectile>();
         }
+        return null;
+    }
+
+    public GameObject CreatePlanet(string name)
+    {
+        GameObject planetObject;
+        if (planets.TryGetValue(name, out planetObject))
+        {
+            planetObject = Instantiate(planetObject);
+            planetObject.SetActive(true);
+
+            return planetObject;
+        }
+
+        return null;
+    }
+
+    public GameObject CreateStar(string name)
+    {
+        GameObject starObject;
+        if(stars.TryGetValue(name, out starObject))
+        {
+            starObject = Instantiate(starObject);
+            starObject.SetActive(true);
+
+            return starObject;
+        }
+
         return null;
     }
 
@@ -1050,7 +1088,6 @@ public class ResourceManager : MonoBehaviour
 
     void LoadPlanet(GameObject planetObject)
     {
-        //GameObject shipMesh = planetObject.transform.GetChild(0).gameObject;
         //Set tags and layers
         planetObject.tag = "Planet";
 
@@ -1065,6 +1102,43 @@ public class ResourceManager : MonoBehaviour
             planets.Add(planetObject.name, planetObject);
         }
         planetObject.SetActive(false);
+    }
+
+    void LoadStars(string path)
+    {
+        FileInfo[] files = GetFilesByType(path, "*.unity3d");
+        foreach (FileInfo file in files)
+        {
+            AssetBundle asset = AssetBundle.LoadFromFile(path + file.Name);
+            foreach (string assetName in asset.GetAllAssetNames())
+            {
+                try
+                {
+                    LoadStar((GameObject)asset.LoadAsset(assetName));
+                }
+                catch
+                {
+                    print("Failed to load star: " + assetName);
+                }
+            }
+        }
+    }
+
+    void LoadStar(GameObject starObject)
+    {
+        //Set tags and layers
+        starObject.tag = "Star";
+
+        GameObject existingStar;
+        if (stars.TryGetValue(starObject.name, out existingStar))
+        {
+            existingStar = starObject;
+        }
+        else
+        {
+            stars.Add(starObject.name, starObject);
+        }
+        starObject.SetActive(false);
     }
 
     void LoadSkyBoxes(string path)
@@ -1281,9 +1355,11 @@ public class ResourceManager : MonoBehaviour
             {
                 module = (Module)new XmlSerializer(typeof(Module)).Deserialize((Stream)file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
-                if (modules.ContainsKey(name))
+
+                Module existingModule;
+                if (modules.TryGetValue(name, out existingModule))
                 {
-                    modules[name] = module;
+                    existingModule = module;
                 }
                 else
                 {
@@ -1309,9 +1385,10 @@ public class ResourceManager : MonoBehaviour
                 moduleSet = (ModuleSet)new XmlSerializer(typeof(ModuleSet)).Deserialize(file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
 
-                if (moduleSets.ContainsKey(name))
+                ModuleSet existingModuleSet;
+                if (moduleSets.TryGetValue(name, out existingModuleSet))
                 {
-                    moduleSets[name] = moduleSet;
+                    existingModuleSet = moduleSet;
                 }
                 else
                 {
@@ -1365,10 +1442,11 @@ public class ResourceManager : MonoBehaviour
             {
                 weapon = (Weapon)new XmlSerializer(typeof(Weapon)).Deserialize(file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
-                //weapon.SetName(name);
-                if (weapons.ContainsKey(name))
+
+                Weapon existingWeapon;
+                if (weapons.TryGetValue(name, out existingWeapon))
                 {
-                    weapons[name] = weapon;
+                    existingWeapon = weapon;
                 }
                 else
                 {
@@ -1379,40 +1457,6 @@ public class ResourceManager : MonoBehaviour
             catch
             {
                 print("Failed to load: " + file.Name);
-            }
-        }
-    }
-
-    void LoadBeams(string path)
-    {
-        FileInfo[] files = GetFilesByType(path, "*.unity3d");
-        foreach (FileInfo file in files)
-        {
-            AssetBundle asset;
-            try
-            {
-                asset = AssetBundle.LoadFromFile(path + file.Name);
-                string name = Path.GetFileNameWithoutExtension(file.Name);
-                GameObject beam = (GameObject)asset.LoadAsset(asset.GetAllAssetNames()[0]);
-                if (beam.GetComponent<Beam>() == null)
-                    beam.AddComponent<Beam>();
-
-                //Store in dictionaries
-                if (beams.ContainsKey(name))
-                {
-                    beams[name] = beam;
-                }
-                else
-                {
-                    beams.Add(name, beam);
-                }
-
-                beam.SetActive(false);
-                //print("Loaded Beam: " + name);
-            }
-            catch
-            {
-                print("Failed to load beam: " + file.Name);
             }
         }
     }
@@ -1767,33 +1811,73 @@ public class ResourceManager : MonoBehaviour
         FileInfo[] files = GetFilesByType(path, "*.unity3d");
         foreach (FileInfo file in files)
         {
-            AssetBundle asset;
-            try
+            AssetBundle asset = AssetBundle.LoadFromFile(path + file.Name);
+            foreach (string assetName in asset.GetAllAssetNames())
             {
-                asset = AssetBundle.LoadFromFile(path + file.Name);
-                string name = Path.GetFileNameWithoutExtension(file.Name);
-                GameObject projectile = (GameObject)asset.LoadAsset(asset.GetAllAssetNames()[0]);
-                if (projectile.GetComponent<Projectile>() == null)
-                    projectile.AddComponent<Projectile>();
-
-                //Store in dictionaries
-                if (projectiles.ContainsKey(name))
+                try
                 {
-                    projectiles[name] = projectile;
-                }
-                else
-                {
-                    projectiles.Add(name, projectile);
-                }
+                    GameObject projectileObject = (GameObject)asset.LoadAsset(assetName);
 
-                projectile.SetActive(false);
-                //print("Loaded Projectile: " + name);
-            }
-            catch
-            {
-                print("Failed to load Projectile: " + file.Name);
+                    if (projectileObject.GetComponent<Projectile>() == null)
+                    {
+                        projectileObject.AddComponent<Projectile>();
+                    }
+
+                    //Store in dictionaries
+                    if (projectiles.ContainsKey(projectileObject.name))
+                    {
+                        projectiles[projectileObject.name] = projectileObject;
+                    }
+                    else
+                    {
+                        projectiles.Add(projectileObject.name, projectileObject);
+                    }
+
+                    projectileObject.SetActive(false);
+                }
+                catch
+                {
+                    print("Failed to load Projectile: " + assetName);
+                }
             }
         }
+    }
+
+    void LoadBeams(string path)
+    {
+        FileInfo[] files = GetFilesByType(path, "*.unity3d");
+        foreach (FileInfo file in files)
+        {
+            AssetBundle asset = AssetBundle.LoadFromFile(path + file.Name);
+            foreach (string assetName in asset.GetAllAssetNames())
+            {
+                try
+                {
+                    GameObject beamObject = (GameObject)asset.LoadAsset(assetName);
+
+                    if (beamObject.GetComponent<Beam>() == null)
+                    {
+                        beamObject.AddComponent<Beam>();
+                    }
+
+                    //Store in dictionaries
+                    if (beams.ContainsKey(beamObject.name))
+                    {
+                        beams[beamObject.name] = beamObject;
+                    }
+                    else
+                    {
+                        beams.Add(beamObject.name, beamObject);
+                    }
+
+                    beamObject.SetActive(false);
+                }
+                catch
+                {
+                    print("Failed to load beam: " + assetName);
+                }
+            }
+        }   
     }
 
     void LoadExplosionsDirectory(string path)
