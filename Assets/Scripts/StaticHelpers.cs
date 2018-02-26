@@ -13,14 +13,35 @@ using UnityEngine.EventSystems;
 
 public static class StaticHelpers
 {
-
-
-
-
-    public static Vector2 GetRandomDirection()
+    public static Vector2 GetRandomUnitVector2()
     {
-        float azimuth = Random.Range(0, 2) * Mathf.PI;
+        float angleTheta = Random.Range(0, 2 * Mathf.PI);
 
-        return new Vector2(Mathf.Cos(azimuth), Mathf.Sin(azimuth));
+        return new Vector2(Mathf.Sin(angleTheta), Mathf.Cos(angleTheta));
+    }
+
+    public static int GetRandomIndexByWeight(float[] weights)
+    {
+        float weightSum = 0;
+
+        foreach(float weight in weights)
+        {
+            weightSum += weight;
+        }
+
+        float randomValue = Random.Range(0f, weightSum);
+
+        for(int i = 0; i < weights.Length; i++)
+        {
+            randomValue -= weights[i];
+
+            if (randomValue <= 0)
+            {
+                return i;
+            }
+        }
+
+        // Return -1 for error
+        return -1;
     }
 }

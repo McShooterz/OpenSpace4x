@@ -32,7 +32,7 @@ public class GalaxyManager : MonoBehaviour
     [SerializeField]
     int maxPlanetsPerSystem;
 
-    Dictionary<Guid, PlanetData> planetDatas = new Dictionary<Guid, PlanetData>();
+    Dictionary<Guid, PlanetController> planets = new Dictionary<Guid, PlanetController>();
 
     void Awake()
     {
@@ -53,7 +53,7 @@ public class GalaxyManager : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-        BuildGalaxy(GetRandomSystemPoints());
+        BuildNewGalaxy(GetRandomSystemPoints());
 
     }
 	
@@ -65,47 +65,57 @@ public class GalaxyManager : MonoBehaviour
 
 
 
-    void BuildGalaxy(Vector3[] solarSystemPositions)
+    void BuildNewGalaxy(Vector3[] solarSystemPositions)
     {
+        List<PlanetTypeDefinition> planetDefinitions = ResourceManager.instance.GetPlanetTypesList();
 
+        float[] planetDefinitionWeights = new float[planetDefinitions.Count];
 
+        for(int i = 0; i < planetDefinitions.Count; i++)
+        {
+            planetDefinitionWeights[i] = planetDefinitions[i].randomGalaxyWeight;
+        }
 
-        foreach(Vector3 position in solarSystemPositions)
+        foreach (Vector3 systemPosition in solarSystemPositions)
         {
             GameObject starObject = ResourceManager.instance.CreateStar("Star_Red");
-            starObject.transform.position = position;
+            starObject.transform.position = systemPosition;
             starObject.transform.rotation = UnityEngine.Random.rotation;
 
             Vector3[] planetPositions = GetRandomPlanetPositions(UnityEngine.Random.Range(minPlanetsPerSystem, maxPlanetsPerSystem + 1));
             foreach (Vector3 planetPosition in planetPositions)
             {
-                GameObject planetObject = ResourceManager.instance.CreatePlanet("Planet_Desert1");
-                planetObject.transform.position = planetPosition + position;
-                planetObject.transform.rotation = UnityEngine.Random.rotation;
+                PlanetTypeDefinition definition = planetDefinitions[StaticHelpers.GetRandomIndexByWeight(planetDefinitionWeights)];
+                PlanetController newPlanet = definition.CreatePlanetInstance();
+                newPlanet.SetSize(definition.GetRandomSize());
+                newPlanet.SetLightSourcePosition(systemPosition);
+                newPlanet.transform.position = planetPosition + systemPosition;
+                //planetObject.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0f,360f), 0);
+                newPlanet.transform.localScale = new Vector3(0.4f,0.4f,0.4f);
             }
         }
     }
 
 
-    public void AddPlanetData(Guid guid, PlanetData planetData)
+    public void AddPlanet(Guid guid, PlanetController planet)
     {
-        if (planetDatas.ContainsKey(guid))
+        if (planets.ContainsKey(guid))
         {
-            planetDatas[guid] = planetData;
+            planets[guid] = planet;
         }
         else
         {
-            planetDatas.Add(guid, planetData);
+            planets.Add(guid, planet);
         }
     }
 
-    public PlanetData GetPlanetData(Guid guid)
+    public PlanetController GetPlanetData(Guid guid)
     {
-        PlanetData planetData;
+        PlanetController planet;
 
-        if (planetDatas.TryGetValue(guid, out planetData))
+        if (planets.TryGetValue(guid, out planet))
         {
-            return planetData;
+            return planet;
         }
 
         return null;
@@ -147,13 +157,13 @@ public class GalaxyManager : MonoBehaviour
     {
         Vector3[] planetPositions = new Vector3[count];
 
-        float radius = UnityEngine.Random.Range(0.5f, 1.0f);
+        float radius = 1.25f;
 
         for(int i = 0; i < count; i++)
         {
-            Vector2 direction = StaticHelpers.GetRandomDirection() * radius;
+            Vector2 direction = StaticHelpers.GetRandomUnitVector2() * radius;
             planetPositions[i] = new Vector3(direction.x, 0f, direction.y);
-            radius += UnityEngine.Random.Range(0.5f, 1.0f);
+            radius += 0.5f;
         }
 
         return planetPositions;

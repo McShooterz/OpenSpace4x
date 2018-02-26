@@ -17,9 +17,6 @@ public class CampaignCameraController : MonoBehaviour
     [SerializeField]
     Transform m_Transform;
 
-    [SerializeField]
-    bool useFixedUpdate = false;
-
     #region Movement
 
     [SerializeField]
@@ -83,27 +80,6 @@ public class CampaignCameraController : MonoBehaviour
 
     #endregion
 
-    #region Targeting
-
-    [SerializeField]
-    Transform targetFollow; //target to follow
-
-    [SerializeField]
-    Vector3 targetOffset;
-
-    /// <summary>
-    /// are we following target
-    /// </summary>
-    public bool FollowingTarget
-    {
-        get
-        {
-            return targetFollow != null;
-        }
-    }
-
-    #endregion
-
     #region Input
 
     [SerializeField]
@@ -128,15 +104,6 @@ public class CampaignCameraController : MonoBehaviour
     KeyCode panningKey = KeyCode.Mouse2;
 
     [SerializeField]
-    bool useKeyboardZooming = true;
-
-    [SerializeField]
-    KeyCode zoomInKey = KeyCode.E;
-
-    [SerializeField]
-    KeyCode zoomOutKey = KeyCode.Q;
-
-    [SerializeField]
     bool useScrollwheelZooming = true;
 
     [SerializeField]
@@ -144,12 +111,6 @@ public class CampaignCameraController : MonoBehaviour
 
     [SerializeField]
     bool useKeyboardRotation = true;
-
-    [SerializeField]
-    KeyCode rotateRightKey = KeyCode.X;
-
-    [SerializeField]
-    KeyCode rotateLeftKey = KeyCode.Z;
 
     [SerializeField]
     bool useMouseRotation = true;
@@ -177,40 +138,6 @@ public class CampaignCameraController : MonoBehaviour
         get { return new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y")); }
     }
 
-    int ZoomDirection
-    {
-        get
-        {
-            bool zoomIn = Input.GetKey(zoomInKey);
-            bool zoomOut = Input.GetKey(zoomOutKey);
-            if (zoomIn && zoomOut)
-                return 0;
-            else if (!zoomIn && zoomOut)
-                return 1;
-            else if (zoomIn && !zoomOut)
-                return -1;
-            else
-                return 0;
-        }
-    }
-
-    int RotationDirection
-    {
-        get
-        {
-            bool rotateRight = Input.GetKey(rotateRightKey);
-            bool rotateLeft = Input.GetKey(rotateLeftKey);
-            if (rotateLeft && rotateRight)
-                return 0;
-            else if (rotateLeft && !rotateRight)
-                return -1;
-            else if (!rotateLeft && rotateRight)
-                return 1;
-            else
-                return 0;
-        }
-    }
-
     #endregion
 
     #region Unity_Methods
@@ -222,18 +149,12 @@ public class CampaignCameraController : MonoBehaviour
 
     void Update()
     {
-        if (!useFixedUpdate)
-        {
-            CameraUpdate();
-        }
+
     }
 
     void FixedUpdate()
     {
-        if (useFixedUpdate)
-        {
-            CameraUpdate();
-        }
+        CameraUpdate();
     }
 
     #endregion
@@ -245,11 +166,7 @@ public class CampaignCameraController : MonoBehaviour
     /// </summary>
     void CameraUpdate()
     {
-        if (FollowingTarget)
-            FollowTarget();
-        else
-            Move();
-
+        Move();
         HeightCalculation();
         Rotation();
         LimitPosition();
@@ -310,19 +227,16 @@ public class CampaignCameraController : MonoBehaviour
     /// </summary>
     void HeightCalculation()
     {
-        float distanceToGround = DistanceToGround();
         if (useScrollwheelZooming)
             zoomPos += ScrollWheel * Time.deltaTime * scrollWheelZoomingSensitivity;
-        if (useKeyboardZooming)
-            zoomPos += ZoomDirection * Time.deltaTime * keyboardZoomingSensitivity;
 
         zoomPos = Mathf.Clamp01(zoomPos);
 
         float targetHeight = Mathf.Lerp(minHeight, maxHeight, zoomPos);
         float difference = 0;
 
-        if (distanceToGround != targetHeight)
-            difference = targetHeight - distanceToGround;
+        if (transform.position.y != targetHeight)
+            difference = targetHeight - transform.position.y;
 
         m_Transform.position = Vector3.Lerp(m_Transform.position,
             new Vector3(m_Transform.position.x, targetHeight + difference, m_Transform.position.z), Time.deltaTime * heightDampening);
@@ -333,20 +247,8 @@ public class CampaignCameraController : MonoBehaviour
     /// </summary>
     void Rotation()
     {
-        if (useKeyboardRotation)
-            transform.Rotate(Vector3.up, RotationDirection * Time.deltaTime * rotationSped, Space.World);
-
         if (useMouseRotation && Input.GetKey(mouseRotationKey))
             m_Transform.Rotate(Vector3.up, -MouseAxis.x * Time.deltaTime * mouseRotationSpeed, Space.World);
-    }
-
-    /// <summary>
-    /// follow targetif target != null
-    /// </summary>
-    void FollowTarget()
-    {
-        Vector3 targetPos = new Vector3(targetFollow.position.x, m_Transform.position.y, targetFollow.position.z) + targetOffset;
-        m_Transform.position = Vector3.MoveTowards(m_Transform.position, targetPos, Time.deltaTime * followingSpeed);
     }
 
     /// <summary>
@@ -360,37 +262,6 @@ public class CampaignCameraController : MonoBehaviour
         m_Transform.position = new Vector3(Mathf.Clamp(m_Transform.position.x, -limitX, limitX),
             m_Transform.position.y,
             Mathf.Clamp(m_Transform.position.z, -limitY, limitY));
-    }
-
-    /// <summary>
-    /// set the target
-    /// </summary>
-    /// <param name="target"></param>
-    public void SetTarget(Transform target)
-    {
-        targetFollow = target;
-    }
-
-    /// <summary>
-    /// reset the target (target is set to null)
-    /// </summary>
-    public void ResetTarget()
-    {
-        targetFollow = null;
-    }
-
-    /// <summary>
-    /// calculate distance to ground
-    /// </summary>
-    /// <returns></returns>
-    float DistanceToGround()
-    {
-        Ray ray = new Ray(m_Transform.position, Vector3.down);
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, groundMask.value))
-            return (hit.point - m_Transform.position).magnitude;
-
-        return 0f;
     }
 
     #endregion

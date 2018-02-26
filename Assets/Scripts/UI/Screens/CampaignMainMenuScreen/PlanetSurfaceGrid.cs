@@ -18,7 +18,7 @@ public class PlanetSurfaceGrid : MonoBehaviour
     GameObject planetTilePrefab;
 
     [SerializeField]
-    PlanetData planetData;
+    PlanetController planetController;
 
 	// Use this for initialization
 	void Start ()
@@ -32,9 +32,9 @@ public class PlanetSurfaceGrid : MonoBehaviour
 		
 	}
 
-    public void SetPlanetData(PlanetData data)
+    public void SetPlanetData(PlanetController planet)
     {
-        planetData = data;
+        planetController = planet;
     }
 
     public void CreatePlanetTiles(List<PlanetTileData> planetTileDataList)

@@ -1,6 +1,0 @@
-<PlanetTypeDefinition>
-	<planetObject>PlanetTerran</planetObject>
-	<colonizable>true</colonizable>
-	<fertilityMin>0.5</fertilityMin>
-	<fertilityMax>2.0</fertilityMax>
-</PlanetTypeDefinition>

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlanetTileData
 {  
-    PlanetData planetData;
+    PlanetController parentPlanet;
 
     PlanetTileData adjacentTileUp;
     PlanetTileData adjacentTileDown;
@@ -17,9 +17,9 @@ public class PlanetTileData
 
     float bonusValue = 0f;
 
-    public PlanetTileData(PlanetData data)
+    public PlanetTileData(PlanetController owner)
     {
-        planetData = data;
+        parentPlanet = owner;
     }
 
     public void SetAdjacentTileUp(PlanetTileData tile)

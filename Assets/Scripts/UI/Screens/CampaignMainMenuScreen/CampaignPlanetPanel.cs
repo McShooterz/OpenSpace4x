@@ -6,16 +6,13 @@ using UnityEngine.UI;
 public class CampaignPlanetPanel : MonoBehaviour
 {
     [SerializeField]
-    PlanetController planet;
+    PlanetController planetController;
 
     [SerializeField]
     bool playerControl;
 
     [SerializeField]
     Text planetName;
-
-
-
 
     [SerializeField]
     PlanetSurfaceGrid planetSurfaceGrid;
@@ -37,13 +34,12 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     public void SetPlanet(PlanetController newPlanet, bool controllable)
     {
-        planet = newPlanet;
+        planetController = newPlanet;
         playerControl = controllable;
 
-        PlanetData planetData = planet.GetPlanetData();
-        planetName.text = planetData.GetDisplayName();
+        planetName.text = planetController.GetDisplayName();
 
-        planetSurfaceGrid.CreatePlanetTiles(planetData.GetPlanetTilesList());
+        planetSurfaceGrid.CreatePlanetTiles(planetController.GetPlanetTilesList());
     }
 
 

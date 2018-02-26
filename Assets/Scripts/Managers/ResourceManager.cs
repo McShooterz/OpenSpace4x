@@ -323,6 +323,18 @@ public class ResourceManager : MonoBehaviour
         print("Resource Load time: " + (System.DateTime.Now - LoadStartTime).TotalSeconds.ToString());
     }
 
+    public List<PlanetTypeDefinition> GetPlanetTypesList()
+    {
+        List<PlanetTypeDefinition> planetTypeList = new List<PlanetTypeDefinition>();
+
+        foreach (KeyValuePair<string, PlanetTypeDefinition> keyVal in planetDefinitions)
+        {
+            planetTypeList.Add(keyVal.Value);
+        }
+
+        return planetTypeList;
+    }
+
     public GameObject CreateShip(ShipHullData hullData, Vector3 Position, Quaternion Rotation)
     {
         GameObject NewShip = hullData.GetShipObject();
@@ -432,7 +444,7 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
-    public GameObject CreatePlanet(string name)
+    public PlanetController CreatePlanet(string name)
     {
         GameObject planetObject;
         if (planets.TryGetValue(name, out planetObject))
@@ -440,7 +452,7 @@ public class ResourceManager : MonoBehaviour
             planetObject = Instantiate(planetObject);
             planetObject.SetActive(true);
 
-            return planetObject;
+            return planetObject.AddComponent<PlanetController>();
         }
 
         return null;
@@ -1090,6 +1102,7 @@ public class ResourceManager : MonoBehaviour
     {
         //Set tags and layers
         planetObject.tag = "Planet";
+        planetObject.layer = LayerMask.NameToLayer("Planet");
 
         GameObject existingPlanet;
         if (planets.TryGetValue(planetObject.name, out existingPlanet))
@@ -1742,8 +1755,6 @@ public class ResourceManager : MonoBehaviour
                 {
                     technologyTrees.Add(name, technologyTree);
                 }
-
-                print("Loaded technology tree: " + file.Name);
             }
             catch
             {
@@ -1798,6 +1809,7 @@ public class ResourceManager : MonoBehaviour
                 {
                     planetDefinitions.Add(name, planetDefinition);
                 }
+                //print("Loaded planet definition: " + name);
             }
             catch
             {

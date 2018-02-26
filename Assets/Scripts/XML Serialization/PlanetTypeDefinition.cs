@@ -2,25 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 public class PlanetTypeDefinition
 {
-
-
     public string name;
+
     public string description;
 
-    public string planetObject;
+    public string[] planetObjects;
 
+    public float randomGalaxyWeight;
 
+    public int sizeMin;
+
+    public int sizeMax;
     
     public bool colonizable;
 
+    public float populationMultiplier;
 
+    public float fertility;
 
-    public float fertilityMin;
+    public float metalRichnessMin;
 
-    public float fertilityMax;
+    public float metalRichnessMax;
+
+    public float crystalRichnessMin;
+
+    public float crystalRichnessMax;
 
 
     public string GetName()
@@ -33,9 +41,25 @@ public class PlanetTypeDefinition
         return ResourceManager.instance.GetLocalization(description);
     }
 
-    public GameObject GetPlanetObject()
+    public PlanetController CreatePlanetInstance()
     {
-        return ResourceManager.instance.GetPlanetObject(planetObject);
+        PlanetController planetController = ResourceManager.instance.CreatePlanet(planetObjects[Random.Range(0, planetObjects.Length)]);
+        planetController.SetPlanetType(this);
+        return planetController;
     }
 
+    public int GetRandomSize()
+    {
+        return Random.Range(sizeMin, sizeMax + 1);
+    }
+
+    public float GetRandomMetal()
+    {
+        return Random.Range(metalRichnessMin, metalRichnessMax);
+    }
+
+    public float GetRandomCrystal()
+    {
+        return Random.Range(crystalRichnessMin, crystalRichnessMax);
+    }
 }
