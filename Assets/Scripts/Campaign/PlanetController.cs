@@ -94,6 +94,11 @@ public class PlanetController : MonoBehaviour
         planetType = typeDefinition;
     }
 
+    public PlanetTypeDefinition GetTypeDefinition()
+    {
+        return planetType;
+    }
+
     public PlanetTileData[,] GetPlanetTiles()
     {
         return planetTiles;

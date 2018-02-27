@@ -1,0 +1,17 @@
+<PlanetTypeDefinition>
+	<name>Planet_Volcanic</name>
+	<description>Planet_Volcanic_desc</description>
+	<planetObjects>
+		<string>Planet_Lava3</string>
+	</planetObjects>
+	<randomGalaxyWeight>1.0</randomGalaxyWeight>
+	<sizeMin>1</sizeMin>
+	<sizeMax>25</sizeMax>
+	<colonizable>false</colonizable>
+	<populationMultiplier>1.0</populationMultiplier>
+	<fertility>2.0</fertility>
+	<metalRichnessMin>0.25</metalRichnessMin>
+	<metalRichnessMax>0.75</metalRichnessMax>
+	<crystalRichnessMin>0.25</crystalRichnessMin>
+	<crystalRichnessMax>0.75</crystalRichnessMax>
+</PlanetTypeDefinition>

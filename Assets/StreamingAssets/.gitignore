@@ -1,0 +1,9 @@
+# Uncomment sections when needing to update asset bundles for separate repository
+
+# Ignore everything
+#*
+
+# Exception for asset bundles
+#!*.gitignore
+#!*.unity3d
+#!*/

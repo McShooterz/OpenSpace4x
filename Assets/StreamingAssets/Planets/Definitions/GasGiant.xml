@@ -1,0 +1,20 @@
+<PlanetTypeDefinition>
+	<name>Planet_GasGiant</name>
+	<description>Planet_GasGiant_desc</description>
+	<planetObjects>
+		<string>Planet_GasGiant1</string>
+		<string>Planet_GasGiant2</string>
+		<string>Planet_GasGiant3</string>
+		<string>Planet_GasGiant4</string>
+	</planetObjects>
+	<randomGalaxyWeight>5.0</randomGalaxyWeight>
+	<sizeMin>1</sizeMin>
+	<sizeMax>25</sizeMax>
+	<colonizable>false</colonizable>
+	<populationMultiplier>0</populationMultiplier>
+	<fertility>0</fertility>
+	<metalRichnessMin>0</metalRichnessMin>
+	<metalRichnessMax>0</metalRichnessMax>
+	<crystalRichnessMin>0</crystalRichnessMin>
+	<crystalRichnessMax>0</crystalRichnessMax>
+</PlanetTypeDefinition>

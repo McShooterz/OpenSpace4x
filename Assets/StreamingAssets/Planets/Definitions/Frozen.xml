@@ -1,0 +1,20 @@
+<PlanetTypeDefinition>
+	<name>Planet_Frozen</name>
+	<description>Planet_Frozen_desc</description>
+	<planetObjects>
+		<string>Planet_Ice1</string>
+		<string>Planet_Ice2</string>
+		<string>Planet_Ice3</string>
+		<string>Planet_Ice4</string>
+	</planetObjects>
+	<randomGalaxyWeight>1.0</randomGalaxyWeight>
+	<sizeMin>1</sizeMin>
+	<sizeMax>25</sizeMax>
+	<colonizable>true</colonizable>
+	<populationMultiplier>1.0</populationMultiplier>
+	<fertility>2.0</fertility>
+	<metalRichnessMin>0.25</metalRichnessMin>
+	<metalRichnessMax>0.75</metalRichnessMax>
+	<crystalRichnessMin>0.25</crystalRichnessMin>
+	<crystalRichnessMax>0.75</crystalRichnessMax>
+</PlanetTypeDefinition>

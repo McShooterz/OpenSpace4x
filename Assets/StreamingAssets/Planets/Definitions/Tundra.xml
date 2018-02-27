@@ -1,0 +1,17 @@
+<PlanetTypeDefinition>
+	<name>Planet_Tundra</name>
+	<description>Planet_Tundra_desc</description>
+	<planetObjects>
+		<string>Planet_Terra5</string>
+	</planetObjects>
+	<randomGalaxyWeight>1.0</randomGalaxyWeight>
+	<sizeMin>1</sizeMin>
+	<sizeMax>25</sizeMax>
+	<colonizable>true</colonizable>
+	<populationMultiplier>1.0</populationMultiplier>
+	<fertility>2.0</fertility>
+	<metalRichnessMin>0.25</metalRichnessMin>
+	<metalRichnessMax>0.75</metalRichnessMax>
+	<crystalRichnessMin>0.25</crystalRichnessMin>
+	<crystalRichnessMax>0.75</crystalRichnessMax>
+</PlanetTypeDefinition>

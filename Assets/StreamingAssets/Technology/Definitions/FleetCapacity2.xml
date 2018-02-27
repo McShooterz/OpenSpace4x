@@ -1,0 +1,9 @@
+<Technology>
+	<technologyType>society</technologyType>
+	<name>Tech_FleetCapacity2</name>
+	<description>Tech_FleetCapacity2desc</description>
+	<baseCost>100</baseCost>
+	<requiredTechnologies>
+		<string>FleetCapacity1</string>
+	</requiredTechnologies>
+</Technology>

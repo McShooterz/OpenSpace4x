@@ -87,6 +87,7 @@ public class GalaxyManager : MonoBehaviour
             {
                 PlanetTypeDefinition definition = planetDefinitions[StaticHelpers.GetRandomIndexByWeight(planetDefinitionWeights)];
                 PlanetController newPlanet = definition.CreatePlanetInstance();
+                newPlanet.gameObject.name = definition.GetName();
                 newPlanet.SetSize(definition.GetRandomSize());
                 newPlanet.SetLightSourcePosition(systemPosition);
                 newPlanet.transform.position = planetPosition + systemPosition;

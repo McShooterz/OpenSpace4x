@@ -58,5 +58,30 @@ public class CampaignPlanetPanel : MonoBehaviour
     {
 
     }
+
+    public void ClickOverviewButton()
+    {
+
+    }
+
+    public void ClickSurfaceButton()
+    {
+
+    }
+
+    public void ClickMilitaryButton()
+    {
+
+    }
+
+    public void ClickShipyardButton()
+    {
+
+    }
+
+    public void ClickStarbaseButton()
+    {
+
+    }
 }
 

@@ -1,0 +1,9 @@
+<Technology>
+	<technologyType>society</technologyType>
+	<name>Tech_NavalCapacity3</name>
+	<description>Tech_NavalCapacity3desc</description>
+	<baseCost>100</baseCost>
+	<requiredTechnologies>
+		<string>NavalCapacity2</string>
+	</requiredTechnologies>
+</Technology>

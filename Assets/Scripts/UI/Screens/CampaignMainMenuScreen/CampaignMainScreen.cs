@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
 public class CampaignMainScreen : MonoBehaviour
 {
+    [SerializeField]
+    Canvas canvas;
+
     [SerializeField]
     EmpireInfoBarController empireInfoBar;
 
@@ -15,6 +19,12 @@ public class CampaignMainScreen : MonoBehaviour
     CampaignPlanetPanel planetPanel;
 
     [SerializeField]
+    PlanetInfoQuick planetInfoQuick;
+
+    [SerializeField]
+    RectTransform planetInfoQuickRectTransform;
+
+    [SerializeField]
     LayerMask cursorHoveringLayerMask;
 
     [SerializeField]
@@ -23,12 +33,21 @@ public class CampaignMainScreen : MonoBehaviour
     [SerializeField]
     LayerMask rightClickLayerMask;
 
+    Vector2 planetInfoOffSet;
+
+
+    // Hovered Objects
+
+    GameObject hoverPlanet;
+
     // Use this for initialization
     void Start ()
     {
         ToggleResearchWindow(false);
 
         planetPanel.gameObject.SetActive(false);
+
+        planetInfoOffSet = new Vector2(planetInfoQuickRectTransform.rect.width / 2, planetInfoQuickRectTransform.rect.height / 2);
     }
 	
 	// Update is called once per frame
@@ -128,8 +147,35 @@ public class CampaignMainScreen : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit, Mathf.Infinity, cursorHoveringLayerMask, QueryTriggerInteraction.Collide))
             {
+                if (hit.transform.root.tag == "Planet")
+                {
+                    planetInfoQuick.gameObject.SetActive(true);
+                    Vector2 pos;
+                    RectTransformUtility.ScreenPointToLocalPointInRectangle(canvas.transform as RectTransform, new Vector3(Input.mousePosition.x + planetInfoOffSet.x, Input.mousePosition.y - planetInfoOffSet.y, Input.mousePosition.z), canvas.worldCamera, out pos);
+                    planetInfoQuickRectTransform.position = canvas.transform.TransformPoint(pos);
 
+                    if (hoverPlanet != hit.transform.root.gameObject)
+                    {
+                        hoverPlanet = hit.transform.root.gameObject;
+
+                        PlanetController planetController = hoverPlanet.GetComponent<PlanetController>();
+
+                        planetInfoQuick.SetPlanetTypeText(planetController.GetTypeDefinition().GetName());
+                    }
+                }
+                else
+                {
+                    planetInfoQuick.gameObject.SetActive(false);
+                }
             }
+            else
+            {
+                planetInfoQuick.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            planetInfoQuick.gameObject.SetActive(false);
         }
     }
 
