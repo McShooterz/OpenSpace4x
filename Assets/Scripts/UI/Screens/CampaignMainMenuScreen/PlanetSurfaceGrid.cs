@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class PlanetSurfaceGrid : MonoBehaviour
 {
     [SerializeField]
+    CampaignPlanetPanel parent;
+
+    [SerializeField]
     GridLayoutGroup gridLayoutGroup;
 
     [SerializeField]

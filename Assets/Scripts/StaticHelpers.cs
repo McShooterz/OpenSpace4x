@@ -13,11 +13,14 @@ using UnityEngine.EventSystems;
 
 public static class StaticHelpers
 {
+    public static Vector2 GetUnitVector2(float angleTheta)
+    {
+        return new Vector2(Mathf.Sin(angleTheta), Mathf.Cos(angleTheta));
+    }
+
     public static Vector2 GetRandomUnitVector2()
     {
-        float angleTheta = Random.Range(0, 2 * Mathf.PI);
-
-        return new Vector2(Mathf.Sin(angleTheta), Mathf.Cos(angleTheta));
+        return GetUnitVector2(Random.Range(0, 2 * Mathf.PI));
     }
 
     public static int GetRandomIndexByWeight(float[] weights)

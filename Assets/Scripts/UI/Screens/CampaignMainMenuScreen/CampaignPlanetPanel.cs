@@ -32,6 +32,11 @@ public class CampaignPlanetPanel : MonoBehaviour
 		
 	}
 
+    void OnEnable()
+    {
+        panelExtension.gameObject.SetActive(false);
+    }
+
     public void SetPlanet(PlanetController newPlanet, bool controllable)
     {
         planetController = newPlanet;

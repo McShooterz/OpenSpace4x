@@ -1,0 +1,9 @@
+<Technology>
+	<technologyType>society</technologyType>
+	<name>Tech_CityLuxury1</name>
+	<description>Tech_CityLuxury1desc</description>
+	<baseCost>100</baseCost>
+	<requiredTechnologies>
+		<string></string>
+	</requiredTechnologies>
+</Technology>

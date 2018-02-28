@@ -110,9 +110,6 @@ public class CampaignCameraController : MonoBehaviour
     string zoomingAxis = "Mouse ScrollWheel";
 
     [SerializeField]
-    bool useKeyboardRotation = true;
-
-    [SerializeField]
     bool useMouseRotation = true;
 
     [SerializeField]

@@ -1,0 +1,9 @@
+<Technology>
+	<technologyType>engineering</technologyType>
+	<name>Tech_LaboratoryEngineering1</name>
+	<description>Tech_LaboratoryEngineering1desc</description>
+	<baseCost>100</baseCost>
+	<requiredTechnologies>
+		<string></string>
+	</requiredTechnologies>
+</Technology>

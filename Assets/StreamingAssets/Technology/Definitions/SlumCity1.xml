@@ -1,9 +1,0 @@
-<Technology>
-	<technologyType>society</technologyType>
-	<name>Tech_SlumCity1</name>
-	<description>Tech_SlumCity1desc</description>
-	<baseCost>100</baseCost>
-	<requiredTechnologies>
-		<string></string>
-	</requiredTechnologies>
-</Technology>

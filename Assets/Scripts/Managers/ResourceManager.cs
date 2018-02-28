@@ -70,6 +70,9 @@ public class ResourceManager : MonoBehaviour
     bool doLoadStars;
 
     [SerializeField]
+    bool doLoadSolarSystems;
+
+    [SerializeField]
     bool doLoadMods;
 
     [Header("Data")]
@@ -114,6 +117,8 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, Sprite> planetIcons = new Dictionary<string, Sprite>();
 
     Dictionary<string, GameObject> stars = new Dictionary<string, GameObject>();
+
+    HashSet<string> solarSystemNames = new HashSet<string>();
 
     [SerializeField]
     List<Sprite> flagBackgrounds = new List<Sprite>();
@@ -288,17 +293,22 @@ public class ResourceManager : MonoBehaviour
 
         if (doLoadBuildings && Directory.Exists(Application.streamingAssetsPath + "/Buildings"))
         {
-            LoadBuildingsDirectory(Application.streamingAssetsPath + "/Buildings/");
+            LoadBuildingsDirectory(Application.streamingAssetsPath + "/Buildings");
         }
 
         if (doLoadPlanets && Directory.Exists(Application.streamingAssetsPath + "/Planets"))
         {
-            LoadPlanetsDirectory(Application.streamingAssetsPath + "/Planets/");
+            LoadPlanetsDirectory(Application.streamingAssetsPath + "/Planets");
         }
 
         if (doLoadStars && Directory.Exists(Application.streamingAssetsPath + "/Stars"))
         {
             LoadStars(Application.streamingAssetsPath + "/Stars/");
+        }
+
+        if (doLoadSolarSystems && Directory.Exists(Application.streamingAssetsPath + "/SolarSystems"))
+        {
+            LoadSolarSystemsDirectory(Application.streamingAssetsPath + "/SolarSystems");
         }
 
         if (doLoadMods && Directory.Exists(Application.streamingAssetsPath + "/Mods"))
@@ -1773,9 +1783,11 @@ public class ResourceManager : MonoBehaviour
             {
                 buildingDefinition = (BuildingDefinition)new XmlSerializer(typeof(BuildingDefinition)).Deserialize(file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
-                if (buildings.ContainsKey(name))
+
+                BuildingDefinition existingBuilding;
+                if (buildings.TryGetValue(name, out existingBuilding))
                 {
-                    buildings[name] = buildingDefinition;
+                    existingBuilding = buildingDefinition;
                 }
                 else
                 {
@@ -1814,6 +1826,30 @@ public class ResourceManager : MonoBehaviour
             catch
             {
                 print("Failed to load planet definition: " + file.Name);
+            }
+        }
+    }
+
+    void LoadSolarSystemNames(string path)
+    {
+        string fileName = "SolarSystemNames.txt";
+
+        if (File.Exists(path + fileName))
+        {
+            using (StreamReader Reader = new StreamReader(path + fileName))
+            {
+                // Read the stream to a string
+                string line;
+                while ((line = Reader.ReadLine()) != null)
+                {
+                    if (line == "")
+                        continue;
+
+                    if (!solarSystemNames.Contains(line))
+                    {
+                        solarSystemNames.Add(line);
+                    }
+                }
             }
         }
     }
@@ -2235,6 +2271,12 @@ public class ResourceManager : MonoBehaviour
         {
             LoadTextures(path + "/Icons/", planetIcons);
         }
+    }
+
+    void LoadSolarSystemsDirectory(string path)
+    {
+
+        LoadSolarSystemNames(path + "/");
     }
 
     void ApplyFiringRangeFactorForAllWeapons()

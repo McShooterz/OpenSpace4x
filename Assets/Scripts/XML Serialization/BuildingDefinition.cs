@@ -4,30 +4,23 @@ using UnityEngine;
 
 public class BuildingDefinition
 {
-
-
-
-    public string displayName;
+    public string name;
 
     public string description;
 
-
-
-
-
-
+    public string icon;
 
 
     //Default constructor for xml serialization and setting default values
     public BuildingDefinition()
     {
-        displayName = "Error";
+        name = "Error";
         description = "Error";
     }
 
     public string GetDisplayName()
     {
-        return ResourceManager.instance.GetLocalization(displayName);
+        return ResourceManager.instance.GetLocalization(name);
     }
 
     public string GetDescription()

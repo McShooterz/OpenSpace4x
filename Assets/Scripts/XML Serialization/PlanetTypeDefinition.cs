@@ -12,6 +12,8 @@ public class PlanetTypeDefinition
 
     public float randomGalaxyWeight;
 
+    public bool hasSurface;
+
     public int sizeMin;
 
     public int sizeMax;
