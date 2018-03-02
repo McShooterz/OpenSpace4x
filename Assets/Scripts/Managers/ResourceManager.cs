@@ -2720,6 +2720,11 @@ public class ResourceManager : MonoBehaviour
         return fighterDefinitions;
     }
 
+    public string[] GetSolarSystemNames()
+    {
+        return solarSystemNames.ToArray();
+    }
+
     void ConnectModulesToModuleSet()
     {
         List<ModuleSet> Sets = new List<ModuleSet>();

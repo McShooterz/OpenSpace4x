@@ -7,7 +7,6 @@ Notes:
 ******************************************************************************************************************************************/
 
 using UnityEngine;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -32,7 +31,7 @@ public class GalaxyManager : MonoBehaviour
     [SerializeField]
     int maxPlanetsPerSystem;
 
-    Dictionary<Guid, PlanetController> planets = new Dictionary<Guid, PlanetController>();
+    Dictionary<System.Guid, PlanetController> planets = new Dictionary<System.Guid, PlanetController>();
 
     void Awake()
     {
@@ -69,6 +68,8 @@ public class GalaxyManager : MonoBehaviour
     {
         List<PlanetTypeDefinition> planetDefinitions = ResourceManager.instance.GetPlanetTypesList();
 
+        string[] solarSystemNames = ResourceManager.instance.GetSolarSystemNames();
+
         float[] planetDefinitionWeights = new float[planetDefinitions.Count];
 
         for(int i = 0; i < planetDefinitions.Count; i++)
@@ -78,19 +79,22 @@ public class GalaxyManager : MonoBehaviour
 
         foreach (Vector3 systemPosition in solarSystemPositions)
         {
+            string systemName = solarSystemNames[Random.Range(0, solarSystemNames.Length)];
             GameObject starObject = ResourceManager.instance.CreateStar("Star_Red");
+            starObject.name = systemName;
             starObject.transform.position = systemPosition;
-            starObject.transform.rotation = UnityEngine.Random.rotation;
+            starObject.transform.rotation = Random.rotation;
 
-            Vector3[] planetPositions = GetRandomPlanetPositions(UnityEngine.Random.Range(minPlanetsPerSystem, maxPlanetsPerSystem + 1));
-            foreach (Vector3 planetPosition in planetPositions)
+            Vector3[] planetPositions = GetRandomPlanetPositions(Random.Range(minPlanetsPerSystem, maxPlanetsPerSystem + 1));
+            for (int i = 0; i < planetPositions.Length; i++)
             {
                 PlanetTypeDefinition definition = planetDefinitions[StaticHelpers.GetRandomIndexByWeight(planetDefinitionWeights)];
                 PlanetController newPlanet = definition.CreatePlanetInstance();
                 newPlanet.gameObject.name = definition.GetName();
+                newPlanet.SetDisplayName(systemName + " " + StaticHelpers.DecimalToRoman(i));
                 newPlanet.SetSize(definition.GetRandomSize());
                 newPlanet.SetLightSourcePosition(systemPosition);
-                newPlanet.transform.position = planetPosition + systemPosition;
+                newPlanet.transform.position = planetPositions[i] + systemPosition;
                 //planetObject.transform.rotation = Quaternion.Euler(0, UnityEngine.Random.Range(0f,360f), 0);
                 newPlanet.transform.localScale = new Vector3(0.4f,0.4f,0.4f);
             }
@@ -98,7 +102,7 @@ public class GalaxyManager : MonoBehaviour
     }
 
 
-    public void AddPlanet(Guid guid, PlanetController planet)
+    public void AddPlanet(System.Guid guid, PlanetController planet)
     {
         if (planets.ContainsKey(guid))
         {
@@ -110,7 +114,7 @@ public class GalaxyManager : MonoBehaviour
         }
     }
 
-    public PlanetController GetPlanetData(Guid guid)
+    public PlanetController GetPlanetController(System.Guid guid)
     {
         PlanetController planet;
 
@@ -134,7 +138,7 @@ public class GalaxyManager : MonoBehaviour
             do
             {
                 minDistance = Mathf.Infinity;
-                systemPoint = new Vector3(UnityEngine.Random.Range(-galaxySize, galaxySize), -1f, UnityEngine.Random.Range(-galaxySize, galaxySize));
+                systemPoint = new Vector3(Random.Range(-galaxySize, galaxySize), -1f, Random.Range(-galaxySize, galaxySize));
 
                 for (int j = i - 1; j >= 0; j--)
                 {

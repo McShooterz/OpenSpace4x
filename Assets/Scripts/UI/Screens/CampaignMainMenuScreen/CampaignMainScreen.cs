@@ -160,6 +160,7 @@ public class CampaignMainScreen : MonoBehaviour
 
                         PlanetController planetController = hoverPlanet.GetComponent<PlanetController>();
 
+                        planetInfoQuick.SetPlanetNameText(planetController.GetDisplayName());
                         planetInfoQuick.SetPlanetTypeText(planetController.GetTypeDefinition().GetName());
                         planetInfoQuick.SetPlanetSizeText("Size: " + planetController.GetSize().ToString());
                     }
