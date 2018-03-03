@@ -5,7 +5,6 @@
 		<string>Planet_Terra2</string>
 	</planetObjects>
 	<randomGalaxyWeight>1.0</randomGalaxyWeight>
-	<hasSurface>true</hasSurface>
 	<sizeMin>1</sizeMin>
 	<sizeMax>25</sizeMax>
 	<colonizable>true</colonizable>

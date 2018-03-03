@@ -8,7 +8,6 @@
 		<string>Planet_GasGiant4</string>
 	</planetObjects>
 	<randomGalaxyWeight>5.0</randomGalaxyWeight>
-	<hasSurface>false</hasSurface>
 	<sizeMin>25</sizeMin>
 	<sizeMax>25</sizeMax>
 	<colonizable>false</colonizable>
