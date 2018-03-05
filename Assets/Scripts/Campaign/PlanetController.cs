@@ -7,20 +7,19 @@ Notes:
 ******************************************************************************************************************************************/
 
 using UnityEngine;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 
 public class PlanetController : MonoBehaviour 
 {
     [SerializeField]
-    Guid uniqueIndentifier;
+    System.Guid uniqueIndentifier;
 
     [SerializeField]
     string displayName;
 
     [SerializeField]
-    PlanetTypeDefinition planetType;
+    PlanetTypeDefinition planetDefinition;
 
     [SerializeField]
     int planetSize;
@@ -34,16 +33,13 @@ public class PlanetController : MonoBehaviour
     [SerializeField]
     float taxRate;
 
-    PlanetTileData[,] planetTiles;
+    PlanetTile[,] planetTiles;
 
     // Use this for initialization
     void Start () 
 	{
-        uniqueIndentifier = Guid.NewGuid();
+        uniqueIndentifier = System.Guid.NewGuid();
         GalaxyManager.instance.AddPlanet(uniqueIndentifier, this);
-
-
-
     }
 	
 	// Update is called once per frame
@@ -52,7 +48,7 @@ public class PlanetController : MonoBehaviour
 	
 	}
 
-    public Guid GetUniqueIndentifier()
+    public System.Guid GetUniqueIndentifier()
     {
         return uniqueIndentifier;
     }
@@ -86,27 +82,30 @@ public class PlanetController : MonoBehaviour
     {
         planetSize = size;
 
-        CreatePlanetTilesData(planetSize);
+        if (planetDefinition.colonizable)
+        {
+            CreatePlanetTiles(planetSize);
+        }
     }
 
     public void SetPlanetType(PlanetTypeDefinition typeDefinition)
     {
-        planetType = typeDefinition;
+        planetDefinition = typeDefinition;
     }
 
     public PlanetTypeDefinition GetTypeDefinition()
     {
-        return planetType;
+        return planetDefinition;
     }
 
-    public PlanetTileData[,] GetPlanetTiles()
+    public PlanetTile[,] GetPlanetTiles()
     {
         return planetTiles;
     }
 
-    public List<PlanetTileData> GetPlanetTilesList()
+    public List<PlanetTile> GetPlanetTilesList()
     {
-        List<PlanetTileData> planetTilesList = new List<PlanetTileData>();
+        List<PlanetTile> planetTilesList = new List<PlanetTile>();
 
         for (int i = 0; i < planetTiles.GetLength(0); i++)
         {
@@ -122,7 +121,7 @@ public class PlanetController : MonoBehaviour
         return planetTilesList;
     }
 
-    public void CreatePlanetTilesData(int tileCount)
+    public void CreatePlanetTiles(int tileCount)
     {
         // Makes 25 the maximum size of a planet at 5x5 tiles
         tileCount = Mathf.Clamp(tileCount, 1, 25);
@@ -136,7 +135,7 @@ public class PlanetController : MonoBehaviour
             columnCount += 1;
         }
 
-        planetTiles = new PlanetTileData[columnCount, rowCount];
+        planetTiles = new PlanetTile[columnCount, rowCount];
 
         // Create tiles datas
         for (int i = 0; i < columnCount; i++)
@@ -145,7 +144,7 @@ public class PlanetController : MonoBehaviour
             {
                 if (remainderRowsCount == 0 || i == columnCount - 1 && j < remainderRowsCount)
                 {
-                    planetTiles[i, j] = new PlanetTileData(this);
+                    planetTiles[i, j] = new PlanetTile(this);
                 }
             }
         }

@@ -24,7 +24,7 @@ public class PlanetTileController : MonoBehaviour
     [SerializeField]
     Text tileBonusText;
 
-    PlanetTileData planetTileData;
+    PlanetTile planetTileData;
 
 
 
@@ -48,7 +48,7 @@ public class PlanetTileController : MonoBehaviour
 		
 	}
 
-    public void SetPlanetTileData(PlanetTileData data)
+    public void SetPlanetTileData(PlanetTile data)
     {
         planetTileData = data;
     }

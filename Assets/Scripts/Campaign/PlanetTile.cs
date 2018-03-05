@@ -2,62 +2,61 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class PlanetTileData
+public class PlanetTile : MonoBehaviour
 {  
     PlanetController parentPlanet;
 
-    PlanetTileData adjacentTileUp;
-    PlanetTileData adjacentTileDown;
-    PlanetTileData adjacentTileLeft;
-    PlanetTileData adjacentTileRight;
+    PlanetTile adjacentTileUp;
+    PlanetTile adjacentTileDown;
+    PlanetTile adjacentTileLeft;
+    PlanetTile adjacentTileRight;
 
     // Tile bonus
     TileBonusType bonusType = TileBonusType.none;
 
     float bonusValue = 0f;
 
-    public PlanetTileData(PlanetController owner)
+    public PlanetTile(PlanetController owner)
     {
         parentPlanet = owner;
     }
 
-    public void SetAdjacentTileUp(PlanetTileData tile)
+    public void SetAdjacentTileUp(PlanetTile tile)
     {
         adjacentTileUp = tile;
     }
 
-    public void SetAdjacentTileDown(PlanetTileData tile)
+    public void SetAdjacentTileDown(PlanetTile tile)
     {
         adjacentTileDown = tile;
     }
 
-    public void SetAdjacentTileLeft(PlanetTileData tile)
+    public void SetAdjacentTileLeft(PlanetTile tile)
     {
         adjacentTileLeft = tile;
     }
 
-    public void SetAdjacentTileRight(PlanetTileData tile)
+    public void SetAdjacentTileRight(PlanetTile tile)
     {
         adjacentTileRight = tile;
     }
 
-    public PlanetTileData GetAdjacentTileUp()
+    public PlanetTile GetAdjacentTileUp()
     {
         return adjacentTileUp;
     }
 
-    public PlanetTileData GetAdjacentTileDown()
+    public PlanetTile GetAdjacentTileDown()
     {
         return adjacentTileDown;
     }
 
-    public PlanetTileData GetAdjacentTileLeft()
+    public PlanetTile GetAdjacentTileLeft()
     {
         return adjacentTileLeft;
     }
 
-    public PlanetTileData GetAdjacentTileRight()
+    public PlanetTile GetAdjacentTileRight()
     {
         return adjacentTileRight;
     }
@@ -80,18 +79,5 @@ public class PlanetTileData
     public float GetTileBonusValue()
     {
         return bonusValue;
-    }
-
-    public enum TileBonusType
-    {
-        none,
-        food,
-        metal,
-        cystal,
-        population,
-        sciencePhysics,
-        scienceSociety,
-        scienceEngineering,
-        morale,
     }
 }

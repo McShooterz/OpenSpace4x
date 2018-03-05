@@ -91,7 +91,7 @@ public class GalaxyManager : MonoBehaviour
                 PlanetTypeDefinition definition = planetDefinitions[StaticHelpers.GetRandomIndexByWeight(planetDefinitionWeights)];
                 PlanetController newPlanet = definition.CreatePlanetInstance();
                 newPlanet.gameObject.name = definition.GetName();
-                newPlanet.SetDisplayName(systemName + " " + StaticHelpers.DecimalToRoman(i));
+                newPlanet.SetDisplayName(systemName + " " + StaticHelpers.DecimalToRoman(i + 1));
                 newPlanet.SetSize(definition.GetRandomSize());
                 newPlanet.SetLightSourcePosition(systemPosition);
                 newPlanet.transform.position = planetPositions[i] + systemPosition;

@@ -15,10 +15,102 @@ public class CampaignPlanetPanel : MonoBehaviour
     Text planetName;
 
     [SerializeField]
-    PlanetSurfaceGrid planetSurfaceGrid;
+    CampaignPlanetPanelExtension panelExtension;
+
+    [Header("Panel Buttons")]
 
     [SerializeField]
-    CampaignPlanetPanelExtension panelExtension;
+    Button surfaceButton;
+
+    [SerializeField]
+    Button militaryButton;
+
+    [SerializeField]
+    Button shipyardButton;
+
+    [SerializeField]
+    Button starbaseButton;
+
+    [Header("Sub Panels")]
+
+    [SerializeField]
+    GameObject overviewSubPanel;
+
+    [SerializeField]
+    GameObject surfaceSubPanel;
+
+    [SerializeField]
+    GameObject militarySubPanel;
+
+    [SerializeField]
+    GameObject shipyardSubPanel;
+
+    [SerializeField]
+    GameObject starbaseSubPanel;
+
+    [Header("Planet Information")]
+
+    [SerializeField]
+    Text planetTypeText;
+
+    [SerializeField]
+    Text planetSizeText;
+
+    [SerializeField]
+    Text planetPopulationText;
+
+    [SerializeField]
+    Text planetMoralText;
+
+    [SerializeField]
+    Text planetMoneyText;
+
+    [SerializeField]
+    Text planetFoodText;
+
+    [SerializeField]
+    Text planetMetalText;
+
+    [SerializeField]
+    Text planetCrystalText;
+
+    [SerializeField]
+    Text planetPhysicsText;
+
+    [SerializeField]
+    Text planetSocietyText;
+
+    [SerializeField]
+    Text planetEngineeringText;
+
+    [SerializeField]
+    Text planetUnityText;
+
+    [Header("OverviewSubPanel")]
+
+
+    [Header("SurfaceSubPanel")]
+
+    [SerializeField]
+    GameObject planetTilePrefab;
+
+    [SerializeField]
+    GridLayoutGroup gridLayoutGroup;
+
+    [SerializeField]
+    PlanetTileController[] planetTileControllers;
+
+    [SerializeField]
+    PlanetTileController selectedPlanetTileController;
+
+    [Header("MilitarySubPanel")]
+
+    [Header("ShipyardSubPanel")]
+
+    [Header("StarbaseSubPanel")]
+
+    [SerializeField]
+    int starbaseSize;
 
 	// Use this for initialization
 	void Start ()
@@ -34,7 +126,7 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     void OnEnable()
     {
-        panelExtension.gameObject.SetActive(false);
+        ClickOverviewButton();
     }
 
     public void SetPlanet(PlanetController newPlanet, bool controllable)
@@ -44,7 +136,29 @@ public class CampaignPlanetPanel : MonoBehaviour
 
         planetName.text = planetController.GetDisplayName();
 
-        planetSurfaceGrid.CreatePlanetTiles(planetController.GetPlanetTilesList());
+        planetTypeText.text = planetController.GetTypeDefinition().GetName();
+
+        planetSizeText.text = "Size: " + planetController.GetSize().ToString();
+
+        if (planetController.GetTypeDefinition().colonizable)
+        {
+            if (playerControl)
+            {
+                militaryButton.interactable = true;
+                shipyardButton.interactable = true;
+                starbaseButton.interactable = true;
+            }
+            surfaceButton.interactable = true;          
+
+            CreatePlanetTiles(planetController.GetPlanetTilesList());
+        }
+        else
+        {
+            surfaceButton.interactable = false;
+            militaryButton.interactable = false;
+            shipyardButton.interactable = false;
+            starbaseButton.interactable = false;
+        }
     }
 
 
@@ -58,6 +172,43 @@ public class CampaignPlanetPanel : MonoBehaviour
 
 
 
+
+
+
+
+
+
+    public void CreatePlanetTiles(List<PlanetTile> planetTileDataList)
+    {
+        ClearTiles();
+
+        planetTileControllers = new PlanetTileController[planetTileDataList.Count];
+
+        for (int i = 0; i < planetTileDataList.Count; i++)
+        {
+            planetTileControllers[i] = Instantiate(planetTilePrefab, gridLayoutGroup.transform).GetComponent<PlanetTileController>();
+            planetTileControllers[i].SetPlanetTileData(planetTileDataList[i]);
+            planetTileControllers[i].SetCallBackFunction(SelectPlanetTile);
+        }
+
+        // Adjust the number of rows in the grid
+        gridLayoutGroup.constraintCount = Mathf.CeilToInt(Mathf.Sqrt(planetTileDataList.Count));
+    }
+
+    public void ClearTiles()
+    {
+        for (int i = 0; i < planetTileControllers.Length; i++)
+        {
+            Destroy(planetTileControllers[i].gameObject);
+        }
+
+        planetTileControllers = null;
+    }
+
+    public void SelectPlanetTile(PlanetTileController planetTileController)
+    {
+        selectedPlanetTileController = planetTileController;
+    }
 
     public void UpdateDay()
     {
@@ -66,27 +217,57 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     public void ClickOverviewButton()
     {
+        overviewSubPanel.SetActive(true);
+        surfaceSubPanel.SetActive(false);
+        militarySubPanel.SetActive(false);
+        shipyardSubPanel.SetActive(false);
+        starbaseSubPanel.SetActive(false);
 
+        panelExtension.gameObject.SetActive(false);
     }
 
     public void ClickSurfaceButton()
     {
+        overviewSubPanel.SetActive(false);
+        surfaceSubPanel.SetActive(true);
+        militarySubPanel.SetActive(false);
+        shipyardSubPanel.SetActive(false);
+        starbaseSubPanel.SetActive(false);
 
+        panelExtension.gameObject.SetActive(false);
     }
 
     public void ClickMilitaryButton()
     {
+        overviewSubPanel.SetActive(false);
+        surfaceSubPanel.SetActive(false);
+        militarySubPanel.SetActive(true);
+        shipyardSubPanel.SetActive(false);
+        starbaseSubPanel.SetActive(false);
 
+        panelExtension.gameObject.SetActive(false);
     }
 
     public void ClickShipyardButton()
     {
+        overviewSubPanel.SetActive(false);
+        surfaceSubPanel.SetActive(false);
+        militarySubPanel.SetActive(false);
+        shipyardSubPanel.SetActive(true);
+        starbaseSubPanel.SetActive(false);
 
+        panelExtension.gameObject.SetActive(false);
     }
 
     public void ClickStarbaseButton()
     {
+        overviewSubPanel.SetActive(false);
+        surfaceSubPanel.SetActive(false);
+        militarySubPanel.SetActive(false);
+        shipyardSubPanel.SetActive(false);
+        starbaseSubPanel.SetActive(true);
 
+        panelExtension.gameObject.SetActive(false);
     }
 }
 
