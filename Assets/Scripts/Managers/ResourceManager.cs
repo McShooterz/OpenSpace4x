@@ -113,8 +113,10 @@ public class ResourceManager : MonoBehaviour
 
     Dictionary<string, GameObject> planets = new Dictionary<string, GameObject>();
     Dictionary<string, PlanetTypeDefinition> planetDefinitions = new Dictionary<string, PlanetTypeDefinition>();
-    Dictionary<string, Sprite> planetTiles = new Dictionary<string, Sprite>();
     Dictionary<string, Sprite> planetIcons = new Dictionary<string, Sprite>();
+    
+    Dictionary<string, TileDefinition> planetTiles = new Dictionary<string, TileDefinition>();
+    Dictionary<string, Sprite> planetTileImages = new Dictionary<string, Sprite>();
 
     Dictionary<string, GameObject> stars = new Dictionary<string, GameObject>();
 
@@ -669,6 +671,11 @@ public class ResourceManager : MonoBehaviour
     public Sprite GetTechnologyIcon(string textureName)
     {
         return GetTexture(textureName, technologyIcons);
+    }
+
+    public Sprite GetPlanetTileImage(string tileName)
+    {
+        return GetTexture(tileName, planetTileImages);
     }
 
     Sprite GetTexture(string textureName, Dictionary<string, Sprite> textureDictionary)
@@ -1830,6 +1837,33 @@ public class ResourceManager : MonoBehaviour
         }
     }
 
+    void LoadPlanetTileDefinitions(string path)
+    {
+        FileInfo[] files = GetFilesByType(path, "*.xml");
+        foreach (FileInfo file in files)
+        {
+            TileDefinition tileDefinition = new TileDefinition();
+            try
+            {
+                tileDefinition = (TileDefinition)new XmlSerializer(typeof(TileDefinition)).Deserialize(file.OpenRead());
+                string name = Path.GetFileNameWithoutExtension(file.Name);
+                if (planetTiles.ContainsKey(name))
+                {
+                    planetTiles[name] = tileDefinition;
+                }
+                else
+                {
+                    planetTiles.Add(name, tileDefinition);
+                }
+                //print("Loaded planet definition: " + name);
+            }
+            catch
+            {
+                print("Failed to load planet tile definition: " + file.Name);
+            }
+        }
+    }
+
     void LoadSolarSystemNames(string path)
     {
         string fileName = "SolarSystemNames.txt";
@@ -2253,7 +2287,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (Directory.Exists(path + "/Definitions"))
         {
-            LoadPlanetDefinitions(path + "/Definitions");
+            LoadPlanetDefinitions(path + "/Definitions/");
         }
         if (Directory.Exists(path + "/Localization"))
         {
@@ -2261,7 +2295,14 @@ public class ResourceManager : MonoBehaviour
         }
         if (Directory.Exists(path + "/Tiles"))
         {
-            LoadTextures(path + "/Tiles", planetTiles);
+            if (Directory.Exists(path + "/Tiles/Definitions"))
+            {
+                LoadPlanetTileDefinitions(path + "/Tiles/Definitions/");
+            }
+            if (Directory.Exists(path + "/Tiles/Images"))
+            {
+                LoadTextures(path + "/Tiles/Images/", planetTileImages);
+            }
         }
         if (Directory.Exists(path + "/GameObjects"))
         {

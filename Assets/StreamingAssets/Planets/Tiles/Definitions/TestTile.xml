@@ -1,0 +1,6 @@
+<TileDefinition>
+	<displayName>TestTile</displayName>
+	<images>
+		<string>TestTile</string>
+	</images>
+</TileDefinition>

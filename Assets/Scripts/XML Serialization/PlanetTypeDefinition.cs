@@ -12,6 +12,8 @@ public class PlanetTypeDefinition
 
     public float randomGalaxyWeight;
 
+    public TileEntry[] potentialTiles;
+
     public int sizeMin;
 
     public int sizeMax;
@@ -61,5 +63,12 @@ public class PlanetTypeDefinition
     public float GetRandomCrystal()
     {
         return Random.Range(crystalRichnessMin, crystalRichnessMax);
+    }
+
+    public class TileEntry
+    {
+        public string tileName;
+
+        public float randomWeight;
     }
 }

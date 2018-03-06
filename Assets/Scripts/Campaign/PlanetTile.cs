@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetTile : MonoBehaviour
+public class PlanetTile
 {  
     PlanetController parentPlanet;
 

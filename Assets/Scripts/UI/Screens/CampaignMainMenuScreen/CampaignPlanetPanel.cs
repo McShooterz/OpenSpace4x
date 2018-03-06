@@ -150,7 +150,7 @@ public class CampaignPlanetPanel : MonoBehaviour
             }
             surfaceButton.interactable = true;          
 
-            CreatePlanetTiles(planetController.GetPlanetTilesList());
+            CreatePlanetTiles(planetController.GetPlanetTiles());
         }
         else
         {
@@ -161,30 +161,13 @@ public class CampaignPlanetPanel : MonoBehaviour
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    public void CreatePlanetTiles(List<PlanetTile> planetTileDataList)
+    public void CreatePlanetTiles(PlanetTile[] planetTileDataList)
     {
         ClearTiles();
 
-        planetTileControllers = new PlanetTileController[planetTileDataList.Count];
+        planetTileControllers = new PlanetTileController[planetTileDataList.Length];
 
-        for (int i = 0; i < planetTileDataList.Count; i++)
+        for (int i = 0; i < planetTileDataList.Length; i++)
         {
             planetTileControllers[i] = Instantiate(planetTilePrefab, gridLayoutGroup.transform).GetComponent<PlanetTileController>();
             planetTileControllers[i].SetPlanetTileData(planetTileDataList[i]);
@@ -192,7 +175,7 @@ public class CampaignPlanetPanel : MonoBehaviour
         }
 
         // Adjust the number of rows in the grid
-        gridLayoutGroup.constraintCount = Mathf.CeilToInt(Mathf.Sqrt(planetTileDataList.Count));
+        gridLayoutGroup.constraintCount = Mathf.CeilToInt(Mathf.Sqrt(planetTileDataList.Length));
     }
 
     public void ClearTiles()

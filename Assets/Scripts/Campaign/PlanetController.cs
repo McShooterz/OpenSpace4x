@@ -33,7 +33,7 @@ public class PlanetController : MonoBehaviour
     [SerializeField]
     float taxRate;
 
-    PlanetTile[,] planetTiles;
+    PlanetTile[] planetTiles;
 
     // Use this for initialization
     void Start () 
@@ -98,27 +98,9 @@ public class PlanetController : MonoBehaviour
         return planetDefinition;
     }
 
-    public PlanetTile[,] GetPlanetTiles()
+    public PlanetTile[] GetPlanetTiles()
     {
         return planetTiles;
-    }
-
-    public List<PlanetTile> GetPlanetTilesList()
-    {
-        List<PlanetTile> planetTilesList = new List<PlanetTile>();
-
-        for (int i = 0; i < planetTiles.GetLength(0); i++)
-        {
-            for (int j = 0; j < planetTiles.GetLength(1); j++)
-            {
-                if (planetTiles[i, j] != null)
-                {
-                    planetTilesList.Add(planetTiles[i, j]);
-                }
-            }
-        }
-
-        return planetTilesList;
     }
 
     public void CreatePlanetTiles(int tileCount)
@@ -135,18 +117,12 @@ public class PlanetController : MonoBehaviour
             columnCount += 1;
         }
 
-        planetTiles = new PlanetTile[columnCount, rowCount];
+        planetTiles = new PlanetTile[tileCount];
 
         // Create tiles datas
-        for (int i = 0; i < columnCount; i++)
+        for (int i = 0; i < tileCount; i++)
         {
-            for (int j = 0; j < rowCount; j++)
-            {
-                if (remainderRowsCount == 0 || i == columnCount - 1 && j < remainderRowsCount)
-                {
-                    planetTiles[i, j] = new PlanetTile(this);
-                }
-            }
+            planetTiles[i] = new PlanetTile(this);
         }
 
         // Assign adjacency
@@ -154,31 +130,39 @@ public class PlanetController : MonoBehaviour
         {
             for (int j = 0; j < rowCount; j++)
             {
-                if (planetTiles[i, j] != null)
+                int index = i * rowCount + j;
+                if (index < tileCount)
                 {
+                    int indexDown = (i + 1) * rowCount + j;
+                    int indexRight = i * rowCount + j + 1;
+
                     // Adjacency Up
                     if (i != 0)
                     {
-                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i - 1, j]);
+                        planetTiles[index].SetAdjacentTileUp(planetTiles[(i - 1) * rowCount + j]);
                     }
 
                     // Adjacency Down
-                    if (i != columnCount - 1)
+                    if (i != columnCount - 1 && indexDown < tileCount)
                     {
-                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i + 1, j]);
+                        planetTiles[index].SetAdjacentTileUp(planetTiles[indexDown]);
                     }
 
                     // Adjacency Left
                     if (j != 0)
                     {
-                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i, j - 1]);
+                        planetTiles[index].SetAdjacentTileUp(planetTiles[i * rowCount + j - 1]);
                     }
 
                     // Adjacency Right
-                    if (j != rowCount - 1)
+                    if (j != rowCount - 1 && indexRight < tileCount)
                     {
-                        planetTiles[i, j].SetAdjacentTileUp(planetTiles[i, j + 1]);
+                        planetTiles[index].SetAdjacentTileUp(planetTiles[indexRight]);
                     }
+                }
+                else
+                {
+                    break;
                 }
             }
         }
