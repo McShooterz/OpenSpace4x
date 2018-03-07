@@ -19,7 +19,7 @@ public class PlanetController : MonoBehaviour
     string displayName;
 
     [SerializeField]
-    PlanetTypeDefinition planetDefinition;
+    PlanetDefinition planetDefinition;
 
     [SerializeField]
     int planetSize;
@@ -88,12 +88,12 @@ public class PlanetController : MonoBehaviour
         }
     }
 
-    public void SetPlanetType(PlanetTypeDefinition typeDefinition)
+    public void SetPlanetType(PlanetDefinition typeDefinition)
     {
         planetDefinition = typeDefinition;
     }
 
-    public PlanetTypeDefinition GetTypeDefinition()
+    public PlanetDefinition GetTypeDefinition()
     {
         return planetDefinition;
     }
@@ -119,10 +119,11 @@ public class PlanetController : MonoBehaviour
 
         planetTiles = new PlanetTile[tileCount];
 
-        // Create tiles datas
+        // Create tiles
         for (int i = 0; i < tileCount; i++)
         {
             planetTiles[i] = new PlanetTile(this);
+            planetTiles[i].SetDefinition(planetDefinition.GetRandomTileDefinition());
         }
 
         // Assign adjacency

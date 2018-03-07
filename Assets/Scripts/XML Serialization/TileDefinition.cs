@@ -8,6 +8,8 @@ public class TileDefinition
 
     public string[] images;
 
+    public BonusEntry[] potentialBonuses;
+
 	public TileDefinition()
     {
 
@@ -42,5 +44,12 @@ public class TileDefinition
         {
             return 0;
         }
+    }
+
+    public class BonusEntry
+    {
+        public TileBonusType bonus;
+
+        public float weight;
     }
 }

@@ -170,7 +170,7 @@ public class CampaignPlanetPanel : MonoBehaviour
         for (int i = 0; i < planetTileDataList.Length; i++)
         {
             planetTileControllers[i] = Instantiate(planetTilePrefab, gridLayoutGroup.transform).GetComponent<PlanetTileController>();
-            planetTileControllers[i].SetPlanetTileData(planetTileDataList[i]);
+            planetTileControllers[i].SetPlanetTile(planetTileDataList[i]);
             planetTileControllers[i].SetCallBackFunction(SelectPlanetTile);
         }
 

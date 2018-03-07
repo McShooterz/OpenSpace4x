@@ -66,7 +66,7 @@ public class GalaxyManager : MonoBehaviour
 
     void BuildNewGalaxy(Vector3[] solarSystemPositions)
     {
-        List<PlanetTypeDefinition> planetDefinitions = ResourceManager.instance.GetPlanetTypesList();
+        List<PlanetDefinition> planetDefinitions = ResourceManager.instance.GetPlanetTypesList();
 
         string[] solarSystemNames = ResourceManager.instance.GetSolarSystemNames();
 
@@ -88,7 +88,7 @@ public class GalaxyManager : MonoBehaviour
             Vector3[] planetPositions = GetRandomPlanetPositions(Random.Range(minPlanetsPerSystem, maxPlanetsPerSystem + 1));
             for (int i = 0; i < planetPositions.Length; i++)
             {
-                PlanetTypeDefinition definition = planetDefinitions[StaticHelpers.GetRandomIndexByWeight(planetDefinitionWeights)];
+                PlanetDefinition definition = planetDefinitions[StaticHelpers.GetRandomIndexByWeight(planetDefinitionWeights)];
                 PlanetController newPlanet = definition.CreatePlanetInstance();
                 newPlanet.gameObject.name = definition.GetName();
                 newPlanet.SetDisplayName(systemName + " " + StaticHelpers.DecimalToRoman(i + 1));

@@ -6,6 +6,8 @@ using UnityEngine.UI.Extensions;
 
 public class PlanetTileController : MonoBehaviour
 {
+    PlanetTile planetTile;
+
     [SerializeField]
     Image tileBackGround;
 
@@ -24,17 +26,8 @@ public class PlanetTileController : MonoBehaviour
     [SerializeField]
     Text tileBonusText;
 
-    PlanetTile planetTileData;
-
-
-
-
-
     public delegate void ButtonPress(PlanetTileController planetTileController);
     protected ButtonPress buttonCallBack;
-
-
-
 
     // Use this for initialization
     void Start ()
@@ -48,9 +41,10 @@ public class PlanetTileController : MonoBehaviour
 		
 	}
 
-    public void SetPlanetTileData(PlanetTile data)
+    public void SetPlanetTile(PlanetTile tile)
     {
-        planetTileData = data;
+        planetTile = tile;
+        SetTileBackground(planetTile.GetImage());
     }
 
     public void SetCallBackFunction(ButtonPress callBack)
@@ -64,5 +58,10 @@ public class PlanetTileController : MonoBehaviour
         {
             buttonCallBack(this);
         }
+    }
+
+    public void SetTileBackground(Sprite image)
+    {
+        tileBackGround.sprite = image;
     }
 }

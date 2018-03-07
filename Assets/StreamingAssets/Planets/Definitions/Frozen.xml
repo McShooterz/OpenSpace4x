@@ -1,4 +1,4 @@
-<PlanetTypeDefinition>
+<PlanetDefinition>
 	<name>Planet_Frozen</name>
 	<description>Planet_Frozen_desc</description>
 	<planetObjects>
@@ -8,6 +8,12 @@
 		<string>Planet_Ice4</string>
 	</planetObjects>
 	<randomGalaxyWeight>1.0</randomGalaxyWeight>
+	<potentialTiles>
+		<TileEntry>
+			<tile>TestTile</tile>
+			<randomWeight>1.0</randomWeight>
+		</TileEntry>
+	</potentialTiles>
 	<sizeMin>1</sizeMin>
 	<sizeMax>25</sizeMax>
 	<colonizable>true</colonizable>
@@ -17,4 +23,4 @@
 	<metalRichnessMax>0.75</metalRichnessMax>
 	<crystalRichnessMin>0.25</crystalRichnessMin>
 	<crystalRichnessMax>0.75</crystalRichnessMax>
-</PlanetTypeDefinition>
+</PlanetDefinition>

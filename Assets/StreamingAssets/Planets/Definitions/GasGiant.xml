@@ -1,4 +1,4 @@
-<PlanetTypeDefinition>
+<PlanetDefinition>
 	<name>Planet_GasGiant</name>
 	<description>Planet_GasGiant_desc</description>
 	<planetObjects>
@@ -8,6 +8,8 @@
 		<string>Planet_GasGiant4</string>
 	</planetObjects>
 	<randomGalaxyWeight>5.0</randomGalaxyWeight>
+	<potentialTiles>
+	</potentialTiles>
 	<sizeMin>25</sizeMin>
 	<sizeMax>25</sizeMax>
 	<colonizable>false</colonizable>
@@ -17,4 +19,4 @@
 	<metalRichnessMax>0</metalRichnessMax>
 	<crystalRichnessMin>0</crystalRichnessMin>
 	<crystalRichnessMax>0</crystalRichnessMax>
-</PlanetTypeDefinition>
+</PlanetDefinition>

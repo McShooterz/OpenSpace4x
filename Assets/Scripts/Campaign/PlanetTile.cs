@@ -6,19 +6,34 @@ public class PlanetTile
 {  
     PlanetController parentPlanet;
 
+    TileDefinition tileDefinition;
+
     PlanetTile adjacentTileUp;
     PlanetTile adjacentTileDown;
     PlanetTile adjacentTileLeft;
     PlanetTile adjacentTileRight;
 
+    int imageIndex;
+
     // Tile bonus
-    TileBonusType bonusType = TileBonusType.none;
+    TileBonusType bonusType = TileBonusType.None;
 
     float bonusValue = 0f;
 
     public PlanetTile(PlanetController owner)
     {
         parentPlanet = owner;
+    }
+
+    public TileDefinition GetDefinition()
+    {
+        return tileDefinition;
+    }
+
+    public void SetDefinition(TileDefinition definition)
+    {
+        tileDefinition = definition;
+        imageIndex = tileDefinition.GetRandomImageIndex();
     }
 
     public void SetAdjacentTileUp(PlanetTile tile)
@@ -79,5 +94,10 @@ public class PlanetTile
     public float GetTileBonusValue()
     {
         return bonusValue;
+    }
+
+    public Sprite GetImage()
+    {
+        return tileDefinition.GetImage(imageIndex);
     }
 }

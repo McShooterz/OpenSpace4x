@@ -112,7 +112,7 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, Sprite> unitIcons = new Dictionary<string, Sprite>();
 
     Dictionary<string, GameObject> planets = new Dictionary<string, GameObject>();
-    Dictionary<string, PlanetTypeDefinition> planetDefinitions = new Dictionary<string, PlanetTypeDefinition>();
+    Dictionary<string, PlanetDefinition> planetDefinitions = new Dictionary<string, PlanetDefinition>();
     Dictionary<string, Sprite> planetIcons = new Dictionary<string, Sprite>();
     
     Dictionary<string, TileDefinition> planetTiles = new Dictionary<string, TileDefinition>();
@@ -335,11 +335,11 @@ public class ResourceManager : MonoBehaviour
         print("Resource Load time: " + (System.DateTime.Now - LoadStartTime).TotalSeconds.ToString());
     }
 
-    public List<PlanetTypeDefinition> GetPlanetTypesList()
+    public List<PlanetDefinition> GetPlanetTypesList()
     {
-        List<PlanetTypeDefinition> planetTypeList = new List<PlanetTypeDefinition>();
+        List<PlanetDefinition> planetTypeList = new List<PlanetDefinition>();
 
-        foreach (KeyValuePair<string, PlanetTypeDefinition> keyVal in planetDefinitions)
+        foreach (KeyValuePair<string, PlanetDefinition> keyVal in planetDefinitions)
         {
             planetTypeList.Add(keyVal.Value);
         }
@@ -869,7 +869,7 @@ public class ResourceManager : MonoBehaviour
     {
         if (File.Exists(Application.streamingAssetsPath + "/Mods" + "/ModLoadConfig.xml"))
         {
-            modLoadConfig = (ModLoadConfig)new XmlSerializer(typeof(ModLoadConfig)).Deserialize((Stream)new FileInfo(Application.streamingAssetsPath + "/Mods" + "/ModLoadConfig.xml").OpenRead());
+            modLoadConfig = (ModLoadConfig)new XmlSerializer(typeof(ModLoadConfig)).Deserialize(new FileInfo(Application.streamingAssetsPath + "/Mods" + "/ModLoadConfig.xml").OpenRead());
         }
         else
         {
@@ -888,7 +888,7 @@ public class ResourceManager : MonoBehaviour
                 try
                 {
                     ModInfo modInfo = new ModInfo();
-                    modInfo = (ModInfo)new XmlSerializer(typeof(ModInfo)).Deserialize((Stream)file.OpenRead());
+                    modInfo = (ModInfo)new XmlSerializer(typeof(ModInfo)).Deserialize(file.OpenRead());
                     modInfo.SetPath(file.Directory.FullName);
                     modInfos.Add(modInfo);
                     //print(modInfo.Name + " mod info loaded");
@@ -1815,10 +1815,10 @@ public class ResourceManager : MonoBehaviour
         FileInfo[] files = GetFilesByType(path, "*.xml");
         foreach (FileInfo file in files)
         {
-            PlanetTypeDefinition planetDefinition = new PlanetTypeDefinition();
+            PlanetDefinition planetDefinition = new PlanetDefinition();
             try
             {
-                planetDefinition = (PlanetTypeDefinition)new XmlSerializer(typeof(PlanetTypeDefinition)).Deserialize(file.OpenRead());
+                planetDefinition = (PlanetDefinition)new XmlSerializer(typeof(PlanetDefinition)).Deserialize(file.OpenRead());
                 string name = Path.GetFileNameWithoutExtension(file.Name);
                 if (planetDefinitions.ContainsKey(name))
                 {
@@ -2476,6 +2476,30 @@ public class ResourceManager : MonoBehaviour
         FileStream file = File.Create(Application.streamingAssetsPath + "/Empires/Definitions/" + empire.Name + ".xml");
         Writer.Serialize(file, empire);
         file.Close();
+    }
+
+    public PlanetDefinition GetPlanetDefinition(string name)
+    {
+        PlanetDefinition planet;
+
+        if (planetDefinitions.TryGetValue(name, out planet))
+        {
+            return planet;
+        }
+
+        return null;
+    }
+
+    public TileDefinition GetTileDefinition(string name)
+    {
+        TileDefinition tile;
+
+        if (planetTiles.TryGetValue(name, out tile))
+        {
+            return tile;
+        }
+
+        return null;
     }
 
     public Module GetModule(string moduleName)

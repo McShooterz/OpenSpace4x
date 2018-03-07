@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlanetTypeDefinition
+public class PlanetDefinition
 {
     public string name;
 
@@ -12,7 +12,7 @@ public class PlanetTypeDefinition
 
     public float randomGalaxyWeight;
 
-    public TileEntry[] potentialTiles;
+    public TileEntry[] potentialTiles = new TileEntry[0];
 
     public int sizeMin;
 
@@ -32,6 +32,10 @@ public class PlanetTypeDefinition
 
     public float crystalRichnessMax;
 
+    public PlanetDefinition()
+    {
+
+    }
 
     public string GetName()
     {
@@ -65,10 +69,32 @@ public class PlanetTypeDefinition
         return Random.Range(crystalRichnessMin, crystalRichnessMax);
     }
 
+    public TileDefinition GetRandomTileDefinition()
+    {
+        if (potentialTiles.Length > 0)
+        {
+            float[] weights = new float[potentialTiles.Length];
+
+            for (int i = 0; i < potentialTiles.Length; i++)
+            {
+                weights[i] = potentialTiles[i].randomWeight;
+            }
+
+            return potentialTiles[StaticHelpers.GetRandomIndexByWeight(weights)].GetTile();
+        }
+
+        return null;
+    }
+
     public class TileEntry
     {
-        public string tileName;
+        public string tile;
 
         public float randomWeight;
+
+        public TileDefinition GetTile()
+        {
+            return ResourceManager.instance.GetTileDefinition(tile);
+        }
     }
 }

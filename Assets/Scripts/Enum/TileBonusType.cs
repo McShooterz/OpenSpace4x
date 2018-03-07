@@ -1,12 +1,12 @@
 ﻿public enum TileBonusType
 {
-    none,
-    food,
-    metal,
-    cystal,
-    population,
-    sciencePhysics,
-    scienceSociety,
-    scienceEngineering,
-    morale,
+    None,
+    Food,
+    Metal,
+    Cystal,
+    Population,
+    SciencePhysics,
+    ScienceSociety,
+    ScienceEngineering,
+    Morale,
 }
