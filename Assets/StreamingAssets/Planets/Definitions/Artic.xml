@@ -7,8 +7,20 @@
 	<randomGalaxyWeight>1.0</randomGalaxyWeight>
 	<potentialTiles>
 		<TileEntry>
-			<tile>TestTile</tile>
+			<tile>Arctic</tile>
 			<randomWeight>1.0</randomWeight>
+		</TileEntry>
+		<TileEntry>
+			<tile>ArcticGlacier</tile>
+			<randomWeight>1.0</randomWeight>
+		</TileEntry>
+		<TileEntry>
+			<tile>ArcticLake</tile>
+			<randomWeight>1.0</randomWeight>
+		</TileEntry>
+		<TileEntry>
+			<tile>ArcticAurora</tile>
+			<randomWeight>0.5</randomWeight>
 		</TileEntry>
 	</potentialTiles>
 	<sizeMin>1</sizeMin>

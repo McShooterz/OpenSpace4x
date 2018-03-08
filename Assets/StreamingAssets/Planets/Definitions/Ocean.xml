@@ -7,7 +7,11 @@
 	<randomGalaxyWeight>1.0</randomGalaxyWeight>
 	<potentialTiles>
 		<TileEntry>
-			<tile>TestTile</tile>
+			<tile>Island</tile>
+			<randomWeight>1.0</randomWeight>
+		</TileEntry>
+		<TileEntry>
+			<tile>IslandRocky</tile>
 			<randomWeight>1.0</randomWeight>
 		</TileEntry>
 	</potentialTiles>

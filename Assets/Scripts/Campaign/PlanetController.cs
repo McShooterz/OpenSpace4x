@@ -85,6 +85,7 @@ public class PlanetController : MonoBehaviour
         if (planetDefinition.colonizable)
         {
             CreatePlanetTiles(planetSize);
+            GenerateRandomTileData();
         }
     }
 
@@ -166,6 +167,14 @@ public class PlanetController : MonoBehaviour
                     break;
                 }
             }
+        }
+    }
+
+    public void GenerateRandomTileData()
+    {
+        foreach(PlanetTile tile in planetTiles)
+        {
+            tile.GenerateRandomTileData();
         }
     }
 }

@@ -4,7 +4,10 @@
 		<string>TestTile</string>
 	</images>
 	<potentialBonuses>
-		<bonus>None</bonus>
-		<weight>1.0</weight>
+		<BonusEntry>
+			<bonus>None</bonus>
+			<value>0.0</value>
+			<weight>1.0</weight>
+		</BonusEntry>
 	</potentialBonuses>
 </TileDefinition>

@@ -139,7 +139,7 @@ public class ResourceManager : MonoBehaviour
     Dictionary<string, Sprite> technologyIcons = new Dictionary<string, Sprite>();
 
     Dictionary<string, BuildingDefinition> buildings = new Dictionary<string, BuildingDefinition>();
-    Dictionary<string, Sprite> buildingIcons = new Dictionary<string, Sprite>();
+    Dictionary<string, Sprite> buildingImages = new Dictionary<string, Sprite>();
 
     Dictionary<string, ShipNameSet> shipNameSets = new Dictionary<string, ShipNameSet>();
     Dictionary<string, CharacterNameSet> characterNameSets = new Dictionary<string, CharacterNameSet>();
@@ -676,6 +676,11 @@ public class ResourceManager : MonoBehaviour
     public Sprite GetPlanetTileImage(string tileName)
     {
         return GetTexture(tileName, planetTileImages);
+    }
+
+    public Sprite GetBuildingImage(string buildingName)
+    {
+        return GetTexture(buildingName, buildingImages);
     }
 
     Sprite GetTexture(string textureName, Dictionary<string, Sprite> textureDictionary)
@@ -2275,7 +2280,7 @@ public class ResourceManager : MonoBehaviour
         }
         if (Directory.Exists(path + "/Icons"))
         {
-            LoadTextures(path + "/Icons/", buildingIcons);
+            LoadTextures(path + "/Icons/", buildingImages);
         }
         if (Directory.Exists(path + "/Localization"))
         {
@@ -2293,17 +2298,6 @@ public class ResourceManager : MonoBehaviour
         {
             LoadLocalization(path + "/Localization/");
         }
-        if (Directory.Exists(path + "/Tiles"))
-        {
-            if (Directory.Exists(path + "/Tiles/Definitions"))
-            {
-                LoadPlanetTileDefinitions(path + "/Tiles/Definitions/");
-            }
-            if (Directory.Exists(path + "/Tiles/Images"))
-            {
-                LoadTextures(path + "/Tiles/Images/", planetTileImages);
-            }
-        }
         if (Directory.Exists(path + "/GameObjects"))
         {
             LoadPlanets(path + "/GameObjects/");
@@ -2311,6 +2305,26 @@ public class ResourceManager : MonoBehaviour
         if (Directory.Exists(path + "/Icons"))
         {
             LoadTextures(path + "/Icons/", planetIcons);
+        }
+        if (Directory.Exists(path + "/Tiles"))
+        {
+            LoadPlanetTilesDirectory(path + "/Tiles");
+        }
+    }
+
+    void LoadPlanetTilesDirectory(string path)
+    {
+        if (Directory.Exists(path + "/Definitions"))
+        {
+            LoadPlanetTileDefinitions(path + "/Definitions/");
+        }
+        if (Directory.Exists(path + "/Images"))
+        {
+            LoadTextures(path + "/Images/", planetTileImages);
+        }
+        if (Directory.Exists(path + "/Localization"))
+        {
+            LoadLocalization(path + "/Localization/");
         }
     }
 

@@ -7,8 +7,12 @@
 	<randomGalaxyWeight>1.0</randomGalaxyWeight>
 	<potentialTiles>
 		<TileEntry>
-			<tile>TestTile</tile>
+			<tile>Tundra</tile>
 			<randomWeight>1.0</randomWeight>
+		</TileEntry>
+		<TileEntry>
+			<tile>SnowForest</tile>
+			<randomWeight>0.3</randomWeight>
 		</TileEntry>
 	</potentialTiles>
 	<sizeMin>1</sizeMin>

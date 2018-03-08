@@ -45,6 +45,47 @@ public class PlanetTileController : MonoBehaviour
     {
         planetTile = tile;
         SetTileBackground(planetTile.GetImage());
+
+        if (planetTile.HasBonus())
+        {
+            tileBonusIcon.gameObject.SetActive(true);
+            tileBonusText.gameObject.SetActive(true);
+
+            tileBonusIcon.sprite = planetTile.GetBonusIcon();
+            tileBonusText.text = "+" + (planetTile.GetTileBonusValue() * 100f).ToString("0.#") + "%";
+        }
+        else
+        {
+            tileBonusIcon.gameObject.SetActive(false);
+            tileBonusText.gameObject.SetActive(false);
+        }
+
+        if (planetTile.GetCurrentBuilding() != null)
+        {
+
+            if (planetTile.GetNextBuilding() != null)
+            {
+                progressBar.gameObject.SetActive(true);
+                progressBar.value = planetTile.GetBuidlingProgress(1.0f);
+            }
+            else
+            {
+                progressBar.gameObject.SetActive(false);
+            }
+
+        }
+        else if (planetTile.GetNextBuilding() != null)
+        {
+
+
+            progressBar.gameObject.SetActive(true);
+            progressBar.value = planetTile.GetBuidlingProgress(1.0f);
+        }
+        else
+        {
+            buildingImage.gameObject.SetActive(false);
+            progressBar.gameObject.SetActive(false);
+        }
     }
 
     public void SetCallBackFunction(ButtonPress callBack)

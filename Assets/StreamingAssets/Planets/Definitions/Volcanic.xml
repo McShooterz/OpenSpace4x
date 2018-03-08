@@ -7,7 +7,7 @@
 	<randomGalaxyWeight>1.0</randomGalaxyWeight>
 	<potentialTiles>
 		<TileEntry>
-			<tile>TestTile</tile>
+			<tile>Volcano</tile>
 			<randomWeight>1.0</randomWeight>
 		</TileEntry>
 	</potentialTiles>

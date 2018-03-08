@@ -8,8 +8,17 @@ public class BuildingDefinition
 
     public string description;
 
-    public string icon;
+    public string image;
 
+    public float costMoney;
+
+    public float costMetal;
+
+    public float costCrystal;
+
+    public float costInfluence;
+
+    public int costDays;
 
     //Default constructor for xml serialization and setting default values
     public BuildingDefinition()
@@ -26,5 +35,15 @@ public class BuildingDefinition
     public string GetDescription()
     {
         return ResourceManager.instance.GetLocalization(description);
+    }
+
+    public Sprite GetImage()
+    {
+        return ResourceManager.instance.GetBuildingImage(image);
+    }
+
+    public int GetCostDays(float modifier)
+    {
+        return Mathf.CeilToInt(costDays * modifier);
     }
 }

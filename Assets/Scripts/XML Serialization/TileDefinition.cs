@@ -46,9 +46,35 @@ public class TileDefinition
         }
     }
 
+    public BonusEntry GetRandomTileBonus()
+    {
+        if (potentialBonuses.Length > 0)
+        {
+            if (potentialBonuses.Length == 1)
+            {
+                return potentialBonuses[0];
+            }
+            else
+            {
+                float[] weights = new float[potentialBonuses.Length];
+
+                for(int i = 0; i < potentialBonuses.Length; i++)
+                {
+                    weights[i] = potentialBonuses[i].weight;
+                }
+
+                return potentialBonuses[StaticHelpers.GetRandomIndexByWeight(weights)];
+            }
+        }
+
+        return null;
+    }
+
     public class BonusEntry
     {
         public TileBonusType bonus;
+
+        public float value;
 
         public float weight;
     }
