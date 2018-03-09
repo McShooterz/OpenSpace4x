@@ -41,6 +41,11 @@ public class PlanetTileController : MonoBehaviour
 		
 	}
 
+    public PlanetTile GetPlanetTile()
+    {
+        return planetTile;
+    }
+
     public void SetPlanetTile(PlanetTile tile)
     {
         planetTile = tile;

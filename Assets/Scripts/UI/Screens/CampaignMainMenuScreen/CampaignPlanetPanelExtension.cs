@@ -5,14 +5,21 @@ using UnityEngine.UI;
 
 public class CampaignPlanetPanelExtension : MonoBehaviour
 {
+    [Header("Major Groups")]
+
     [SerializeField]
     GameObject planetTileInformationGroup;
 
     [SerializeField]
-    GameObject EnvironmentInformationGroup;
+    GameObject buildListGroup;
+
+    [Header("Tile Group")]
 
     [SerializeField]
     Image tileImage;
+
+    [SerializeField]
+    Text tileName;
 
     [SerializeField]
     Image tileBonusIcon;
@@ -36,22 +43,28 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
     Text buildingDescriptionText;
 
     [SerializeField]
-    Image buildingCostMoneyIcon;
+    Text buildingCostMoneyText;
 
     [SerializeField]
-    Image buildingCostMetalIcon;
+    Text buildingCostMetalText;
 
     [SerializeField]
-    Image buildingCostCrystalIcon;
+    Text buildingCostCrystalText;
 
     [SerializeField]
-    Image buildingCostDaysIcon;
+    Text buildingCostDaysText;
 
     [SerializeField]
-    Text buildingStatsText;
+    Button replaceButton;
 
     [SerializeField]
-    GameObject buildListGroup;
+    Button upgradeButton;
+
+    [SerializeField]
+    Button removeButton;
+
+    [SerializeField]
+    Button cancelButton;
 
 	// Use this for initialization
 	void Start ()
@@ -65,7 +78,28 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
 		
 	}
 
+    public void SwitchToPlanetTilePanel(PlanetTile tile)
+    {
+        planetTileInformationGroup.SetActive(true);
+        buildListGroup.SetActive(false);
 
+        tileImage.sprite = tile.GetImage();
+        tileName.text = tile.GetDefinition().GetDisplayName();
+
+        if (tile.HasBonus())
+        {
+            tileBonusIcon.gameObject.SetActive(true);
+            tileBonusText.gameObject.SetActive(true);
+
+            tileBonusIcon.sprite = tile.GetBonusIcon();
+            tileBonusText.text = "+" + (tile.GetTileBonusValue() * 100f).ToString("0.#") + "%";
+        }
+        else
+        {
+            tileBonusIcon.gameObject.SetActive(false);
+            tileBonusText.gameObject.SetActive(false);
+        }
+    }
 
 
 

@@ -191,6 +191,10 @@ public class CampaignPlanetPanel : MonoBehaviour
     public void SelectPlanetTile(PlanetTileController planetTileController)
     {
         selectedPlanetTileController = planetTileController;
+
+        panelExtension.gameObject.SetActive(true);
+
+        panelExtension.SwitchToPlanetTilePanel(selectedPlanetTileController.GetPlanetTile());
     }
 
     public void UpdateDay()
