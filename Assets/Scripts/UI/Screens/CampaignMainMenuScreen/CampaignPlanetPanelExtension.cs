@@ -31,7 +31,7 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
     Button buildButton;
 
     [SerializeField]
-    GameObject buidlingInformationGroup;
+    GameObject buildingInformationGroup;
 
     [SerializeField]
     Image buildingIcon;
@@ -43,31 +43,19 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
     Text buildingDescriptionText;
 
     [SerializeField]
-    Text buildingCostMoneyText;
+    GameObject constructionInformationGroup;
 
     [SerializeField]
-    Text buildingCostMetalText;
+    Image constructionIcon;
 
     [SerializeField]
-    Text buildingCostCrystalText;
+    Text constructionNameText;
 
     [SerializeField]
-    Text buildingCostDaysText;
+    Text constructionDescriptionText;
 
-    [SerializeField]
-    Button replaceButton;
-
-    [SerializeField]
-    Button upgradeButton;
-
-    [SerializeField]
-    Button removeButton;
-
-    [SerializeField]
-    Button cancelButton;
-
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start ()
     {
 		
 	}
@@ -98,6 +86,26 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
         {
             tileBonusIcon.gameObject.SetActive(false);
             tileBonusText.gameObject.SetActive(false);
+        }
+
+        if (tile.GetCurrentBuilding() != null)
+        {
+            buildingInformationGroup.SetActive(true);
+            buildButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            buildingInformationGroup.SetActive(false);
+            buildButton.gameObject.SetActive(true);
+        }
+
+        if (tile.GetNextBuilding() != null)
+        {
+            constructionInformationGroup.SetActive(true);
+        }
+        else
+        {
+            constructionInformationGroup.SetActive(false);
         }
     }
 

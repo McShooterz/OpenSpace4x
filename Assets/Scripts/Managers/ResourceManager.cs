@@ -2278,9 +2278,9 @@ public class ResourceManager : MonoBehaviour
         {
             LoadBuildingDefinitions(path + "/Definitions");
         }
-        if (Directory.Exists(path + "/Icons"))
+        if (Directory.Exists(path + "/Images"))
         {
-            LoadTextures(path + "/Icons/", buildingImages);
+            LoadTextures(path + "/Images/", buildingImages);
         }
         if (Directory.Exists(path + "/Localization"))
         {

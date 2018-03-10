@@ -256,5 +256,37 @@ public class CampaignPlanetPanel : MonoBehaviour
 
         panelExtension.gameObject.SetActive(false);
     }
+
+
+
+
+
+
+    // Extension button clicks
+
+    public void ClickBuildButton()
+    {
+
+    }
+
+    public void ClickRemoveButton()
+    {
+
+    }
+
+    public void ClickDisableButton()
+    {
+
+    }
+
+    public void ClickReplaceButton()
+    {
+
+    }
+
+    public void ClickUpgradeButton()
+    {
+
+    }
 }
 
