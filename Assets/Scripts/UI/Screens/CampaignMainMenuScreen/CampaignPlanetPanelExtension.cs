@@ -54,6 +54,17 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
     [SerializeField]
     Text constructionDescriptionText;
 
+    [Header("Building List Group")]
+
+    [SerializeField]
+    GameObject buildingButtonPrefab;
+
+    [SerializeField]
+    Transform buildingListContentTransform;
+
+    [SerializeField]
+    Scrollbar buildingScrollbar;
+
     // Use this for initialization
     void Start ()
     {
@@ -93,7 +104,7 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
             buildingInformationGroup.SetActive(true);
             buildButton.gameObject.SetActive(false);
         }
-        else
+        else 
         {
             buildingInformationGroup.SetActive(false);
             buildButton.gameObject.SetActive(true);
@@ -102,11 +113,31 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
         if (tile.GetNextBuilding() != null)
         {
             constructionInformationGroup.SetActive(true);
+            buildButton.gameObject.SetActive(false);
+
+            constructionIcon.sprite = tile.GetNextBuilding().GetImage();
+            constructionNameText.text = tile.GetNextBuilding().GetDisplayName();
+            constructionDescriptionText.text = tile.GetNextBuilding().GetDescription();
         }
         else
         {
-            constructionInformationGroup.SetActive(false);
+            constructionInformationGroup.SetActive(false);           
         }
+    }
+
+    public void SwitchToBuildingListPanel(List<BuildingDefinition> buildingsList, BuildingButtonController.SelectBuilding selectBuildingFunction)
+    {
+        planetTileInformationGroup.SetActive(false);
+        buildListGroup.SetActive(true);
+
+        foreach (BuildingDefinition building in buildingsList)
+        {
+            BuildingButtonController buildingButton = Instantiate(buildingButtonPrefab, buildingListContentTransform).GetComponent<BuildingButtonController>();
+            buildingButton.SetBuilding(building);
+            buildingButton.SetCallBackFunction(selectBuildingFunction);
+        }
+
+        buildingScrollbar.value = 1f;
     }
 
 

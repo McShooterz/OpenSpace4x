@@ -197,6 +197,17 @@ public class CampaignPlanetPanel : MonoBehaviour
         panelExtension.SwitchToPlanetTilePanel(selectedPlanetTileController.GetPlanetTile());
     }
 
+    public void SelectBuilding(BuildingDefinition build)
+    {
+        PlanetTile planetTile = selectedPlanetTileController.GetPlanetTile();
+
+        planetTile.SetNextBuilding(build);
+
+        selectedPlanetTileController.UpdateUI();
+
+        panelExtension.SwitchToPlanetTilePanel(planetTile);
+    }
+
     public void UpdateDay()
     {
 
@@ -266,7 +277,7 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     public void ClickBuildButton()
     {
-
+        panelExtension.SwitchToBuildingListPanel(EmpireManager.instance.GetPlayerEmpire().GetUnlockedBuildings(), SelectBuilding);
     }
 
     public void ClickRemoveButton()
@@ -285,6 +296,11 @@ public class CampaignPlanetPanel : MonoBehaviour
     }
 
     public void ClickUpgradeButton()
+    {
+
+    }
+
+    public void ClickCancelButton()
     {
 
     }

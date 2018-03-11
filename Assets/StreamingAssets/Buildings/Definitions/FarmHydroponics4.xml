@@ -1,5 +1,10 @@
 <BuildingDefinition>
-	<name>Building_Hydroponics1</name>
-	<description>Building_Hydroponics1_desc</description>
+	<name>Building_FarmHydroponics4</name>
+	<description>Building_FarmHydroponics4_desc</description>
 	<image>Building_City</image>
+	<costMoney>10</costMoney>
+	<costMetal>10</costMetal>
+	<costCrystal>0</costCrystal>
+	<costInfluence>0</costInfluence>
+	<costDays>30</costDays>
 </BuildingDefinition>

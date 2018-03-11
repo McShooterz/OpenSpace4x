@@ -2804,6 +2804,18 @@ public class ResourceManager : MonoBehaviour
         return solarSystemNames.ToArray();
     }
 
+    public List<BuildingDefinition> GetAllBuildings()
+    {
+        List<BuildingDefinition> buildingList = new List<BuildingDefinition>();
+
+        foreach (KeyValuePair<string, BuildingDefinition> keyVal in buildings)
+        {
+            buildingList.Add(keyVal.Value);
+        }
+
+        return buildingList;
+    }
+
     void ConnectModulesToModuleSet()
     {
         List<ModuleSet> Sets = new List<ModuleSet>();

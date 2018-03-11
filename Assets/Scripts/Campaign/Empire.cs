@@ -27,14 +27,8 @@ public class Empire : MonoBehaviour
     [SerializeField]
     PlanetManager planetManager;
 
-
-
-
-
     [SerializeField]
     string displayName;
-
-
 
     [Header("Active stats")]
 
@@ -47,9 +41,9 @@ public class Empire : MonoBehaviour
 
 
 
-    List<BuildingDefinition> buildingsUnlocked = new List<BuildingDefinition>();
+    List<BuildingDefinition> unlockedBuildings = new List<BuildingDefinition>();
 
-    List<ShipHullData> shipHullsUnlocked = new List<ShipHullData>();
+    List<ShipHullData> unlockedShipHulls = new List<ShipHullData>();
 
 
     [Header("Technology")]
@@ -94,18 +88,24 @@ public class Empire : MonoBehaviour
     List<TechnologyEntry> researchedTechnologiesEngineering = new List<TechnologyEntry>();
 
     [SerializeField]
-    List<TechnologyEntry> physicsTechnologyEntries = new List<TechnologyEntry>();
+    List<TechnologyEntry> technologyEntriesPhysics = new List<TechnologyEntry>();
 
     [SerializeField]
-    List<TechnologyEntry> societyTechnologyEntries = new List<TechnologyEntry>();
+    List<TechnologyEntry> technologyEntriesSociety = new List<TechnologyEntry>();
 
     [SerializeField]
-    List<TechnologyEntry> engineeringTechnologyEntries = new List<TechnologyEntry>();
+    List<TechnologyEntry> technologyEntriesEngineering = new List<TechnologyEntry>();
+
 
     void Start()
     {
         technologyTree = ResourceManager.instance.GetTechnologyTree("Default");
         BuildTechnologyEntries(technologyTree);
+
+
+
+        // Unlock all buildings for testing
+        unlockedBuildings = ResourceManager.instance.GetAllBuildings();
     }
 
     void Update()
@@ -218,7 +218,7 @@ public class Empire : MonoBehaviour
             techEntry = ScriptableObject.CreateInstance("TechnologyEntry") as TechnologyEntry;
             techEntry.name = tech.GetName();
             techEntry.SetTechnology(tech);
-            physicsTechnologyEntries.Add(techEntry);
+            technologyEntriesPhysics.Add(techEntry);
         }
 
         foreach (Technology tech in technologyTree.GetSocietyTechnologies())
@@ -226,7 +226,7 @@ public class Empire : MonoBehaviour
             techEntry = ScriptableObject.CreateInstance("TechnologyEntry") as TechnologyEntry;
             techEntry.name = tech.GetName();
             techEntry.SetTechnology(tech);
-            societyTechnologyEntries.Add(techEntry);
+            technologyEntriesSociety.Add(techEntry);
         }
 
         foreach (Technology tech in technologyTree.GetEngineeringTechnologies())
@@ -234,7 +234,7 @@ public class Empire : MonoBehaviour
             techEntry = ScriptableObject.CreateInstance("TechnologyEntry") as TechnologyEntry;
             techEntry.name = tech.GetName();
             techEntry.SetTechnology(tech);
-            engineeringTechnologyEntries.Add(techEntry);
+            technologyEntriesEngineering.Add(techEntry);
         }
 
         GenerateCurrentTechnologiesPhysics(3);
@@ -244,7 +244,7 @@ public class Empire : MonoBehaviour
 
     public bool HasResearchedTechnology(Technology technology)
     {
-        foreach (TechnologyEntry techEntry in physicsTechnologyEntries)
+        foreach (TechnologyEntry techEntry in technologyEntriesPhysics)
         {
             if (technology == techEntry.GetTechnology())
             {
@@ -252,7 +252,7 @@ public class Empire : MonoBehaviour
             }
         }
 
-        foreach (TechnologyEntry techEntry in societyTechnologyEntries)
+        foreach (TechnologyEntry techEntry in technologyEntriesSociety)
         {
             if (technology == techEntry.GetTechnology())
             {
@@ -260,7 +260,7 @@ public class Empire : MonoBehaviour
             }
         }
 
-        foreach (TechnologyEntry techEntry in engineeringTechnologyEntries)
+        foreach (TechnologyEntry techEntry in technologyEntriesEngineering)
         {
             if (technology == techEntry.GetTechnology())
             {
@@ -290,7 +290,7 @@ public class Empire : MonoBehaviour
     {
         List<TechnologyEntry> availableTechEntries = new List<TechnologyEntry>();
 
-        foreach (TechnologyEntry techEntry in physicsTechnologyEntries)
+        foreach (TechnologyEntry techEntry in technologyEntriesPhysics)
         {
             if (!techEntry.IsCompleted() && techEntry.GetTechnology().MeetsRequirements(this))
             {
@@ -330,7 +330,7 @@ public class Empire : MonoBehaviour
     {
         List<TechnologyEntry> availableTechEntries = new List<TechnologyEntry>();
 
-        foreach (TechnologyEntry techEntry in societyTechnologyEntries)
+        foreach (TechnologyEntry techEntry in technologyEntriesSociety)
         {
             if (!techEntry.IsCompleted() && techEntry.GetTechnology().MeetsRequirements(this))
             {
@@ -370,7 +370,7 @@ public class Empire : MonoBehaviour
     {
         List<TechnologyEntry> availableTechEntries = new List<TechnologyEntry>();
 
-        foreach (TechnologyEntry techEntry in engineeringTechnologyEntries)
+        foreach (TechnologyEntry techEntry in technologyEntriesEngineering)
         {
             if (!techEntry.IsCompleted() && techEntry.GetTechnology().MeetsRequirements(this))
             {
@@ -453,5 +453,10 @@ public class Empire : MonoBehaviour
                 GenerateCurrentTechnologiesEngineering(3);
             }
         }
+    }
+
+    public List<BuildingDefinition> GetUnlockedBuildings()
+    {
+        return unlockedBuildings;
     }
 }
