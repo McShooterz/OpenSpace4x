@@ -37,7 +37,7 @@ public class BuildingButtonController : MonoBehaviour
 		
 	}
 
-    public void SetBuilding(BuildingDefinition building)
+    public void SetBuilding(BuildingDefinition building, Sprite iconMoney, Sprite iconMetal, Sprite iconCystal, Sprite iconInfluence, Sprite iconTime)
     {
         buildingDefinition = building;
 
@@ -48,35 +48,35 @@ public class BuildingButtonController : MonoBehaviour
         if (buildingDefinition.costMoney > 0f)
         {
             StatEntry statEntry = Instantiate(statEntryPrefab, buildingStatsTransform).GetComponent<StatEntry>();
-            statEntry.SetImage(ResourceManager.instance.GetIconTexture("Icon_Money"));
+            statEntry.SetImage(iconMoney);
             statEntry.SetText(buildingDefinition.costMoney.ToString("0.##"));
         }
 
         if (buildingDefinition.costMetal > 0f)
         {
             StatEntry statEntry = Instantiate(statEntryPrefab, buildingStatsTransform).GetComponent<StatEntry>();
-            statEntry.SetImage(ResourceManager.instance.GetIconTexture("Icon_Metal"));
+            statEntry.SetImage(iconMetal);
             statEntry.SetText(buildingDefinition.costMetal.ToString("0.##"));
         }
 
         if (buildingDefinition.costCrystal > 0f)
         {
             StatEntry statEntry = Instantiate(statEntryPrefab, buildingStatsTransform).GetComponent<StatEntry>();
-            statEntry.SetImage(ResourceManager.instance.GetIconTexture("Icon_Crystal"));
+            statEntry.SetImage(iconCystal);
             statEntry.SetText(buildingDefinition.costCrystal.ToString("0.##"));
         }
 
         if (buildingDefinition.costInfluence > 0f)
         {
             StatEntry statEntry = Instantiate(statEntryPrefab, buildingStatsTransform).GetComponent<StatEntry>();
-            statEntry.SetImage(ResourceManager.instance.GetIconTexture("Icon_Influence"));
+            statEntry.SetImage(iconInfluence);
             statEntry.SetText(buildingDefinition.costInfluence.ToString("0.##"));
         }
 
         if (buildingDefinition.costDays > 0f)
         {
             StatEntry statEntry = Instantiate(statEntryPrefab, buildingStatsTransform).GetComponent<StatEntry>();
-            statEntry.SetImage(ResourceManager.instance.GetIconTexture("Icon_Time"));
+            statEntry.SetImage(iconTime);
             statEntry.SetText(buildingDefinition.costDays.ToString("0.##"));
         }
     }

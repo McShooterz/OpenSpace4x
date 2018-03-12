@@ -145,9 +145,9 @@ public class PlanetTile
         {
             buildingDaysProgress++;
 
-            int nextBuildingCost = nextBuilding.GetCostDays(1.0f);
+            float nextBuildingCost = nextBuilding.GetCostDays(1.0f);
 
-            if (nextBuildingCost > buildingDaysProgress)
+            if (buildingDaysProgress > nextBuildingCost)
             {
                 buildingDaysProgress = 0;
                 currentBuilding = nextBuilding;
@@ -170,7 +170,7 @@ public class PlanetTile
             return Mathf.Min(buildingDaysProgress / nextBuilding.GetCostDays(modifier), 1.0f);
         }
 
-        return 0f;
+        return 1f;
     }
 
     public bool HasBonus()
@@ -223,5 +223,11 @@ public class PlanetTile
                     return ResourceManager.instance.GetErrorTexture();
                 }
         }
+    }
+
+    public void CancelConstruction()
+    {
+        nextBuilding = null;
+        buildingDaysProgress = 0;
     }
 }

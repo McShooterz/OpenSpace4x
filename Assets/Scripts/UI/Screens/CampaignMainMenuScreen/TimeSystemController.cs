@@ -57,6 +57,7 @@ public class TimeSystemController : MonoBehaviour
             {
                 currentDayTime -= 1f;
                 EmpireManager.instance.ChangeDay();
+                parentScreen.ChangeDay();
                 if (stardate.AddDay())
                 {
                     EmpireManager.instance.ChangeMonth();

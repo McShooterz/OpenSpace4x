@@ -408,7 +408,7 @@ public class Empire : MonoBehaviour
 
     public void ChangeDay()
     {
-
+        planetManager.ChangeDay();
     }
 
     public void ChangeMonth()
@@ -458,5 +458,10 @@ public class Empire : MonoBehaviour
     public List<BuildingDefinition> GetUnlockedBuildings()
     {
         return unlockedBuildings;
+    }
+
+    public void AddPlanet(PlanetController planet)
+    {
+        planetManager.AddPlanet(planet);
     }
 }

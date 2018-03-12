@@ -27,6 +27,11 @@ public class PlanetManager : MonoBehaviour
         return planets;
     }
 
+    public void AddPlanet(PlanetController planet)
+    {
+        planets.Add(planet);
+    }
+
     public bool OwnsPlanet(PlanetController planet)
     {
         return planets.Contains(planet);
@@ -40,5 +45,13 @@ public class PlanetManager : MonoBehaviour
     public void SetSelectedPlanet(PlanetController planet)
     {
         selectedPlanet = planet;
+    }
+
+    public void ChangeDay()
+    {
+        foreach (PlanetController planet in planets)
+        {
+            planet.ChangeDay();
+        }
     }
 }

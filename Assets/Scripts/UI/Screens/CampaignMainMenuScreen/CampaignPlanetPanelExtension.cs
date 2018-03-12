@@ -43,6 +43,12 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
     Text buildingDescriptionText;
 
     [SerializeField]
+    Text disableButtonText;
+
+    [SerializeField]
+    Button upgradeButton;
+
+    [SerializeField]
     GameObject constructionInformationGroup;
 
     [SerializeField]
@@ -54,6 +60,9 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
     [SerializeField]
     Text constructionDescriptionText;
 
+    [SerializeField]
+    Slider constructionProgressbar;
+
     [Header("Building List Group")]
 
     [SerializeField]
@@ -64,6 +73,9 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
 
     [SerializeField]
     Scrollbar buildingScrollbar;
+
+    [SerializeField]
+    List<GameObject> buildingButtonObjects = new List<GameObject>();
 
     // Use this for initialization
     void Start ()
@@ -85,6 +97,11 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
         tileImage.sprite = tile.GetImage();
         tileName.text = tile.GetDefinition().GetDisplayName();
 
+        UpdatePlanetTileInformation(tile);
+    }
+
+    public void UpdatePlanetTileInformation(PlanetTile tile)
+    {
         if (tile.HasBonus())
         {
             tileBonusIcon.gameObject.SetActive(true);
@@ -103,8 +120,10 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
         {
             buildingInformationGroup.SetActive(true);
             buildButton.gameObject.SetActive(false);
+
+            buildingIcon.sprite = tile.GetCurrentBuilding().GetImage();
         }
-        else 
+        else
         {
             buildingInformationGroup.SetActive(false);
             buildButton.gameObject.SetActive(true);
@@ -118,10 +137,12 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
             constructionIcon.sprite = tile.GetNextBuilding().GetImage();
             constructionNameText.text = tile.GetNextBuilding().GetDisplayName();
             constructionDescriptionText.text = tile.GetNextBuilding().GetDescription();
+
+            constructionProgressbar.value = tile.GetBuidlingProgress(1.0f);
         }
         else
         {
-            constructionInformationGroup.SetActive(false);           
+            constructionInformationGroup.SetActive(false);
         }
     }
 
@@ -130,14 +151,34 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
         planetTileInformationGroup.SetActive(false);
         buildListGroup.SetActive(true);
 
+        ClearBuildingList();
+
+        Sprite iconMoney = ResourceManager.instance.GetIconTexture("Icon_Money");
+        Sprite iconMetal = ResourceManager.instance.GetIconTexture("Icon_Metal");
+        Sprite iconCystal = ResourceManager.instance.GetIconTexture("Icon_Crystal");
+        Sprite iconInfluence = ResourceManager.instance.GetIconTexture("Icon_Influence");
+        Sprite iconTime = ResourceManager.instance.GetIconTexture("Icon_Time");
+
         foreach (BuildingDefinition building in buildingsList)
         {
-            BuildingButtonController buildingButton = Instantiate(buildingButtonPrefab, buildingListContentTransform).GetComponent<BuildingButtonController>();
-            buildingButton.SetBuilding(building);
+            GameObject buildingButtonObject = Instantiate(buildingButtonPrefab, buildingListContentTransform);
+            buildingButtonObjects.Add(buildingButtonObject);
+            BuildingButtonController buildingButton = buildingButtonObject.GetComponent<BuildingButtonController>();
+            buildingButton.SetBuilding(building, iconMoney, iconMetal, iconCystal, iconInfluence, iconTime);
             buildingButton.SetCallBackFunction(selectBuildingFunction);
         }
 
         buildingScrollbar.value = 1f;
+    }
+
+    void ClearBuildingList()
+    {
+        foreach (GameObject buttonObject in buildingButtonObjects)
+        {
+            Destroy(buttonObject);
+        }
+
+        buildingButtonObjects.Clear();
     }
 
 

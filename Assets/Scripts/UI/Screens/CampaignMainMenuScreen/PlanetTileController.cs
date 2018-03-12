@@ -32,8 +32,8 @@ public class PlanetTileController : MonoBehaviour
     // Use this for initialization
     void Start ()
     {
-		
-	}
+
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -51,6 +51,7 @@ public class PlanetTileController : MonoBehaviour
         planetTile = tile;
 
         UpdateUI();
+        UpdateBuildingUI();
     }
 
     public void UpdateUI()
@@ -72,7 +73,13 @@ public class PlanetTileController : MonoBehaviour
                 tileBonusIcon.gameObject.SetActive(false);
                 tileBonusText.gameObject.SetActive(false);
             }
+        }
+    }
 
+    public void UpdateBuildingUI()
+    {
+        if (planetTile != null)
+        {
             if (planetTile.GetCurrentBuilding() != null)
             {
                 buildingImage.gameObject.SetActive(true);
@@ -98,6 +105,7 @@ public class PlanetTileController : MonoBehaviour
                 buildingImage.color = new Color(1f, 1f, 1f, 0.8f);
 
                 progressBar.gameObject.SetActive(true);
+                print("Returned progress bar: " + planetTile.GetBuidlingProgress(1.0f).ToString());
                 progressBar.value = planetTile.GetBuidlingProgress(1.0f);
             }
             else

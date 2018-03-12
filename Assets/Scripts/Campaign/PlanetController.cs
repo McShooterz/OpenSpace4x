@@ -33,13 +33,16 @@ public class PlanetController : MonoBehaviour
     [SerializeField]
     float taxRate;
 
-    PlanetTile[] planetTiles;
+    PlanetTile[] planetTiles = new PlanetTile[0];
 
     // Use this for initialization
     void Start () 
 	{
         uniqueIndentifier = System.Guid.NewGuid();
         GalaxyManager.instance.AddPlanet(uniqueIndentifier, this);
+
+        // Testing add all planets to player empire
+        EmpireManager.instance.GetPlayerEmpire().AddPlanet(this);
     }
 	
 	// Update is called once per frame
@@ -175,6 +178,14 @@ public class PlanetController : MonoBehaviour
         foreach(PlanetTile tile in planetTiles)
         {
             tile.GenerateRandomTileData();
+        }
+    }
+
+    public void ChangeDay()
+    {
+        foreach (PlanetTile tile in planetTiles)
+        {
+            tile.AddDay();
         }
     }
 }

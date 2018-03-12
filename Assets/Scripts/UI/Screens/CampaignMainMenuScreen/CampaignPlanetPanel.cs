@@ -203,14 +203,25 @@ public class CampaignPlanetPanel : MonoBehaviour
 
         planetTile.SetNextBuilding(build);
 
-        selectedPlanetTileController.UpdateUI();
+        selectedPlanetTileController.UpdateBuildingUI();
 
         panelExtension.SwitchToPlanetTilePanel(planetTile);
     }
 
     public void UpdateDay()
     {
+        if (surfaceSubPanel.activeInHierarchy)
+        {
+            foreach(PlanetTileController tile in planetTileControllers)
+            {
+                tile.UpdateBuildingUI();
+            }
+        }
 
+        if (panelExtension.gameObject.activeInHierarchy)
+        {
+            panelExtension.UpdatePlanetTileInformation(selectedPlanetTileController.GetPlanetTile());
+        }
     }
 
     public void ClickOverviewButton()
@@ -302,7 +313,8 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     public void ClickCancelButton()
     {
-
+        selectedPlanetTileController.GetPlanetTile().CancelConstruction();
+        panelExtension.UpdatePlanetTileInformation(selectedPlanetTileController.GetPlanetTile());
     }
 }
 

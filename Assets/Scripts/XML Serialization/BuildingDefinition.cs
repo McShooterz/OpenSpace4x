@@ -42,8 +42,8 @@ public class BuildingDefinition
         return ResourceManager.instance.GetBuildingImage(image);
     }
 
-    public int GetCostDays(float modifier)
+    public float GetCostDays(float modifier)
     {
-        return Mathf.CeilToInt(costDays * modifier);
+        return costDays * modifier;
     }
 }

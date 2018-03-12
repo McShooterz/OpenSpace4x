@@ -204,4 +204,12 @@ public class CampaignMainScreen : MonoBehaviour
     {
         researchWindow.UpdateCurrentResearch();
     }
+
+    public void ChangeDay()
+    {
+        if (planetPanel.gameObject.activeInHierarchy)
+        {
+            planetPanel.UpdateDay();
+        }
+    }
 }
