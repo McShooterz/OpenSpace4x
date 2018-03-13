@@ -7,4 +7,7 @@
 	<costCrystal>0</costCrystal>
 	<costInfluence>0</costInfluence>
 	<costDays>30</costDays>
+	<upgradeToBuildings>
+		<string>CityMega2</string>
+	</upgradeToBuildings>
 </BuildingDefinition>

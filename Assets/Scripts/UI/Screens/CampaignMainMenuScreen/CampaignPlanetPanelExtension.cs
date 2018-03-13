@@ -122,6 +122,8 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
             buildButton.gameObject.SetActive(false);
 
             buildingIcon.sprite = tile.GetCurrentBuilding().GetImage();
+            buildingNameText.text = tile.GetCurrentBuilding().GetDisplayName();
+            buildingDescriptionText.text = tile.GetCurrentBuilding().GetDescription();
         }
         else
         {

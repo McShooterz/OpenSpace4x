@@ -20,6 +20,10 @@ public class BuildingDefinition
 
     public int costDays;
 
+    public bool isBaseBuilding;
+
+    public string[] upgradeToBuildings = new string[0];
+
     //Default constructor for xml serialization and setting default values
     public BuildingDefinition()
     {
@@ -45,5 +49,22 @@ public class BuildingDefinition
     public float GetCostDays(float modifier)
     {
         return costDays * modifier;
+    }
+
+    public List<BuildingDefinition> GetUpgradeBuildings()
+    {
+        List<BuildingDefinition> buildings = new List<BuildingDefinition>();
+
+        foreach (string buildingName in upgradeToBuildings)
+        {
+            BuildingDefinition building = ResourceManager.instance.GetBuilding(buildingName);
+
+            if (building != null)
+            {
+                buildings.Add(building);
+            }
+        }
+
+        return buildings;
     }
 }

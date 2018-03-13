@@ -288,7 +288,7 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     public void ClickBuildButton()
     {
-        panelExtension.SwitchToBuildingListPanel(EmpireManager.instance.GetPlayerEmpire().GetUnlockedBuildings(), SelectBuilding);
+        panelExtension.SwitchToBuildingListPanel(EmpireManager.instance.GetPlayerEmpire().GetUnlockedBaseBuildings(), SelectBuilding);
     }
 
     public void ClickRemoveButton()
@@ -308,7 +308,19 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     public void ClickUpgradeButton()
     {
+        List<BuildingDefinition> upgradeBuildings = selectedPlanetTileController.GetPlanetTile().GetCurrentBuilding().GetUpgradeBuildings();
+        List<BuildingDefinition> validUpgradeBuildings = new List<BuildingDefinition>();
+        Empire playerEmpire = EmpireManager.instance.GetPlayerEmpire();
 
+        foreach (BuildingDefinition building in upgradeBuildings)
+        {
+            if (playerEmpire.HasUnlockedBuilding(building))
+            {
+                validUpgradeBuildings.Add(building);
+            }
+        }
+
+        panelExtension.SwitchToBuildingListPanel(validUpgradeBuildings, SelectBuilding);
     }
 
     public void ClickCancelButton()

@@ -7,4 +7,10 @@
 	<costCrystal>5</costCrystal>
 	<costInfluence>5</costInfluence>
 	<costDays>30</costDays>
+	<isBaseBuilding>true</isBaseBuilding>
+	<upgradeToBuildings>
+		<string>CityLuxury1</string>
+		<string>CityMega1</string>
+		<string>CitySlum1</string>
+	</upgradeToBuildings>
 </BuildingDefinition>

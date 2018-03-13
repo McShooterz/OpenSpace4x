@@ -2590,6 +2590,18 @@ public class ResourceManager : MonoBehaviour
         return null;
     }
 
+    public BuildingDefinition GetBuilding(string buildingName)
+    {
+        BuildingDefinition building;
+
+        if (buildings.TryGetValue(buildingName, out building))
+        {
+            return building;
+        }
+
+        return null;
+    }
+
     public GameObject GetShipObject(string shipName)
     {
         if(shipName != null)

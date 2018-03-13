@@ -27,21 +27,66 @@ public class Empire : MonoBehaviour
     [SerializeField]
     PlanetManager planetManager;
 
+    [Header("Active stats")]
+
     [SerializeField]
     string displayName;
 
-    [Header("Active stats")]
+    [SerializeField]
+    float money;
 
+    [SerializeField]
+    float moneyPerMonth;
+
+    [SerializeField]
+    float metal;
+
+    [SerializeField]
+    float metalPerMonth;
+
+    [SerializeField]
+    float crystal;
+
+    [SerializeField]
+    float crystalPerMonth;
 
     [SerializeField]
     float influence;
 
     [SerializeField]
-    float influenceMax;
+    float influencePerMonth;
 
+    [SerializeField]
+    float unity;
 
+    [SerializeField]
+    float unityPerMonth;
 
-    List<BuildingDefinition> unlockedBuildings = new List<BuildingDefinition>();
+    [SerializeField]
+    float researchPhysics;
+
+    [SerializeField]
+    float researchPhysicsPerMonth;
+
+    [SerializeField]
+    float researchSociety;
+
+    [SerializeField]
+    float researchSocietyPerMonth;
+
+    [SerializeField]
+    float researchEngineering;
+
+    [SerializeField]
+    float researchEngineeringPerMonth;
+
+    [SerializeField]
+    int command;
+
+    [SerializeField]
+    int commandLimit;
+
+    HashSet<BuildingDefinition> unlockedBuildings = new HashSet<BuildingDefinition>();
 
     List<ShipHullData> unlockedShipHulls = new List<ShipHullData>();
 
@@ -105,7 +150,10 @@ public class Empire : MonoBehaviour
 
 
         // Unlock all buildings for testing
-        unlockedBuildings = ResourceManager.instance.GetAllBuildings();
+        foreach (BuildingDefinition building in ResourceManager.instance.GetAllBuildings())
+        {
+            UnlockBuilding(building);
+        }
     }
 
     void Update()
@@ -192,21 +240,6 @@ public class Empire : MonoBehaviour
     public void AddInfluence(float addValue)
     {
         influence += addValue;
-
-        if (influence >= influenceMax)
-        {
-            influence = influenceMax;
-        }
-    }
-
-    public float GetInfluenceMax()
-    {
-        return influenceMax;
-    }
-
-    public void SetInfluenceMax(float value)
-    {
-        influenceMax = value;
     }
 
     public void BuildTechnologyEntries(TechnologyTree technologyTree)
@@ -455,9 +488,29 @@ public class Empire : MonoBehaviour
         }
     }
 
-    public List<BuildingDefinition> GetUnlockedBuildings()
+    public void UnlockBuilding(BuildingDefinition building)
     {
-        return unlockedBuildings;
+        unlockedBuildings.Add(building);
+    }
+
+    public bool HasUnlockedBuilding(BuildingDefinition building)
+    {
+        return unlockedBuildings.Contains(building);
+    }
+
+    public List<BuildingDefinition> GetUnlockedBaseBuildings()
+    {
+        List<BuildingDefinition> buildings = new List<BuildingDefinition>();
+
+        foreach (BuildingDefinition building in unlockedBuildings)
+        {
+            if (building.isBaseBuilding)
+            {
+                buildings.Add(building);
+            }
+        }
+
+        return buildings;
     }
 
     public void AddPlanet(PlanetController planet)

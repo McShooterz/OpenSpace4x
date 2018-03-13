@@ -12,7 +12,10 @@ public class EmpireInfoBarController : MonoBehaviour
     Text moneyText;
 
     [SerializeField]
-    Text mineralsText;
+    Text metalText;
+
+    [SerializeField]
+    Text crystalText;
 
     [SerializeField]
     Text influenceText;
