@@ -84,7 +84,15 @@ public class PlanetTileController : MonoBehaviour
             {
                 buildingImage.gameObject.SetActive(true);
                 buildingImage.sprite = planetTile.GetCurrentBuilding().GetImage();
-                buildingImage.color = Color.white;
+
+                if (planetTile.IsBuildingDisabled())
+                {
+                    buildingImage.color = new Color(1f, 0.5f, 0.5f, 0.8f);
+                }
+                else
+                {
+                    buildingImage.color = Color.white;
+                }
 
 
                 if (planetTile.GetNextBuilding() != null)

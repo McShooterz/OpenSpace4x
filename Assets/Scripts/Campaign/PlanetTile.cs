@@ -26,6 +26,8 @@ public class PlanetTile
 
     int buildingDaysProgress;
 
+    bool buildingDisabled;
+
     public PlanetTile(PlanetController owner)
     {
         parentPlanet = owner;
@@ -132,6 +134,21 @@ public class PlanetTile
     public void SetNextBuilding(BuildingDefinition building)
     {
         nextBuilding = building;
+    }
+
+    public void RemoveCurrentBuilding()
+    {
+        currentBuilding = null;
+    }
+
+    public void ToggleBuildingDisabled()
+    {
+        buildingDisabled = !buildingDisabled;
+    }
+
+    public bool IsBuildingDisabled()
+    {
+        return buildingDisabled;
     }
 
     /// <summary>

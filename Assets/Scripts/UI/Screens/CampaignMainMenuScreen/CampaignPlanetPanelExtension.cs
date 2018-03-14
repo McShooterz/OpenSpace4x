@@ -124,6 +124,17 @@ public class CampaignPlanetPanelExtension : MonoBehaviour
             buildingIcon.sprite = tile.GetCurrentBuilding().GetImage();
             buildingNameText.text = tile.GetCurrentBuilding().GetDisplayName();
             buildingDescriptionText.text = tile.GetCurrentBuilding().GetDescription();
+
+            if (tile.IsBuildingDisabled())
+            {
+                disableButtonText.text = "Enable";
+                buildingIcon.color = new Color(1f, 0.5f, 0.5f, 0.8f);
+            }
+            else
+            {
+                disableButtonText.text = "Disable";
+                buildingIcon.color = Color.white;
+            }
         }
         else
         {

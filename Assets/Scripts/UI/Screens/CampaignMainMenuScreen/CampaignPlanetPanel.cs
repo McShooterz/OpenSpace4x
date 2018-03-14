@@ -293,17 +293,33 @@ public class CampaignPlanetPanel : MonoBehaviour
 
     public void ClickRemoveButton()
     {
+        selectedPlanetTileController.GetPlanetTile().RemoveCurrentBuilding();
 
+        panelExtension.UpdatePlanetTileInformation(selectedPlanetTileController.GetPlanetTile());
     }
 
     public void ClickDisableButton()
     {
+        selectedPlanetTileController.GetPlanetTile().ToggleBuildingDisabled();
 
+        panelExtension.UpdatePlanetTileInformation(selectedPlanetTileController.GetPlanetTile());
     }
 
     public void ClickReplaceButton()
     {
+        List<BuildingDefinition> baseBuildings = EmpireManager.instance.GetPlayerEmpire().GetUnlockedBaseBuildings();
+        BuildingDefinition currentBuilding = selectedPlanetTileController.GetPlanetTile().GetCurrentBuilding();
+        List<BuildingDefinition> validBuildings = new List<BuildingDefinition>();
 
+        foreach (BuildingDefinition building in baseBuildings)
+        {
+            if (building != currentBuilding)
+            {
+                validBuildings.Add(building);
+            }
+        }
+
+        panelExtension.SwitchToBuildingListPanel(validBuildings, SelectBuilding);
     }
 
     public void ClickUpgradeButton()
